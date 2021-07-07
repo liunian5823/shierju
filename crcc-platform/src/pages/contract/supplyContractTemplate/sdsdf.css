@@ -1,0 +1,24 @@
+
+
+
+.erert .ant-card-body{
+    padding-bottom:0px;
+}
+.erert .ant-tabs-bar{
+    margin-bottom: 0px;
+}
+
+.yuyuyuy .ant-card-body{
+    padding:5px;
+    padding-bottom: 0px;
+}
+
+.contractTemplatetoolbar{
+    /*position: relative;*/
+    /*top: 28px;*/
+    text-align: right;
+    z-index: 999;
+    width:100px;
+    float:right;
+    margin-right:16px;
+}

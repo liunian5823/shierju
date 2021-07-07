@@ -1,0 +1,275 @@
+@import '../../../style/reuse.less';
+
+.bidHall{
+    .btn{
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+        height: 40px;
+        line-height: 40px;
+        background-color: @color3;
+        color: #FFF;
+        border-radius: 4px;
+        text-align: center;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        vertical-align: middle;
+        background-image: none;
+        white-space: nowrap;
+        transition: opacity .2s;
+        border: 1px solid transparent;
+        &:disabled{
+            cursor: not-allowed;
+            color: #ccc;
+            background-color: #f7f7f7;
+            border-color: #d9d9d9;
+        }
+        &:hover{
+            opacity: .7;
+        }
+        &:active{
+            opacity: 1;
+        }
+    }
+
+    .offer{
+        text-align: center;
+        .link{
+            color: @color3;
+            border-bottom: 1px solid @color3;
+            cursor: pointer;
+        }
+    }
+    .titleInfo{
+        .title_text{
+            padding-left: 40px;
+            position: relative;
+            font-weight: bold;
+            min-height: 40px;
+            &::before{
+                content: "!";
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: @color3;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+                font-weight: normal;
+            }
+        }
+        .title_status{
+            text-align: right;
+            .main{
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .note{
+                color: #8C8C8C;
+            }
+        }
+    }
+
+    .panel{
+        .titleBtn{
+            float: right;
+        }
+        .amt{
+            padding: 12px 0;
+            background-color: @color1;
+            font-size: 14px;
+            .amt_label{
+                padding-left: 110px;
+                color: @color2;
+            }
+            .amt_value{
+                color: @color2;
+                word-break: normal;
+                word-wrap: break-word;
+            }
+        }
+        .top{
+            margin-top: 10px;
+            padding-top: 10px;
+            .currentInfo{
+                .time{
+                    text-align: center;
+                    .time_text{
+                        background-color: @color2;
+                        color: #FFF;
+                        padding: 10px;
+                        margin: auto;
+                        border-radius: 4px;
+                        min-height: 40px;
+                        width: 90%;
+                    }
+                }
+                .rank{
+                    border: 1px solid #E5E5E5;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    text-align: center;
+                    .rank_label{
+                        background-color: #fff;
+                        padding: 10px;
+                    }
+                    .rank_value{
+                        background-color: @color2;
+                        color: #FFF;
+                        padding: 10px;
+                    }
+                }
+            }
+            .price{
+                font-size: 14px;
+                margin-top: 10px;
+                .price_item{
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 10px;
+                    padding-right: 20px;
+                    width: 33.3%;
+                    text-align: right;
+                    span{
+                        margin-left: 10px;
+                    }
+                    .price_title{
+                        color: #000;
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                    }
+                    .price_max{
+                        color: @color2;
+                    }
+                    .price_my{
+                        color: @color2;
+                    }
+                    .price_diff{
+                        color: #BFBFBF;
+                    }
+                    .price_diff_up{
+                        color: @color6;
+                    }
+                    & + .price_item{
+                        border-left: 1px solid #E5E5E5;
+                    }
+                }
+            }
+        }
+        .center{
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #E5E5E5;
+            .files{
+                padding: 10px 0;
+                .files_item{
+                    padding: 5px;
+                    position: relative;
+                    &:hover{
+                        background-color: #EAF8FE;
+                        .files_del{
+                            display: inline-block;
+                        }
+                    }
+                    a{
+                        display: block;
+                        width: 100%;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+                .files_del{
+                    display: none;
+                    color: @color2;
+                    margin-left: 20px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    position: absolute;
+                    top: 6px;
+                    right: 2px;
+                }
+            }
+            .explain{
+                .explain_input{
+                    width: 100%;
+                    resize: none;
+                }
+                .explain_len{
+                    // float: right;
+                    position: absolute;
+                    bottom: -5px;
+                    right: 8px;
+                }
+            }
+        }
+        .bottom{
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #E5E5E5;
+            .range{
+                border: 1px solid #E5E5E5;
+                padding: 5px;
+                .range_item{
+                    & + .range_item{
+                        border-left: 1px solid #E5E5E5;
+                    }
+                }
+            }
+            .inputPrice{
+                padding-top: 5px;
+                .inputPrice_label{
+                    height: 40px;
+                    line-height: 40px;
+                    background-color: @color3;
+                    color: #FFF;
+                    text-align: center;
+                    font-size: 16px;
+                    border-radius: 4px 0 0 4px;
+                    margin-top: -1px;
+                    margin-right: -4px;
+                    z-index: 2;
+                }
+            }
+            .priceBtn{
+                padding-top: 5px;
+                .rules{
+                    color: @color3;
+                    text-decoration: underline;
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    .open{
+        .more{
+            text-align: center;
+            padding: 8px 0;
+            background-color: @color1;
+            cursor: pointer;
+        }
+        .open_icon{
+            transform: rotateZ(90deg);
+        }
+        .close_icon{
+            transform: rotateZ(-90deg);
+        }
+    }
+
+    .onlyself{
+        color: @color2;
+        float: right;
+    }
+
+    .fontMewSty{
+        font-size: 16px;
+        font-weight: 900;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}

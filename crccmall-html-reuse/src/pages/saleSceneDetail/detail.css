@@ -1,0 +1,12 @@
+.reuse_label {
+  -moz-text-align-last: right;
+  text-align-last: right;
+}
+.reuse_value {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 20px !important;
+  word-break: break-all;
+  font-weight: 600;
+}

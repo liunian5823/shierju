@@ -1,0 +1,60 @@
+.scrollTop{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    // display: none;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #848484;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    z-index: 999;
+    transition: background-color .3s;
+    &.into{
+        animation: scrollInto .2s ease-out;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode:forwards;
+    }
+    &.out{
+        animation: scrollOut .2s ease-out;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode:forwards;
+    }
+    &:hover{
+        background-color: #2db7f5;
+        opacity: .7;
+    }
+    &:active{
+        opacity: 1;
+    }
+}
+@keyframes scrollInto {
+    0%{
+        opacity: 0;
+        bottom: 0px;
+    }
+    100%{
+        opacity: 1;
+        bottom: 50px;
+        display: block;
+    }
+}
+@keyframes scrollOut {
+    0%{
+        opacity: 1;
+        bottom: 50px;
+    }
+    100%{
+        opacity: 0;
+        bottom: 0px;
+        display: none;
+    }
+}

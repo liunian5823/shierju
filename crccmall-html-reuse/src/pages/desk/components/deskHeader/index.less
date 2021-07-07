@@ -1,0 +1,60 @@
+@import '../../../../style/reuse.less';
+
+.header{
+    // font-size: 14px;
+    min-width: 1200px;
+    .main{
+        width: 1200px;
+        margin: 0 auto;
+        .link{
+            padding: 0 8px;
+            cursor: pointer;
+            &:hover{
+                color: @color2;
+            }
+        }
+        .line{
+            border-right: 1px solid rgba(0,0,0,0.25);
+        }
+    }
+    .head_top{
+        height: 36px;
+        line-height: 36px;
+        background-color: @color1;
+        .menu{
+            float: right;
+        }
+    }
+    .head_center{
+        background-color: @color1;
+        .center_content{
+            background-color: @color5;
+            height: 98px;
+            padding-top: 20px;
+            border-bottom: 2px solid @color2;
+            .title{
+                font-size: 24px;
+                line-height: 60px;
+                font-weight: bold;
+                padding-left: 20px;
+                border-left: 1px solid rgba(0,0,0,0.25);
+            }
+        }
+    }
+}
+.userInfo{
+    .name{
+        padding: 4px 0;
+        font-weight: bold;
+    }
+    .out{
+        text-align: right;
+        padding: 4px 0;
+        .out_btn{
+            cursor: pointer;
+            &:hover{
+                color: @color2;
+            }
+        }
+    }
+}

@@ -1,0 +1,254 @@
+.bidHall .btn {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  background-color: #2DB7F5;
+  color: #FFF;
+  border-radius: 4px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  vertical-align: middle;
+  background-image: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  border: 1px solid transparent;
+}
+.bidHall .btn:disabled {
+  cursor: not-allowed;
+  color: #ccc;
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+}
+.bidHall .btn:hover {
+  opacity: 0.7;
+}
+.bidHall .btn:active {
+  opacity: 1;
+}
+.bidHall .offer {
+  text-align: center;
+}
+.bidHall .offer .link {
+  color: #2DB7F5;
+  border-bottom: 1px solid #2DB7F5;
+  cursor: pointer;
+}
+.bidHall .titleInfo .title_text {
+  padding-left: 40px;
+  position: relative;
+  font-weight: bold;
+  min-height: 40px;
+}
+.bidHall .titleInfo .title_text::before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #2DB7F5;
+  border-radius: 2px;
+  color: #FFF;
+  text-align: center;
+  font-weight: normal;
+}
+.bidHall .titleInfo .title_status {
+  text-align: right;
+}
+.bidHall .titleInfo .title_status .main {
+  font-size: 20px;
+  font-weight: bold;
+}
+.bidHall .titleInfo .title_status .note {
+  color: #8C8C8C;
+}
+.bidHall .panel .titleBtn {
+  float: right;
+}
+.bidHall .panel .amt {
+  padding: 12px 0;
+  background-color: #F2F2F2;
+  font-size: 14px;
+}
+.bidHall .panel .amt .amt_label {
+  padding-left: 110px;
+  color: #F50F50;
+}
+.bidHall .panel .amt .amt_value {
+  color: #F50F50;
+  word-break: normal;
+  word-wrap: break-word;
+}
+.bidHall .panel .top {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.bidHall .panel .top .currentInfo .time {
+  text-align: center;
+}
+.bidHall .panel .top .currentInfo .time .time_text {
+  background-color: #F50F50;
+  color: #FFF;
+  padding: 10px;
+  margin: auto;
+  border-radius: 4px;
+  min-height: 40px;
+  width: 90%;
+}
+.bidHall .panel .top .currentInfo .rank {
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+}
+.bidHall .panel .top .currentInfo .rank .rank_label {
+  background-color: #fff;
+  padding: 10px;
+}
+.bidHall .panel .top .currentInfo .rank .rank_value {
+  background-color: #F50F50;
+  color: #FFF;
+  padding: 10px;
+}
+.bidHall .panel .top .price {
+  font-size: 14px;
+  margin-top: 10px;
+}
+.bidHall .panel .top .price .price_item {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  padding-right: 20px;
+  width: 33.3%;
+  text-align: right;
+}
+.bidHall .panel .top .price .price_item span {
+  margin-left: 10px;
+}
+.bidHall .panel .top .price .price_item .price_title {
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.bidHall .panel .top .price .price_item .price_max {
+  color: #F50F50;
+}
+.bidHall .panel .top .price .price_item .price_my {
+  color: #F50F50;
+}
+.bidHall .panel .top .price .price_item .price_diff {
+  color: #BFBFBF;
+}
+.bidHall .panel .top .price .price_item .price_diff_up {
+  color: #43CD89;
+}
+.bidHall .panel .top .price .price_item + .price_item {
+  border-left: 1px solid #E5E5E5;
+}
+.bidHall .panel .center {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #E5E5E5;
+}
+.bidHall .panel .center .files {
+  padding: 10px 0;
+}
+.bidHall .panel .center .files .files_item {
+  padding: 5px;
+  position: relative;
+}
+.bidHall .panel .center .files .files_item:hover {
+  background-color: #EAF8FE;
+}
+.bidHall .panel .center .files .files_item:hover .files_del {
+  display: inline-block;
+}
+.bidHall .panel .center .files .files_item a {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bidHall .panel .center .files .files_del {
+  display: none;
+  color: #F50F50;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  position: absolute;
+  top: 6px;
+  right: 2px;
+}
+.bidHall .panel .center .explain .explain_input {
+  width: 100%;
+  resize: none;
+}
+.bidHall .panel .center .explain .explain_len {
+  position: absolute;
+  bottom: -5px;
+  right: 8px;
+}
+.bidHall .panel .bottom {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #E5E5E5;
+}
+.bidHall .panel .bottom .range {
+  border: 1px solid #E5E5E5;
+  padding: 5px;
+}
+.bidHall .panel .bottom .range .range_item + .range_item {
+  border-left: 1px solid #E5E5E5;
+}
+.bidHall .panel .bottom .inputPrice {
+  padding-top: 5px;
+}
+.bidHall .panel .bottom .inputPrice .inputPrice_label {
+  height: 40px;
+  line-height: 40px;
+  background-color: #2DB7F5;
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 4px 0 0 4px;
+  margin-top: -1px;
+  margin-right: -4px;
+  z-index: 2;
+}
+.bidHall .panel .bottom .priceBtn {
+  padding-top: 5px;
+}
+.bidHall .panel .bottom .priceBtn .rules {
+  color: #2DB7F5;
+  text-decoration: underline;
+  display: inline;
+}
+.bidHall .open .more {
+  text-align: center;
+  padding: 8px 0;
+  background-color: #F2F2F2;
+  cursor: pointer;
+}
+.bidHall .open .open_icon {
+  transform: rotateZ(90deg);
+}
+.bidHall .open .close_icon {
+  transform: rotateZ(-90deg);
+}
+.bidHall .onlyself {
+  color: #F50F50;
+  float: right;
+}
+.bidHall .fontMewSty {
+  font-size: 16px;
+  font-weight: 900;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/*# sourceMappingURL=index.css.map */

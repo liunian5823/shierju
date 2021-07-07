@@ -1,0 +1,74 @@
+@border1:#EBEFF2;		// 灰色线框
+@border2:#EA4748;       // 淡红色线框
+@color1:#333333;		// 标题颜色
+@color2:#EA4748;        //红色字
+@color3:#999;
+@width:1200px;
+@border-radius:4px;
+
+
+// * {
+//   -webkit-box-sizing: inherit;
+//   -moz-box-sizing: inherit;
+//   box-sizing: inherit;
+// }
+i{font-style: initial;}
+body{ width:100%;background: #fff;}
+body,h1,h2,h3,h4,h5,h6,p,a,span,ul,li,a,img,form,button{margin:0;padding:0;text-decoration:none;list-style:none;font-weight:normal;font-size: 14px;}
+form,input,button{ border:0;}
+div,img{ margin:0 auto; padding:0;}
+.clear{ clear:both;}
+a{color: @color1;}
+/* input【placeholder】的颜色值 */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */    color:#DDDDDD; }
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */   color:#DDDDDD; }
+::-moz-placeholder { /* Mozilla Firefox 19+ */   color:#DDDDDD; }
+:-ms-input-placeholder { /* Internet Explorer 10-11 */   color:#DDDDDD; }
+a:hover{
+  color: initial;
+  text-decoration: none!important;
+}
+input:focus,input:hover{
+  outline: none!important;
+  border: 1px solid #c42526!important;
+}
+::selection{
+  background: none;
+  color: inherit;
+}
+:focus{
+  box-shadow:none!important;
+}
+
+
+
+// top区域
+.top_quyu{
+  height: 98px;
+  width: @width;
+  margin: 0 auto;
+  .logo{
+    float: left;
+    padding-top: 20px;
+  }
+  .jinhuo{
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 28px;
+    a{
+      border: 1px solid @border1;
+      float: left;
+      width: 113px;
+      height: 38px;
+      line-height: 38px;
+      text-align: center;
+      margin-left: 10px;
+      img{
+        width: 22px;
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+      }
+    }
+  }
+}

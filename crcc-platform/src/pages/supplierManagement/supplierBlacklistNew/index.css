@@ -1,0 +1,19 @@
+.select {
+  width: 80%;
+}
+.operation_btns {
+  margin-bottom: 10px;
+}
+.operation_btns button {
+  margin-right: 10px;
+}
+.optionBtn {
+  margin-bottom: 10px;
+  text-align: right;
+}
+.optionBtn button {
+  margin-left: 20px;
+}
+.ant-divider {
+  margin: 0px 0px;
+}

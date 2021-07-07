@@ -1,0 +1,56 @@
+/** 常用色值 **/
+/** 常用字体大小 **/
+/** 供应商常用色值 **/
+.main_page {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-top: 80px;
+}
+
+.main_page .main_wrapper {
+  position: relative;
+  height: 100%;
+  padding: 10px 0px 10px 0px;
+}
+
+.main_page .main_wrapper:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.main_page .main_wrapper .main_scroll {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.main_page .main_wrapper .main_center {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.main_page .main_wrapper .main_center:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.main_page .main_wrapper .main_content {
+  position: relative;
+  float: right;
+  width: 1010px;
+  padding-top: 43px;
+  overflow-y: hidden;
+}
+
+.main_page .main_wrapper .main_content .body {
+  background: #f1f3f5;
+}

@@ -1,0 +1,408 @@
+@import '../../../style/reuse.less';
+
+.scene{
+    font-size: 14px;
+    background-color: @color1;
+    height: 100%;
+    overflow: auto;
+    .main_content{
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .main_card{
+        margin-top: 10px;
+    }
+    .main_title{
+        border-bottom: 2px solid @color1;
+        font-weight: bold;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .tip{
+        font-size: 12px;
+        margin-left: 20px;
+        color: #8E8E8E;
+        position: relative;
+        &::before{
+            position: absolute;
+            left: -8px;
+            display: inline-block;
+            margin-right: 4px;
+            content: "*";
+            font-family: SimSun;
+            font-size: 12px;
+            color: @color2;
+        }
+    }
+    .required{
+        &::before{
+            content: "*";
+            color: @color2;
+            font-size: 14px;
+        }
+    }
+    .w50{
+        width: 50px;
+    }
+    .w188{
+        width: 188px;
+    }
+    .w288{
+        width: 288px;
+        position: relative;
+    }
+    .w250{
+        width: 250px;
+        position: relative;
+    }
+    .w108{
+        width: 108px;
+        position: relative;
+    }
+    .w388{
+        width: 388px;
+    }
+    .w488{
+        width: 488px;
+    }
+    .line{
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid @color1;
+    }
+    .linkBtn{
+        display: inline-block;
+        padding: 4px 15px;
+        color: @color3;
+        cursor: pointer;
+        user-select: none;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        outline: none;
+        border: none;
+        white-space: nowrap;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    .exportBtn{
+        color: @color3;
+        text-decoration: underline;
+        margin-right: 10px;
+        &:hover{
+            opacity: .7;
+        }
+    }
+
+    .base{}
+
+    .productBtn{
+        text-align: right;
+    }
+    .productTableBox{
+        overflow: auto;
+    }
+    .productTable{
+        width: 100%;
+        vertical-align: top;
+        .product_file{
+            position: relative;
+            padding: 5px;
+            border-radius: 2px;
+            &:hover{
+                .close{
+                    color: @color2;
+                }
+            }
+            .close{
+                position: absolute;
+                right: 0;
+                top: 14px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+        }
+    }
+    .productDel{
+        font-size: 20px;
+        color: @color2;
+        cursor: pointer;
+    }
+    .product_materiel{
+        text-align: center;
+        background-color: @color1;
+        padding: 5px;
+    }
+
+    .product_appendix{
+        padding: 30px 0;
+        .files{
+            margin-top: 20px;
+            .fileitem{
+                position: relative;
+                display: inline-block;
+                border-radius: 2px;
+                padding: 5px 10px;
+                padding-right: 20px;
+                & + .fileitem {
+                    margin-left: 40px;
+                }
+                &:hover{
+                    background-color: #EAF8FE;
+                    .close{
+                        display: block;
+                        color: @color2;
+                    }
+                }
+                .close{
+                    position: absolute;
+                    right: 4px;
+                    top: 4px;
+                    display: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .explain{
+        .explain_length{
+            text-align: right;
+            padding: 5px 0;
+        }
+        .explain_warning{
+            color: @color2;
+        }
+        .explain_tip{
+            color: @color2;
+            padding: 0 10px;
+        }
+    }
+
+    .bond{
+        .bond_item{
+            display: inline-block;
+            width: 40%;
+        }
+        .bond_whitelist{
+            display: inline-block;
+            background-color: @color4;
+            margin: 5px 10px;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+        .bond_del{
+            cursor: pointer;
+            font-size: 14px;
+            user-select: none;
+            margin-left: 10px;
+            color: @color2;
+        }
+        .bond_btn{
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .privacy{
+        .privacy_isinitprice{
+            margin-left: 20px;
+        }
+        .ant-row ant-form-item index__w115  .ant-form-item-label label{
+            width: 115px;
+        }
+    }
+
+    .saveBtn{
+        text-align: center;
+    }
+
+}
+.ant-upload-select-picture-card i {
+    font-size: 28px;
+    color: #999;
+  }
+  
+  .ant-upload-select-picture-card .ant-upload-text {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .upload-example {
+    position: relative;
+    display: inline-block;
+    height: 96px;
+    width: 96px;
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    vertical-align: top;
+  }
+  
+  .upload-example img {
+    height: 78px;
+    width: 78px;
+  }
+  
+  .upload-example:before {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    content: ' ';
+    width: 78px;
+    height: 24px;
+    background-color: #808080;
+    opacity: .8;
+  }
+  
+  .upload-example span {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 78px;
+    height: 24px;
+    color: #fff;
+    line-height: 24px;
+    text-align: center;
+  }
+
+
+
+//  商品图片
+.diverror{
+    display: none;
+}
+/*错误提示文字样式*/
+.spanerror{
+    color: red;
+}
+
+.fangshi{
+    .ant-form-item-label{
+        padding: 7px 0!important;
+    }
+    .xialajiantou{
+        border-radius: 0 4px 4px 0;
+        font-size: 10px;
+        position: absolute;
+        right: 50px;
+        line-height: 23px;
+        border: 0;
+        top: -5px;
+        -webkit-transform: scale(0.7, 0.7);
+        width: 50px;
+        height: 42px;
+        text-align: center;
+        line-height: 42px;
+        cursor: pointer;
+    }
+
+}
+
+.fabutupian{
+    background: #fffae2;
+    border: 1px solid #ffe38d;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    strong{
+        display: block;
+    }
+}
+
+.juzuosc{
+    float: left;
+    margin-right: 8px;
+    position: relative;
+    .ant-upload-list-text{
+        position: absolute;
+        background: #FFFFFF;
+        z-index: 9;
+        left: 0;
+        top: 0;
+        width: 100px;
+    }
+    span{
+        display: block;
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+        }
+    }
+    a{
+        text-align: center;
+        line-height: 24px;
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+.tpdjgbi{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    color: #333;
+    font-weight: bold;
+    z-index: 1;
+    cursor: pointer;
+}
+.zydjdw{
+    position: relative;
+    a{
+        position: absolute;
+        font-size: 12px;
+        color: #999;
+        top: 100px;
+        z-index: 1;
+        padding: 0 5px;
+        i{
+            font-size: 12px;
+        }
+    }
+    a:hover{
+        color: #1890FF;
+    }
+}
+.zuodian{
+    left: 0;
+    i{
+        font-size: 10px!important;
+        -webkit-transform: scale(0.7,0.7);
+    }
+}
+.youdian{
+    right: 0;
+    i{
+        font-size: 10px!important;
+        -webkit-transform: scale(0.7,0.7);
+    }
+}
+
+.tupian{
+    background: #f9f9f9;
+    height: 100px;
+    width: 100px;
+    border: 1px dashed #ddd;
+    border-radius: 6px;
+}
+.shangchuan{
+    border: none;
+    width: 100px;
+    line-height: 35px;
+    padding: 0;
+}
+
+.del-pic-true{
+    display: block;
+}
+.del-pic-false{
+    display: none;
+}
+
+

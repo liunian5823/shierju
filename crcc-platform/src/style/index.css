@@ -1,0 +1,583 @@
+* {
+  word-break: break-all;
+}
+
+.showBtn {
+  height: 30px;
+  margin-bottom: 20px;
+  background: rgba(248, 248, 248, 1);
+  text-align: center;
+  line-height: 30px;
+  color: #666666;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toolbar {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.toolbar button {
+  margin-left: 10px;
+}
+
+.affix_bottom {
+  padding: 16px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0px -1px 1px -1px rgba(0, 0, 0, .2);
+}
+
+.mb10 {
+  margin-bottom: 10px
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.ml10 {
+  margin-left: 10px
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.ml20 {
+  margin-left: 20px
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.mr5 {
+  margin-right: 5px;
+  ;
+}
+
+.card_tab .ant-tabs-nav .ant-tabs-tab-inner {
+  padding: 15px 20px;
+}
+
+.pdt10 {
+  padding-top: 10px;
+}
+
+.pdr10 {
+  padding-right: 10px;
+}
+
+.pdb10 {
+  padding-bottom: 10px;
+}
+
+.pdl10 {
+  padding-left: 10px;
+}
+
+.pdt20 {
+  padding-top: 20px;
+}
+
+.pdr20 {
+  padding-right: 20px;
+}
+
+.pdb20 {
+  padding-bottom: 20px;
+}
+
+.pdl20 {
+  padding-left: 20px;
+}
+
+.pd10 {
+  padding: 10px;
+}
+
+.pd20 {
+  padding: 20px;
+}
+
+.text_r {
+  text-align: right;
+}
+
+.text_f {
+  text-align: left;
+}
+
+.text_c {
+  text-align: center;
+}
+
+.float_l {
+  float: left;
+}
+
+.float_r {
+  float: right;
+}
+
+/*蓝色*/
+.color_a {
+  color: #5CC7F8;
+}
+
+/*橙色*/
+.color_b {
+  color: #FB9F1D;
+}
+
+/*绿色*/
+.color_c {
+  color: #18C16E;
+}
+
+/*灰色*/
+.color_d {
+  color: #D5D5D5;
+}
+
+/*红色*/
+.color_e {
+  color: #e96c47;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.font14 {
+  font-size: 14px;
+}
+
+.font16 {
+  font-size: 16px;
+}
+
+.font18 {
+  font-size: 18px;
+}
+
+.font20 {
+  font-size: 20px;
+}
+
+/*
+  循环物资新增-start
+*/
+/*自定义按钮*/
+.reuse_btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 4px 15px;
+  background-color: #2DB7F5;
+  color: #FFF;
+  border-radius: 4px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  vertical-align: middle;
+  background-image: none;
+  white-space: nowrap;
+  transition: all .2s;
+  border: 1px solid #2DB7F5;
+}
+
+.reuse_btn.disabled {
+  cursor: not-allowed;
+  color: #ccc;
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+}
+
+.reuse_btn[disabled] {
+  cursor: not-allowed;
+  color: #ccc;
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+}
+
+.reuse_btn:disabled {
+  cursor: not-allowed;
+  color: #ccc;
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+}
+
+.reuse_btn:hover {
+  opacity: .7;
+}
+
+.reuse_btn:active {
+  opacity: 1;
+}
+
+.reuse_btn.reuse_btn_small {
+  padding: 1px 7px;
+}
+
+.reuse_btn.reuse_btn_primary {
+  padding: 4px 15px;
+}
+
+.reuse_btn.reuse_btn_large {
+  padding: 8px 15px;
+}
+
+.reuse_btn.reuse_btn_ghost {
+  background-color: #FFF;
+  border-color: #2DB7F5;
+  color: #2DB7F5;
+}
+
+.reuse_btn.reuse_btn_success {
+  background-color: #52C41A;
+  border-color: #52C41A;
+}
+
+.reuse_btn.reuse_btn_success.reuse_btn_ghost {
+  background-color: #FFF;
+  border-color: #52C41A;
+  color: #52C41A;
+}
+
+/* 按钮组 */
+.reuse_autoButtonGroup {
+  text-align: right;
+  line-height: 28px;
+  padding-bottom: 10px;
+}
+
+.reuse_baseButtonGroup .ant-btn+.ant-btn,
+.reuse_baseButtonGroup .reuse_btn+.reuse_btn {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.reuse_baseButtonGroup a+a {
+  display: block;
+}
+
+.reuse_baseButtonGroup.reuse_baseButtonCenter {
+  text-align: center;
+}
+
+/* 基本table表格样式 */
+.reuse_baseTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reuse_baseTable thead {
+  background-color: #F7F7F7;
+}
+
+.reuse_baseTable th {
+  padding: 12px 5px;
+  text-align: left;
+}
+
+.reuse_baseTable td {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/*重置tabs样式*/
+.reuse_resetTabs .ant-tabs .ant-tabs-bar {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.reuse_resetTabs .ant-tabs .ant-tabs-tab {
+  margin-right: 0;
+}
+
+/*重置菜单样式*/
+.reuse_baseMenu {
+  z-index: 10;
+}
+
+.reuse_baseMenu .ant-menu {
+  line-height: 34px;
+  background: #F2F2F2;
+}
+
+.reuse_baseMenu .ant-menu-submenu {
+  background: #F2F2F2;
+}
+
+.reuse_baseMenu .ant-menu-item {
+  height: 34px;
+  line-height: 34px;
+}
+
+.reuse_baseMenu .ant-menu-item:hover,
+.reuse_baseMenu .ant-menu-submenu:hover,
+.reuse_baseMenu .ant-menu-item-active,
+.reuse_baseMenu .ant-menu-submenu-active,
+.reuse_baseMenu .ant-menu-item-selected,
+.reuse_baseMenu .ant-menu-submenu-selected {
+  border-bottom-color: #DD3435;
+  color: #DD3435;
+  background-color: #F9E9E9;
+}
+
+/*重置Form样式*/
+.reuse_baseForm_label .ant-form-item .ant-form-item-label label {
+  display: block;
+  text-align-last: justify;
+}
+
+.reuse_baseForm .ant-form-item .ant-form-item-label label {
+  display: block;
+  text-align-last: justify;
+  width: 100px;
+}
+
+.reuse_baseForm .ant-form-item .ant-form-item-label label:after {
+  float: right;
+}
+
+.reuse_baseForm .ant-input-group-addon {
+  background-color: transparent;
+}
+
+/*标准头部*/
+.reuse_baseTitle {
+  font-size: 12px;
+  border-bottom: 2px solid #F2F2F2;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/*链接状*/
+.reuse_link {
+  display: inline-block;
+  padding: 0 5px;
+  cursor: pointer;
+  color: #2DB7F5;
+  word-break: break-all;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+  vertical-align: middle;
+}
+
+.reuse_money {
+  word-break: break-all;
+  display: inline-block;
+  padding: 0 5px;
+  color: #2DB7F5;
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  white-space: nowrap; */
+  vertical-align: middle;
+}
+
+.reuse_link-text {
+  display: inline-block;
+  padding: 0 5px;
+  cursor: pointer;
+  color: #2DB7F5;
+  overflow: hidden;
+}
+
+.reuse_link:hover,
+.reuse_link-text:hover {
+  display: 0.7;
+}
+
+.reuse_link:active,
+.reuse_link-text:active {
+  display: 1;
+}
+
+/*超出显示省略号*/
+.reuse_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*换行*/
+.reuse_nowrap {
+  white-space: normal;
+}
+
+/*confirm-icon*/
+.reuse_conficon_question {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fa0;
+  padding-right: 15px;
+}
+
+.reuse_conficon_del {
+  font-size: 16px;
+  font-weight: normal;
+  color: #F5222D;
+  padding-right: 15px;
+}
+
+/*行*/
+.reuse_row {
+  padding: 5px;
+}
+
+.reuse_label {
+  width: 120px;
+  text-align-last: justify;
+}
+
+
+.reuse_label::after {
+  content: ':';
+  position: absolute;
+  right: -6px;
+  top: 0;
+}
+
+.reuse_value {
+  word-break: break-all;
+  box-sizing: border-box;
+  padding-left: 20px !important;
+}
+
+/*上传文件的注释*/
+.reuse_tag {
+  background-color: #FFFAE2;
+  border: 1px solid #FFE69A;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+}
+
+/*小红点*/
+.reuse_tip {
+  font-size: 12px;
+  color: #8E8E8E;
+  position: relative;
+}
+
+.reuse_tip::before {
+  position: absolute;
+  left: -8px;
+  display: inline-block;
+  margin-right: 4px;
+  content: "*";
+  font-family: SimSun;
+  font-size: 12px;
+  color: #F50F50;
+}
+
+/*针对竞价大厅出价input框做调整*/
+.reuse_bidhall_price-input .ant-input-number-input-wrap {
+  height: 40px;
+}
+
+.reuse_bidhall_price-input .ant-input-number-input {
+  color: #F50F50;
+  font-size: 16px;
+  padding: 0 22px;
+}
+
+.reuse_bidhall_price-input .ant-input-number-handler-up-inner,
+.reuse_bidhall_price-input .ant-input-number-handler-down-inner {
+  top: 4px;
+}
+
+.reuse_bidhall_price-input .ant-input-number-handler,
+.reuse_bidhall_price-input .ant-input-number-handler {
+  height: 20px;
+}
+
+/*重置 发布场次 purchaser 组件的 table高度*/
+.reuse_purchaser_table .ant-table-thead>tr>th,
+.reuse_purchaser_table .ant-table-tbody>tr>td {
+  padding: 8px 5px;
+}
+
+/*重置 Tabs 组件*/
+.baseTabs .ant-tabs-nav .ant-tabs-tab {
+  margin-right: 0;
+}
+
+.baseTabs .ant-tabs-nav-container {
+  font-size: 12px;
+}
+
+body .ant-message-notice-content {
+  padding: 12px 32px;
+}
+
+body .ant-message .anticon {
+  font-size: 16px;
+}
+
+body .ant-message-custom-content {
+  font-size: 16px;
+}
+
+/*竞价大厅-隐藏 今天 按钮*/
+.reuse_hallTime .ant-calendar .ant-calendar-today-btn {
+  display: none !important;
+}
+
+/*
+  循环物资新增-end
+*/
+.print-hide {
+  display: none;
+}
+
+.domPrint {
+  position: fixed;
+  z-index: 0;
+  left: -200%;
+  top: -200%;
+  width: 100%;
+}
+
+div.ant-table-body>table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.text_line4_td>div,
+.text_line4_td>span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.text_right {
+  text-align: right;
+}
+
+th.text_right>span {
+  float: right;
+}
+
+.text_line4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}

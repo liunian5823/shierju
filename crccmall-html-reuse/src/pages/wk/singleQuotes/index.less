@@ -1,0 +1,112 @@
+.margin_detail_page{
+    > div{
+        background: #fff;
+        border-radius: 4px;
+        > div{
+          padding-left:24px;
+          padding-right:24px;  
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            height: 50px;
+            border-bottom: 1px solid #e1e1e1;
+            font-size: 14px;
+            span:nth-of-type(2){
+                margin-left:22px;
+                font-size: 12px;
+                color:rgba(127, 127, 127, 1);
+                font-weight: 400;
+            }
+        }
+        .margin_detail{
+            
+            position: relative;
+            font-size: 12px;
+            .detail_relative{
+                position: absolute;
+                top:15px;
+                right:220px;
+                p{
+                    color:rgba(127, 127, 127, 1);
+                }
+                span{
+                    color:#32C5FF;
+                    font-size: 24px;
+                }
+            }
+            .detail_item{
+                padding:5px 0;
+                .label{
+                    width:130px;
+                    
+                    color:rgba(127, 127, 127, 1);
+                    float:left;
+                }
+                .content{
+                    margin-left:130px;
+                    color:#000;
+                    max-width: calc(50% - 10px);
+                    span{
+                        cursor: pointer;
+                        color:#32C5FF;
+                    }
+                }
+            }
+            
+            
+        }
+        // .quotation_totals{
+        //     display: flex;
+        //     justify-content: flex-end;
+
+        // }
+        .margin_detail_border{
+            padding-top:0;
+        }
+        
+    }
+    
+    .close_bar{
+        height: 52px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .margin_detail_top{
+        position: relative;
+        
+        .mark{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 24px;
+            height:29px;
+            background: red;
+        }
+        .title{
+            div{
+                &:first-child{
+                    width: 17px;
+                    margin-right:10px;
+                    background:black;
+                }
+            }
+        }
+    }
+}
+.flex{
+    display: flex;
+}
+.ptb24{
+    padding-top:24px;
+    padding-bottom: 24px;
+}
+.ml24{
+    margin-left:24px;
+}
+.ml16{
+    margin-left:16px;
+}

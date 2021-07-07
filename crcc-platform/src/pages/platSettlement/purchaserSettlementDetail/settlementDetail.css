@@ -1,0 +1,17 @@
+/** 表格行内数据两行省略 */
+.table_overflow_twoLine{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    word-break: break-all;
+    -webkit-line-clamp:2;
+}
+/**
+结算单详情结算金额
+ */
+.purchaserSettlementDetail .amountTitle span{
+    color:rgba(0, 0, 0, 0.85);
+    font-size:20px!important;
+    line-height:28px;
+}

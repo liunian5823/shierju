@@ -1,0 +1,15 @@
+.icon_color {
+  color: #2db7f5;
+  vertical-align: middle;
+  font-size: 14px !important;
+}
+.breadcrumb_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.detail_font {
+  font-weight: 400;
+  color: #999;
+}

@@ -1,0 +1,175 @@
+/**
+ * 表格...样式
+ */
+.organization-tableColumnWidth {
+    width: 100% !important;
+    word-break: break-all;
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+}
+
+/*
+
+ */
+.ant-card-extra-top-8 .ant-card-extra {
+    top: 8px;
+    right: 16px;
+}
+
+.height55 {
+    height: 55px;
+}
+
+.border_none {
+    border: none;
+    padding: 0 14px;
+}
+
+.border_none:hover {
+    box-shadow: none;
+}
+
+.border_none .ant-card-head {
+    border: none;
+    padding: 0px;
+}
+
+.border_none .ant-card-body {
+    padding: 0px;
+}
+
+.modal_main .ant-modal-body {
+    padding-top: 10px;
+}
+
+.border_none tr th {
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.editOrganization .ant-card-body {
+    padding: 24px 40px;
+}
+
+/*
+新增/修改员工-编辑员工-已选员工列表-下拉样式
+ */
+.edituser-yxyg tr td .ant-form-item {
+    top: 10px;
+    width: 115px;
+}
+
+/*
+新增/修改员工-编辑员工-员工列表-搜索框与按钮样式
+ */
+.search_tabs_input {
+    position: relative;
+}
+
+.search_tabs_input span.ant-input-group {
+    position: absolute;
+    right: -8px;
+    top: 0px;
+    width: 234px;
+}
+
+.search_tabs_input span.ant-input-group input {
+    border: none;
+    border-bottom: 1px solid rgba(216, 216, 216, 1);
+    border-radius: 0px !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.search_tabs_input span.ant-input-group input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search_tabs_input .ant-input-group button {
+    border: none;
+    background: none;
+    color: rgba(0, 0, 0, 0.45);
+    border-bottom: 1px solid rgba(216, 216, 216, 1);
+    line-height: 19px;
+    border-radius: 0px !important;
+}
+
+.modal_900 .ant-title-main .ant-card-extra {
+    right: 0px;
+}
+
+.modal_900 .ant-modal-footer {
+    padding-top: 16px !important;
+    padding-bottom: 24px !important;
+}
+
+.modal_900 .ant-modal-content {
+    width: 900px !important;
+}
+
+.modal_900 .ant-modal-header .ant-modal-title {
+    font-size: 16px !important;
+}
+
+.modal_900 .ant-card-head .ant-card-head-title {
+    font-size: 14px !important;
+}
+
+
+.editOrganization .tishi {
+    background: rgba(255, 251, 230, 1);
+    border-radius: 4px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #FFE58F;
+    padding: 0 24px;
+    margin-left: 114px;
+}
+
+.editOrganization .tishi em {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+    line-height: 14px;
+}
+
+.editOrganization .tishi a {
+    display: inline-block;
+    margin-left: 32px;
+    color: #2DB7F5;
+}
+
+.editOrganization .editOrganization_hr {
+    width: 100%;
+    height: 2px;
+    border-bottom: 1px dashed #E9E9E9;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.editOrganization .org_confirm .ant-checkbox-wrapper span:nth-child(2) {
+    color: #2DB7F5;
+}
+
+.modelFlex {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.modelFlex .ant-form-item-label label {
+    width: 100% !important;
+}
+
+.ant-form-res {
+    height: 32px;
+    line-height: 32px;
+}
+
+.w418{
+    width: 418px;
+    /* position: relative; */
+}

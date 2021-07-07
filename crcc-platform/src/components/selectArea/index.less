@@ -1,0 +1,72 @@
+.area_box {
+}
+
+.area_wrapper {
+  position: relative;
+  width: 100%;
+  padding-right: 100px;
+}
+
+.area_text {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  padding: 0 10px;
+  line-height: 30px;
+  height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.area_wrapper_right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  button{
+    width: 100%;
+    border-radius: 0px 4px 4px 0;
+  }
+}
+
+.area_pop {
+  display: none;
+  background: #fff;
+  position: fixed;
+  z-index: 1000;
+}
+
+.table_area {
+  width: 100%;
+  .table_box {
+    .table_box_title {
+      height: 54px;
+      background: rgba(250, 250, 250, 1);
+      border-radius: 4px 4px 0 0;
+      padding: 16px 10px;
+      line-height: 22px;
+      font-size: 16px;
+      text-align: center;
+    }
+    .table_box_list {
+      height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ececec; // border-left: 0;
+    }
+    &:first {
+      .table_box_list {
+        border-left: 1px solid #ececec;
+      }
+    }
+  }
+}
+
+.area_btn {
+  border: 1px solid #ececec;
+  border-top: 0;
+  padding: 6px 10px;
+  text-align: right;
+  border-radius: 0 0 4px 4px;
+}

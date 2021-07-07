@@ -1,0 +1,39 @@
+.purchaser .tabs {
+  border-bottom: 1px solid #d9d9d9;
+}
+.purchaser .searchBtn {
+  text-align: center;
+}
+.purchaser .selection .selection_title {
+  padding: 8px;
+}
+.purchaser .selection .selection_title .clear {
+  margin-left: 60px;
+  color: #2DB7F5;
+  cursor: pointer;
+}
+.purchaser .selection .selection_box {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 300px;
+}
+.purchaser .selection .select_item {
+  margin-top: 10px;
+  position: relative;
+}
+.purchaser .selection .select_name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.purchaser .selection .select_del {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  margin-left: 10px;
+  color: #F50F50;
+}

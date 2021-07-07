@@ -1,0 +1,82 @@
+
+
+
+.erert .ant-card-body{
+    padding-bottom:0px;
+    padding: 24px 24px 0px 24px!important;
+}
+.erert .ant-tabs-bar{
+    margin-bottom: 0px;
+}
+
+.erert .ant-form-item-label label{
+    white-space: nowrap;
+    word-wrap: normal;
+    word-break: keep-all;
+    font-size: 14px;
+    /* word-break: keep-all; */
+    color: rgba(0,0,0,0.85);
+    line-height: 20px;
+}
+
+.yuyuyuy .ant-card-body{
+    padding: 5px 0px;
+    padding-bottom: 0px;
+}
+
+.contractTemplatetoolbar{
+    position: relative;
+    /* top: 28px; */
+    text-align: right;
+    z-index: 999;
+    width: 100px;
+    float: right;
+    margin-right: 26px;
+    bottom: 3px;
+}
+
+/* 使用 css 技巧来动态设置的对话框位置 */
+.vertical-center-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-center-modal .ant-modal {
+    top: 0;
+}
+.vertical-center-modal>.ant-modal{
+    width: 540px!important;
+}
+
+.erert button:nth-child(2)
+{
+    background:#fff;
+
+}
+
+.obtainPhone_width_342{
+    width: 342px!important;
+}
+
+.obtainPhoneYzmUnBindBtnCss{
+    margin-left: 8px;
+    width: 98px;
+
+}
+.erer{
+    text-align: right!important;
+    color: #1890FF;
+    font-size: 14px;
+    position: absolute;
+    top: 18px;
+    right: 56px;
+    width: 30px;
+    cursor: pointer;
+}
+.erer div{
+    position: relative;
+    top: -12px;
+    right: -34px;
+
+}

@@ -1,0 +1,212 @@
+@import './../../style/default.less';
+.menuul {
+	li {
+		height: 25px;
+		line-height: 25px;
+		a {
+			width: 150px;
+			font-size: 12px;
+			line-height: 13px;
+			overflow: hidden;
+			text-overflow: ellipsis; 
+			-o-text-overflow: ellipsis;
+			white-space: nowrap;
+			display: block;
+			margin-bottom: 6px;
+		}
+	}
+}
+.main_top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  // padding: 10px;
+  line-height: 30px;
+  font-size: @fontE;
+  color: #fff;
+  background: #3f81f0;
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+  z-index: 999;
+  .top_container {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .logo{
+    width: 180px;
+    height: 100%;
+    padding: 19px 10px 0px 0px;
+    cursor: pointer;
+    float: left;
+	cursor: pointer;
+    img{
+      width: 100%;
+    }
+  }
+  .leftbtn {
+    width: 16px;
+    line-height: 80px;
+    background: #1a67eb;
+    text-align: center;
+    float: left;
+    opacity: 0.5;
+	filter:alpha(Opacity=50);
+	cursor: pointer;
+    img {
+      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+    }
+  }
+  .leftbtn:hover {
+	opacity: 1;
+	filter:alpha(Opacity=100);
+  }
+  .flatforms {	  
+	position: relative;
+    float: left;
+    width: 770px;
+	height: 80px;
+    overflow: hidden;
+	.active {
+		background: #0758DE !important;
+	}
+    .platform{
+	  position: absolute;
+	  background: #3F81F1;
+      width: 110px;
+      float: left;
+      padding: 19px 0px 19px 0px;
+      text-align: center;	
+	  a {
+		color: #FFFFFF;
+	  }
+      p {
+        line-height: 20px;
+        height: 20px;
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .platefrom_name {
+        height: 20;
+        margin-top: 2px;
+      }
+    }
+	.platform:hover {
+	  background: #1A68E8 !important;
+	  a {
+		font-weight: bold !important;
+	  }
+	}
+  }
+  .rightbtn {
+    width: 16px;
+    line-height: 80px;
+    background: #1a67eb;
+    text-align: center;
+    float: left;
+    opacity: 0.5;
+	filter:alpha(Opacity=50);
+	cursor: pointer;
+  }
+  .rightbtn:hover {
+	opacity: 1;
+	filter:alpha(Opacity=100);
+  }
+  .right_info {
+    width: 218px;
+    height: 100%;
+    padding: 19px 0px;
+    float: right;
+	font-weight: bold;
+    .user_img {
+      float: left;
+      overflow: hidden;
+      margin-left: 10px;
+	  width: 42px;
+	  height: 42px;
+	  border-radius: 50%;
+    }
+    .user_info {
+      float: right;
+	  width: 155px;
+	  color: #fff;
+		.username {
+			float: left;
+			width: 81px;
+			height: 13px;
+			line-height: 16px;
+			font-size: 12px;
+			margin-right: 15px;
+			overflow: hidden;
+			text-overflow: ellipsis; 
+			-o-text-overflow: ellipsis;
+			white-space:nowrap;
+			display:block;
+		}
+		
+		.fenge {
+			width: 31px;
+			height: 16px;
+			float: left;
+			padding-right: 10px;
+			margin-right: 10px;
+			border-right: 2px solid #fff;
+			line-height: 17px;
+			cursor: pointer;
+		}
+		.out{
+			width: 17px;
+			float: right;
+			height: 16px;
+			line-height: 17px;
+			cursor: pointer;
+		}
+		.qh_conpany{
+			background-color: #1a67eb;			
+			width: 100%;
+			border-radius: 4px;
+			height: 19px;
+			margin-top: 23px;
+			line-height: 19px;
+			a {
+				width: 150px;
+				font-size: 12px;
+				line-height: 20px;
+				overflow: hidden;
+				text-overflow: ellipsis; 
+				-o-text-overflow: ellipsis;
+				white-space: nowrap;
+				display: block;
+				margin-bottom: 6px;
+			}
+			div {
+				background: no-repeat right;
+				width: 150px;
+			}
+		}
+	  
+    }
+    button {
+      border-color: #fff;
+      background: transparent;
+      color: #fff;
+    }
+    .msgIcon {
+      margin-right: 20px;
+    }
+
+    .username {
+      margin-right: 20px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

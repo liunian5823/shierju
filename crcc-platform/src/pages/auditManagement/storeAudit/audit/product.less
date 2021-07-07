@@ -1,0 +1,197 @@
+// 公用样式
+@import "common.less";
+
+// 供应产品
+
+.chanpin{
+  margin-bottom: @margin-bottom;
+  .cp_left{
+    float: left;
+    width: 220px;
+    .flbioati{
+      height: 40px;
+      line-height: 40px;
+      //background:#EA4748 ;
+      font-size: 16px;
+      color: #fff;
+      padding: 0 15px;
+      font-weight: normal;
+    }
+    .demo_kuang{
+      border: @border;
+      padding: 0 15px;
+      ul{
+        padding: 0;
+        li{
+          border-bottom: 1px dotted #eeeeee;
+          padding: 7px 0;
+          margin: 0;
+          a{
+           /* width: 100%;*/
+            span{
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              width: 100%;
+              overflow: hidden;
+              display: block;
+            }
+            /*&:hover{
+              background: none;
+            }*/
+          }
+          ul{
+            padding: 0 0 0 18px;
+            li{
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cp_right{
+    float: right;
+    width: 960px;
+    .fanye{
+      text-align: center;
+    }
+    .saixuan{
+      //border-top:2px solid #EA4748;
+      li{
+        border-bottom:1px solid #EBEFF2;
+        padding: 5px 0;
+        float: left;
+        width: 100%;
+        .choosed_left{
+          color: #999;
+          float: left;
+          text-align: left;
+          width: 80px;
+          line-height: 35px;
+        }
+        .choosed_center{
+          width: 780px;
+          float: left;
+          line-height: 35px;
+          overflow: hidden;
+          .xbt_xzan{
+           // color: #EA4748;
+            border: @border;
+            padding: 0 15px;
+            border-radius: @border-radius;
+            display: inline-block;
+            margin-right: 10px;
+            line-height: 30px;
+            i{
+             // color: #EA4748;
+              margin-left: 5px;
+            }
+          }
+          li{
+            float: left;
+            border-bottom: 0;
+            padding: 0;
+            margin-right: 15px;
+            width: auto;
+            cursor: pointer;
+          }
+        }
+        .choosed_right{
+          float: right;
+          text-align: right;
+          width: 100px;
+          line-height: 35px;
+          strong{
+            color: #EA4748;
+          }
+          button{
+            background: #eee;
+            border: 0;
+            font-size: 14px;
+            padding: 0 15px;
+            margin-left: 5px;
+            line-height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .sx_fenlei{
+      padding: 5px;
+      background: #F5F5F5;
+      border: 1px solid #EBEFF2;
+      float: left;
+      width: 100%;
+      margin-top: 10px;
+      a{
+        display: block;
+        float: left;
+        margin-right: 1px;
+        color: #666;
+        padding: 5px 15px;
+        background: #fff;
+        height: 30px;
+        span{
+          float: left;
+          i{
+            display: block;
+            text-align: left;
+            width: 10px;
+            height: 6px;
+            margin-left: 5px;
+            color: #999;
+            &:before{
+              -webkit-transform: scale(0.5) rotate(0deg);
+              -ms-transform: scale(0.5) rotate(0deg);
+              transform: scale(0.5) rotate(0deg);
+              -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+              zoom: 1;
+              display: inline-block;
+              -webkit-transition: -webkit-transform 0.3s ease;
+              transition: -webkit-transform 0.3s ease;
+              transition: transform .3s ease;
+              transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+            }
+
+          }
+          .xuanzhongzt{
+            color: @color3;
+          }
+          input{
+            width: 40px;
+            margin: 0 5px;
+          }
+          button{
+            height: 22px;
+          }
+        }
+      }
+      .liebiaossk{
+        float: right;
+        border: none;
+        background: #fff;
+        input{
+          border: 0;
+          height: 30px;
+          width: 165px;
+        }
+        button{
+          padding: 5px 10px;
+          border: 0;
+          margin: 0;
+          top: 0;
+          right: 0;
+          background: #eee;
+          color: #333;
+        }
+      }
+    }
+    .lieb_spin{
+      float: left;
+      margin-top: 10px;
+      width: 102%;
+    }
+  }
+}
+

@@ -1,0 +1,55 @@
+.header {
+  min-width: 1200px;
+}
+.header .main {
+  width: 1200px;
+  margin: 0 auto;
+}
+.header .main .link {
+  padding: 0 8px;
+  cursor: pointer;
+}
+.header .main .link:hover {
+  color: #F50F50;
+}
+.header .main .line {
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+.header .head_top {
+  height: 36px;
+  line-height: 36px;
+  background-color: #F2F2F2;
+}
+.header .head_top .menu {
+  float: right;
+}
+.header .head_center {
+  background-color: #F2F2F2;
+}
+.header .head_center .center_content {
+  background-color: #FFFFFF;
+  height: 98px;
+  padding-top: 20px;
+  border-bottom: 2px solid #F50F50;
+}
+.header .head_center .center_content .title {
+  font-size: 24px;
+  line-height: 60px;
+  font-weight: bold;
+  padding-left: 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+}
+.userInfo .name {
+  padding: 4px 0;
+  font-weight: bold;
+}
+.userInfo .out {
+  text-align: right;
+  padding: 4px 0;
+}
+.userInfo .out .out_btn {
+  cursor: pointer;
+}
+.userInfo .out .out_btn:hover {
+  color: #F50F50;
+}

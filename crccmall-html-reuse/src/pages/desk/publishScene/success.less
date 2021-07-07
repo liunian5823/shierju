@@ -1,0 +1,41 @@
+.success{
+    padding: 100px;
+    text-align: center;
+    color: #52C41A;
+    animation: successInit .6s ease-in;
+    .icon_success{
+        font-size: 60px;
+        margin: 20px 0;
+    }
+    .success_info{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .text{
+        margin: 20px 0;
+        .back{
+            border-bottom: 1px solid #52C41A;
+            cursor: pointer;
+        }
+    }
+    .btns{
+        p{
+            padding: 10px;
+            button{
+                width: 200px;
+            }
+        }
+    }
+}
+@keyframes successInit {
+    0%{
+        position: relative;
+        opacity: 0;
+        top: -30px;
+    }
+    100%{
+        position: relative;
+        opacity: 1;
+        top: 0px;
+    }
+}

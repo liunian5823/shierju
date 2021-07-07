@@ -1,0 +1,21 @@
+
+.box_waicheng_orange #rhTree > .ant-tree li a:hover {
+    background-color: #ffeecc !important;
+}
+.box_waicheng_orange #rhTree > .ant-tree li a.ant-tree-node-selected{
+    background-color: #ffeecc !important;
+}
+
+.box_waicheng_red #rhTree > .ant-tree li a:hover {
+    background-color: #f3d3d4 !important;
+}
+.box_waicheng_red #rhTree > .ant-tree li a.ant-tree-node-selected{
+    background-color: #f3d3d4 !important;
+}
+
+.box_waicheng_blue #rhTree >.ant-tree li a:hover {
+    background-color: #d5f1fd !important;
+}
+.box_waicheng_blue #rhTree > .ant-tree li a.ant-tree-node-selected{
+    background-color: #d5f1fd !important;
+}

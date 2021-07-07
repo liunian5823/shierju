@@ -1,0 +1,112 @@
+.modal_title {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.approval .color_red {
+  color: #F50F50;
+}
+.approval .tip {
+  margin-left: 20px;
+  color: #8E8E8E;
+}
+.approval .signEndTime_diff {
+  color: #F50F50;
+}
+.approval .title {
+  font-size: 14px;
+  min-height: 50px;
+}
+.approval .title .title_text {
+  padding-left: 40px;
+  position: relative;
+  font-weight: bold;
+}
+.approval .title .title_text::before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #2DB7F5;
+  border-radius: 2px;
+  color: #FFF;
+  text-align: center;
+  font-weight: normal;
+}
+.approval .title .title_status {
+  text-align: right;
+}
+.approval .title .title_status .main {
+  font-size: 20px;
+  font-weight: bold;
+}
+.approval .title .title_status .note {
+  color: #8C8C8C;
+}
+.approval .info_item {
+  padding: 5px 0;
+}
+.approval .info_item .label {
+  text-align-last: justify;
+}
+.approval .info_item .value {
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+.approval .tabs {
+  position: relative;
+}
+.approval .tabs .options {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.approval .products .more {
+  text-align: center;
+  padding: 8px 0;
+  background-color: #FFFAE2;
+  cursor: pointer;
+}
+.approval .products .icon {
+  transform: rotateZ(90deg);
+}
+.approval .bond .bond_row {
+  padding: 0 5px;
+}
+.approval .whiteList {
+  border-top: 1px solid #d9d9d9;
+  margin-top: 15px;
+  padding-top: 20px;
+}
+.approval .whiteList_item {
+  display: inline-block;
+  background-color: #FFFAE2;
+  border: 1px solid #FFE9A5;
+  margin: 5px 10px;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.approval .record {
+  padding-bottom: 10px;
+}
+.approval .record p {
+  padding: 5px;
+}
+.approval .record .rest {
+  color: #F50F50;
+}
+.approval .record .rest .rest_time {
+  font-size: 14px;
+}
+.approval .detail .payTime {
+  color: #F50F50;
+}
+.approval .detail .enclosure {
+  padding: 20px 10px;
+}
+.approval .exp {
+  padding: 10px 20px;
+}

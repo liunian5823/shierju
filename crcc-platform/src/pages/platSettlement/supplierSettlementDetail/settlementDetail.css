@@ -1,0 +1,104 @@
+/** 表格行内数据两行省略 */
+.table_overflow_twoLine{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    word-break: break-all;
+    -webkit-line-clamp:2;
+}
+/**
+结算单详情结算金额
+ */
+.supplierSettlementDetail .amountTitle span{
+    color:rgba(0, 0, 0, 0.85);
+    font-size:20px!important;
+    line-height:28px;
+}
+
+/**
+订单列表订单金额
+ */
+.supplierSettlementDetail .sumTotalPricesLabel{
+    color:rgba(0, 0, 0, 0.65);
+    font-size:14px;
+    line-height:22px;
+    vertical-align:top;
+}
+.supplierSettlementDetail .sumTotalPricesLabel span{
+    color:rgba(0, 0, 0, 0.65);
+    font-size:14px;
+    line-height:22px;
+    vertical-align:top;
+}
+.supplierSettlementDetail .sumTotalPrices{
+    color:rgba(0, 0, 0, 0.85);
+    font-size:18px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .sumTotalPrices span{
+    color:rgba(0, 0, 0, 0.85);
+    font-size:18px;
+    line-height:22px;
+    vertical-align:top
+}
+
+/**
+订单列表=>第一批货款或质保金
+ */
+.supplierSettlementDetail .otherAmountLabel{
+    color:rgba(0, 0, 0, 0.65);
+    font-size:14px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .otherAmountLabel span{
+    color:rgba(0, 0, 0, 0.65);
+    font-size:14px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .otherAmount{
+    color:rgba(45, 183, 245, 1);
+    font-size:18px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .otherAmount span{
+    color:rgba(45, 183, 245, 1);
+    font-size:18px;
+    line-height:22px;
+    vertical-align:top
+}
+
+/**
+订单列表=>结算金额
+ */
+.supplierSettlementDetail .amountLabel{
+    color:rgba(0, 0, 0, 0.65);
+    font-size:14px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .amountLabel span{
+    color:rgba(0, 0, 0, 0.65);
+    font-size:14px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .amount{
+    color:rgba(222, 37, 4, 1);
+    font-size:24px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .amount span{
+    color:rgba(222, 37, 4, 1);
+    font-size:24px;
+    line-height:22px;
+    vertical-align:top
+}
+.supplierSettlementDetail .overFlowVisible .ant-tabs-top{
+    overflow: visible;
+}

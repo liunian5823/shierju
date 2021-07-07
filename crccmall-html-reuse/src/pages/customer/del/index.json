@@ -1,0 +1,62 @@
+{
+  "code":"000000",
+  "data":{
+    "workOrder":"12345678901234567",
+    "biddingList":"12345678901234567",
+    "thisWeek":"682",
+    "thisMont":"682",
+    "approvalStatusStr":"报名中",
+    "disposerType":"成员单位",
+    "disposerName":"中国铁建电气化局集团第三十五局北方工程有限公司",
+    "disposerComName":"中国铁建电气化局集团第三十五局北方工程有限公司",
+    "creditCode":"48621452145214521452",
+    "disposerHumn":"张三 188 8888 8888",
+    "forfeitureReason":"一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三",
+    "enclosure":[
+      {
+        "businessId":"350429657306652672",
+        "createTime":null,
+        "createUserId":null,
+        "delFlag":null,
+        "fileName":"营业执照样例.jpg",
+        "filePath":"group1/M00/00/D9/wKhCZmC9ex2Ab0xWAAI93eqnJbM740.jpg?filename=营业执照样例.jpg",
+        "fileSuf":"jpg",
+        "id":null,
+        "page":1,
+        "pageSize":10,
+        "type":1,
+        "updateTime":null,
+        "updateUserId":null,
+        "uuids":"350429657346498560"
+      },{
+        "businessId":"350429657306652672",
+        "createTime":null,
+        "createUserId":null,
+        "delFlag":null,
+        "fileName":"营业执照样例.jpg",
+        "filePath":"group1/M00/00/D9/wKhCZmC9ex2Ab0xWAAI93eqnJbM740.jpg?filename=营业执照样例.jpg",
+        "fileSuf":"jpg",
+        "id":null,
+        "page":1,
+        "pageSize":10,
+        "type":1,
+        "updateTime":null,
+        "updateUserId":null,
+        "uuids":"350429657346498560"
+      }
+    ],
+    "buyerType": "非成员单位",
+    "disposerBuyerType": "阜城县瑞亨建筑工程有限公司",
+    "disposerCode": "48621452145214521452",
+    "buyerHumn": "48621452145214521452",
+    "mask": "一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三一二三",
+    "Acceptor": "4862145214",
+    "acceptorTime": "4862145214",
+    "handleTime": "4862145214",
+    "handleResult": "4862145214",
+    "handlePrice": "4862145214",
+    "enclosureFile": "4862145214",
+    "remask": "4862145214"
+  },
+  "msg":"成功"
+}

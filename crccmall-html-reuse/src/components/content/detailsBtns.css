@@ -1,0 +1,17 @@
+/*底部按钮容器,当有内容是 将底部撑起*/
+.detailsBtns{
+    height:56px;
+    background-color: #ffffff;
+    text-align: center;
+    padding-top: 14px;
+    margin-top: 10px;
+}
+.ant-affix .detailsBtns{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 2px 1px;
+}
+.detailsBtns  button,.detailsBtns .detailsBtnsCenter a{
+    margin-right: 8px;
+}
+.detailsBtns  button:last-child,.detailsBtns .detailsBtnsCenter a:last-child{
+    margin-right: 0;
+}

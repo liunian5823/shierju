@@ -1,0 +1,137 @@
+// 公用样式
+@import "common.less";
+
+.company_case{
+  width: @width;
+  margin: 0 auto;
+  .tianjia_chuchuang{
+    background: @background;
+    height: 50px;
+    border-radius: @border-radius;
+    text-align: center;
+    line-height: 50px;
+    margin:0 auto 20px auto;
+    width: @width;
+    font-size: 14px;
+    a{
+      color: @color1;
+      padding: 0 10px;
+      i{
+        margin-right: 10px;
+      }
+    }
+  }
+}
+// 面包屑
+.crumbse{
+  line-height: 30px;
+  padding: 5px 0;
+}
+
+// 列表
+.liebiao_case{
+  li{
+    border: @border;
+    border-radius: @border-radius;
+    height: 320px;
+    margin-bottom: 20px;
+    position: relative;
+    h1{
+      color: @color2;
+      font-size: 20px;
+      padding:30px 30px 0 30px;
+    }
+    p{
+      color: #999999;
+      line-height: 30px;
+      overflow: hidden;
+      padding: 0 30px;
+      margin-top: 15px;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      height: 90px;
+    }
+    .gundongtu {
+      height: 100px;
+      margin: 20px;
+      position: relative;
+
+      .swiper_container {
+        margin: 0 20px;
+
+        .swiper_wrapper {
+          height: 100px;
+          overflow: hidden;
+
+          div {
+            width: 100px;
+            float: left;
+            height: 100px;
+            margin: 0 11px;
+
+            img {
+              height: 100px;
+              width: 100px;
+            }
+          }
+        }
+      }
+
+      .swiper_button_warp {
+        .swiper_button_next, .swiper_button_prev {
+          position: absolute;
+          top: 60px;
+          width: 20px;
+          height: 30px;
+          margin-top: -22px;
+          z-index: 10;
+          cursor: pointer;
+          background: none;
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        .swiper_button_next {
+          right: 0;
+        }
+
+        .swiper_button_prev {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.fenye{
+  text-align: center;
+  padding: 10px 0 40px 0;
+  margin: 0 auto;
+  display: table;
+}
+
+.shade_class{
+  background: rgba(0, 0, 0, 0.64);
+  width:@width;
+  height: 450px;
+  position:absolute;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.zhezhao{
+  position:absolute;
+  right: 15px;
+  top: 15px;
+  div{
+    float: left;
+  }
+  i{
+    color: @color1;
+    margin-left: 10px;
+  }
+}
+
+

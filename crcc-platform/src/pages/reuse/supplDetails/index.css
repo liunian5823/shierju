@@ -1,0 +1,401 @@
+.detail-container {
+    background: #fff;
+}
+
+.container-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.container-tag::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -39px;
+    left: 0;
+    height: 130px;
+    width: 130px;
+    background: #2f91ff;
+    color: #fff;
+    font-size: 16px;
+    transform-origin: 0 100% 0;
+    transform: rotate(-45deg);
+}
+
+.container-tag::after {
+    content: attr(content);
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.swiper-container-foot {
+    display: flex;
+    flex-direction: row;
+    padding: 13px 0;
+    justify-content: space-between;
+}
+
+.swiper-container-foot-item,
+.swiper-container-foot-item img {
+    width: 60px;
+    height: 60px;
+}
+
+.swiper-container-foot-item {
+    background: #f5f5f5;
+    transition: all linear .3s;
+}
+
+.foot-item-active {
+    box-shadow: #626262 1px 1px 4px;
+}
+
+.foot-item-cu {
+    cursor: pointer;
+}
+
+.swiper-container-main {
+    width: 380px;
+    height: 380px;
+    background: #f5f5f5;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-container-main img {
+    width: 100%;
+}
+
+/*水平*/
+.flex {
+    display: flex;
+}
+
+.flexAuto {
+    flex: 1;
+}
+
+/*边距*/
+.padding-m {
+    padding: 5px;
+}
+
+.padding-s {
+    padding: 10px;
+}
+
+.padding-l {
+    padding: 15px;
+}
+
+.padding-g {
+    padding: 25px;
+}
+
+.padding-way {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.padding-row {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.padding-left {
+    padding-bottom: 0;
+    padding-top: 0;
+    padding-right: 0;
+}
+
+.padding-top {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.padding-bottom {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.margin-m {
+    margin: 5px;
+}
+
+.margin-s {
+    margin: 10px;
+}
+
+.margin-l {
+    margin: 15px;
+}
+
+.margin-g {
+    margin: 25px;
+}
+
+.margin-way {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.colorGreen {
+    color: #5CC060;
+}
+
+.margin-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.margin-left {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 0;
+}
+
+.margin-top {
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/*边框*/
+.bottomBor {
+    border-bottom: #f2f2f2 3px solid;
+}
+
+/*标题*/
+.titleLittle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.titleMiddle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.titleLarge {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a1a1a;
+    word-break: break-all;
+}
+
+/*背景*/
+.bgGrey {
+    background: #f5f5f5;
+}
+
+/*定位*/
+.relative {
+    position: relative;
+}
+
+/*背景标签*/
+.tag {
+    height: 33px;
+    width: 95px;
+    background: url("../../../static/svg/tag.svg") center;
+    background-size: cover;
+    text-align: center;
+    line-height: 33px;
+    color: #fff;
+    font-size: 15px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+/*列表*/
+.listContent {
+    font-size: 14px;
+    padding: 5px 0 0 0;
+    position: relative;
+    word-break: break-all;
+}
+
+.listContent .ant-form-item {
+    margin-bottom: 0 !important;
+}
+
+.listLabel {
+    position: relative;
+    left: 0;
+    display: inline-block;
+    min-width: 110px;
+    text-align: justify;
+    text-align-last: justify;
+    color: #989898;
+    padding-right: 20px;
+    /* line-height: 2; */
+}
+
+.listLabel::after {
+    content: ":";
+    display: inline-block;
+    position: absolute;
+    padding: 0 8px;
+    right: 0;
+    font-size: 16px;
+    top: 0;
+}
+
+.required {}
+
+.required::before {
+    content: "*";
+    color: #e4393c;
+    font-size: 20px;
+    vertical-align: -6px;
+}
+
+.listFit {
+    font-size: 14px;
+    padding: 5px 0 0 0;
+    position: relative;
+    display: inline-flex;
+    width: 49%;
+    word-break: break-all;
+    vertical-align: top;
+}
+
+/*分割线*/
+.cutOff {
+    height: 10px;
+    background: #f2f2f2;
+}
+
+/*文件下载*/
+.link {
+    font-size: 18px;
+    color: #000000;
+    user-select: none;
+    padding: 15px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.link:hover {
+    background: #f2f2f2;
+}
+
+.link::before {
+    content: "";
+    display: inline-block;
+    background: url("../../../static/svg/link.svg")no-repeat;
+    height: 15px;
+    width: 18px;
+    margin: 0 5px;
+    background-size: 90% 90%;
+}
+
+.linkButton {
+    color: #1890ff;
+    display: inline-block;
+    padding: 0 15px;
+    cursor: pointer;
+    text-decoration: underline
+}
+
+.linkButton:hover {
+    opacity: .8;
+}
+
+.butList {
+    text-align: center;
+    height: 50px;
+    padding: 12px;
+}
+
+.textDark {
+    color: #000000;
+}
+
+.colorGrey {
+    color: #908c8c;
+}
+
+.colorRed {
+    color: #dd2f26;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.status {
+    font-size: 20px;
+}
+
+/*价格*/
+.price {
+    color: #e4393c;
+    font-size: 20px;
+}
+
+.price::after {
+    content: attr(content);
+    font-size: 14px;
+    color: #6c6c6c;
+    padding: 0 5px;
+}
+
+/*分类*/
+
+.classify {
+    color: #000000;
+}
+
+.classifyActive {
+    color: #2db7f5;
+}
+
+.classify,
+.classifyActive {
+    cursor: pointer;
+    position: relative;
+    padding: 15px 10px 5px 10px;
+    margin-right: 20px;
+}
+
+.classifyActive::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #2db7f5;
+}
+
+/*鼠标*/
+.cursor {
+    cursor: pointer;
+    transition: all ease .3s;
+    user-select: none
+}
+
+.cursor:hover {
+    opacity: .8
+}
+
+/*.ant-form-item{*/
+/*    margin-bottom: 0!important;*/
+/*}*/

@@ -1,0 +1,139 @@
+@import '../../style/reuse.less';
+
+.scene_detail {
+    .tip {
+        margin-left: 20px;
+        color: #8E8E8E;
+    }
+
+    .signEndTime_diff {
+        color: @color2;
+    }
+
+    .title {
+        font-size: 14px;
+        min-height: 50px;
+
+        .title_text {
+            padding-left: 40px;
+            position: relative;
+            font-weight: bold;
+
+            &::before {
+                content: "!";
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: @color3;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+                font-weight: normal;
+            }
+        }
+
+        .title_status {
+            text-align: right;
+
+            .main {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .note {
+                color: #8C8C8C;
+            }
+        }
+    }
+
+    .info_item {
+        padding: 5px 0;
+
+        .label {
+            text-align-last: justify;
+        }
+
+        .value {
+            box-sizing: border-box;
+            padding-left: 20px;
+        }
+    }
+
+    .tabs {
+        position: relative;
+
+        .options {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .products {
+        .more {
+            text-align: center;
+            padding: 8px 0;
+            background-color: @color4;
+            cursor: pointer;
+        }
+
+        .icon {
+            transform: rotateZ(90deg);
+        }
+    }
+
+    .bond {
+        .bond_row {
+            padding: 0 5px;
+        }
+    }
+
+    .whiteList {
+        border-top: 1px solid #d9d9d9;
+        margin-top: 15px;
+        padding-top: 20px;
+    }
+
+    .whiteList_item {
+        display: inline-block;
+        background-color: #FFFAE2;
+        border: 1px solid #FFE9A5;
+        margin: 5px 10px;
+        border-radius: 4px;
+        padding: 5px 10px;
+    }
+
+    .record {
+        padding-bottom: 10px;
+
+        p {
+            padding: 5px;
+        }
+
+        .rest {
+            color: @color2;
+
+            .rest_time {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .detail {
+        .payTime {
+            color: @color2;
+        }
+
+        .enclosure {
+            padding: 20px 10px;
+        }
+    }
+
+    .exp {
+        padding: 10px 20px;
+        word-break: break-all;
+    }
+}

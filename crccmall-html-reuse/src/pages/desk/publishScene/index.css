@@ -1,0 +1,202 @@
+.scene {
+  font-size: 14px;
+  background-color: #F2F2F2;
+  height: 100%;
+  overflow: auto;
+}
+.scene .main_content {
+  width: 1200px;
+  margin: 0 auto;
+}
+.scene .main_card {
+  margin-top: 10px;
+}
+.scene .main_title {
+  border-bottom: 2px solid #F2F2F2;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.scene .tip {
+  font-size: 12px;
+  margin-left: 20px;
+  color: #8E8E8E;
+  position: relative;
+}
+.scene .tip::before {
+  position: absolute;
+  left: -8px;
+  display: inline-block;
+  margin-right: 4px;
+  content: "*";
+  font-family: SimSun;
+  font-size: 12px;
+  color: #F50F50;
+}
+.scene .required::before {
+  content: "*";
+  color: #F50F50;
+  font-size: 14px;
+}
+.scene .w50 {
+  width: 50px;
+}
+.scene .w188 {
+  width: 188px;
+}
+.scene .w288 {
+  width: 288px;
+  position: relative;
+}
+.scene .w108 {
+  width: 108px;
+  position: relative;
+}
+.scene .w388 {
+  width: 388px;
+}
+.scene .w488 {
+  width: 488px;
+}
+.scene .line {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #F2F2F2;
+}
+.scene .linkBtn {
+  display: inline-block;
+  padding: 4px 15px;
+  color: #2DB7F5;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  outline: none;
+  border: none;
+  white-space: nowrap;
+}
+.scene .linkBtn:hover {
+  opacity: 0.7;
+}
+.scene .exportBtn {
+  color: #2DB7F5;
+  text-decoration: underline;
+  margin-right: 10px;
+}
+.scene .exportBtn:hover {
+  opacity: 0.7;
+}
+.scene .productBtn {
+  text-align: right;
+}
+.scene .productTableBox {
+  overflow: auto;
+}
+.scene .productTable {
+  width: 100%;
+  vertical-align: top;
+}
+.scene .productTable .product_file {
+  position: relative;
+  padding: 5px;
+  border-radius: 2px;
+}
+.scene .productTable .product_file:hover .close {
+  color: #F50F50;
+}
+.scene .productTable .product_file .close {
+  position: absolute;
+  right: 0;
+  top: 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.scene .productDel {
+  font-size: 20px;
+  color: #F50F50;
+  cursor: pointer;
+}
+.scene .product_materiel {
+  text-align: center;
+  background-color: #F2F2F2;
+  padding: 5px;
+}
+.scene .product_appendix {
+  padding: 30px 0;
+}
+.scene .product_appendix .files {
+  margin-top: 20px;
+}
+.scene .product_appendix .files .fileitem {
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 5px 10px;
+  padding-right: 20px;
+}
+.scene .product_appendix .files .fileitem + .fileitem {
+  margin-left: 40px;
+}
+.scene .product_appendix .files .fileitem:hover {
+  background-color: #EAF8FE;
+}
+.scene .product_appendix .files .fileitem:hover .close {
+  display: block;
+  color: #F50F50;
+}
+.scene .product_appendix .files .fileitem .close {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  display: none;
+  cursor: pointer;
+}
+.scene .explain .explain_length {
+  text-align: right;
+  padding: 5px 0;
+}
+.scene .explain .explain_warning {
+  color: #F50F50;
+}
+.scene .explain .explain_tip {
+  color: #F50F50;
+  padding: 0 10px;
+}
+.scene .bond .bond_item {
+  display: inline-block;
+  width: 40%;
+}
+.scene .bond .bond_whitelist {
+  display: inline-block;
+  background-color: #FFFAE2;
+  margin: 5px 10px;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.scene .bond .bond_del {
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  margin-left: 10px;
+  color: #F50F50;
+}
+.scene .bond .bond_btn {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.scene .privacy .privacy_isinitprice {
+  margin-left: 20px;
+}
+.scene .privacy .ant-row ant-form-item index__w115 .ant-form-item-label label {
+  width: 115px;
+}
+.scene .saveBtn {
+  text-align: center;
+}
+/* .wlmc{
+    width: auto;
+} */

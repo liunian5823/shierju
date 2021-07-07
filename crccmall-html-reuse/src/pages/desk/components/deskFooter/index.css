@@ -1,0 +1,65 @@
+.footer {
+  background-color: #fff;
+  font-size: 16px;
+  color: #000000;
+  min-width: 1200px;
+}
+.footer .content {
+  width: 1200px;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 44px;
+}
+.footer .item .title {
+  padding-bottom: 40px;
+}
+.footer .item .title img {
+  width: 42px;
+  height: 42px;
+  vertical-align: middle;
+}
+.footer .item .title span {
+  margin-left: 16px;
+}
+.footer .item .links .name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.footer .item .links li {
+  padding: 9px 0;
+}
+.footer .item .links li a {
+  color: #000;
+}
+.footer .item .links li a:hover {
+  color: #FF686F;
+  text-decoration: underline;
+}
+.footer .item .tel {
+  color: #FF686F;
+}
+.footer .item .code {
+  width: 157px;
+  height: 157px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+.footer .item .code img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.footer .item .tip {
+  color: #999;
+}
+.footer .record {
+  font-size: 14px;
+  border-top: 2px solid #F50F50;
+}
+.footer .record .record_box {
+  padding: 27px 0 42px 0;
+  text-align: center;
+}
+.footer .record .record_box p {
+  padding: 2px 0;
+}

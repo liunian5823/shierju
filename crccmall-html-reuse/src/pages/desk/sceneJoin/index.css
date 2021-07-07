@@ -1,0 +1,62 @@
+.scenejoin .color_red {
+  color: #F50F50;
+}
+.scenejoin .code {
+  position: relative;
+}
+.scenejoin .code .countdown {
+  border: 1px solid #F15557;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #FDEEEE;
+  float: right;
+}
+.scenejoin .code .countdown h3 {
+  color: #F15557;
+  font-size: 16px;
+  display: inline-block;
+}
+.scenejoin .sceneInfo .titleInfo .title_text {
+  padding-left: 40px;
+  position: relative;
+  font-weight: bold;
+  min-height: 40px;
+}
+.scenejoin .sceneInfo .titleInfo .title_text::before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #2DB7F5;
+  border-radius: 2px;
+  color: #FFF;
+  text-align: center;
+  font-weight: normal;
+}
+.scenejoin .sceneInfo .titleInfo .title_status {
+  text-align: right;
+}
+.scenejoin .sceneInfo .titleInfo .title_status .main {
+  font-size: 20px;
+  font-weight: bold;
+}
+.scenejoin .sceneInfo .titleInfo .title_status .note {
+  color: #8C8C8C;
+}
+.scenejoin .fileList .file_item {
+  padding: 5px;
+}
+.scenejoin .fileList .file_down {
+  text-decoration: underline;
+  margin-left: 50px;
+}
+.scenejoin .exportBtn {
+  float: right;
+}
+.scenejoin .remark {
+  width: 100%;
+  resize: none;
+}

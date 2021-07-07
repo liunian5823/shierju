@@ -1,0 +1,11 @@
+.main {
+  font-size: 14px;
+  background-color: #F2F2F2;
+  height: 100%;
+  overflow: auto;
+}
+.main .main_content {
+  width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}

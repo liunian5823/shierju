@@ -1,0 +1,53 @@
+/** 常用色值 **/
+/** 常用字体大小 **/
+/** 供应商常用色值 **/
+.pagetabs {
+  background-color: #ffffff;
+  line-height: 20px;
+  padding: 8px;
+  overflow: hidden;
+}
+.pagetabs .pagetabs_item {
+  transition: color 0.3s, border 0.3s;
+  padding: 0 15px 0 4px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 2px 2px 0 0;
+  background-color: transparent;
+  user-select: none;
+}
+.pagetabs .pagetabs_item:hover {
+  color: #6699cc;
+}
+.pagetabs .pagetabs_item:hover .del {
+  display: inline-block;
+}
+.pagetabs .pagetabs_item .text {
+  display: block;
+  line-height: 20px;
+  max-width: 80px;
+  overflow: hidden;
+}
+.pagetabs .pagetabs_item .del {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: none;
+  color: #333;
+  font-size: 12px;
+}
+.pagetabs .pagetabs_item .del:hover {
+  color: #ff5400;
+}
+.pagetabs .isActive {
+  padding: 0 4px;
+  color: #6699cc;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid transparent;
+  background-color: #ffffff;
+}

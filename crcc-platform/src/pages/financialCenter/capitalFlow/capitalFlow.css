@@ -1,0 +1,12 @@
+.exporttoolbar {
+    position:absolute;
+    right:9px;
+    text-align:right;
+    z-index:999;
+    width:100px;
+    margin-right:16px;
+}
+.capitalFlow .text_align_right {
+    text-align: right;
+}
+

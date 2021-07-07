@@ -1,0 +1,8 @@
+.form1 .ant-form-item-label label {
+    display: flex !important;
+}
+.label_itme {
+    display: flex;
+    justify-content: space-between;
+    width: 112px;
+}

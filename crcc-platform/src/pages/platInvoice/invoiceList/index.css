@@ -1,0 +1,20 @@
+.platInvoiceModalCss .ant-modal-content{
+    width: 689px;
+}
+
+
+.margin_top_low4{
+    margin-top: -4px;
+}
+
+.platInvoiceModalCss .ant-modal-footer{
+    height: 50px;
+}
+.plat_table_text{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    word-break: break-all;
+    -webkit-line-clamp:1;
+}

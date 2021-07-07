@@ -1,0 +1,252 @@
+.bid_enclosure {
+  a {
+    display: block;
+    font-size: 14px;
+    margin: 8px 0;
+  }
+}
+.enterprise_name {
+  position: absolute;
+  bottom: 30px;
+  right: 270px;
+  font-size: 14px;
+}
+.buyer_req {
+  :global{
+    .ant-card {
+      font-size: 14px;
+    }
+  }
+}
+.info_control_btn {
+  // width: 1297.6px;
+  // position: fixed;
+  // bottom: 0px;
+  // padding: 8px 0;
+  // text-align: center;
+  // background-color: #fff;
+  // z-index: 1000;
+  // box-shadow: 0px -1px 3px #e9e9e9;
+  button {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .go_top {
+    float: right;
+    width: 30px;
+    height: 30px;
+    // text-align: right;
+  }
+  img {
+    width: 30px;
+  }
+}
+.material_description {
+  height: 35px;
+  width: 130px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  &:hover {
+    overflow: auto;
+    -webkit-line-clamp: 5;
+  }
+}
+.wname_line {
+  width: 100%;
+  border-bottom: 1px solid #e9e9e9;
+  margin: 15px 0;
+}
+.load_more {
+  width: 100%;
+  background-color: #f7f7f7;
+  color: #666;
+  text-align: center;
+  font-weight: bold;
+  padding: 6px 0;
+  border-radius: 3px;
+}
+.load_more span {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.load_more i {
+  display: inline-block;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.time_count {
+  margin-top: 4px;
+  color: #e60012;
+  font-size: 14px;
+  >span {
+    display: inline-block;
+    margin-left: 50px;
+  }
+}
+.wname_list_container {
+  overflow: hidden;
+  .wname_list {
+    width: 50%;
+    float: left;
+    margin-bottom: 13px;
+    >p {
+      display: inline-block;
+      text-align: left;
+      color: #666;
+      line-height: 32px;
+      width: 300px;
+      height: 32px;
+      margin-right: 5px;
+      background-color: #edfeff;
+      border: 1px solid #60BFFF;
+      border-radius: 5px;
+      padding-left: 8px;
+    }
+    >.already_color {
+      display: inline-block;
+      text-align: center;
+      text-align-last: center;
+      height: 32px;
+      // text-justify: inter-ideograph;
+      color: #666;
+      width: 60px;
+      margin-right: 15px;
+      margin-left: 0;
+      background-color: #F0FFE7;
+      border: 1px solid #4CD91F;
+      border-radius: 5px;
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 30px;
+    }
+    >.unready_color {
+      display: inline-block;
+      text-align: center;
+      text-align-last: center;
+      height: 32px;
+      // text-justify: inter-ideograph;
+      color: #666;
+      width: 60px;
+      margin-right: 15px;
+      margin-left: 0;
+      background-color: #EDEDED;
+      border: 1px solid #959595;
+      border-radius: 5px;
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 30px;
+    }
+  }
+}
+.wname_list_banner {
+  >span {
+    display: inline-block;
+    text-align: justify;
+    text-align-last: justify;
+    text-justify: inter-ideograph;
+    text-align: right;
+    margin: 6px 0 8px 20px;
+    font-size: 14px;
+    width: 120px;
+    color: #333;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+  .wname_list_temp {
+    display: inline-block;
+    text-align: left;
+    margin: 6px 0 8px 20px;
+    font-size: 14px;
+    margin-left: 0;
+    color: #333;
+    vertical-align: top;
+  }
+}
+.order_total {
+  margin-bottom: 8px;
+}
+.approval_container {
+  :global{
+    .ant-card {
+      background: #fff;
+      border-radius: 4px;
+      font-size: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: all .3s;
+      margin-bottom: 10px;
+    }
+    .ant-card-bordered {
+      border: 0px!important;
+       /* border-color: #e9e9e9; */
+   }
+    .ant-tabs-bar {
+      background-color: #fff;
+      margin-bottom: 1px;
+      border-radius: 4px;
+    }
+  }
+  .approval_info_container {
+    .card_info_banner {
+      margin-top: 8px;
+    }
+  }
+}
+.table_container{
+  background-color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  .order_total {
+    margin: 0px 0 15px 32px;
+  }
+}
+//导出报价
+.telTipsTop {
+  width: 100%;
+  margin-top: -8px;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0 0 5px 25px;
+  font-size: 14px;
+  color: #333;  
+}
+.export_modal_class {
+  :global{
+    .ant-checkbox-group-item{
+      display: block;
+      width: 88%;
+      white-space: nowrap;
+      -o-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin:5px 0 5px 25px;
+    }
+  }
+   
+}
+.telTips {
+  width: 100%;
+  margin-top: 12px;
+  border-top: 1px dashed #e2e2e2;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 10px 0 10px 25px;
+  font-size: 10px;
+  color: #999;
+}
+.tip{
+  width: 100%;
+  margin-top: 12px;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 10px 0 10px 25px;
+  font-size: 10px;
+  color: #999;
+}
+
+

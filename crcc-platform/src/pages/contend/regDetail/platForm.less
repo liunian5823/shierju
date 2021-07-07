@@ -1,0 +1,35 @@
+.under_line_container {
+  margin-left: -156px;
+  :global{
+    .ant-modal-title {
+      color: red;
+    }
+    .ant-form-item-label {
+      label:after {
+        font-size: 14px;
+      }
+      label > span{
+        font-size: 14px;
+        display: inline-block;
+        width: 110px;
+        text-align: justify;
+        text-align-last: justify;
+        text-justify: inter-ideograph;
+        color: #333;
+      }
+    } 
+  }
+  .ant_form_text{
+    position: absolute;
+    top: 10px;
+    left:120px;
+    line-height: 1.2;
+    color: #999;
+    font-size: 12px;
+  }
+  .count_tip {
+    position: absolute;
+    right: 205px;
+    bottom: 16px;
+  }
+}

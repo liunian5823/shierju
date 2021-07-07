@@ -1,0 +1,65 @@
+/** 表格行内数据两行省略 */
+.table_overflow_twoLine{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    word-break: break-all;
+    -webkit-line-clamp:2;
+}
+/**
+结算单详情结算金额
+ */
+.purchaserSettlementDetail .amountTitle span{
+    color:rgba(0, 0, 0, 0.85);
+    font-size:20px!important;
+    line-height:28px;
+}
+
+.price-number-total{
+    color:rgba(222,37,4,1)
+}
+.tip{
+    width: 650px;
+    height: 60px;
+    margin: 0 auto;
+    padding: 6px;
+    border: 1px solid#ffdc9d;
+    background-color: #fffee7;
+    border-radius: 3px;
+    /* margin-right: 16px; */
+    margin-bottom: 20px;
+
+   
+}
+.number{
+    text-align: right;
+    margin-right: 16px;
+}
+.number span{
+    font-size: 12px;
+    font-weight: 700;
+    color: red;
+
+}
+
+.voucher_modal {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 650px;
+    
+}
+.voucher_modal .col{
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    padding-left: 12px;
+}
+.voucher_modal .red{
+    color: red;
+}
+.voucher_modal .left{
+    background-color: #e6f2ff;
+}
+
+

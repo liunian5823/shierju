@@ -1,0 +1,47 @@
+
+.tree_read {
+  padding: 10px 0;
+  &:clearfix{
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    font-size: 0;
+    visibility: hidden;
+  }
+  .tree_read_item {
+    float: left;
+    position: relative;
+    line-height: 22px;
+    padding-left: 100px;
+    margin-bottom: 10px;
+    .tree_title {
+      padding: 6px 12px;
+      float: left;
+      width: 100px;
+      height: 100%;
+      text-align: left;
+      padding-right: 14px;
+      color: rgba(102, 102, 102, 1);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: rgba(0, 0, 0, 0.65);
+      background: rgba(230, 247, 255, 1);
+      border-radius: 4px 0px 0px 4px;
+      border: 1px solid rgba(145, 213, 255, 1);
+      border-right: 0;
+    }
+    .tree_content {
+      float: left;
+      padding: 6px 12px;
+      height: 36px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: rgba(0, 0, 0, 0.65);
+      border-radius: 0px 4px 4px 0px;
+      border: 1px solid rgba(145, 213, 255, 1)
+    }
+  }
+}

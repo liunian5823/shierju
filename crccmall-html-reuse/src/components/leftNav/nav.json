@@ -1,0 +1,38 @@
+{
+  "data": {
+    "companyName": "齐商银行",
+    "username":"本地测试",
+    "id": 20170425004087,
+    "menu": [
+      {
+        "id": 19,
+        "name": "交易管理",
+        "url": "/order",
+        "method": null,
+        "modFlag": "1",
+        "parentId": "1",
+        "orderId": 1,
+        "isReport": 0,
+        "childCount": 7,
+        "icon": "icon-wuliu",
+        "children": [
+          {
+            "id": 31,
+            "name": "订单管理",
+            "method": null,
+            "modFlag": "2",
+            "parentId": "19",
+            "url": "#/order/orderManagement",
+            "orderId": 9,
+            "isReport": 0,
+            "childCount": 0,
+            "icon": null,
+            "children": null
+          }
+        ]
+      }],
+      "autStatus": 1
+  },
+  "status": "SUCCESS",
+  "msg": null
+}

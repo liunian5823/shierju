@@ -1,0 +1,105 @@
+// 公用样式
+@import "common.less";
+
+.helpconter{
+  width:@width;
+  margin: 20px auto;
+}
+.helpleft{
+  float: left;
+  width: 220px;
+  .lefttitle{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c42526;
+    color: #fff;
+    font-size: 14px;
+  }
+}
+.helpright{
+  float: right;
+  width: 960px;
+  border: 1px solid @border1;
+  .cardNews {
+    width: 100%;
+    margin: 0 auto 30px auto;
+    padding: 0;
+    .framl_conter{
+      padding: 20px;
+    }
+  }
+  .subNav{
+    text-align: center;
+    .subNavRow{
+      >div{
+        margin: 10px 0;
+        a{
+          color: #333;
+        }
+      }
+    }
+  }
+  .list_group{
+    width: 223px;
+    padding: 0 25px;
+    border-left: 1px dotted #EBEFF2;
+    float: left;
+    margin: 20px 0;
+    height: 190px;
+    li{
+      border:0;
+      width: 100%;
+      padding: 0;
+      line-height: 38px;
+      float: left;
+      a{
+        float: left;
+        width: 170px;
+        display: inline-block;
+        height: 38px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: @color1;
+      }
+      span{
+        float: right;
+        color:@color2;
+        width: 50px;
+        text-align: right;
+        overflow: hidden;
+      }
+    }
+  }
+  .breadcrumbtitle{
+    background: #f5f5f5;
+    height: 40px;
+    line-height: 40px;
+    border-top:2px solid #c42526;
+    padding: 0 15px;
+  }
+  .centerconter{
+    padding: 20px 30px;
+    .titlebiaoti{
+      font-size: 20px;
+      color: @color1;
+      text-align: center;
+      padding: 15px 0;
+      font-weight: bold;
+    }
+    .timeshijian{
+      font-size: 14px;
+      background: #f5f5f5;
+      line-height: 35px;
+      text-align: center;
+      color: @color1;
+      margin-bottom: 20px;
+    }
+    .neirongconter{
+      line-height: 30px;
+    }
+  }
+}

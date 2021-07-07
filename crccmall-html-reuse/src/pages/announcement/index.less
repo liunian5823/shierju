@@ -1,0 +1,78 @@
+.circle {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(214, 235, 254);
+  border: 1px solid blue;
+  display: block;
+  border-radius: 100%;
+}
+.jiantou {
+  transform: rotateZ(90deg);
+  height: 20px;
+  width: 20px;
+  display: flex;
+  text-align: center;
+  color: blue;
+}
+.img {
+  height: 100%;
+  width: 60px;
+  border-radius: 4px;
+}
+.news_time{
+  margin-top: 20px;
+  text-align: right;
+  color:rgba(153,153,153,0.85);
+  line-height: 30px;
+}
+
+.not_read {
+  color: #E02020
+}
+
+.allready_read {
+  color: #999999
+}
+body 
+:global{
+  .ant-card .ant-card-extra{
+    top:14px;
+}
+}
+.btns{
+  :global{
+    .ant-btn{
+      float: right;
+      margin-left: 15px;
+    }
+  }
+  .red{
+    background-color: red;
+    color: #fff;
+  }
+}
+
+.content{
+  
+font-size: 14px;
+font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+font-weight: 500;
+color: #000000;
+line-height: 21px;
+margin-bottom: 10px;
+}
+.contents{
+  
+font-size: 14px;
+font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+font-weight: 400;
+color: #000000;
+line-height: 21px;
+}
+.titles{
+  
+font-size: 14px;
+font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+font-weight: 400;
+color: rgba(0, 0, 0, 0.5);
+}

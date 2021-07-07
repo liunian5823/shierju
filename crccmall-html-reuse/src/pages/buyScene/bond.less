@@ -1,0 +1,159 @@
+@import '../../style/reuse.less';
+
+.payBond {
+
+    .tip {
+        margin-left: 20px;
+        color: #8E8E8E;
+    }
+
+    .title {
+        font-size: 14px;
+        min-height: 50px;
+
+        .title_text {
+            padding-left: 40px;
+            position: relative;
+            font-weight: bold;
+
+            &::before {
+                content: "!";
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: @color3;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+                font-weight: normal;
+            }
+        }
+
+        .title_status {
+            text-align: right;
+
+            .main {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .note {
+                color: #8C8C8C;
+            }
+        }
+    }
+
+    .demand {
+        .down {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #d9d9d9;
+        }
+    }
+
+    .pay {
+        .pay_item {
+            border: 1px solid #007AFF;
+            border-radius: 8px;
+            padding: 28px 20px;
+            cursor: pointer;
+            position: relative;
+            top: 0px;
+            overflow: hidden;
+            z-index: 1;
+
+            .pay_title {
+                font-size: 18px;
+                padding: 12px 0;
+            }
+
+            &.is_active {
+                background-color: #007AFF;
+                color: #fff;
+                border-color: #007AFF;
+                box-shadow: 0px 2px 4px #007AFF;
+                top: -10px;
+                transition: top .3s;
+
+                &.is_disabled {
+                    border-color: #007AFF;
+                }
+
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 200px;
+                    height: 200px;
+                    position: absolute;
+                    top: -100px;
+                    left: -100px;
+                    border-radius: 50%;
+                    background-image: radial-gradient(#FFFFFF, #007AFF, #007AFF);
+                    animation: paybfInto .8s;
+                    transform: scale(1);
+                    z-index: -1;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 40px;
+                    background-image: linear-gradient(#007AFF, #FFFFFF, #007AFF);
+                    position: absolute;
+                    left: -240px;
+                    top: 50px;
+                    transform: rotate(-45deg);
+                    z-index: -1;
+                    animation: payafInto .5s;
+                }
+            }
+
+            &.is_disabled {
+                cursor: not-allowed;
+                user-select: none;
+                opacity: .6;
+                border-color: @color1;
+            }
+        }
+
+        .pay_btn {
+            text-align: center;
+            padding: 36px 0 12px 0;
+        }
+    }
+
+    .fileDel {
+        color: @color2;
+        border-bottom: 1px solid @color2;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+}
+
+@keyframes paybfInto {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes payafInto {
+    0% {
+        left: -220px;
+    }
+
+    100% {
+        left: 250px;
+    }
+}

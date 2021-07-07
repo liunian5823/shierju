@@ -1,0 +1,523 @@
+/*外边距*/
+.margin8{margin: 8px;}
+.margin_left8{margin-left: 8px;}
+.margin_right8{margin-right: 8px;}
+.margin_top8{margin-top: 8px;}
+.margin_bottom8{margin-bottom: 8px;}
+.margin10{margin: 10px;}
+.margin_left10{margin-left: 10px;}
+.margin_right10{margin-right: 10px;}
+.margin_top10{margin-top: 10px!important;}
+.margin_bottom10{margin-bottom: 10px;}
+.margin_left12{margin-left: 12px;}
+.margin_right12{margin-right: 12px;}
+.margin_left16{margin-left: 16px;}
+.margin_bottom16{margin-bottom: 16px;}
+.margin_top18{margin-top: 18px;}
+.margin24{margin: 24px;}
+.margin_left24{margin-left: 24px;}
+.margin_right24{margin-right: 24px;}
+.margin_top24{margin-top: 24px;}
+.margin_bottom24{margin-bottom: 24px;}
+.margin48{margin: 48px;}
+.margin_left48{margin-left: 48px;}
+.margin_right48{margin-right: 48px;}
+.margin_top48{margin-top: 48px;}
+.margin_bottom48{margin-bottom: 48px;}
+.margin_bottom16{margin-bottom: 18px;}
+
+/*圆角*/
+/* button,input,select,textarea{border-radius: 4px!important;} */
+
+/*字号*/
+.font-size12{font-size: 12px!important;}
+.font-size16{font-size: 16px!important;}
+.font-size18{font-size: 18px!important;}
+.font-size20{font-size: 20px!important;}
+.font-size22{font-size: 22px!important;}
+.font-size24{font-size: 24px!important;}
+.font-size28{font-size: 28px!important;}
+
+/*颜色*/
+.font-color045{color:rgba(0,0,0,0.45);}
+.font-color065{color:rgba(0,0,0,0.65);}
+.font-color085{color:rgba(0,0,0,0.85);}
+.font-color0100{color:rgba(0,0,0,1);}
+.font-color2DB7F5{color:#2DB7F5}
+
+
+.padding_24{padding: 24px;}
+
+.ant-upload-list-text .ant-upload-list-item{
+    margin-top: 24px!important;
+}
+/*全局文字大小*/
+.gaoda * {
+    font-size: 14px;
+}
+.no-number-btn .reuse_bidhall_price-input .ant-input-number-handler-wrap{
+    opacity: 1 !important;
+}
+.ant-modal-title{
+    color:rgba(0,0,0,0.85)!important;
+    font-family:PingFangSC-Medium!important;
+    font-size:16px!important;
+}
+ .ant-card-head{
+    padding:0 16px!important;
+}
+/*card之间的间距*/
+.card-margin-bottom {
+    margin-bottom: 10px;
+}
+
+/*表单页错误信息下间距*/
+.ant-form-item.ant-form-item-with-help {
+    margin-bottom: 0;
+}
+
+/*必填标识*/
+.ant-form-item-required:before {
+    position: absolute;
+    left: -8px;
+}
+
+/*按钮组下间距*/
+.list-btns {
+    margin-bottom: 48px;
+}
+.wangedit_{
+    overflow-y: auto!important;
+}
+.wangedit_ h1{
+    font-size: 2em!important;
+}
+.wangedit_ h2{
+    font-size: 1.5em!important;
+}
+.wangedit_ h3{
+    font-size: 1.17em!important;
+}
+.wangedit_ h5{
+    font-size: 0.83em!important;
+}
+.wangedit_ h6{
+    font-size: 0.67em!important;
+}
+/*单独分页*/
+.gaoda .ant-card-body:after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+/*按钮组第一个按钮蓝色*/
+.list-btns button:first-child {
+    color: #fff;
+    background-color: #2db7f5;
+    border-color: #2db7f5;
+}
+
+.list-btns button:first-child:hover {
+    color: #ffffff;
+    background-color: #57c5f7;
+    border-color: #57c5f7;
+}
+
+.title_fontsize20 {
+    font-size: 20px;
+}
+
+/*页标题*/
+.content_fontsize20 {
+    font-size: 20px;
+}
+
+/*背景颜色*/
+.bgfff {
+    background: #fff;
+}
+
+/*按钮间距*/
+.btns .ant-btn {
+    margin-right: 8px;
+}
+::-webkit-input-placeholder { color: rgba(0,0,0,0.25); text-overflow: ellipsis; }
+:-moz-placeholder { color: rgba(0,0,0,0.25) !important;opacity:1; text-overflow: ellipsis; }
+::-moz-placeholder { color: rgba(0,0,0,0.25) !important;opacity:1; text-overflow: ellipsis; } /* for the future */
+:-ms-input-placeholder { color: rgba(0,0,0,0.25) !important; text-overflow: ellipsis; }
+
+.order_con_layer1 {
+    text-align: left;
+}
+
+.order_con_layer1 p {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px !important;
+    line-height: 22px;
+}
+
+.order_con_layer1 span {
+    font-size: 20px !important;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 28px;
+    padding-top: 4px;
+}
+
+.order_con_layer2 {
+    text-align: center;
+}
+
+.order_con_layer2 p {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px !important;
+    line-height: 22px;
+}
+
+.order_con_layer2 span {
+    font-size: 20px !important;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 28px;
+    padding-top: 4px;
+}
+
+.order_con_title {
+    font-size: 20px !important;
+    line-height: 28px;
+}
+
+.order_con_title img {
+    margin-right: 8px;
+}
+
+.order_con_title span {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    float: left;
+}
+
+.order_con_title em {
+    font-style: normal;
+    display: inline-block;
+    font-size: 20px !important;
+    color: rgba(0, 0, 0, 0.85);
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 900px;
+}
+
+.list_label_layer1 {
+    display: inline-block;
+    width: 84px;
+    color: rgba(0, 0, 0, 0.85);
+}
+.col_border1{
+    padding:6px;
+    border: 0px solid #d9d9d9;
+    background: #e4dfdf;
+
+}
+
+.text_3 div {
+    width: 33.33%;
+    display: inline-block;
+}
+
+.text_3 div.text1 {
+    text-align: left;
+}
+
+.text_3 div.text2 {
+    text-align: center;
+}
+
+.text_3 div.text3 {
+    text-align: right;
+}
+
+.text_4 div {
+    width: 30%;
+    display: inline-block;
+}
+
+.text_4 div.text1 {
+    width: 20%;
+    text-align: left;
+}
+
+.text_4 div.text2 {
+    text-align: center;
+}
+
+.text_4 div.text3 {
+    text-align: center;
+}
+
+.text_4 div.text4 {
+    width: 20%;
+    text-align: right;
+}
+
+.text_5 div {
+    width: 22%;
+    display: inline-block;
+}
+
+.text_5 div.text1 {
+    text-align: left;
+}
+
+.text_5 div.text2 {
+    width: 21%;
+    text-align: left;
+}
+
+.text_5 div.text3 {
+    width: 14%;
+    text-align: center;
+}
+
+.text_5 div.text4 {
+    width: 21%;
+    text-align: right;
+}
+
+.text_5 div.text5 {
+    text-align: right;
+}
+
+.text_6 div {
+    width: 17%;
+    display: inline-block;
+}
+
+.text_6 div.text1 {
+    width: 15%;
+    text-align: left;
+}
+
+.text_6 div.text2 {
+    text-align: center;
+}
+
+.text_6 div.text3 {
+    text-align: center;
+}
+
+.text_6 div.text4 {
+    text-align: center;
+}
+
+.text_6 div.text5 {
+    text-align: center;
+}
+
+.text_6 div.text6 {
+    width: 15%;
+    text-align: right;
+}
+
+.ant-menu-submenu {
+    color: rgba(0, 0, 0, 0.65);
+    background: #fff;
+}
+
+.ant-menu-submenu:hover, .ant-menu-submenu-title:hover {
+    background: none;
+}
+
+.ant-menu-submenu-open .ant-menu-submenu-title {
+    color: rgba(0, 0, 0, 0.85);
+}
+.ant-menu-inline, .ant-menu-vertical{
+    border-right: none;
+}
+.ant-menu-item:hover {
+    background: none;
+}
+
+.gaoda .ant-menu-item > a ,#index_detail .ant-menu-item > a{
+   color: rgba(0, 0, 0, 0.45);
+}
+
+.gaoda .ant-menu-item > a:hover ,#index_detail .ant-menu-item > a:hover {
+    color: #2db7f5;
+}
+
+.gaoda .ant-form-item-label ,#index_detail .ant-form-item-control{
+    padding: 0px;
+}
+
+.gaoda .ant-form-item-control ,#index_detail .ant-form-item-control{
+    line-height: 22px;
+}
+
+.ant-form-item {
+    margin-bottom: 24px;
+}
+
+.ant-form-text {
+    color: rgba(0, 0, 0, 0.65);
+    word-break: break-all;
+}
+
+.ant-form-text a {
+    color: #2DB7F5;
+}
+
+.ant-form-text a.ant-form-text-btn {
+    color: #2DB7F5;
+}
+.ant-form-item-control a.margin_left16{
+    margin-left: 0px;
+}
+.gaoda .ant-form-item-label {
+    margin-right: 16px;
+    line-height: 32px;
+}
+
+.ant-form-item-margin-bottom .ant-form-item {
+    margin-bottom: 8px;
+}
+.ant-form-item-margin-bottom-24 .ant-form-item{
+    margin-bottom: 24px;
+}
+.ant-form-item-margin-bottom .ant-form-item-label {
+    line-height: 22px;
+}
+
+.advanced_search {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: rgba(102, 102, 102, 1);
+    background: rgba(248, 248, 248, 1);
+    cursor: pointer;
+}
+
+.advanced_search span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.advanced_search i {
+    font-style: normal;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.text_align_right {
+    text-align: right !important;
+}
+@media (max-width:1216px){
+    .list-ant-affix .ant-affix{
+        left: 0px!important;
+        width: 100%!important;
+    }
+}
+.ant-form-item-tips .ant-form-item-label label{
+    border-bottom: 1px dashed #FAAD14;
+    color: #FAAD14;
+    cursor: pointer;
+}
+.ant-form-item-tips .ant-form-item-label label span.list_label_layer1{
+    color: #FAAD14;
+}
+
+/*20181027*/
+.ant-card-head-title{font-size: 16px!important; color: rgba(0,0,0,0.85)!important;}
+
+.ant-table-thead > tr > th:nth-child(1), .ant-table-tbody > tr > td:nth-child(1){
+    padding-left:16px!important;
+}
+.border-none{
+    border:none;
+}
+.border-radius-none{
+    border-radius: 0px;
+}
+
+.ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next{
+    border-radius:4px!important;
+}
+
+.ant-pagination-item{
+    border-radius:4px!important;
+}
+.ant-select-selection{
+    border-radius:4px!important;
+}
+
+.ant-input{
+    border-radius:4px!important;
+}
+
+.ant-calendar{
+    border-radius:4px!important;
+}
+.ant-popover-inner{
+    border-radius:4px!important;
+}
+
+.ant-confirm-body > .anticon{
+    font-size: 24px!important;
+}
+.ant-table-thead > tr > th .anticon-filter:hover{
+    color: #aaa;
+}
+.ant-table-column-sorter{cursor: default;}
+.ant-table-column-sorter-up:hover .anticon{color: #aaa;}
+.ant-table-column-sorter-down:hover .anticon{color: #aaa;}
+.ant-table-column-sorter .anticon:hover:before{color: #aaa;}
+
+
+.ant-form-item-label label{
+    display: inline-block;
+}
+.w-e-text p, .w-e-text h1, .w-e-text h2, .w-e-text h3, .w-e-text h4, .w-e-text h5, .w-e-text table, .w-e-text pre{
+    margin: 0;
+}
+.print-hide{
+    display: none;
+}
+.domPrint{
+    position: fixed;
+    z-index: 0;
+    left: -200%;
+    top: -200%;
+    width: 100%;
+}
+
+/* .ant-table{
+    font-size: 14px !important;
+  } */
+
+.ant-form-item-margin-bottom .ant-form-item {
+    font-size: 14px !important;
+}
+
+.ant-form-item-margin-bottom .ant-form-item-label .label{
+    font-size: 14px !important;
+}
+.fontS{
+    font-size: 14px !important;
+}
+
+.ant-row .ant-form-item .ant-form-item-label .label{
+    font-size: 14px !important;
+}

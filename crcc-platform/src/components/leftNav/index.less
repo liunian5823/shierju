@@ -1,0 +1,37 @@
+@import './../../style/default.less';
+.main_leftNav {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 200px;
+  padding-top: 60px;
+  background: #002A61;
+  box-shadow: 2px 0px 6px 0px rgba(0, 21, 41, 0.35);
+  box-sizing: border-box;
+  .main_leftNav_logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    padding: 13px 15px;
+    background: #004197;
+    color: #fff;
+    line-height: 30px;
+    font-size: 16px;
+    img {
+      width: 100%;
+    }
+  }
+  .main_leftNav_menu {
+    height: 100%;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

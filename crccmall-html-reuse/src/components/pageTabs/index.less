@@ -1,0 +1,54 @@
+@import './../../style/default.less';
+
+.pagetabs {
+    background-color: @colorM;
+    line-height: 20px;
+    padding: 8px;
+    overflow: hidden;
+    .pagetabs_item {
+        transition: color .3s, border .3s;
+        padding: 0 15px 0 4px;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: bottom;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 2px 2px 0 0;
+        background-color: transparent;
+        user-select: none;
+        &:hover {
+            color: @colorD;
+            .del {
+                display: inline-block;
+            }
+        }
+        .text {
+            display: block;
+            line-height: 20px;
+            max-width: 80px;
+            overflow: hidden;
+            // white-space: nowrap;
+            // text-overflow: ellipsis;
+        }
+        .del {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            display: none;
+            color: @colorC;
+            font-size: @fontF;
+            &:hover {
+                color: @colorB;
+            }
+        }
+    }
+    .isActive {
+        padding: 0 4px;
+        color: @colorD;
+        border-top: 1px solid @colorH;
+        border-right: 1px solid @colorH;
+        border-left: 1px solid @colorH;
+        border-bottom: 1px solid transparent;
+        background-color: @colorM;
+    }
+}

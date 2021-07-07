@@ -1,0 +1,21 @@
+.matchingOrder .list_label_layer1{
+    font-size: 14px;
+}
+.matchingOrder .ant-form-item{
+    font-size: 14px;
+}
+
+.matchingOrder .ant-form-item-required:before{
+    position: absolute;
+    left: -9px;
+}
+
+.sdff{
+    text-align: right;
+}
+.sdff button{
+    width: 98px;
+    height: 32px;
+    position: relative;
+    top: 3px;
+}

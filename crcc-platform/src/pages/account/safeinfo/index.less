@@ -1,0 +1,143 @@
+@import './../../../style/default.less';
+.card_tip {
+  margin-left: 24px;
+  color: #999999;
+  font-size: 12px;
+  .tip_icon {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #1890FF;
+  }
+}
+
+.account_info {
+  .img {
+    width: 100px;
+    height: 100px;
+    background: #e4393c;
+  }
+  .base_info {
+    height: 200x;
+    overflow: hidden;
+    border-left: 1px solid #e8e8e8;
+    &:first-child {
+      border: 0;
+    }
+  }
+}
+
+.card_line {
+  padding: 10px 24px;
+  border-top: 1px solid #e8e8e8;
+  background: #fff;
+  .row {
+    text-align: center;
+  }
+}
+
+.label {
+  color: #666666;
+  text-align: right;
+}
+
+.value {
+  color: #151515;
+}
+
+.card_row {
+  padding: 18px;
+  border-bottom: 1px solid @color5;
+  line-height: 32px;
+  .border_right {
+    border-right: 1px solid @color5;
+  }
+  .icon {
+    font-size: 32px;
+    vertical-align: middle;
+    margin-right: 8px;
+    &.success {
+      color: @color6;
+    }
+    &.warning {
+      color: @color7;
+    }
+    &.error {
+      color: @color8;
+    }
+  }
+  .title {
+    font-size: 14px;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .tip {
+    padding-left: 20px;
+    .success {
+      // color: @color6;
+    }
+    .warning {
+      // color: @color7;
+    }
+    .error {
+      color: @color8;
+    }
+  }
+  .btn_group {
+    text-align: right;
+    button {
+      margin-left: 8px;
+    }
+  }
+}
+
+.leavel_text {
+  &.success {
+    color: @color6;
+  }
+  &.warning {
+    color: @color7;
+  }
+  &.error {
+    color: @color8;
+  }
+}
+
+.result_box {
+  padding: 30px 20px 50px;
+  text-align: center;
+  .icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    &.success {
+      color: @color6;
+    }
+    &.warning {
+      color: @color7;
+    }
+    &.error {
+      color: @color8;
+    }
+  }
+  .title {
+    text-align: center;
+    height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 32px;
+  }
+}
+
+.code_box {
+  position: relative;
+  .code_btn {
+    width: 90px;
+    position: absolute;
+    top: 5px;
+    line-height: 22px;
+    right: 0px;
+    &span {
+      color: #999;
+    }
+  }
+}

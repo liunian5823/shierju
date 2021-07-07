@@ -1,0 +1,135 @@
+/* form表单 */
+
+body .ant-form-horizontal .baseForm .ant-form-item {
+  height: 32px;
+}
+
+/* table表格 */
+body .ant-table a {
+  margin-right: 8px;
+}
+
+body .ant-card:hover {
+  box-shadow: none;
+  border-color: #e9e9e9;
+}
+
+body .ant-card-head-title {
+  font-size: 16px;
+}
+
+body .has-error .ant-form-explain {
+  line-height: 23px;
+}
+
+/* menu */
+/* body .ant-menu-inline.ant-menu-sub,
+body .ant-menu-submenu-active>.ant-menu-inline.ant-menu-sub {
+  background: #fff;
+} */
+
+
+
+
+/*card额外区域 */
+
+body .ant-card-extra-div {
+  line-height: 32px;
+}
+
+body .ant-card-extra-div .anticon {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+body .ant-card-extra-div .ant-switch .anticon {
+  font-size: 14px;
+}
+
+body .ant-message-notice-content {
+  padding: 12px 32px;
+}
+body .ant-message .anticon{
+  font-size: 16px;
+}
+body .ant-message-custom-content{
+  font-size: 16px;
+}
+
+
+body .ant-tree li span.ant-tree-checkbox{
+  margin: 6px 4px 0 0;
+}
+body .ant-tree li a{
+  font-size: 14px;
+  padding: 2px 10px;
+}
+
+body .select_area_tree .ant-tree li span.ant-tree-switcher, .ant-tree li span.ant-tree-iconEle{
+  display: none;
+}
+
+body .select_area_tree .ant-tree li{
+  margin: 2px 0;
+  line-height: 22px;
+}
+
+body .select_area_tree .ant-tree li span.ant-tree-checkbox{
+  margin: 6px 2px 0 0;
+}
+
+body .select_area_tree .ant-tree li a{
+  padding: 2px 4px;
+}
+
+body .ant-input[disabled],
+fieldset[disabled] .ant-input {
+  color:#666;
+}
+
+body .ant-upload-list-picture-card .ant-upload-list-item{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+body .ant-upload.ant-upload-select-picture-card{
+  width: 100%;
+  height: 100%;
+}
+
+body .ant-table-column-sorter{cursor: default;}
+body .ant-table-column-sorter-up:hover .anticon{color: #aaa;}
+body .ant-table-column-sorter-down:hover .anticon{color: #aaa;}
+body .ant-table-column-sorter .anticon:hover:before{color: #aaa;}
+
+
+body .ant-btn,
+body image {
+  vertical-align: top;
+}
+
+body .ant-form-item-label{
+  padding: 5px 0 6px;
+}
+
+body .ant-menu-vertical > .ant-menu-item,
+body .ant-menu-inline > .ant-menu-item,
+body .ant-menu-item-group-list > .ant-menu-item,
+body .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title,
+body .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+body .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title
+{
+  font-size: 14px;
+}
+
+body .ant-card-head-title{
+  font-size: 16px;
+}
+
+/* BaseTabs组建tabs重置 */
+body .baseTabs .ant-tabs-nav .ant-tabs-tab{
+  margin-right: 0;
+}
+body .baseTabs .ant-tabs-nav-container{
+  font-size: 14px;
+}

@@ -1,0 +1,12 @@
+.uploadClass .ant-upload > span{
+    height: 100%;
+}
+.uploadClass .ant-upload.ant-upload-select-picture-card{
+    padding: 0;
+}
+.uploadClass{
+    float: left;
+    display: inline-block;
+    width: 400px;
+    height: 250px;
+  }

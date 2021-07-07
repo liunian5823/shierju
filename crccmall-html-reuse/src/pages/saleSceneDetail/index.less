@@ -1,0 +1,257 @@
+@import '../../style/reuse.less';
+
+.scene_detail {
+    .tip {
+        margin-left: 20px;
+        color: #8E8E8E;
+    }
+
+    .signEndTime_diff {
+        color: @color2;
+    }
+
+    .title {
+        font-size: 14px;
+        min-height: 50px;
+
+        .title_text {
+            padding-left: 40px;
+            position: relative;
+            font-weight: bold;
+
+            &::before {
+                content: "!";
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: @color3;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+                font-weight: normal;
+            }
+        }
+
+        .title_status {
+            text-align: left;
+            width: 120px;
+            float: right;
+            .statustitle{
+                font-size: 14px;
+                font-weight: 400;
+                color: #888888;
+            }
+            .main {
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .note {
+                color: #8C8C8C;
+            }
+            .smBt{
+                height: 20px;
+                line-height: 0px;
+            }
+        }
+    }
+
+    .info_item {
+        padding: 5px 0;
+
+        .label {
+            text-align-last: right;
+        }
+
+        .value {
+            box-sizing: border-box;
+            padding-left: 20px;
+        }
+    }
+
+    .tabs {
+        position: relative;
+
+        .options {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .products {
+        .more {
+            text-align: center;
+            padding: 8px 0;
+            background-color: @color4;
+            cursor: pointer;
+        }
+
+        .icon {
+            transform: rotateZ(90deg);
+        }
+    }
+
+    .bond {
+        .bond_row {
+            padding: 0 5px;
+        }
+    }
+
+    .whiteList {
+        border-top: 1px solid #d9d9d9;
+        margin-top: 15px;
+        padding-top: 20px;
+    }
+
+    .whiteList_item {
+        display: inline-block;
+        background-color: #FFFAE2;
+        border: 1px solid #FFE9A5;
+        margin: 5px 10px;
+        border-radius: 4px;
+        padding: 5px 10px;
+    }
+
+    .record {
+        padding-bottom: 10px;
+
+        p {
+            padding: 5px;
+        }
+
+        .rest {
+            color: @color2;
+
+            .rest_time {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .detail {
+        .payTime {
+            color: @color2;
+        }
+
+        .enclosure {
+            padding: 20px 10px;
+        }
+    }
+
+    .exp {
+        width: 957px;
+        height: 446px;
+        background: #f8f8f8;
+        border-radius: 2px;
+        border: 1px solid #E3E3E3;
+        word-break: break-all;
+        padding: 10px 20px;
+        overflow-y: scroll;
+        margin-top: 10px;
+    }
+}
+.btInfo{
+    width:800px;
+    margin-top: 30px;
+    color: #666666;
+    .btInfo1{
+        text-align: right;
+        line-height: 10px;
+        .redfont{
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+    .btInfo2{
+        text-align: right;
+    }
+    .btInfo3{
+        margin-top: 5px;
+        padding-top: 5px;
+        text-align: right;
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+        width: auto;
+        float: right;
+        border-top: 1px solid #BBBBBB;
+    }
+    .redfont{
+        color:#FF1919;
+    }
+}
+.uploadpics {
+    position: relative;
+    display: inline-block;
+    height: 96px;
+    width: 96px;
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    vertical-align: top;
+  }
+  
+  .uploadpics img {
+    height: 78px;
+    width: 78px;
+  }
+  
+  .uploadpics:before {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    content: ' ';
+    width: 78px;
+    height: 24px;
+    background-color: #808080;
+    opacity: .8;
+  }
+  .piclist{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    padding: 20px 0 50px 0;
+    img{
+        width: 80px;
+        height: 80px;
+        padding: 5px;
+        margin: 0 10px;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+    }
+  }
+
+
+
+.modalSign{
+    padding: 0 0 0 20px;
+    text-align: left;
+}
+.firstRow{
+    padding-bottom: 10px;
+    span{
+        padding-left: 3px;
+    }
+}
+
+.button10{
+    margin-bottom: 10px;
+}
+.nameRight{
+    text-align: right;
+    padding: 0 10px 0 0
+}
+
+.redClass{
+    color: red;
+    float: left;
+}
+
+.redFont{
+    color: red;
+    font-weight: bold;
+}

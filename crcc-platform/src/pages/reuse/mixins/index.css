@@ -1,0 +1,5 @@
+.list .ant-table-pagination {
+    float: none!important;
+    display: flex;
+    justify-content: center;
+}

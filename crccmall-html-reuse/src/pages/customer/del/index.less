@@ -1,0 +1,75 @@
+@import '../../../style/reuse.less';
+
+.bondDetail{
+    .card{
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    .money{
+        color: @color2;
+    }
+    .title{
+        font-size: 14px;
+        padding-bottom: 10px;
+        .title_text{
+            padding-left: 40px;
+            position: relative;
+            font-weight: bold;
+            &::before{
+                content: "!";
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: @color3;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+                font-weight: normal;
+            }
+        }
+    }
+    .topMesage{
+        width: 60%;
+        display: block;
+        height: 100%;
+    }
+    .rightspan{
+        width: 40%;
+        display: block;
+        float: left;
+    }
+    .flex{
+        display: flex;
+        justify-content: space-between;
+    }
+    .examine{
+        width: 200px;
+        position: absolute;
+        right: 0;
+        top:0;
+        font-size: 24px;
+        .examine_status_no{
+            color: #FA9B13;
+        }
+        .examine_status_ing{
+            color: #FA9B13;
+        }
+        .examine_status_was{
+            color: #FA9B13;
+        }
+    }
+    .inputwidth{
+        width: 100px;
+    }
+
+}
+.textcolor{
+    box-sizing: border-box;
+    padding-left: 20px !important;
+    word-break: break-all;
+    color: #2DB7F5;
+    text-decoration: underline;
+}

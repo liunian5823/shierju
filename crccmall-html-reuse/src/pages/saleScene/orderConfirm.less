@@ -1,0 +1,28 @@
+@import '../../style/reuse.less';
+
+.modal_title{
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.order{
+    .info{
+        position: relative;
+        .info_status{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+            min-width: 400px;
+            z-index: 1;
+        }
+    }
+    .label{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align-last: justify;
+        padding-top: 6px;
+        padding-right: 10px;
+    }
+}

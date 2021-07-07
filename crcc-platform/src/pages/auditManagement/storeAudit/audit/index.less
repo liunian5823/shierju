@@ -1,0 +1,239 @@
+// 公用样式
+@import "common.less";
+@import "product.less";
+
+// 轮播区域
+.banner_waicheng{
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+}
+.shade_class{
+  background: rgba(0, 0, 0, 0.64);
+  width:@width;
+  height: 450px;
+  position:absolute;
+  z-index: 1;
+  margin: 0 auto;
+  color: #fff;
+  line-height: 450px;
+  text-align: center;
+  font-size: 24px;
+}
+
+#warn_col{
+  display: none !important;
+}
+.tishiyu{
+  border-radius: 4px;
+  color: #F5A623;
+  border: 1px dotted #FFEFD6;
+  padding: 5px 10px;
+  line-height: 24px;
+  font-size: 12px;
+  background: #FFFCF7;
+  margin-bottom: 10px;
+  strong{
+    margin-right: 5px;
+  }
+}
+.sctpian{
+  position: relative;
+  .updateted{
+    margin-top:20px;
+    i{
+      font-size: 30px;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+  }
+  .urllianjie{
+    float: left;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 620px;
+    input{
+      width: 500px;
+      line-height: 30px;
+      height: 30px;
+      float: left;
+    }
+    .bianjibiaoqian{
+      line-height: 30px;
+      padding: 0 15px;
+      float: left;
+      a{
+        margin: 0 5px;
+        i{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.tianjia_hang{
+  width: 100%;
+  clear: left;
+  text-align: center;
+  button{
+    height: 35px;
+    margin: 20px auto;
+    i{
+      &:before{
+        display: inline-table;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+
+.banner_tu{
+  height: 450px;
+  background: @background;
+  width:@width;
+  height: 450px;
+  margin: 0 auto;
+  position:relative;
+  img{
+    width: 1200px;
+    height: 450px;
+  }
+  div{
+    height: 450px;
+  }
+  ul{
+    position: absolute;
+    bottom: 10px!important;
+    li{
+      button{
+        padding: 0!important;
+        &:before{
+          font-size: 45px!important;
+        }
+      }
+    }
+  }
+  .banner_djtjtp{
+    font-size: 18px;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    color: #ccc;
+    i{
+      display: block;
+      font-size: 40px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+// 添加商品分类
+.chuchuang_biaoti{
+  float: left;
+  font-size: 18px;
+  color: @color2;
+  padding-left: 15px;
+}
+.chuchuang_more{
+  float: right;
+  a{
+    color: @color1;
+    padding: 0 5px;
+    font-size:14px;
+  }
+}
+.tianjia_chuchuang{
+  background: @background;
+  height: 50px;
+  border-radius: @border-radius;
+  text-align: center;
+  line-height: 50px;
+  margin:0 auto 20px auto;
+  width: @width;
+  font-size: 14px;
+  a{
+    color: @color1;
+    padding: 0 5px;
+    i{
+      padding: 2px;
+      font-size: 12px;
+    }
+  }
+}
+
+.card_pinpai{
+  margin:0 auto 20px auto;
+  width: @width;
+}
+.ant_card_head{
+  border-bottom: 0!important;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: @margin-bottom;
+  background: @background;
+}
+.ant-card-body{
+  padding: 0;
+}
+
+
+
+.youduiqi{
+  text-align: right;
+}
+
+
+.dragger_tip{
+  display: none;
+}
+#app{
+  overflow: auto!important;
+}
+
+
+.shenhe{
+  min-width: 1200px;
+  border: 1px dotted #eee;
+  strong{
+    display: block;
+    font-size: 14px;
+    padding: 0 0 5px 0;
+  }
+  .yijian{
+    background: #f9f9f9;
+    float: left;
+    width: 100%;
+    border-radius: 4px;
+    padding: 20px;
+    .sh_left{
+      float: left;
+      width: 44%;
+      .shjujue{
+        background: #fff;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #eee;
+      }
+    }
+    .sh_right{
+      float: right;
+      width: 55%;
+      .beizhu{
+        background: #fff;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #eee;
+        textarea{
+          border: 0;
+        }
+      }
+    }
+  }
+}
+

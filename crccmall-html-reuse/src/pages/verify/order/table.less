@@ -1,0 +1,161 @@
+@import '../../../style/reuse.less';
+
+@main_color: #d9d9d9;
+.orderTable{
+    .head{
+        box-sizing: border-box;
+        border: 1px solid @main_color;
+        .headTitle{
+            padding: 15px 20px;
+        }
+        .headSort{
+            border-top: 1px solid @main_color;
+            padding: 15px 20px;
+            overflow: hidden;
+            .sortItem{
+                float: left;
+                & + .sortItem{
+                    margin-left: 30px;
+                }
+
+                .sorter{
+                    margin-left: 4px;
+                    margin-top: -4px;
+                    display: inline-block;
+                    width: 12px;
+                    height: 18px;
+                    vertical-align: middle;
+                    text-align: center;
+                    .is_sort{
+                        color: @color3;
+                    }
+                    .sorter_icon{
+                        line-height: 4px;
+                        height: 8px;
+                        display: block;
+                        width: 12px;
+                        cursor: pointer;
+                        font-size: 14px;
+                        text-align: center;
+                        &:hover{
+                            color: @color3;
+                        }
+
+                        i{
+                            transform: scale(.6) rotate(0deg);
+                        }
+                    }
+                }
+
+                .filter{
+                    margin-left: 4px;
+                    display: inline-block;
+                    width: 12px;
+                    height: 18px;
+                    vertical-align: middle;
+                    text-align: center;
+                    cursor: pointer;
+                    box-sizing: border-box;
+                    &.is_filter{
+                        color: @color3;
+                    }
+                    &:hover{
+                        color: @color3;
+                    }
+                }
+            }
+        }
+    }
+
+    .body{
+        .row{
+            box-sizing: border-box;
+            margin: 16px 0;
+            transition: outline .3s, box-shadow .3s;
+            &:hover{
+                box-shadow: 0 0 5px @color3;
+            }
+            .row_head{
+                box-sizing: border-box;
+                padding: 12px 20px;
+                background-color: #FAFAFA;
+                border: 1px solid @main_color;
+                border-bottom: none;
+                white-space: nowrap;
+                .head_item{
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    box-sizing: border-box;
+                    padding: 0 10px;
+                }
+                &.no_list{
+                    border-bottom: 1px solid @main_color;
+                }
+            }
+            .row_body{
+                .row_body_content{
+                    .not_tatalist{
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                        font-size: 14px;
+                        text-align: center;
+                        vertical-align: middle;
+                        border: 1px solid @main_color;
+                        box-sizing: border-box;
+                        color: #999;
+                    }
+                }
+                table{
+                    width: 100%;
+                    border-collapse: collapse;
+                    table-layout : fixed;
+                    text-align: left;
+
+                }
+                thead{
+                    height: 0;
+                    border: none;
+                    overflow: hidden;
+                    th{
+                        border: none;
+                        overflow: hidden;
+                    }
+                }
+                tr{
+                    &:hover{
+                        background-color: #EAF8FE;
+                    }
+                }
+                th,td{
+                    border: 1px solid @main_color;
+                }
+                td{
+                    padding: 20px;
+                }
+            }
+            .open{
+                text-align: center;
+                padding: 12px 0;
+                background-color: #FAFAFA;
+                box-sizing: border-box;
+                border: 1px solid @main_color;
+                margin-top: -1px;
+                cursor: pointer;
+                .open_icon{
+                    transform: rotate(90deg);
+                    &.open_icon_up{
+                        transform: rotate(-90deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer{
+        overflow: hidden;
+        margin-top: 15px;
+        .pagination{
+            float: right;
+        }
+    }
+}

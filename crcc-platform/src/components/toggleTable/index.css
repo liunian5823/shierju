@@ -1,0 +1,12 @@
+.toggleTable .more {
+  text-align: center;
+  padding: 8px 0;
+  background-color: #FFFAE2;
+  cursor: pointer;
+}
+.toggleTable .open_icon {
+  transform: rotateZ(-90deg);
+}
+.toggleTable .close_icon {
+  transform: rotateZ(90deg);
+}

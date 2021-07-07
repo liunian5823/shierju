@@ -1,0 +1,12 @@
+.wuliu{
+    
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+    font-weight: bold;
+    color: #000000;
+    margin-left: 10px;
+    }
+    .time_col .ant-timeline-item-content {
+        top:0px
+          
+      }

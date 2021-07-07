@@ -1,0 +1,320 @@
+.files {
+  margin-top: 20px;
+}
+.files .fileitem {
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 5px 10px;
+  padding-right: 20px;
+}
+.files .fileitem + .fileitem {
+  margin-left: 40px;
+}
+.files .fileitem:hover {
+  background-color: #EAF8FE;
+}
+.files .fileitem:hover .close {
+  display: block;
+  color: #F50F50;
+}
+.files .fileitem .close {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  display: none;
+  cursor: pointer;
+}
+.scene {
+  font-size: 14px;
+  background-color: #F2F2F2;
+  height: 100%;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+.scene .main_content {
+  width: 1200px;
+  margin: 0 auto;
+}
+.scene .main_card {
+  margin-top: 10px;
+}
+.scene .main_title {
+  border-bottom: 2px solid #F2F2F2;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.scene .tip {
+  font-size: 12px;
+  margin-left: 20px;
+  color: #8E8E8E;
+  position: relative;
+}
+.scene .tip::before {
+  position: absolute;
+  left: -8px;
+  display: inline-block;
+  margin-right: 4px;
+  content: "*";
+  font-family: SimSun;
+  font-size: 12px;
+  color: #F50F50;
+}
+.scene .w50 {
+  width: 50px;
+}
+.scene .w188 {
+  width: 188px;
+}
+.scene .w288 {
+  width: 288px;
+  position: relative;
+}
+.scene .w388 {
+  width: 388px;
+}
+.scene .w488 {
+  width: 488px;
+}
+.scene .line {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #F2F2F2;
+}
+.scene .linkBtn {
+  display: inline-block;
+  padding: 4px 15px;
+  color: #2DB7F5;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  outline: none;
+  border: none;
+  white-space: nowrap;
+}
+.scene .linkBtn:hover {
+  opacity: 0.7;
+}
+.scene .productBtn {
+  text-align: right;
+}
+.scene .productTable {
+  vertical-align: top;
+}
+.scene .productDel {
+  font-size: 20px;
+  color: #F50F50;
+  cursor: pointer;
+}
+.scene .product_materiel {
+  text-align: center;
+  background-color: #F2F2F2;
+  padding: 5px;
+}
+.scene .product_appendix {
+  padding: 30px 0;
+}
+.scene .product_appendix .files {
+  margin-top: 20px;
+}
+.scene .product_appendix .files .fileitem {
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 5px 10px;
+  padding-right: 20px;
+}
+.scene .product_appendix .files .fileitem + .fileitem {
+  margin-left: 40px;
+}
+.scene .product_appendix .files .fileitem:hover {
+  background-color: #EAF8FE;
+}
+.scene .product_appendix .files .fileitem:hover .close {
+  display: block;
+  color: #F50F50;
+}
+.scene .product_appendix .files .fileitem .close {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  display: none;
+  cursor: pointer;
+}
+.scene .explain .explain_length {
+  text-align: right;
+  padding: 5px 0;
+}
+.scene .explain .explain_warning {
+  color: #F50F50;
+}
+.scene .explain .explain_tip {
+  color: #F50F50;
+  padding: 0 10px;
+}
+.scene .explain .img_main {
+  background-color: #F2F2F2;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.scene .explain .img_main img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: auto;
+}
+.scene .explain .img_exp {
+  background-color: #FFFAE2;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #FFE38E;
+  border-radius: 4px;
+}
+.scene .explain .img_list {
+  box-sizing: border-box;
+  padding: 5px;
+}
+.scene .explain .img_listbox {
+  margin-top: 10px;
+}
+.scene .explain .img_item {
+  width: 100px;
+  height: 100px;
+  margin-right: 40px;
+  float: left;
+  text-align: center;
+}
+.scene .explain .img_content {
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #8E8E8E;
+  border-radius: 4px;
+  background-color: #F2F2F2;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.scene .explain .img_content.is_active {
+  box-shadow: 0 0 10px #8E8E8E;
+  border-color: #F50F50;
+}
+.scene .explain .img_content:hover {
+  box-shadow: 0 0 10px #8E8E8E;
+}
+.scene .explain .img_content img {
+  width: 100%;
+}
+.scene .bond .bond_item {
+  display: inline-block;
+  width: 40%;
+}
+.scene .bond .bond_whitelist {
+  display: inline-block;
+  background-color: #FFFAE2;
+  margin: 5px 10px;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.scene .bond .bond_del {
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  margin-left: 10px;
+  color: #F50F50;
+}
+.scene .bond .bond_btn {
+  padding-left: 10px;
+  margin-top: 20px;
+}
+.scene .privacy .privacy_isinitprice {
+  margin-left: 20px;
+}
+.scene .saveBtn {
+  text-align: center;
+}
+.radioItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 45px;
+  background: #fff;
+  border: 1px #d9d9d9 solid;
+  transition: all ease 0.3s;
+  color: #1a1a1a;
+  font-size: 18px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+.radioActive {
+  border: 1px #2db7f5 solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 45px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  color: #1a1a1a;
+  font-size: 18px;
+  line-height: 45px;
+  text-align: center;
+  background: #fff url("../../../../static/svg/corner.svg") no-repeat 0 0;
+  background-size: 30px 30px;
+}
+.result_success {
+  padding: 120px;
+  color: #52c41a;
+  text-align: center;
+  background: #fff;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+.result_success h3,
+.result_success h1,
+.result_success p {
+  line-height: 2;
+}
+.result_success h3 {
+  font-size: 16px;
+}
+.result_success .substanceBtn,
+.result_success .borderBtn {
+  height: 35px;
+  width: 185px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 14px;
+  margin: 20px auto;
+  border-radius: 5px;
+  user-select: none;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.result_success .substanceBtn:hover,
+.result_success .borderBtn:hover {
+  opacity: 0.8;
+}
+.result_success .substanceBtn {
+  background: #52c41a;
+  color: #fff;
+}
+.result_success .borderBtn {
+  border: 1px #52c41a solid;
+  color: #52c41a;
+  background: #fff;
+}
+/*# sourceMappingURL=index.css.map */

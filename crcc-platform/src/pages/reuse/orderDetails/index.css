@@ -1,0 +1,14 @@
+@import "../supplDetails/index.css";
+.create{
+    background: #fff;
+}
+.vessel{
+    background: #fff;
+}
+.requiredF{
+    padding-left: 10px;
+}
+.textHigh{
+    color: #5CC7F8;
+    text-decoration: underline;
+}

@@ -1,0 +1,34 @@
+@import '../../style/reuse.less';
+
+.bondDetail{
+    .card{
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    .money{
+        color: @color2;
+    }
+    .title{
+        font-size: 14px;
+        padding-bottom: 10px;
+        .title_text{
+            padding-left: 40px;
+            position: relative;
+            font-weight: bold;
+            &::before{
+                content: "!";
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: @color3;
+                border-radius: 2px;
+                color: #FFF;
+                text-align: center;
+                font-weight: normal;
+            }
+        }
+    }
+}

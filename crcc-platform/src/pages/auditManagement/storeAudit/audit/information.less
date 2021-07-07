@@ -1,0 +1,191 @@
+// 公用样式
+@import "common.less";
+
+// 公司信息
+.information_company{
+  border: @border;
+  border-radius: @border-radius;
+  margin-bottom: 20px;
+  padding: 20px 30px;
+  .biaoti_infor{
+    span{
+      color: @color2;
+      font-size: 20px;
+      vertical-align: text-bottom;
+      margin-right: 15px;
+    }
+
+  }
+  .renzheng{
+    color: #999;
+    padding: 20px 0;
+    height: 120px;
+    li{
+      float: left;
+      margin-right: 30px;
+      width: 70px;
+      text-align: center;
+      img{
+        margin: 0 auto;
+      }
+      span{
+        display: block;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  }
+  .biaoge_infor{
+    //border:1px solid #ffe6e9;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    td{
+      color: #999;
+      line-height: 24px;
+      padding:5px 10px;
+      //border:1px solid #ffe6e9;
+      border-collapse: collapse;
+      width: 400px;
+    }
+    .hongse_bt{
+      //background: #fff8f9;
+      color:@color2;
+      width: 150px;
+    }
+  }
+  .gongsijianjie{
+    border-radius: @border-radius;
+    //border:1px solid #ffe6e9;
+    padding: 30px;
+    h1{
+      color: @color2;
+      font-size: 20px;
+      padding: 5px 0;
+    }
+    .companyRemark{
+      color: #999999;
+      line-height: 30px;
+      overflow: hidden;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 9;
+      height: 240px;
+      overflow: auto;
+      div{
+        overflow-y: unset!important;
+      }
+    }
+    .updeat_quxian{
+      div{
+        border: 0;
+      }
+      img{
+        width: 282px;
+        height: 282px;
+      }
+    }
+  }
+}
+
+
+
+// 平台交易记录
+.jilu_jiaoyi{
+  margin-bottom: 20px;
+  border: @border;
+  border-radius: @border-radius;
+  position: relative;
+  .pingtai_jy{
+    height: 55px;
+    line-height: 55px;
+    background:-webkit-gradient(linear,0 0, 0 100%,from(#fff),to(#F5F5F5));
+    background:-moz-linear-gradient(top,#fff ,#F5F5F5);
+    padding: 0 20px;
+    font-size: 20px;
+    color: @color2;
+    span{
+      font-size: 20px;
+      color: @color2;
+    }
+    .pingfen{
+      float: right;
+      font-size: 14px;
+    }
+  }
+  ul{
+    border: 0;
+    width: auto;
+    margin: 0;
+  }
+
+}
+
+
+// 资质
+.zizhi{
+  margin-bottom: 20px;
+  padding: 20px 10px;
+  height: 310px;
+  width: auto!important;
+  display: -webkit-box;
+  li{
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin: 0 17px;
+    float: left;
+    label{
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+    a{
+      border:@border;
+      width: 200px;
+      height: 240px;
+      display: block;
+      background: #fff;
+      padding: 15px;
+      display: table-cell;
+      vertical-align: middle;
+      img{
+        max-height: 210px;
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+    span{
+      line-height: 30px;
+      padding: 5px 0;
+      display: block;
+    }
+  }
+}
+
+
+.swiper_button_warp {
+  .swiper_button_next, .swiper_button_prev {
+    position: absolute;
+    bottom: 150px;
+    width: 20px;
+    height: 30px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    background: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .swiper_button_next {
+    right: 0;
+  }
+  .swiper_button_prev {
+    left: 0;
+  }
+}
+

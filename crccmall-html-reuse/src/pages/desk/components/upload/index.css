@@ -1,0 +1,51 @@
+.uploaitem {
+    position: relative;
+    display: inline-flex;
+    margin: 0 10px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.uploaitem img {
+    width: 118px !important;
+    height: 118px !important;
+    border-radius: 5px;
+    border: 1px #ccc dashed;
+    cursor: zoom-in;
+}
+
+.uploaitem .ant-upload.ant-upload-select-picture-card {
+    padding: 0 !important;
+}
+
+.uploaitem .anticon-cross-circle-o {
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    font-size: 18px;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #1890ff;
+}
+
+.link_anticon {
+    cursor: pointer;
+    transform: scale(0.8) translateY(1px);
+}
+
+.link_anticon:hover {
+    color: #1890ff;
+}
+
+.reuse_link1 {
+    cursor: pointer;
+}
+
+.reuse_link1:hover {
+    color: #1890ff;
+}

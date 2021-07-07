@@ -1,0 +1,180 @@
+/* 菜单 */
+body .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: #002446
+}
+
+body .ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
+  background: #1890FF;
+}
+
+body .ant-menu-dark,
+body .ant-menu-dark .ant-menu-sub {
+  color: rgba(255, 255, 255, .65)
+}
+
+body .ant-menu-dark .ant-menu-item,
+body .ant-menu-dark .ant-menu-item>a {
+  color: rgba(255, 255, 255, .65)
+}
+
+body .ant-menu-dark .ant-menu-item-selected>a {
+  color: #fff;
+}
+
+/* form表单 */
+
+body .ant-form-horizontal .baseForm .ant-form-item {
+  height: 32px;
+}
+
+body .ant-input-number {
+  width: 100%;
+}
+
+/* toolbar区域 */
+
+body .toolbar {
+  margin-bottom: 24px;
+  text-align: right;
+}
+
+body .toolbar button {
+  margin-left: 24px;
+}
+
+/* table表格 */
+body .ant-table a {
+  margin-right: 0px;
+}
+
+body .ant-card:hover {
+  box-shadow: none;
+  border: 0;
+}
+
+/* .ant-card-body{
+  padding: 16px 0;
+} */
+
+
+body .ant-tabs-tab-active {
+  background: #fff;
+}
+
+body .ant-menu-submenu>.ant-menu {
+  background: #F2F8FF
+}
+
+body .ant-card {
+  border-radius: 0;
+}
+
+body .ant-menu-inline,
+body .ant-menu-vertical {
+  border: 0;
+}
+
+/*card额外区域 */
+body .ant-card .ant-card-extra {
+  top: 6px;
+  line-height: 32px;
+}
+
+body .ant-card-extra-div {
+  line-height: 32px;
+}
+
+body .ant-card-extra-div .anticon {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+body .ant-card-extra-div .ant-switch .anticon {
+  font-size: 12px;
+}
+
+
+.ant-message-notice-content {
+  padding: 12px 32px;
+}
+
+.ant-message .anticon {
+  font-size: 16px;
+}
+
+.ant-message-custom-content {
+  font-size: 16px;
+}
+
+.ant-tree li span.ant-tree-checkbox {
+  margin: 6px 4px 0 0;
+}
+
+.ant-tree li a {
+  font-size: 14px;
+  padding: 2px 10px;
+}
+
+.ant-input[disabled],
+fieldset[disabled] .ant-input {
+  color: #666;
+}
+
+body .ant-upload-list-picture-card .ant-upload-list-item {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body .ant-upload.ant-upload-select-picture-card {
+  width: 100%;
+  height: 100%;
+}
+
+.nobody .ant-upload-list-picture-card .ant-upload-list-item {
+  display: inline-block;
+  width: 96px;
+  height: 96px;
+}
+
+.nobody .ant-upload.ant-upload-select-picture-card {
+  width: 96px;
+  height: 96px;
+}
+
+body .ant-table-column-sorter {
+  cursor: default;
+}
+
+body .ant-table-column-sorter-up:hover .anticon {
+  color: #aaa;
+}
+
+body .ant-table-column-sorter-down:hover .anticon {
+  color: #aaa;
+}
+
+body .ant-table-column-sorter .anticon:hover:before {
+  color: #aaa;
+}
+
+body .ant-menu-vertical>.ant-menu-item,
+body .ant-menu-inline>.ant-menu-item,
+body .ant-menu-item-group-list>.ant-menu-item,
+body .ant-menu-vertical>.ant-menu-submenu>.ant-menu-submenu-title,
+body .ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title,
+body .ant-menu-item-group-list>.ant-menu-submenu>.ant-menu-submenu-title {
+  font-size: 14px;
+}
+
+body .ant-alert {
+  font-size: 14px;
+}
+
+body .ant-card-head-title {
+  font-size: 16px;
+}
+
+.tongjiCard>.ant-card-body {
+  padding: 0px !important;
+}

@@ -1,0 +1,14 @@
+@import "./detail.css";
+.vessel{
+    background: #fff;
+}
+.requiredF{
+    padding-left: 10px;
+}
+.textHigh{
+    color: #5CC7F8;
+    text-decoration: underline;
+}
+.fontSize_new{
+    font-size: 14px !important;
+}

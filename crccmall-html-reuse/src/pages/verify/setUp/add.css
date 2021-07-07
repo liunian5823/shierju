@@ -1,0 +1,23 @@
+.verifyadd .slider_text {
+  position: absolute;
+  right: -70px;
+  top: 0;
+}
+.verifyadd .priority_btn {
+  padding-left: 15px;
+}
+.verifyadd .priority_btn button + button {
+  margin-top: 5px;
+}
+.tabBtn .up,
+.tabBtn .down {
+  font-size: 16px;
+  color: #2DB7F5;
+  cursor: pointer;
+}
+.left_tree {
+  overflow: auto;
+  min-height: 200px;
+  max-height: 500px;
+}
+/*# sourceMappingURL=add.css.map */
