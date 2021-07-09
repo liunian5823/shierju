@@ -58,7 +58,7 @@ class App extends React.Component {
     }
     render () {
         let { initUser } = this.state
-        if (!initUser) return (<div></div>)
+        // if (!initUser) return (<div></div>)  // lly调试
         return (
             <Router>
                 <Switch>
