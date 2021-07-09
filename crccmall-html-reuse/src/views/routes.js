@@ -2,7 +2,7 @@ import { Spin } from "antd";
 
 import HomeFn from "bundle-loader?lazy&name=home!@/pages/home";
 import NoPower from "bundle-loader?lazy&name=NoPower!@/pages/nopwer";
-// import Personal from "bundle-loader?lazy&name=home!@/pages/personal/Personal";
+// import Personal from "bundle-loader?lazy&name=home!@/pages/personal/Personal"; // lly调试
 import Personal from "bundle-loader?lazy&name=Personal!@/pages/personal/user/EditUser";
 import circulation from "bundle-loader?lazy&name=Personal!@/pages/twbureau/index/index";
 // 购方
