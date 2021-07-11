@@ -4,7 +4,6 @@ import HomeFn from "bundle-loader?lazy&name=home!@/pages/home";
 import NoPower from "bundle-loader?lazy&name=NoPower!@/pages/nopwer";
 // import Personal from "bundle-loader?lazy&name=home!@/pages/personal/Personal"; // lly调试
 import Personal from "bundle-loader?lazy&name=Personal!@/pages/personal/user/EditUser";
-import circulation from "bundle-loader?lazy&name=Personal!@/pages/twbureau/index/index";
 // 购方
 // import BuyScene from "bundle-loader?lazy&name=buyScene!@/pages/buyScene";
 // import BuySceneDetail from "bundle-loader?lazy&name=buySceneDetail!@/pages/buySceneDetail";
@@ -96,6 +95,10 @@ import circulation from "bundle-loader?lazy&name=Personal!@/pages/twbureau/index
 // import marginDetail from "bundle-loader?lazy&name=marginDetail!@/pages/wk/marginDetail";
 // import singleQuotes from "bundle-loader?lazy&name=marginDetail!@/pages/wk/singleQuotes";
 
+// 循环物资
+import circulation from "bundle-loader?lazy&name=Home!@/twbureau/pages/index/index";
+import goodsList from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/index";
+
 
 import NoAu from "@/pages/notFound";
 
@@ -110,7 +113,6 @@ const routes = [
     { type: "route", path: "/buyHome", component: bundle(Empty, HomeFn, { type: "callback" }) },
     { type: "route", path: "/403", component: bundle(Empty, NoPower, { type: "callback" }) },
     { type: "route", path: "/personal", component: bundle(Empty, Personal, { type: "callback" }) },
-    { type: "route", path: "/circulation", component: bundle(Empty, circulation, { type: "callback" }) },
 //     /* 销方 */
 //     //竞价销售
 //     { type: "route", path: "/sale/scene", component: bundle(Empty, SaleScene, { type: "callback" }) },
@@ -233,7 +235,13 @@ const deskRoutes = [
     { type: "route", component: NoAu },
 
 ];
+// lly新增
+const twRoutes = [
+    { type: "route", path: "/tw/cirHome", component: bundle(Empty, circulation, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
+]
 export {
     routes,
-    deskRoutes
+    deskRoutes,
+    twRoutes
 }

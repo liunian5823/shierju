@@ -1,0 +1,67 @@
+.search_item {
+  float: left;
+  width: 460px;
+  height: 32px;
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.btn,.search_item .ant-calendar-picker {
+  width: 285px;
+}
+.search_item .title {
+  display: inline-block;
+  width: 146px;
+  text-align: right;
+}
+.search_item .address {
+  width: 95px
+}
+.total {
+  width: 992px;
+  height: 136px;
+  background: #FFFFFF;
+  padding: 24px;
+  margin-top: 8px;
+}
+.total .item {
+  float: left;
+  width: 142px;
+  margin-right: 14px;
+  height: 87px;
+  background: rgba(45, 183, 245, 0.05);
+  border-radius: 4px;
+  padding-left: 24px;
+}
+.total .item .title {
+  clear: both;
+  font-size: 14px;
+  color: #000000;
+  line-height: 42px;
+  height: 42px;
+}
+.total .item .number {
+  clear: both;
+  font-size: 18px;
+  color: #000000;
+  line-height: 24px;
+  height: 42px;
+  line-height: 60px;
+}
+.table {
+  position: relative;
+  padding: 20px;
+  width: 992px;
+  background: #FFFFFF;
+  margin-top: 8px;
+}
+.table .ant-tabs-tab-inner {
+  font-size: 14px;
+  color: #000000;
+  ;
+}
+.table .export {
+  position: absolute;
+  right: 24px;
+  top: 15px;
+}

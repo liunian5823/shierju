@@ -11,7 +11,7 @@ import jjsp from './竞价审批.svg'
 import './index.css';
 import api from '@/framework/axios';
 import moment from 'moment'
-import Password from '../../personal/Password';//修改密码
+import Password from '@/pages/personal/Password';//修改密码
 import { systemConfigPath, configs } from "@/utils/config/systemConfig";
 
 // 个人信息
@@ -353,8 +353,6 @@ class Home extends React.Component {
             r=>{}
         )
     }
-
-    
 
     getGg() {
         api.ajax('GET', '@/reuse/home/index', { page: 1, rows: 10 }).then(res => {

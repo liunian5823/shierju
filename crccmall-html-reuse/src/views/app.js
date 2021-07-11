@@ -6,9 +6,10 @@ import Admin from './admin'
 import { RouteList } from "../components/Route"
 import { receiveUser } from '../redux/gaoda/auth/AuthAction'
 import { connect } from 'react-redux'
-import { routes, deskRoutes } from "./routes"
+import { routes, deskRoutes, twRoutes } from "./routes"
 import DeskShell from '@/pages/desk/components/deskShell'
 import api from '@/framework/axios'//请求接口的封装
+import TwAdmin from '@/twbureau/admin'
 
 class App extends React.Component {
     constructor(props) {
@@ -70,7 +71,14 @@ class App extends React.Component {
                             </DeskShell>
                         )
                     }}></Route>
-
+                    {/* 循环物资相关 lly 添加 */}
+                    <Route path="/tw" render={() => {
+                        return (
+                            <TwAdmin>
+                                <RouteList routes={twRoutes} showContent={this.props.showContent} />
+                            </TwAdmin>
+                        )
+                    }}></Route>
                     {/* 为了/加载到 */}
                     <Route path="/" render={() => {
                         return (

@@ -1,0 +1,45 @@
+@import './../../../style/default.less';
+.main_leftNav {
+  float: left;
+  overflow: hidden;
+  width: 200px;
+  font-family: MicrosoftYaHei;
+  height: 100vh;
+  background: #002446;
+  padding: 10px 0 0 0;
+  .leftNav_wrapper {
+    overflow: hidden;
+    padding: 0px 0;
+    background: #002446;
+    .main_leftNav_menu {
+      background: #002446;
+      li, li>div, ul {
+        background: #002446;
+        font-size: 16px;
+        color: #FFFFFF;
+        ul,li {
+          font-size: 14px;
+        }
+      }
+      li {
+        opacity: 0.65;
+      }
+      li:hover {
+        background: #1890FF;
+        opacity: 1;
+      }
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+.icon {
+  width: 18px;
+  height: 17px;
+  margin-right: 10px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}

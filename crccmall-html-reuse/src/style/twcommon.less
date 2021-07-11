@@ -1,0 +1,46 @@
+@import './default.less';
+.main_page {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  .main_wrapper {
+    position: relative;
+    height: 100%;
+    &:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+    }
+    .main_scroll {
+      position: relative;
+      height: 100%;
+      overflow-y: auto;
+    }
+    .main_center {
+      width: 1200px;
+      margin: 0 auto;
+      &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
+    }
+    .main_content {
+      position: relative;
+      float: right;
+      width: 992px;
+      margin-bottom: 100px;
+      overflow-y: hidden; // background: @colorL;
+      .body {
+        // padding: 0 10px 0px;
+        background: @colorL; // background: #fff;
+      }
+    }
+  }
+}
