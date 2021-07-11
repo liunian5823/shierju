@@ -1,0 +1,30 @@
+/* .ant-menu-item,.ant-menu-item>span {
+  background: #002446;
+  font-size: 16px;
+  color: #FFFFFF;
+  opacity: 0.65;
+}
+.ant-menu-submenu-title {
+  background: #002446;
+}
+.ant-menu-submenu-title span {
+  background: #002446;
+  font-size: 16px;
+  color: #FFFFFF;
+  opacity: 0.65;
+}
+.ant-menu-item-active {
+  color: #FFFFFF;
+  background: #1890FF;
+  opacity: 1;
+}
+.ant-menu-item:hover,.ant-menu-item>span:hover {
+  color: #FFFFFF;
+  background: #1890FF;
+  opacity: 1;
+} */
+.ant-menu-item-active {
+  color: #FFFFFF;
+  background: #1890FF;
+  opacity: 1;
+}

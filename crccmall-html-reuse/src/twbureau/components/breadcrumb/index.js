@@ -18,6 +18,10 @@ class Breadcrumb extends React.Component {
         let path = location.path
         if (path.indexOf('/tw/goods') >= 0) {
           this.curLocation = '循环物资管理'
+        } else if (path.indexOf('/tw/circle') >= 0) {
+          this.curLocation = '物资周转管理'
+        } else if (path.indexOf('/tw/rent') >= 0) {
+          this.curLocation = '物资租赁管理'
         }
       }
     }

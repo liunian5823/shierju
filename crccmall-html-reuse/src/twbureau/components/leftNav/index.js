@@ -4,19 +4,26 @@ import { connect } from 'react-redux';
 import { switchMenu, setUserAuth, setToken } from '@/redux/action/index';
 import { systemConfigPath } from "@/utils/config/systemConfig";
 import less from './index.less';
-// import logo from './logo.png';
+import './index.css'
+import { withRouter } from 'react-router'
 
 const SubMenu = Menu.SubMenu;
 
 class LeftNav extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            defaultOpenKeys: ['twHome'],
+            currentKey: ['basicInfo']
+        };
     }
     componentWillMount() {
 
     }
-    handelClickMenu = ({ item, key }) => { 
+    handelClickMenu = ({ item, key }) => {
+        console.log(item, key)
+        this.setState({currentKey: [...key]})
+        this.props.history.push({ pathname: key})
     }
     render() {
         const MenuIcon = ({imgSrc}) => (
@@ -29,31 +36,50 @@ class LeftNav extends React.Component {
              )}/>
         );
         const menu = [{
-            key: 'twHome', 
+            key: '/tw/cirHome', 
             route: '',
             name: '首页',
             icon: './static/img/twbureau/home@2x.png'
         }, {
-            key: 'materialManage', 
+            key: 'goodsManage', 
             route: '',
             name: '循环物资管理',
             icon: './static/img/twbureau/xunhuan@2x.png',
             subMenu: [{
-                key: 'basicInfo', 
+                key: '/tw/goods/list', 
                 route: '',
                 name: '循环物资一览'
+            }]
+        }, {
+            key: 'cirManage', 
+            route: '',
+            name: '物质周转管理',
+            icon: './static/img/twbureau/zhouzhuan@2x.png',
+            subMenu: [{
+                key: '/tw/circle/list', 
+                route: '',
+                name: '物质周转列表'
+            }]
+        }, {
+            key: 'rentManage', 
+            route: '',
+            name: '物质租赁管理',
+            icon: './static/img/twbureau/rent@2x.png',
+            subMenu: [{
+                key: '/tw/rent/list', 
+                route: '',
+                name: '物质租赁明细'
             }]
         }]
         return (
             <div className={less.main_leftNav}>
                 <div className={less.leftNav_wrapper}>
-                    {/* <img src="./static/img/twbureau/xunhuan@2x.png" />
-                <MenuIcon imgSrc={'./static/img/twbureau/home@2x.png'}/> */}
                     <Menu
                         style={{ border: 0 }}
                         className={less.main_leftNav_menu}
                         defaultOpenKeys={this.state.defaultOpenKeys}
                         selectedKeys={this.state.currentKey}
+                        defaultSelectedKeys={this.state.currentKey}
                         mode="inline"
                         onClick={this.handelClickMenu}
                     >
@@ -99,5 +125,4 @@ const mapStateToProps = state => {
         menuList: state.ebikeData.menuList
     }
 }
-
-export default connect(mapStateToProps)(LeftNav)
+export default withRouter(connect(mapStateToProps)(LeftNav))
