@@ -1,6 +1,7 @@
 import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
+import '../../style/list.css'
 import  './index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
