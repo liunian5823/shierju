@@ -30,14 +30,23 @@ class Circle extends React.Component {
       ],
       columns: [
         {
+          title: '周转类别',
+          dataIndex: 'key',
+          key: 'key'
+        },
+        // {
+        //   title: '主材料/设备',
+        //   children: []
+        // },
+        {
           title: '资产分类',
           dataIndex: 'name',
-          key: 'name',
+          key: 'name'
         },
         {
           title: '资产名称',
           dataIndex: 'age',
-          key: 'age',
+          key: 'age'
         },
         {
           title: '规格',

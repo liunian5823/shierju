@@ -1,160 +1,287 @@
-.home {
+/* 用户信息 */
+.user_info {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    position: relative;
-}
-
-.home-content .list-warp {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    width: 992px;
+    height: 173px;
+    background: #FFFFFF;
+    margin-top: 8px;
 }
-
-.home-content .list {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px;
+.user_info>img {
+    margin-left: 24px;
+    width: 125px;
+    height: 125px;
 }
-
-.home-content .list>.list-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 104px;
+.user_info .info {
+    width: 360px;
+    height: 125px;
+    border-right: 1px solid #EBEBEB;
+    margin-left: 15px;
 }
-
-.home-content .list>.list-item>img,
-.home-content .list>.list-item>span {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    /* font-weight: bold; */
-    font-size: 22px !important;
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.85);
+.user_info .info .line1 {
+    display: block;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 14px;
 }
-
-.home-content .list>.list-item>span:hover {
-    color: #4cc2f6;
+.user_info .info .line2 {
+    display: block;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
 }
-
-.home-content .list>.list-item>p {
-    padding: 10px;
+.user_info .info .line3 {
     font-size: 14px;
-}
-
-.home-log {
-    /* position: absolute; */
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin-bottom: 15px;
-}
-
-.home-log .more {
-    padding-top: 10px;
-    font-size: 14px;
-}
-
-.home-log .content {
-    padding: 10px 10px 0 10px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.home-log .row {
-    padding: 6px 0;
-    overflow: hidden;
-    font-size: 14px;
-}
-
-.home-log .row:hover p {
-    color: #5CC7F8;
-}
-
-.home-log .row>p {
-    width: 170px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    float: left;
-}
-
-.home-log .row>span {
-    width: 100px;
-    text-align: center;
-    float: right;
-    overflow: hidden;
-    cursor: default;
-    color: rgba(0, 0, 0, 0.45)
-}
-
-.home-content {
-    width: calc(100% - 300px);
-}
-
-.home-content-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.home-content-info>div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 171px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.home-content-info>div>img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-
-.home-content-info>div>div>p,
-.home-content-info>div>div>h2 {
-    padding: 5px 20px;
-}
-
-.home-content-info>div>div>p>span {
-    cursor: pointer;
-}
-
-.home-content-info>div>div>p>span:hover {
-    color: #1a67eb;
-}
-
-.home-content-info>p {
-    display: flex;
-    padding: 8px 10px;
-    background: #f9f9f9;
-}
-
-.home-content-info>p>span {
-    flex: 1;
-}
-
-.home .ant-card-body {
-    padding: 0;
-}
-
-.msg_title{
-    width: 170px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline-block;
     color: #666;
 }
-.msg_title:hover{
-    color:rgba(45,183,245,0.85);
+.user_info .data {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 125px;
+    margin-left: 24px;
+    padding-top: 10px;
+}
+.user_info .data .item {
+    width: 200px;
+    font-size: 14px;
+    color: #333;
+}
+/* 审批管理 */
+.approve {
+    width: 648px;
+    height: 451px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px #E9ECEF;
+    border-radius: 4px;
+    padding: 0 16px;
+    margin-top: 8px;
+}
+.approve .title {
+    height: 72px;
+    line-height: 72px;
+    font-size: 18px;
+    font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+    font-weight: bold;
+    color: #333333;
+}
+.approve .main {
+    display: flex;
+    flex-wrap: wrap;
+}
+.approve .main .item>div {
+    width: 97px;
+}
+.approve .main .item {
+    display: flex;
+    flex-wrap: wrap;
+    width: 293px;
+    height: 104px;
+    background: rgba(45, 183, 245, 0.05);
+    margin: 0 7px 14px;
+}
+.approve .main .item .head {
+    padding: 12px 0 0 12px;
+}
+.approve .main .item .head>img {
+    width: 50px;
+    height: 50px;
+}
+.approve .main .item .head>p {
+    font-size: 12px;
+    line-height: 30px;
+    color: #333333;
+}
+.approve .main .item .body>.num {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2DB7F5;
+    text-align: center;
+    margin: 27px 0 10px 0;
+}
+.approve .main .item .body>.state {
+    font-size: 12px;
+    color: #333333;
+    text-align: center;
+}
+/* 公告 消息提醒 项目排行部*/
+.report {
+    width: 336px;
+    height: 451px;
+    background: #FEFEFE;
+    box-shadow: 0px 2px 4px 0px #E9ECEF;
+    border-radius: 4px;
+    padding: 0 20px;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+.report .head {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+}
+.report .head .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 64px;
+}
+.report .head .more {
+    font-size: 14px;
+    color: #2DB7F5;
+    line-height: 64px;
+    cursor: pointer;
+}
+.report .body .item{
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #666;
+}
+.report .body .item .sort{
+    width: 24px;
+    height: 24px;
+    background: #EFEFEF;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 24px;
+    text-align: center;
+    margin-right: 12px;
+}
+.report .body .item .first{
+    background-size: cover;
+    width: 23px;
+    height: 21px;
+    margin-right: 12px;
+    background-image: url("../../../static/img/twbureau/first@2x.png");
+}
+.report .body .item .second{
+    background-size: cover;
+    width: 23px;
+    height: 21px;
+    margin-right: 12px;
+    background-image: url("../../../static/img/twbureau/second@2x.png");
+}
+.report .body .item .third{
+    background-size: cover;
+    width: 23px;
+    height: 21px;
+    margin-right: 12px;
+    background-image: url("../../../static/img/twbureau/third@2x.png");
+}
+.report .body .item .name {
+    display: block;
+    width: 190px;
+}
+
+.report .blue {
+    color:  #2DB7F5;
+}
+.report .red {
+    color:  #E40407;
+}
+/* 交易管理 */
+.trading {
+    width: 648px;
+    height: 451px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px #E9ECEF;
+    border-radius: 4px;
+    padding: 0 16px;
+    margin-top: 8px;
+}
+.trading .title {
+    height: 72px;
+    line-height: 72px;
+    font-size: 18px;
+    font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+    font-weight: bold;
+    color: #333333;
+}
+.trading .info {
+    display: flex;
+    width: 600px;
+    height: 104px;
+    background: rgba(45, 183, 245, 0.05);
+}
+.trading .info>div {
+    width: 110px;
+}
+.trading .info .head {
+    padding: 12px 0 0 12px;
+}
+.trading .order .head {
+    padding: 12px 0 0 12px;
+}
+.trading .order {
+    display: flex;
+    width: 600px;
+    height: 202px;
+    background: rgba(45, 183, 245, 0.05);
+}
+.trading .body_box {
+    display: flex;
+    flex-wrap: wrap;
+}
+.trading .order .head {
+    width: 97px;
+    height: 194px;
+    margin-top: 60px;
+}
+.trading .order .body {
+    width: 110px;
+}
+.trading .head>img {
+    width: 50px;
+    height: 50px;
+}
+.trading .head>p {
+    font-size: 12px;
+    line-height: 30px;
+    color: #333333;
+}
+.trading .body>.num {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2DB7F5;
+    text-align: center;
+    margin: 27px 0 10px 0;
+}
+.trading .body>.state {
+    font-size: 12px;
+    color: #333333;
+    text-align: center;
+}
+/* 排行榜 */
+.rank {
+    width: 992px;
+    height: 566px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+.rank .tabs {
+    padding: 20px;
+}
+.rank .pane {
+    display: flex;
+}
+.rank .pane .chart {
+    width: 610px;
+}
+.rank .pane .report {
+    box-shadow: none;
+}
+.rank .pane .report .item{
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* 页面相关 */
+.float_box {
+    display: flex;
+    flex-wrap: wrap;
 }
