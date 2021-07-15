@@ -329,6 +329,7 @@ class Home extends React.Component {
     componentWillMount() {
     }
     componentDidMount() {
+        // 必须在componentDidMount或之后的生命周期才能初始化echarts， 因为，dom元素可能还没挂载完成， 无法找到该dom元素
         this.showBarChart()
     }
     showBarChart = () => {

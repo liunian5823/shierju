@@ -87,6 +87,7 @@
     "signals": "^1.0.0",
     "swiper": "^4.5.1",
     "uxcore-album": "^0.3.22",
+    "viewerjs": "^1.10.0",
     "wangeditor": "^3.1.1"
   }
 }

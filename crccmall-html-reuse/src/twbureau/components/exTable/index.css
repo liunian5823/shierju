@@ -1,0 +1,14 @@
+
+.exTable .ant-table-thead th {
+  text-align: center;
+  font-weight: bold;
+  vertical-align: middle;
+  padding: 8px;
+}
+.exTable .exTable-footer {
+  margin: 10px auto;
+  float: right;
+}
+.clear {
+  clear: both;
+}

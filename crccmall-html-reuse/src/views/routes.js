@@ -100,6 +100,7 @@ import circulation from "bundle-loader?lazy&name=Home!@/twbureau/pages/index/ind
 import goodsList from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/index";
 import circleList from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/index";
 import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/index";
+import goodDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
 
 import NoAu from "@/pages/notFound";
 
@@ -242,6 +243,7 @@ const twRoutes = [
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodDetail, { type: "callback" }) },
 
 ]
 export {
