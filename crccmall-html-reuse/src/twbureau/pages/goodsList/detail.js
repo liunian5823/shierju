@@ -6,7 +6,6 @@ import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
 import { Table } from 'antd';
-import ExTable from '@/twbureau/components/exTable';
 
 // 设备 履带挖掘机
 const Device = () => {
@@ -70,18 +69,16 @@ const Circle = () => {
     }, {
       title: '时间',
       dataIndex: '2',
-      key: '2',
-      children: [
-        {
-          title: '事件',
-          dataIndex: '3',
-          key: '3',
-        }, {
-          title: '描述',
-          dataIndex: '4',
-          key: '4'
-        }
-      ]
+      key: '2'
+    }, 
+    {
+      title: '事件',
+      dataIndex: '3',
+      key: '3',
+    }, {
+      title: '描述',
+      dataIndex: '4',
+      key: '4'
     }
   ]
   let dataSource = [
@@ -197,14 +194,14 @@ class GoodDetail extends React.Component {
       },
     });
   }
-  moveLeft() {
+  moveLeft = () => {
     if (this.state.imgIndex > 0) {
       this.setState({
         imgIndex: this.state.imgIndex - 1
       })
     }
   }
-  moveRight() {
+  moveRight = () => {
     if (this.state.imgIndex < this.state.images.length - 6) {
       this.setState({
         imgIndex: this.state.imgIndex + 1
@@ -221,7 +218,7 @@ class GoodDetail extends React.Component {
         <div className="goods_images">
           <div className="title">资产图片</div>
           <div className="box">
-            <div className="left" style={{visibility: imgIndex > 0 ? "visible" : "hidden"}} onClick={this.moveLeft.bind(this)}></div>
+            <div className="left" style={{visibility: imgIndex > 0 ? "visible" : "hidden"}} onClick={this.moveLeft}></div>
             <div className="slider">
               <ul id="images" style={{left: `-${imgIndex * 137}px`}}>
                 {
@@ -235,7 +232,7 @@ class GoodDetail extends React.Component {
                 }
               </ul>
             </div>
-            <div className="right" style={{visibility: imgIndex < images.length - 6  ? "visible" : "hidden"}} onClick={this.moveRight.bind(this)}></div>
+            <div className="right" style={{visibility: imgIndex < images.length - 6  ? "visible" : "hidden"}} onClick={this.moveRight}></div>
           </div>
         </div>
         <Enclosure />
