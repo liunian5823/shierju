@@ -7,6 +7,9 @@ class Search extends React.Component {
     super(props);
     this.state = {}
   }
+  clicked=()=>{ 
+    this.props.search();
+  }
   render() {
     return (
       <div className={less.search}>
@@ -14,7 +17,7 @@ class Search extends React.Component {
           {this.props.children}
         </div>
         <div className={less.btn_box}>
-          <Button className={less.btn} type="primary">搜索</Button>
+          <Button className={less.btn} type="primary" onClick={this.clicked}>搜索</Button>
           <Button className={less.btn}>重置</Button>
         </div>
         <div className={less.super}>
