@@ -129,7 +129,7 @@ class GoodsList extends React.Component {
           key: 'operation',
           fixed: 'right',
           width: 100,
-          render: () => <a>查询</a>,
+          render: (text, record, index) => <a onClick={()=>this.inquire(text,record,index)}>查询</a>,
         }
       ],
       statistics:{
@@ -251,6 +251,12 @@ class GoodsList extends React.Component {
       projectname5: key
     })
   }
+  inquire(text, record, index){
+    // console.log(text, record, index)
+    this.props.history.push({ pathname: '/tw/goods/detail', state: { id: text.id ,type:text.type} })
+  }
+
+  
   render() {
     const tabsData = [{
       key: ' ',
