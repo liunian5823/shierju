@@ -100,6 +100,7 @@ import circulation from "bundle-loader?lazy&name=Home!@/twbureau/pages/index/ind
 import goodsList from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/index";
 import equipment from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/equipment";
 import rests from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/rests";
+import applyFor from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/applyFor";
 import circleList from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/index";
 import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/index";
 import goodDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
@@ -245,6 +246,7 @@ const twRoutes = [
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
     { type: "route", path: "/tw/goods/equipment", component: bundle(Empty, equipment, { type: "callback" }) },
     { type: "route", path: "/tw/goods/rests", component: bundle(Empty, rests, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
     { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodDetail, { type: "callback" }) },
