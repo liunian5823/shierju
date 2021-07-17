@@ -13,7 +13,7 @@ class applyFor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status:"1",
+            status: "1",
             name: "",
             belongingCompany: undefined,
             beforeStatus: undefined,
@@ -26,7 +26,7 @@ class applyFor extends React.Component {
                     title: '单据编号',
                     dataIndex: 'receiptNumber',
                     key: 'receiptNumber',
-                    width:160
+                    width: 160
                 },
                 {
                     title: '资产分类',
@@ -150,9 +150,9 @@ class applyFor extends React.Component {
                     dataIndex: 'status',
                     key: 'status',
                     render: (value, row, index) => {
-                        if (value=="1") {
+                        if (value == "1") {
                             return "审核中"
-                        }else if (value=="1") {
+                        } else if (value == "2") {
                             return "审核通过"
                         } else {
                             return "审核拒绝"
@@ -168,13 +168,20 @@ class applyFor extends React.Component {
                     title: '操作',
                     key: 'operation',
                     fixed: 'right',
-                    width: 200,
-                    render: () => {
-                        return<div>
-                        <a className="edit">重新提交</a>
-                        <a className="edit">作废</a>
-                        <a className="edit">查看</a>
-                    </div>
+                    render: (value) => {
+                        if (value.status == '3') {
+                            return <div >
+                                <a className="edit">重新提交</a>
+                                <a className="edit">作废</a>
+                                <a className="edit">查看</a>
+                            </div>
+                        } else {
+                            return <div >
+                                <a className="edit">查看</a>
+
+                            </div>
+                        }
+
                     },
                 }
             ],
