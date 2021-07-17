@@ -244,9 +244,9 @@ const deskRoutes = [
 const twRoutes = [
     { type: "route", path: "/tw/cirHome", component: bundle(Empty, circulation, { type: "callback" }) },
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
-    { type: "route", path: "/tw/goods/equipment", component: bundle(Empty, equipment, { type: "callback" }) },
-    { type: "route", path: "/tw/goods/rests", component: bundle(Empty, rests, { type: "callback" }) },
-    { type: "route", path: "/tw/goods/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/equipment", component: bundle(Empty, equipment, { type: "callback" }) },//施工
+    { type: "route", path: "/tw/goods/rests", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
+    { type: "route", path: "/tw/goods/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
     { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodDetail, { type: "callback" }) },
