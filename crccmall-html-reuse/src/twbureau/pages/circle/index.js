@@ -17,9 +17,9 @@ class Circle extends React.Component {
       belongingCompany: "",
       status: undefined,
       exitTime: "",
-      type: "1",
+      type: "",
       buyTime: "",
-      classify: "",
+      classify: undefined,
       dataSource: [],
       columns: [
         {
@@ -38,9 +38,9 @@ class Circle extends React.Component {
           render: (value, row, index) => {
             if (value == '1') {
               return '周转材料'
-            }else if(value == '2'){
+            } else if (value == '2') {
               return '施工设备'
-            }else{
+            } else {
               return '其他循环物资'
             }
           }
@@ -127,10 +127,10 @@ class Circle extends React.Component {
     })
   }
   // 分类
-  classifyChange(date, dateString) {
-    // console.log(dateString);
+  classifyChange(value) {
+    console.log(value);
     this.setState({
-      classify: dateString
+      classify: value
     })
   }
   callback(key) {
@@ -181,6 +181,9 @@ class Circle extends React.Component {
   }
   render() {
     const tabsData = [{
+      key: ' ',
+      name: '全部'
+    }, {
       key: '1',
       name: '周转材料'
     }, {
@@ -233,7 +236,7 @@ class Circle extends React.Component {
           </div>
           <div className="search_item">
             <span className="title" >资产状态：</span>
-            <Select className="btn" showSearch placeholder="请选择" defaultValue={Assetstates}  value={this.state.status} onChange={this.statusChange.bind(this)}>
+            <Select className="btn" showSearch placeholder="请选择" defaultValue={Assetstates} value={this.state.status} onChange={this.statusChange.bind(this)}>
               {Assetstates.map(Assetstates => (
                 <Select.Option key={Assetstates.key}>{Assetstates.name}</Select.Option>
               ))}
@@ -261,31 +264,31 @@ class Circle extends React.Component {
           <div className="search_item">
             <span className="title" >分类：</span>
             <Select className="btn" showSearch placeholder="请选择" value={this.state.classify} onChange={this.classifyChange.bind(this)}>
-              <Option value="jack">全部</Option>
+              <Option value="全部">全部</Option>
             </Select>
           </div>
         </Search>
         <div className="table">
-          <Tabs onChange={this.callback.bind(this)} activeKey={this.state.type}>
+          {/* <Tabs onChange={this.callback.bind(this)} activeKey={this.state.type}>
             {
               tabsData.map((item, index) => {
                 return (
-                  <TabPane tab={item.name} key={item.key}>
-                    <Table
-                      dataSource={this.state.dataSource}
-                      columns={this.state.columns}
-                      pagination={{
-                        position: ["bottomCenter"],
-                        size: "small",
-                        showSizeChanger: true,
-                        showQuickJumper: true
-                      }}
-                    />
-                  </TabPane>
+                  <TabPane tab={item.name} key={item.key}> */}
+          <Table
+            dataSource={this.state.dataSource}
+            columns={this.state.columns}
+            pagination={{
+              position: ["bottomCenter"],
+              size: "small",
+              showSizeChanger: true,
+              showQuickJumper: true
+            }}
+          />
+          {/* </TabPane>
                 )
               })
             }
-          </Tabs>
+          </Tabs> */}
         </div>
       </div>
     )

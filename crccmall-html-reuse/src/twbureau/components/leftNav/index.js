@@ -61,6 +61,14 @@ class LeftNav extends React.Component {
                 key: '/tw/goods/applyFor', 
                 route: '',
                 name: '物资状态更新申请'
+            },{
+                key: '/tw/goods/audit', 
+                route: '',
+                name: '物资状态更新审核'
+            },{
+                key: '/tw/goods/updateQuery', 
+                route: '',
+                name: '物资状态更新查询'
             }]
         }, {
             key: 'cirManage', 
