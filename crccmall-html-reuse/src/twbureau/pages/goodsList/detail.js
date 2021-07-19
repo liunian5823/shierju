@@ -97,10 +97,9 @@ const Circle = () => {
   return (
     <div className="circle">
       <div className="title">物资循环明细</div>
-      <ExTable
+      <Table
         dataSource={dataSource}
         columns={columns}
-        title= {renderHeader}
         pagination={{
           position: ["bottomCenter"],
           size: "small",
@@ -110,11 +109,6 @@ const Circle = () => {
         }}
       />
     </div>
-  )
-}
-const renderHeader = (currentPageData) => {
-  return(
-    <div style={{color: "red"}}>时间</div>
   )
 }
 // 物资循环日志
