@@ -6,12 +6,60 @@ import './index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
 const TabPane = Tabs.TabPane;
+const Assetstates = [
+  {
+    key: ' ',
+    name: '全部资产状态'
+  }, {
+    key: '1',
+    name: '在用'
+  }, {
+    key: '2',
+    name: '闲置'
+  }, {
+    key: '3',
+    name: '可周转'
+  }, {
+    key: '4',
+    name: '周转中'
+  }, {
+    key: '5',
+    name: '闲置'
+  }, {
+    key: '6',
+    name: '可周转'
+  }, {
+    key: '7',
+    name: '周转中'
+  }
+]
+const classification = [
+  {
+    key: ' ',
+    name: '周转材料'
+  }, {
+    key: '1',
+    name: '施工设备'
+  }, {
+    key: '2',
+    name: '其他'
+  },
+]
 class GoodsList extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      value: "1",
+      value: "",
+      projectname: "",
+      projectname1: "",
+      datePicker: "",
+      projectname2: "",
+      datePicker1: "",
+      specification: "",
+      projectname3: "",
+      projectname4: "",
+      projectname5: "",
       mames: "",
       status: "",
       dataSource: [],
@@ -81,9 +129,13 @@ class GoodsList extends React.Component {
           key: 'operation',
           fixed: 'right',
           width: 100,
-          render: () => <a>查询</a>,
+          render: (text, record, index) => <a onClick={()=>this.inquire(text,record,index)}>查询</a>,
         }
-      ]
+      ],
+      statistics:{
+        totalCount:'1'
+      },
+      obj: "",
     };
 
   }
@@ -91,44 +143,120 @@ class GoodsList extends React.Component {
   componentWillMount() {
     this.getUserInfo()
   }
-  search(){
-    
-  }
-  handleChange(e){
+  search() {
+    console.log(this.state)
+    var obj = {};
+    obj['name'] = this.state.value;
+    obj['standards'] = this.state.specification;
+    obj['companyId'] = this.state.projectname;
+    obj['status'] = this.state.projectname1;
+    obj['exitTime'] = this.state.datePicker;
+    obj['type'] = this.state.projectname2;
+    obj['buyTime'] = this.state.datePicker1;
+    obj['provinceId'] = this.state.projectname3;
+    obj['cityId'] = this.state.projectname4;
+    obj['countyId'] = this.state.projectname5;
+    obj['page'] = '1';
+    obj['rows'] = '10';
     this.setState({
-        value : e.target.value
+      obj: obj
+    }, () => {
+      this.getUserInfo();
+    });
+  }
+  handleChange(e) {
+    this.setState({
+      value: e.target.value
     })
-}
+  }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/page", {
-      page: "1",
-      rows: "10",
-      status:this.state.status
-    }).then(r => {
+    api.ajax("get", "http://10.10.9.175:9999/materialController/page", this.state.obj).then(r => {
 
-
-      for(var i = 1 ; i < r.data.rows.length + 1;i++){
-        r.data.rows[i-1]['key'] = i
+    
+      for (var i = 1; i < r.data.rows.length + 1; i++) {
+        r.data.rows[i - 1]['key'] = i
       }
       var dataSources = r.data.rows;
-      this.setState({dataSource : dataSources });
+      this.setState({ dataSource: dataSources });
+      this.huoqushuliang();
+    }).catch(r => {
+      console.log(r)
+    })
+  }
+  huoqushuliang(){
+    api.ajax("get", "http://10.10.9.175:9999/materialController/getstatusCount", this.state.obj).then(r => {
+      console.log(r)
+      var statisticss = r.data;
+      this.setState({ statistics: statisticss });
     }).catch(r => {
       console.log(r)
     })
   }
   callback(key) {
+    obj['status'] = key
     this.setState({
-      status: key
+      obj: obj
     }, () => {
       this.getUserInfo();
-    }
-    );
+    });
+  }
+  projectname(key) {
+    console.log(key)
+    this.setState({
+      projectname: key
+    })
+  }
+  projectname1(key) {
+    this.setState({
+      projectname1: key
+    })
+  }
+  datePicker(e) {
+    var d = new Date(e);
+    var datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    this.setState({
+      datePicker: datetime
+    })
+  }
+  projectname2(key) {
+    this.setState({
+      projectname2: key
+    })
+  }
+  datePicker1(e) {
+    var d = new Date(e);
+    var datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    this.setState({
+      datePicker1: datetime
+    })
 
   }
-  handleClick() {
-    console.log('456')
+  specification(e) {
+    this.setState({
+      specification: e.target.value
+    })
+  }
+  projectname3(key) {
+    this.setState({
+      projectname3: key
+    })
+  }
+  projectname4(key) {
+    this.setState({
+      projectname4: key
+    })
+  }
+  projectname5(key) {
+    this.setState({
+      projectname5: key
+    })
+  }
+  inquire(text, record, index){
+    // console.log(text, record, index)
+    this.props.history.push({ pathname: '/tw/goods/detail', state: { id: text.id ,type:text.type} })
   }
 
+  
   render() {
     const tabsData = [{
       key: ' ',
@@ -158,77 +286,83 @@ class GoodsList extends React.Component {
     return (
       <div>
         <Breadcrumb location={this.props.match} />
-        <Search search={this.search}>
+        <Search search={this.search.bind(this)}>
           <div className="search_item">
             <span className="title">资产名称：</span>
             <Input className="btn" placeholder="请输入资产名称" value={this.state.value} onChange={this.handleChange.bind(this)} />
           </div>
           <div className="search_item">
             <span className="title">所属工程公司/项目部：</span>
-            <Select className="btn" showSearch placeholder="请选择">
-              <Option value="jack">局/处/项目部</Option>
+            <Select className="btn" showSearch placeholder="请选择" value={this.state.projectname} onChange={this.projectname.bind(this)}>
+              <Option value="jack" >局/处/项目部</Option>
             </Select>
           </div>
           <div className="search_item">
             <span className="title" >资产状态：</span>
-            <Select className="btn" showSearch placeholder="请选择">
-              <Option value="jack">全部</Option>
+            <Select className="btn" defaultValue={Assetstates} showSearch placeholder="请选择" value={this.state.projectname1} onChange={this.projectname1.bind(this)}>
+              {Assetstates.map(Assetstates => (
+                <Option key={Assetstates.key}>{Assetstates.name}</Option>
+              ))}
+
             </Select>
           </div>
           <div className="search_item">
             <span className="title" >预计退场时间：</span>
-            <DatePicker className="btn" />
+            <DatePicker className="btn" onChange={this.datePicker.bind(this)} />
           </div>
           <div className="search_item">
             <span className="title" >资产分类：</span>
-            <Select className="btn" showSearch placeholder="请选择">
-              <Option value="jack">全部</Option>
+            <Select className="btn" showSearch defaultValue={classification} placeholder="请选择" value={this.state.projectname2} onChange={this.projectname2.bind(this)}>
+              {classification.map(Assetstates => (
+                <Option key={Assetstates.key}>{Assetstates.name}</Option>
+              ))}
+
             </Select>
           </div>
           <div className="search_item">
             <span className="title" >购入时间：</span>
-            <DatePicker className="btn" />
+            <DatePicker className="btn" value={this.state.datePicker1} onChange={this.datePicker1.bind(this)} />
           </div>
           <div className="search_item">
             <span className="title" >规格：</span>
-            <Input className="btn" placeholder="请输入规格" />
+            <Input className="btn" placeholder="请输入规格" value={this.state.specification} onChange={this.specification.bind(this)} />
           </div>
           <div className="search_item">
             <span className="title" >所在地：</span>
-            <Select className="address" showSearch placeholder="省">
+            <Select className="address" showSearch placeholder="省" value={this.state.projectname3} onChange={this.projectname3.bind(this)}>
+              <Option value="jack">北京市1</Option>
+            </Select>
+            <Select className="address" showSearch placeholder="市" value={this.state.projectname4} onChange={this.projectname4.bind(this)}>
               <Option value="jack">北京市</Option>
             </Select>
-            <Select className="address" showSearch placeholder="市">
-              <Option value="jack">北京市</Option>
-            </Select>
-            <Select className="address" showSearch placeholder="县">
+            <Select className="address" showSearch placeholder="县" value={this.state.projectname5} onChange={this.projectname5.bind(this)}>
               <Option value="jack">海淀区</Option>
             </Select>
           </div>
         </Search>
         <div className="total">
           <div className="item">
-            <div className="number">82312819</div>
+            <div className="number">{this.state.statistics.totalCount}</div>
             <div className="title">总资产数</div>
           </div>
           <div className="item">
-            <div className="number">23132</div>
+            <div className="number">{this.state.statistics.inuseCount}</div>
             <div className="title">在用</div>
           </div>
           <div className="item">
-            <div className="number">341234</div>
+            <div className="number">{this.state.statistics.leaveUnusedCount}</div>
             <div className="title">闲置</div>
           </div>
           <div className="item">
-            <div className="number">23132</div>
+            <div className="number">{this.state.statistics.haveTurnoverCount}</div>
             <div className="title">已周转</div>
           </div>
           <div className="item">
-            <div className="number">23132</div>
+            <div className="number">{this.state.statistics.hasDisposalCount}</div>
             <div className="title">已处置</div>
           </div>
           <div className="item">
-            <div className="number">{this.state.value}</div>
+            <div className="number">{this.state.statistics.hasleaseCount}</div>
             <div className="title">已租赁</div>
           </div>
         </div>

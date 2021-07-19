@@ -65,3 +65,17 @@
   right: 24px;
   top: 15px;
 }
+.table-btn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.table-btn .table-btn-left{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.table-btn .table-btn-left button{
+  margin-right: 10px;
+}

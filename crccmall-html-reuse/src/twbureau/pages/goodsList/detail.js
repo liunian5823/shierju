@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
+import api from '@/framework/axios';
 import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
@@ -11,7 +12,7 @@ import { Table } from 'antd';
 const Device = () => {
   return (
       <div className="device">
-        <div className="title">履带挖掘机</div>
+        <div className="title">{xiangqing.name}</div>
         <div className="content">
           <div>闲置1台 ｜ 调拨锁定0台</div>
           <div>资产管理部门：XXXXX部门</div>
@@ -21,6 +22,7 @@ const Device = () => {
       </div>
   )
 }
+
 // 台账信息
 const Info = () => {
   return (
@@ -175,10 +177,27 @@ class GoodDetail extends React.Component {
         {source: './static/img/twbureau/jingjia@2x.png'},
         {source: './static/img/twbureau/order@2x.png'}, 
         {source: './static/img/twbureau/jingjia@2x.png'}
-      ]
+      ],
+      xiangqing:"",
     }
   }
-  componentWillMount() {}
+  componentWillMount() {
+   
+    this.getUserInfo()
+  }
+  getUserInfo = () => {
+    console.log(this.props.location.state.id)
+    console.log(this.props.location.state.type)
+    api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.location.state.id + "/"+this.props.location.state.type, {}).then(r => {
+      console.log(r)
+      var xiangqings = r.data
+      this.setState({
+        xiangqing:xiangqings
+      })
+    }).catch(r => {
+      console.log(r)
+    })
+  }
   componentDidMount() {
     // 图片查看器
     const viewer = new Viewer(document.getElementById('images'), {
