@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import { Form, Input, Select, DatePicker, Tabs, Button, Table, Cascader, Upload, Icon } from 'antd';
 import '../../style/edit.css';
+import options from '../../util/address';
 
 const createForm = Form.create;
 const FormItem = Form.Item;
@@ -78,29 +79,6 @@ class GoodsEdit extends React.Component {
       labelCol: { span: 5 },
       wrapperCol: { span: 15 },
     };
-    const address = [{
-      value: 'zhejiang',
-      label: '浙江',
-      children: [{
-        value: 'hangzhou',
-        label: '杭州',
-        children: [{
-          value: 'xihu',
-          label: '西湖',
-        }],
-      }],
-    }, {
-      value: 'jiangsu',
-      label: '江苏',
-      children: [{
-        value: 'nanjing',
-        label: '南京',
-        children: [{
-          value: 'zhonghuamen',
-          label: '中华门',
-        }],
-      }],
-    }];
     const { getFieldProps } = this.props.form;
     const selectProps = getFieldProps('select', {
       rules: [
@@ -145,7 +123,7 @@ class GoodsEdit extends React.Component {
                 {...formItemLayout}
                 label="所在地："
               >
-                <Cascader {...addressProps} options={address} onChange={this.addressChange} placeholder="请选择地区" /> 
+                <Cascader {...addressProps} options={options} onChange={this.addressChange} placeholder="请选择地区" /> 
               </FormItem>
               <FormItem
                 {...formItemLayout}

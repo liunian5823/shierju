@@ -12,6 +12,8 @@
 .search_item .title {
   display: inline-block;
   width: 146px;
+  font-size: 14px;
+  font-weight: 400;
   text-align: right;
 }
 .search_item .address {

@@ -3,7 +3,8 @@ import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
 import './index.css';
-import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
+import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
+import options from '../../util/address';
 
 const TabPane = Tabs.TabPane;
 const Assetstates = [
@@ -236,19 +237,26 @@ class GoodsList extends React.Component {
       specification: e.target.value
     })
   }
-  projectname3(key) {
+  // projectname3(key) {
+  //   this.setState({
+  //     projectname3: key
+  //   })
+  // }
+  // projectname4(key) {
+  //   this.setState({
+  //     projectname4: key
+  //   })
+  // }
+  // projectname5(key) {
+  //   this.setState({
+  //     projectname5: key
+  //   })
+  // }
+  onAddressChange = (value) => {
     this.setState({
-      projectname3: key
-    })
-  }
-  projectname4(key) {
-    this.setState({
-      projectname4: key
-    })
-  }
-  projectname5(key) {
-    this.setState({
-      projectname5: key
+      projectname3: value[0],
+      projectname4: value[1],
+      projectname5: value[2]
     })
   }
   inquire(text, record, index){
@@ -329,7 +337,7 @@ class GoodsList extends React.Component {
           </div>
           <div className="search_item">
             <span className="title" >所在地：</span>
-            <Select className="address" showSearch placeholder="省" value={this.state.projectname3} onChange={this.projectname3.bind(this)}>
+            {/* <Select className="address" showSearch placeholder="省" value={this.state.projectname3} onChange={this.projectname3.bind(this)}>
               <Option value="jack">北京市1</Option>
             </Select>
             <Select className="address" showSearch placeholder="市" value={this.state.projectname4} onChange={this.projectname4.bind(this)}>
@@ -337,7 +345,8 @@ class GoodsList extends React.Component {
             </Select>
             <Select className="address" showSearch placeholder="县" value={this.state.projectname5} onChange={this.projectname5.bind(this)}>
               <Option value="jack">海淀区</Option>
-            </Select>
+            </Select> */}
+            <Cascader className="btn" options={options} placeholder="请选择地区" onChange={this.onAddressChange}/> 
           </div>
         </Search>
         <div className="total">
