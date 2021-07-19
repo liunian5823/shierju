@@ -201,6 +201,7 @@ class audit extends React.Component {
         obj['afterupdateStatus'] = this.state.backStatus
         obj['type'] = this.state.type;
         obj['receiptNumber'] = this.state.identifierNum;
+        obj['status'] = this.state.status;
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -225,21 +226,7 @@ class audit extends React.Component {
             console.log(r)
         })
     }
-    inputChange(type, e) {
-        // console.log(type,e.target.value);
-        if (type == 'name') {
-            // 资产名称
-            this.setState({
-                name: e.target.value
-            })
-        } else {
-            // 编号
-            this.setState({
-                identifierNum: e.target.value
-            })
-        }
-    }
-
+    
     inputChange(type, e) {
         // console.log(type,e.target.value);
         if (type == 'name') {
@@ -338,7 +325,7 @@ class audit extends React.Component {
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
-                <Search search={this.search}>
+                <Search search={this.search.bind(this)}>
                     <div className="search_item">
                         <span className="title">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />

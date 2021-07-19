@@ -13,19 +13,17 @@ class circle_applyFor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status: "1",
             name: "",
-            belongingCompany: undefined,
-            beforeStatus: undefined,
-            backStatus: undefined,
+            companyId: undefined,
             type: undefined,
-            identifierNum: "",
+            toDepartmentId:undefined,
+            docNumber: "",
             dataSource: [],
             columns: [
                 {
                     title: '单据编号',
-                    dataIndex: 'receiptNumber',
-                    key: 'receiptNumber',
+                    dataIndex: 'docNumber',
+                    key: 'docNumber',
                     width: 160
                 },
                 {
@@ -44,111 +42,48 @@ class circle_applyFor extends React.Component {
                 },
                 {
                     title: '资产名称',
-                    dataIndex: 'name',
-                    key: 'name'
+                    dataIndex: 'assetName',
+                    key: 'assetName'
                 },
                 {
                     title: '规格型号',
-                    dataIndex: 'standards',
-                    key: 'standards',
+                    dataIndex: 'specification',
+                    key: 'specification',
                 },
                 {
-                    title: '数量',
-                    dataIndex: 'number',
-                    key: 'number',
+                    title: '申请调入数量',
+                    dataIndex: 'appliedNumber',
+                    key: 'appliedNumber',
                 },
                 {
-                    title: '单位',
-                    dataIndex: 'unit',
-                    key: 'unit',
+                    title: '调出工程公司',
+                    dataIndex: 'upCompany',
+                    key: 'upCompany',
                 },
                 {
-                    title: '更新前资产状态',
-                    dataIndex: 'befoeupdateStatus',
-                    key: 'befoeupdateStatus',
-                    render: (value, row, index) => {
-                        if (value == '1') {
-                            return '在用'
-                        } else if (value == '1') {
-                            return '在用'
-                        } else if (value == '2') {
-                            return '闲置'
-                        } else if (value == '3') {
-                            return '可周转'
-                        } else if (value == '4') {
-                            return '周转中'
-                        } else if (value == '5') {
-                            return '已周转'
-                        } else if (value == '6') {
-                            return '可处置'
-                        } else if (value == '7') {
-                            return '处置中'
-                        } else if (value == '8') {
-                            return '已处置'
-                        } else if (value == '9') {
-                            return '可租赁'
-                        } else if (value == '10') {
-                            return '已租赁'
-                        } else if (value == '11') {
-                            return '报废'
-                        } else if (value == '12') {
-                            return '报损'
-                        } else {
-                            return ''
-                        }
-                    }
+                    title: '周出项目部',
+                    dataIndex: 'upDepartment',
+                    key: 'upDepartment',
                 },
                 {
-                    title: '更新后资产状态',
-                    dataIndex: 'afterupdateStatus',
-                    key: 'afterupdateStatus',
-                    render: (value, row, index) => {
-                        if (value == '1') {
-                            return '在用'
-                        } else if (value == '1') {
-                            return '在用'
-                        } else if (value == '2') {
-                            return '闲置'
-                        } else if (value == '3') {
-                            return '可周转'
-                        } else if (value == '4') {
-                            return '周转中'
-                        } else if (value == '5') {
-                            return '已周转'
-                        } else if (value == '6') {
-                            return '可处置'
-                        } else if (value == '7') {
-                            return '处置中'
-                        } else if (value == '8') {
-                            return '已处置'
-                        } else if (value == '9') {
-                            return '可租赁'
-                        } else if (value == '10') {
-                            return '已租赁'
-                        } else if (value == '11') {
-                            return '报废'
-                        } else if (value == '12') {
-                            return '报损'
-                        } else {
-                            return ''
-                        }
-                    }
+                    title: '调入工程公司',
+                    dataIndex: 'toCompany',
+                    key: 'toCompany',
                 },
                 {
-                    title: '所属工程公司',
-                    width: 250,
-                    dataIndex: 'belongingCompany',
-                    key: 'belongingCompany',
+                    title: '调入项目部',
+                    dataIndex: 'toDepartment',
+                    key: 'toDepartment',
                 },
                 {
-                    title: '资产管理部门',
-                    dataIndex: 'department',
-                    key: 'department',
+                    title: '提交时间',
+                    dataIndex: 'createTime',
+                    key: 'createTime',
                 },
                 {
-                    title: '单据状态',
-                    dataIndex: 'status',
-                    key: 'status',
+                    title: '审核状态',
+                    dataIndex: 'approvaStatus',
+                    key: 'approvaStatus',
                     render: (value, row, index) => {
                         if (value == "1") {
                             return "审核中"
@@ -161,8 +96,8 @@ class circle_applyFor extends React.Component {
                 },
                 {
                     title: '审核人员',
-                    dataIndex: 'approver',
-                    key: 'approver',
+                    dataIndex: 'approvalUserName',
+                    key: 'approvalUserName',
                 },
                 {
                     title: '操作',
@@ -190,7 +125,7 @@ class circle_applyFor extends React.Component {
 
     componentWillMount() {
         var obj = {};
-        obj['status'] = this.state.status;
+        obj['pageFlag']='1';
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -203,11 +138,11 @@ class circle_applyFor extends React.Component {
         // console.log(this.state)
         var obj = {};
         obj['name'] = this.state.name
-        obj['belongingCompany'] = this.state.belongingCompany
-        obj['befoeupdateStatus'] = this.state.beforeStatus;
-        obj['afterupdateStatus'] = this.state.backStatus
+        obj['companyId'] = this.state.companyId
         obj['type'] = this.state.type;
-        obj['receiptNumber'] = this.state.identifierNum;
+        obj['toDepartmentId'] = this.state.toDepartmentId;
+        obj['docNumber'] = this.state.docNumber;
+        obj['pageFlag']='1';
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -219,7 +154,7 @@ class circle_applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/inForApproval/page", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -232,20 +167,6 @@ class circle_applyFor extends React.Component {
             console.log(r)
         })
     }
-    inputChange(type, e) {
-        // console.log(type,e.target.value);
-        if (type == 'name') {
-            // 资产名称
-            this.setState({
-                name: e.target.value
-            })
-        } else {
-            // 编号
-            this.setState({
-                identifierNum: e.target.value
-            })
-        }
-    }
 
     inputChange(type, e) {
         // console.log(type,e.target.value);
@@ -255,32 +176,27 @@ class circle_applyFor extends React.Component {
                 name: e.target.value
             })
         } else {
-            // 编号
+            // 单据编号
             this.setState({
-                identifierNum: e.target.value
+                docNumber: e.target.value
             })
         }
     }
     selectChange(type, value) {
-        if (type == 'belong') {
+        if (type == 'company') {
             // 所属工程公司/项目部：
             this.setState({
-                belongingCompany: value
+                companyId: value
             })
-        } else if (type == '更新前') {
-            // 更新前资产状态
-            this.setState({
-                beforeStatus: value
-            })
-        } else if (type == '更新后') {
-            // 更新后资产状态
-            this.setState({
-                backStatus: value
-            })
-        } else {
+        } else if (type == '资产分类'){
             // 资产分类
             this.setState({
                 type: value
+            })
+        }else{
+            // 周转部门
+            this.setState({
+                toDepartmentId: value
             })
         }
     }
@@ -345,14 +261,14 @@ class circle_applyFor extends React.Component {
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
-                <Search search={this.search}>
+                <Search search={this.search.bind(this)}>
                     <div className="search_item">
                         <span className="title">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
                     </div>
                     <div className="search_item">
                         <span className="title">所属工程公司/项目部：</span>
-                        <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
+                        <Select className="btn" showSearch placeholder="请选择" value={this.state.companyId} onChange={this.selectChange.bind(this, 'company')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
@@ -368,13 +284,13 @@ class circle_applyFor extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title">周转部门：</span>
-                        <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
+                        <Select className="btn" showSearch placeholder="请选择" value={this.state.toDepartmentId} onChange={this.selectChange.bind(this, '周转部门')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
                         <span className="title" >单据编号：</span>
-                        <Input className="btn" placeholder="请输入" value={this.state.identifierNum} onChange={this.inputChange.bind(this, "num")} />
+                        <Input className="btn" placeholder="请输入" value={this.state.docNumber} onChange={this.inputChange.bind(this, "num")} />
                     </div>
                 </Search>
                 <div className="table">
