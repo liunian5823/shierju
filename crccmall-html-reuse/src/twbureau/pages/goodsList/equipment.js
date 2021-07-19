@@ -141,6 +141,7 @@ class equipment extends React.Component {
                     </div>,
                 }
             ],
+            obj:"",
         };
 
     }

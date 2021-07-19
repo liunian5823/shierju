@@ -166,17 +166,30 @@ class audit extends React.Component {
                 },
                 {
                     title: '操作',
+                    dataIndex: '',
                     key: 'operation',
                     fixed: 'right',
-                    width: 200,
-                    render: () => {
+                    width:120,
+                    render: () => {//通过权限判断                        
                         return <div>
                         <a className="edit">审核</a>
                         <a className="edit">查看</a>
                     </div>
+                        // console.log(value)
+                        // if () {
+                        //     return <div >
+                        //         <a className="edit">审核</a>
+                        //         <a className="edit">查看</a>
+                        //     </div>
+                        // } else {
+                        //     return <div >
+                        //         <a className="edit">查看</a>
+                        //     </div>
+                        // }
                     },
                 }
             ],
+            obj:"",
         };
 
     }
@@ -226,7 +239,7 @@ class audit extends React.Component {
             console.log(r)
         })
     }
-    
+
     inputChange(type, e) {
         // console.log(type,e.target.value);
         if (type == 'name') {

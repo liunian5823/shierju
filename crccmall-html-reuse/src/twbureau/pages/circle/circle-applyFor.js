@@ -15,8 +15,8 @@ class circle_applyFor extends React.Component {
         this.state = {
             name: "",
             companyId: undefined,
-            type: undefined,
-            toDepartmentId:undefined,
+            type: "1",
+            toDepartmentId: undefined,
             docNumber: "",
             dataSource: [],
             columns: [
@@ -40,16 +40,16 @@ class circle_applyFor extends React.Component {
                         }
                     }
                 },
-                {
-                    title: '资产名称',
-                    dataIndex: 'assetName',
-                    key: 'assetName'
-                },
-                {
-                    title: '规格型号',
-                    dataIndex: 'specification',
-                    key: 'specification',
-                },
+                // {
+                //     title: '资产名称',
+                //     dataIndex: 'assetName',
+                //     key: 'assetName'
+                // },
+                // {
+                //     title: '规格型号',
+                //     dataIndex: 'specification',
+                //     key: 'specification',
+                // },
                 {
                     title: '申请调入数量',
                     dataIndex: 'appliedNumber',
@@ -103,8 +103,9 @@ class circle_applyFor extends React.Component {
                     title: '操作',
                     key: 'operation',
                     fixed: 'right',
+                    width: 185,
                     render: (value) => {
-                        if (value.status == '3') {
+                        if (value.approvaStatus == '3') {
                             return <div >
                                 <a className="edit">重新提交</a>
                                 <a className="edit">作废</a>
@@ -119,13 +120,15 @@ class circle_applyFor extends React.Component {
                     },
                 }
             ],
+            obj: "",
         };
 
     }
 
     componentWillMount() {
         var obj = {};
-        obj['pageFlag']='1';
+        obj['pageFlag'] = '1';
+        obj['type'] = this.state.type;
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -133,6 +136,22 @@ class circle_applyFor extends React.Component {
         }, () => {
             this.getUserInfo();
         });
+    }
+    callback(key) {
+      var obj = {};
+      obj['pageFlag'] = '1';
+      obj['page'] = '1';
+      obj['rows'] = '10';
+      obj['type'] = key;
+      this.setState({
+        type: key
+      })
+      this.setState({
+        obj: obj
+      }, () => {
+        console.log(obj);
+        this.getUserInfo();
+      });
     }
     search() {
         // console.log(this.state)
@@ -142,7 +161,7 @@ class circle_applyFor extends React.Component {
         obj['type'] = this.state.type;
         obj['toDepartmentId'] = this.state.toDepartmentId;
         obj['docNumber'] = this.state.docNumber;
-        obj['pageFlag']='1';
+        obj['pageFlag'] = '1';
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -188,12 +207,12 @@ class circle_applyFor extends React.Component {
             this.setState({
                 companyId: value
             })
-        } else if (type == '资产分类'){
+        } else if (type == '资产分类') {
             // 资产分类
             this.setState({
                 type: value
             })
-        }else{
+        } else {
             // 周转部门
             this.setState({
                 toDepartmentId: value
@@ -205,67 +224,32 @@ class circle_applyFor extends React.Component {
     }
 
     render() {
-        const tabsData = [{
-            key: ' ',
-            name: '全部'
-        }, {
-            key: '1',
-            name: '在用'
-        }, {
-            key: '2',
-            name: '闲置'
-        }, {
-            key: '3',
-            name: '可周转'
-        }, {
-            key: '4',
-            name: '周转中'
-        }, {
-            key: '5',
-            name: '已周转'
-        }, {
-            key: '6',
-            name: '可处置'
-        }, {
-            key: '7',
-            name: '处置中'
-        }, {
-            key: '8',
-            name: '已处置'
-        }, {
-            key: '9',
-            name: '可租赁'
-        }, {
-            key: '10',
-            name: '已租赁'
-        }, {
-            key: '11',
-            name: '报废'
-        }, {
-            key: '12',
-            name: '报损'
-        }]
-        const tabsData2 = [{
-            key: ' ',
-            name: '全部'
-        }, {
-            key: '1',
-            name: '周转材料'
-        }, {
-            key: '2',
-            name: '施工设备'
-        }, {
-            key: '3',
-            name: '其他'
-        }]
+        const tabsData = [
+            // {
+            //     key: ' ',
+            //     name: '全部'
+            // },
+            {
+                key: '1',
+                name: '周转材料'
+            },
+            {
+                key: '2',
+                name: '施工设备'
+            },
+            {
+                key: '3',
+                name: '其他循环物资'
+            }
+        ]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
-                    <div className="search_item">
+                    {/* <div className="search_item">
                         <span className="title">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
-                    </div>
+                    </div> */}
                     <div className="search_item">
                         <span className="title">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.companyId} onChange={this.selectChange.bind(this, 'company')}>
@@ -274,9 +258,9 @@ class circle_applyFor extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title" >资产分类：</span>
-                        <Select className="btn" showSearch defaultValue={tabsData2} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
+                        <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
                             {
-                                tabsData2.map((item) => (
+                                tabsData.map((item) => (
                                     <Select.Option key={item.key}>{item.name}</Select.Option>
                                 ))
                             }
@@ -294,17 +278,27 @@ class circle_applyFor extends React.Component {
                     </div>
                 </Search>
                 <div className="table">
-                    <Table
-                        dataSource={this.state.dataSource}
-                        columns={this.state.columns}
-                        scroll={{ x: 1800 }}
-                        pagination={{
-                            position: ["bottomCenter"],
-                            size: "small",
-                            showSizeChanger: true,
-                            showQuickJumper: true
-                        }}
-                    />
+                    <Tabs onChange={this.callback.bind(this)} activeKey={this.state.type}>
+                        {
+                            tabsData.map((item, index) => {
+                                return (
+                                    <TabPane tab={item.name} key={item.key}>
+                                        <Table
+                                            dataSource={this.state.dataSource}
+                                            columns={this.state.columns}
+                                            scroll={{ x: 1800 }}
+                                            pagination={{
+                                                position: ["bottomCenter"],
+                                                size: "small",
+                                                showSizeChanger: true,
+                                                showQuickJumper: true
+                                            }}
+                                        />
+                                    </TabPane>
+                                )
+                            })
+                        }
+                    </Tabs>
                 </div>
             </div>
         )

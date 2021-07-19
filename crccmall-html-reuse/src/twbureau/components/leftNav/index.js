@@ -83,6 +83,14 @@ class LeftNav extends React.Component {
                 key: '/tw/circle/applyFor', 
                 route: '',
                 name: '物资周转申请'
+            },{
+                key: '/tw/circle/audit', 
+                route: '',
+                name: '物资周转审核'
+            },{
+                key: '/tw/circle/query', 
+                route: '',
+                name: '物资周转查询'
             }]
         }, {
             key: 'rentManage', 

@@ -168,7 +168,7 @@ class updateQuery extends React.Component {
                     title: '操作',
                     key: 'operation',
                     fixed: 'right',
-                    width: 200,
+                    width: 80,
                     render: () => {
                         return <div>
                         <a className="edit">查看</a>
@@ -176,6 +176,7 @@ class updateQuery extends React.Component {
                     },
                 }
             ],
+            obj:"",
         };
 
     }

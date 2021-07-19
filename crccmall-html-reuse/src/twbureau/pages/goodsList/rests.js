@@ -109,6 +109,7 @@ class Rests extends React.Component {
                     </div>,
                 }
             ],
+            obj:"",
         };
 
     }

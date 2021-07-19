@@ -168,6 +168,7 @@ class applyFor extends React.Component {
                     title: '操作',
                     key: 'operation',
                     fixed: 'right',
+                    width:185,
                     render: (value) => {
                         if (value.status == '3') {
                             return <div >
@@ -184,6 +185,7 @@ class applyFor extends React.Component {
                     },
                 }
             ],
+            obj:"",
         };
 
     }
