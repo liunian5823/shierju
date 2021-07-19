@@ -69,8 +69,6 @@ class equipment extends React.Component {
                     render: (value, row, index) => {
                         if (value == '1') {
                             return '在用'
-                        } else if (value == '1') {
-                            return '在用'
                         } else if (value == '2') {
                             return '闲置'
                         } else if (value == '3') {

@@ -4,7 +4,7 @@ import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
 import '../../style/list.css';
 import './index.css';
-import { Input, Select, DatePicker, Tabs, Button, Table, Cascader} from 'antd';
+import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
 
 const TabPane = Tabs.TabPane;
@@ -20,14 +20,18 @@ class revolving_materials extends React.Component {
             exitTime: "",
             category: undefined,
             buyTime: "",
-            manageNumber: "",
-            identifierNum: "",
+            standards:"",
+            materialType:undefined,
+            provinceId: "",
+            cityId: "",
+            countyId: "",
+            projectType:undefined,
             dataSource: [],
             columns: [
                 {
                     title: '编号',
-                    dataIndex: 'identifierNum',
-                    key: 'identifierNum'
+                    dataIndex: 'documentNumber',
+                    key: 'documentNumber'
                 },
                 {
                     title: '资产分类',
@@ -50,8 +54,23 @@ class revolving_materials extends React.Component {
                 },
                 {
                     title: '工程类型',
-                    dataIndex: 'name',
-                    key: 'name'
+                    dataIndex: 'projectType',
+                    key: 'projectType',
+                    render: (value, row, index) => {
+                        if (value == '1') {
+                            return '铁路'
+                        } else if (value == '2') {
+                            return '公路'
+                        } else if (value == '3') {
+                            return '水利'
+                        }  else if (value == '4') {
+                            return '市政'
+                        } else if (value == '5') {
+                            return '电气化'
+                        } else {
+                            return '房建'
+                        }
+                    }
                 },
                 {
                     title: '规格',
@@ -70,8 +89,8 @@ class revolving_materials extends React.Component {
                 },
                 {
                     title: '单价（含税）',
-                    dataIndex: 'unit',
-                    key: 'unit',
+                    dataIndex: 'unitPriceTaxinclusive',
+                    key: 'unitPriceTaxinclusive',
                 },
                 {
                     title: '资产状态',
@@ -79,8 +98,6 @@ class revolving_materials extends React.Component {
                     key: 'status',
                     render: (value, row, index) => {
                         if (value == '1') {
-                            return '在用'
-                        } else if (value == '1') {
                             return '在用'
                         } else if (value == '2') {
                             return '闲置'
@@ -121,19 +138,23 @@ class revolving_materials extends React.Component {
                 },
                 {
                     title: '待摊销金额',
-                    width: 250,
                     dataIndex: 'belongingCompany',
                     key: 'belongingCompany',
                 },
                 {
                     title: '进场类别',
-                    width: 250,
-                    dataIndex: 'belongingCompany',
-                    key: 'belongingCompany',
+                    dataIndex: 'approachType',
+                    key: 'approachType',
+                    render: (value, row, index) => {
+                        if (value == '1') {
+                            return '自购'
+                        } else if (value == '2') {
+                            return '调入'
+                        } 
+                    }
                 },
                 {
                     title: '所属工程公司',
-                    width: 250,
                     dataIndex: 'belongingCompany',
                     key: 'belongingCompany',
                 },
@@ -145,8 +166,8 @@ class revolving_materials extends React.Component {
                 {
                     title: '所在地',
                     width: 250,
-                    dataIndex: 'belongingCompany',
-                    key: 'belongingCompany',
+                    dataIndex: 'address',
+                    key: 'address',
                 },
                 {
                     title: '购入时间',
@@ -190,8 +211,12 @@ class revolving_materials extends React.Component {
         obj['exitTime'] = this.state.exitTime
         obj['category'] = this.state.category;
         obj['buyTime'] = this.state.buyTime;
-        obj['manageNumber'] = this.state.manageNumber;
-        obj['identifierNum'] = this.state.identifierNum;
+        obj['standards'] = this.state.standards;
+        obj['materialType'] = this.state.materialType;
+        obj['provinceId'] = this.state.provinceId;
+        obj['cityId'] = this.state.cityId;
+        obj['countyId'] = this.state.countyId;
+        obj['projectType'] = this.state.projectType;
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -207,6 +232,7 @@ class revolving_materials extends React.Component {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 r.data.rows[i - 1]['key'] = i
+                r.data.rows[i-1]['address']=r.data.rows[i-1].provinceName+r.data.rows[i-1].cityName+r.data.rows[i-1].countyName
             }
             var dataSources = r.data.rows;
             this.setState({ dataSource: dataSources });
@@ -221,15 +247,10 @@ class revolving_materials extends React.Component {
             this.setState({
                 name: e.target.value
             })
-        } else if (type == 'manage') {
-            // 管理号码
+        } else if (type == '规格') {
+            // 规格
             this.setState({
-                manageNumber: e.target.value
-            })
-        } else {
-            // 编号
-            this.setState({
-                identifierNum: e.target.value
+                standards: e.target.value
             })
         }
     }
@@ -244,10 +265,20 @@ class revolving_materials extends React.Component {
             this.setState({
                 status: value
             })
-        } else {
+        } else if (type == "category") {
             // 进场类别
             this.setState({
                 category: value
+            })
+        }else if (type == "类型") {
+            // 类型
+            this.setState({
+                materialType: value
+            })
+        }else if (type == "工程类型") {
+            // 工程类型
+            this.setState({
+                projectType: value
             })
         }
     }
@@ -280,6 +311,13 @@ class revolving_materials extends React.Component {
             console.log(obj);
             this.getUserInfo();
         });
+    }
+    onAddressChange = (value) => {
+        this.setState({
+            provinceId: value[0],
+            cityId: value[1],
+            countyId: value[2]
+        })
     }
     handleClick() {
         console.log('456')
@@ -336,6 +374,41 @@ class revolving_materials extends React.Component {
             key: '2',
             name: '调入'
         }]
+        const materialTypeArr = [{
+            key: ' ',
+            name: '全部'
+        }, {
+            key: '1',
+            name: 'A'
+        }, {
+            key: '2',
+            name: 'B'
+        }, {
+            key: '3',
+            name: 'C'
+        }]
+        const projectTypeArr = [{
+            key: ' ',
+            name: '全部'
+        }, {
+            key: '1',
+            name: '铁路'
+        }, {
+            key: '2',
+            name: '公路'
+        }, {
+            key: '3',
+            name: '水利'
+        }, {
+            key: '4',
+            name: '市政'
+        }, {
+            key: '5',
+            name: '电气化'
+        }, {
+            key: '6',
+            name: '房建'
+        }]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
@@ -380,9 +453,9 @@ class revolving_materials extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title" >类型：</span>
-                        <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "category")}>
+                        <Select className="btn" showSearch defaultValue={materialTypeArr} placeholder="请选择" value={this.state.materialType} onChange={this.selectChange.bind(this,'类型')}>
                             {
-                                categoryArr.map((item) => (
+                                materialTypeArr.map((item) => (
                                     <Select.Option key={item.key}>{item.name}</Select.Option>
                                 ))
                             }
@@ -390,7 +463,7 @@ class revolving_materials extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title" >规格：</span>
-                        <Input className="btn" placeholder="请输入编号" value={this.state.identifierNum} onChange={this.inputChange.bind(this, "Num")} />
+                        <Input className="btn" placeholder="请输入编号" value={this.state.standards} onChange={this.inputChange.bind(this, "规格")} />
                     </div>
 
                     <div className="search_item">
@@ -399,9 +472,9 @@ class revolving_materials extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title" >工程类别：</span>
-                        <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "category")}>
+                        <Select className="btn" showSearch defaultValue={projectTypeArr} placeholder="请选择" value={this.state.projectType} onChange={this.selectChange.bind(this,'工程类型')}>
                             {
-                                categoryArr.map((item) => (
+                                projectTypeArr.map((item) => (
                                     <Select.Option key={item.key}>{item.name}</Select.Option>
                                 ))
                             }

@@ -55,6 +55,21 @@ class Rests extends React.Component {
                     title: '工程类型',
                     dataIndex: 'projectType',
                     key: 'projectType',
+                    render: (value, row, index) => {
+                        if (value == '1') {
+                            return '铁路'
+                        } else if (value == '2') {
+                            return '公路'
+                        } else if (value == '3') {
+                            return '水利'
+                        }  else if (value == '4') {
+                            return '市政'
+                        } else if (value == '5') {
+                            return '电气化'
+                        } else {
+                            return '房建'
+                        }
+                    }
                 },
                 {
                     title: '规格',
