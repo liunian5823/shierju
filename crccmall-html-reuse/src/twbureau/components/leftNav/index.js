@@ -73,22 +73,26 @@ class LeftNav extends React.Component {
         }, {
             key: 'cirManage', 
             route: '',
-            name: '物质周转管理',
+            name: '物资周转管理',
             icon: './static/img/twbureau/zhouzhuan@2x.png',
             subMenu: [{
                 key: '/tw/circle/list', 
                 route: '',
-                name: '物质周转列表'
+                name: '物资周转列表'
+            },{
+                key: '/tw/circle/applyFor', 
+                route: '',
+                name: '物资周转申请'
             }]
         }, {
             key: 'rentManage', 
             route: '',
-            name: '物质租赁管理',
+            name: '物资租赁管理',
             icon: './static/img/twbureau/rent@2x.png',
             subMenu: [{
                 key: '/tw/rent/list', 
                 route: '',
-                name: '物质租赁明细'
+                name: '物资租赁明细'
             }]
         }]
         return (

@@ -104,6 +104,7 @@ import applyFor from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsLi
 import audit from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/update-audit";
 import updateQuery from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/update-query";
 import circleList from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/index";
+import circle_applyFor from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-applyFor";
 import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/index";
 import goodDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
 
@@ -252,6 +253,7 @@ const twRoutes = [
     { type: "route", path: "/tw/goods/audit", component: bundle(Empty, audit, { type: "callback" }) },//物资状态更新审核
     { type: "route", path: "/tw/goods/updateQuery", component: bundle(Empty, updateQuery, { type: "callback" }) },//物资状态更新查询
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
+    { type: "route", path: "/tw/circle/applyFor", component: bundle(Empty, circle_applyFor, { type: "callback" }) },//物资周转申请
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
     { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodDetail, { type: "callback" }) },
 

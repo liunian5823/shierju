@@ -8,12 +8,12 @@ import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
-class updateQuery extends React.Component {
+class circle_applyFor extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            status:"3",
+            status: "1",
             name: "",
             belongingCompany: undefined,
             beforeStatus: undefined,
@@ -26,7 +26,7 @@ class updateQuery extends React.Component {
                     title: '单据编号',
                     dataIndex: 'receiptNumber',
                     key: 'receiptNumber',
-                    width:160
+                    width: 160
                 },
                 {
                     title: '资产分类',
@@ -150,9 +150,9 @@ class updateQuery extends React.Component {
                     dataIndex: 'status',
                     key: 'status',
                     render: (value, row, index) => {
-                        if (value=="1") {
+                        if (value == "1") {
                             return "审核中"
-                        }else if (value=="1") {
+                        } else if (value == "2") {
                             return "审核通过"
                         } else {
                             return "审核拒绝"
@@ -168,11 +168,19 @@ class updateQuery extends React.Component {
                     title: '操作',
                     key: 'operation',
                     fixed: 'right',
-                    width: 200,
-                    render: () => {
-                        return <div>
-                        <a className="edit">查看</a>
-                    </div>
+                    render: (value) => {
+                        if (value.status == '3') {
+                            return <div >
+                                <a className="edit">重新提交</a>
+                                <a className="edit">作废</a>
+                                <a className="edit">查看</a>
+                            </div>
+                        } else {
+                            return <div >
+                                <a className="edit">查看</a>
+                            </div>
+                        }
+
                     },
                 }
             ],
@@ -349,26 +357,6 @@ class updateQuery extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新前资产状态：</span>
-                        <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.beforeStatus} onChange={this.selectChange.bind(this, '更新前')}>
-                            {
-                                tabsData.map((item) => (
-                                    <Select.Option key={item.key}>{item.name}</Select.Option>
-                                ))
-                            }
-                        </Select>
-                    </div>
-                    <div className="search_item">
-                        <span className="title" >更新后资产状态：</span>
-                        <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.backStatus} onChange={this.selectChange.bind(this, '更新后')}>
-                            {
-                                tabsData.map((item) => (
-                                    <Select.Option key={item.key}>{item.name}</Select.Option>
-                                ))
-                            }
-                        </Select>
-                    </div>
-                    <div className="search_item">
                         <span className="title" >资产分类：</span>
                         <Select className="btn" showSearch defaultValue={tabsData2} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
                             {
@@ -376,6 +364,12 @@ class updateQuery extends React.Component {
                                     <Select.Option key={item.key}>{item.name}</Select.Option>
                                 ))
                             }
+                        </Select>
+                    </div>
+                    <div className="search_item">
+                        <span className="title">周转部门：</span>
+                        <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
+                            <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
@@ -403,4 +397,4 @@ class updateQuery extends React.Component {
 // function callback(key) {
 //   console.log(key);
 // }
-export default updateQuery
+export default circle_applyFor

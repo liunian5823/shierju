@@ -178,7 +178,6 @@ class applyFor extends React.Component {
                         } else {
                             return <div >
                                 <a className="edit">查看</a>
-
                             </div>
                         }
 
