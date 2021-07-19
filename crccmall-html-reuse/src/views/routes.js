@@ -98,6 +98,7 @@ import Personal from "bundle-loader?lazy&name=Personal!@/pages/personal/user/Edi
 // 循环物资
 import circulation from "bundle-loader?lazy&name=Home!@/twbureau/pages/index/index";
 import goodsList from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/index";
+import revolving_materials from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/revolving-materials";
 import equipment from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/equipment";
 import rests from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/rests";
 import applyFor from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/update-applyFor";
@@ -250,6 +251,7 @@ const deskRoutes = [
 const twRoutes = [
     { type: "route", path: "/tw/cirHome", component: bundle(Empty, circulation, { type: "callback" }) },
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/revolving", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
     { type: "route", path: "/tw/goods/equipment", component: bundle(Empty, equipment, { type: "callback" }) },//施工
     { type: "route", path: "/tw/goods/rests", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
     { type: "route", path: "/tw/goods/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请

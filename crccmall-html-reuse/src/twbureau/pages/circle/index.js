@@ -20,9 +20,7 @@ class Circle extends React.Component {
       type: "1",
       buyTime: "",
       classify: undefined,
-      dataSource: [{
-        type: "1"
-      }],
+      dataSource: [],
       columns: [
         {
           title: '周转类别',
@@ -226,7 +224,7 @@ class Circle extends React.Component {
         r.data.rows[i - 1]['key'] = i
       }
       var dataSources = r.data.rows;
-      // this.setState({ dataSource: dataSources });
+      this.setState({ dataSource: dataSources });
     }).catch(r => {
       console.log(r)
     })

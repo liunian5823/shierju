@@ -154,8 +154,10 @@ class applyFor extends React.Component {
                             return "审核中"
                         } else if (value == "2") {
                             return "审核通过"
-                        } else {
+                        } else if (value == "3") {
                             return "审核拒绝"
+                        }else{
+                            return "审核拒绝待提交"
                         }
                     }
                 },
