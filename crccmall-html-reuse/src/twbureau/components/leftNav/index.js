@@ -106,6 +106,16 @@ class LeftNav extends React.Component {
                 route: '',
                 name: '物资租赁明细'
             }]
+        }, {
+            key: 'disposalManage', 
+            route: '',
+            name: '物资处置管理',
+            icon: './static/img/twbureau/chuzhi@2x.png',
+            subMenu: [{
+                key: '/tw/disposal/list', 
+                route: '',
+                name: '处置物资列表'
+            }]
         }]
         return (
             <div className={less.main_leftNav}>

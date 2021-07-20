@@ -266,15 +266,29 @@ class Circle extends React.Component {
         name: '周转中'
       }, {
         key: '5',
-        name: '闲置'
+        name: '已周转'
       }, {
         key: '6',
-        name: '可周转'
+        name: '可处置'
       }, {
         key: '7',
-        name: '周转中'
-      }
-    ]
+        name: '处置中'
+      }, {
+        key: '8',
+        name: '已处置'
+      }, {
+        key: '9',
+        name: '可租赁'
+      }, {
+        key: '10',
+        name: '已租赁'
+      }, {
+        key: '11',
+        name: '报废'
+      }, {
+        key: '12',
+        name: '报损'
+      }]
     return (
       <div>
         <Breadcrumb location={this.props.match} />

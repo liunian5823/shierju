@@ -111,6 +111,7 @@ import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsL
 import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/management";
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
 import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
+import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
 
 import NoAu from "@/pages/notFound";
 
@@ -264,6 +265,7 @@ const twRoutes = [
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
     { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodsDetail, { type: "callback" }) },
     { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
+    { type: "route", path: "/tw/disposal/list", component: bundle(Empty, disposalList, { type: "callback" }) },//处置物资列表
 
 ]
 export {
