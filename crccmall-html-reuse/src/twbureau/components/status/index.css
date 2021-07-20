@@ -1,0 +1,116 @@
+.status {
+  border-radius: 4px;
+  width: 710px;
+}
+.status .ant-modal-header {
+  height: 45px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: none;
+}
+.status .ant-modal-footer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-top: none;
+}
+.status .ant-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.status .ant-form-item {
+  display: flex;
+  width: 300px;
+  margin-bottom: 10px;
+}
+.status .whole {
+  display: flex;
+  width: 678px;
+}
+.status .s_size {
+  width: 135px;
+}
+.status .xs_size {
+  width: 50px;
+}
+.status .textarea {
+  width: 524px;
+  height: 103px;
+}
+.status .content {
+  padding: 0 38px;
+}
+.status .process {
+  padding: 0 38px 38px 100px;
+}
+.status .process .item .head {
+  display: flex;
+}
+.status .process .item .head>div{
+  width: 20px;
+  height: 20px;
+}
+.status .process .item .head>span {
+  font-size: 14px;
+  color: #333333;
+  padding-left: 12px;
+}
+.status .process .item .info {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 61px;
+  margin: 7px 10px;
+  padding-left: 21px;
+}
+.status .process .item .info>div {
+  font-size: 14px;
+  color: #999999;
+  margin-right: 24px;
+}
+.status .process .agree .head>div {
+  background: url("../../../static/img/twbureau/agree@2x.png");
+  background-size: cover;
+}
+.status .process .agree .info {
+  border-left: 2px solid #6CD201;
+}
+.status .process .refuse .head>div {
+  background: url("../../../static/img/twbureau/refuse@2x.png");
+  background-size: cover;
+}
+.status .process .refuse .info {
+  border-left: 2px solid #E40407;
+}
+.status .process .waitting .head>div {
+  background: url("../../../static/img/twbureau/waitting@2x.png");
+  background-size: cover;
+}
+.status .process .waitting .info {
+  border-left: 2px solid #D6D6D6;
+}
+.status .process .item:last-child .info {
+  border-left: none;
+}
+.status .process .item .info .name {
+  width: 60px;
+}
+.status .process .item .info .date {
+  width: 134px;
+}
+.status .process .item .info .status {
+  width: 60px;
+}
+.status .process .item .info .explain {
+  width: 320px;
+}
+.status .vertify {
+  padding: 0 38px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  padding: 24px;
+}

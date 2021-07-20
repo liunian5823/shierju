@@ -5,6 +5,7 @@ import api from '@/framework/axios';
 import '../../style/list.css';
 import './index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
+import Status from '@/twbureau/components/status'
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
@@ -109,6 +110,7 @@ class Rests extends React.Component {
                     </div>,
                 }
             ],
+            showStatus: false
         };
 
     }
@@ -240,6 +242,11 @@ class Rests extends React.Component {
     handleClick() {
         console.log('456')
     }
+    changeStatus = () => {
+        this.setState({
+            showStatus: true
+        })
+    }
 
     render() {
         const tabsData = [{
@@ -327,6 +334,47 @@ class Rests extends React.Component {
             key: '6',
             name: '房建'
         }]
+        let status = {
+            name: '资产名称', // 资产名称
+            type: "周转材料", // 资产类别
+            standards: 'KKK', // 规格型号
+            department: 'xx部门', // 资产管理部门
+            befoeupdateStatus: '0', // 更新前资产状态
+            afterupdateStatus: '1', // 更新后资产状态
+            number1: '999', //数量 没找到对应字段名称，可改成跟接口字段名称一致
+            unit1: '',//单位 没找到对应字段名称，可改成跟接口字段名称一致
+            updateType: 'all', //更新类型 没找到对应字段名称，可改成跟接口字段名称一致
+            restStatus: '', //剩余物资状态 没找到对应字段名称，可改成跟接口字段名称一致
+            number2: '999', //数量 没找到对应字段名称，可改成跟接口字段名称一致
+            unit2: '',//单位 没找到对应字段名称，可改成跟接口字段名称一致
+            remark: 'dakdajlfdklas' // 备注 没找到对应字段名称，可改成跟接口字段名称一致
+          }
+         let process = [
+            {
+              head: '项目部XX部长',
+              name: '张三三',
+              dateTime: '2021.08.23 12:00:00',
+              status: '审核通过',
+              statusKey: 'agree', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            },
+            {
+              head: '项目管理员',
+              name: '李四小',
+              dateTime: '2021.08.23 12:00:00',
+              status: '审核中',
+              statusKey: 'waitting', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            },
+            {
+              head: '项目管理员',
+              name: '李四',
+              dateTime: '2021.08.23 12:00:00',
+              status: '拒绝',
+              statusKey: 'refuse', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            } 
+        ]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
@@ -412,6 +460,8 @@ class Rests extends React.Component {
                             <Button type="primary">+ 录入资产信息</Button>
                             <Button>导入台账信息</Button>
                             <Button>台账模板下载</Button>
+                            {/* 更新状态测试 */}
+                            <Button onClick={this.changeStatus}>测试更新状态</Button> 
                         </div>
                         <Button className='table-btn-right' type="primary">导出</Button>
                     </div>
@@ -438,6 +488,7 @@ class Rests extends React.Component {
                         }
                     </Tabs>
                 </div>
+                <Status visible={this.state.showStatus} step="vertify" status={status} process={process}/>
             </div>
         )
     }

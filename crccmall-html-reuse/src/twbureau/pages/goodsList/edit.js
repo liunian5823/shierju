@@ -69,8 +69,8 @@ class GoodsEdit extends React.Component {
   imageUploadChange = (info) => {
     console.log(info)
     let imageList = info.fileList;
-    // 1. 上传列表数量的限制, 取最后5个
-    imageList = imageList.slice(-5);
+    // 1. 上传列表数量的限制, 取最后10个
+    imageList = imageList.slice(-10);
 
     this.setState({ imageList });
   }
