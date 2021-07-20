@@ -15,7 +15,7 @@
 .btn,.search_item .ant-calendar-picker {
   width: 285px;
 }
-.search_item .title {
+.search_item .head {
   display: inline-block;
   width: 146px;
   font-size: 14px;
@@ -41,7 +41,7 @@
   border-radius: 4px;
   padding-left: 24px;
 }
-.total .item .title {
+.total .item .head {
   clear: both;
   font-size: 14px;
   color: #000000;

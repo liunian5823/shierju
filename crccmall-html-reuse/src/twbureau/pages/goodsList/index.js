@@ -315,17 +315,17 @@ class GoodsList extends React.Component {
         <Breadcrumb location={this.props.match} />
         <Search search={this.search.bind(this)}>
           <div className="search_item">
-            <span className="title">资产名称：</span>
+            <span className="head">资产名称：</span>
             <Input className="btn" placeholder="请输入资产名称" value={this.state.value} onChange={this.handleChange.bind(this)} />
           </div>
           <div className="search_item">
-            <span className="title">所属工程公司/项目部：</span>
+            <span className="head">所属工程公司/项目部：</span>
             <Select className="btn" showSearch placeholder="请选择" value={this.state.projectname} onChange={this.projectname.bind(this)}>
               <Option value="jack" >局/处/项目部</Option>
             </Select>
           </div>
           <div className="search_item">
-            <span className="title" >资产状态：</span>
+            <span className="head" >资产状态：</span>
             <Select className="btn" defaultValue={Assetstates} showSearch placeholder="请选择" value={this.state.projectname1} onChange={this.projectname1.bind(this)}>
               {Assetstates.map(Assetstates => (
                 <Option key={Assetstates.key}>{Assetstates.name}</Option>
@@ -334,11 +334,11 @@ class GoodsList extends React.Component {
             </Select>
           </div>
           <div className="search_item">
-            <span className="title" >预计退场时间：</span>
+            <span className="head" >预计退场时间：</span>
             <DatePicker className="btn" onChange={this.datePicker.bind(this)} />
           </div>
           <div className="search_item">
-            <span className="title" >资产分类：</span>
+            <span className="head" >资产分类：</span>
             <Select className="btn" showSearch defaultValue={classification} placeholder="请选择" value={this.state.projectname2} onChange={this.projectname2.bind(this)}>
               {classification.map(Assetstates => (
                 <Option key={Assetstates.key}>{Assetstates.name}</Option>
@@ -347,15 +347,15 @@ class GoodsList extends React.Component {
             </Select>
           </div>
           <div className="search_item">
-            <span className="title" >购入时间：</span>
+            <span className="head" >购入时间：</span>
             <DatePicker className="btn" value={this.state.datePicker1} onChange={this.datePicker1.bind(this)} />
           </div>
           <div className="search_item">
-            <span className="title" >规格：</span>
+            <span className="head" >规格：</span>
             <Input className="btn" placeholder="请输入规格" value={this.state.specification} onChange={this.specification.bind(this)} />
           </div>
           <div className="search_item">
-            <span className="title" >所在地：</span>
+            <span className="head" >所在地：</span>
             {/* <Select className="address" showSearch placeholder="省" value={this.state.projectname3} onChange={this.projectname3.bind(this)}>
               <Option value="jack">北京市1</Option>
             </Select>
@@ -371,27 +371,27 @@ class GoodsList extends React.Component {
         <div className="total">
           <div className="item">
             <div className="number">{this.state.statistics.totalCount}</div>
-            <div className="title">总资产数</div>
+            <div className="head">总资产数</div>
           </div>
           <div className="item">
             <div className="number">{this.state.statistics.inuseCount}</div>
-            <div className="title">在用</div>
+            <div className="head">在用</div>
           </div>
           <div className="item">
             <div className="number">{this.state.statistics.leaveUnusedCount}</div>
-            <div className="title">闲置</div>
+            <div className="head">闲置</div>
           </div>
           <div className="item">
             <div className="number">{this.state.statistics.haveTurnoverCount}</div>
-            <div className="title">已周转</div>
+            <div className="head">已周转</div>
           </div>
           <div className="item">
             <div className="number">{this.state.statistics.hasDisposalCount}</div>
-            <div className="title">已处置</div>
+            <div className="head">已处置</div>
           </div>
           <div className="item">
             <div className="number">{this.state.statistics.hasleaseCount}</div>
-            <div className="title">已租赁</div>
+            <div className="head">已租赁</div>
           </div>
         </div>
         <div className="table goodsList">
