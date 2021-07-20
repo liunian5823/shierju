@@ -1,0 +1,9 @@
+.biddingTab .ant-tabs-nav-scroll{
+  width: 90% !important;
+}
+.biddingTab .ant-tabs-nav .ant-tabs-tab-inner{
+  padding: 8px 5px;
+}
+.biddingTab .export button{
+  margin-right: 10px;
+}

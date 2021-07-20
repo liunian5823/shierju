@@ -112,6 +112,7 @@ import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pa
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
 import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
 import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
+import bidding from "bundle-loader?lazy&name=disposal!@/twbureau/pages/bidding/index";
 
 import NoAu from "@/pages/notFound";
 
@@ -252,6 +253,8 @@ const deskRoutes = [
 const twRoutes = [
     { type: "route", path: "/tw/cirHome", component: bundle(Empty, circulation, { type: "callback" }) },
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodsDetail, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
     { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
     { type: "route", path: "/tw/rests/management", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
@@ -263,9 +266,8 @@ const twRoutes = [
     { type: "route", path: "/tw/circle/audit", component: bundle(Empty, circle_audit, { type: "callback" }) },//物资周转审核
     { type: "route", path: "/tw/circle/query", component: bundle(Empty, circle_query, { type: "callback" }) },//物资周转查询
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
-    { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodsDetail, { type: "callback" }) },
-    { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
     { type: "route", path: "/tw/disposal/list", component: bundle(Empty, disposalList, { type: "callback" }) },//处置物资列表
+    { type: "route", path: "/tw/bidding/list", component: bundle(Empty, bidding, { type: "callback" }) },//竞价单管理
 
 ]
 export {

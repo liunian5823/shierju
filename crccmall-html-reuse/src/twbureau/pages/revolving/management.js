@@ -18,7 +18,7 @@ class revolving_materials extends React.Component {
             belongingCompany: undefined,
             status: "",
             exitTime: "",
-            category: undefined,
+            approachType: undefined,
             buyTime: "",
             standards:"",
             materialType:undefined,
@@ -133,13 +133,13 @@ class revolving_materials extends React.Component {
                 },
                 {
                     title: '已摊销比例',
-                    dataIndex: 'originalValue',
-                    key: 'originalValue',
+                    dataIndex: 'amortizationRatio',
+                    key: 'amortizationRatio',
                 },
                 {
                     title: '待摊销金额',
-                    dataIndex: 'belongingCompany',
-                    key: 'belongingCompany',
+                    dataIndex: 'amountAmortised',
+                    key: 'amountAmortised',
                 },
                 {
                     title: '进场类别',
@@ -208,7 +208,7 @@ class revolving_materials extends React.Component {
         obj['belongingCompany'] = this.state.belongingCompany
         obj['status'] = this.state.status;
         obj['exitTime'] = this.state.exitTime
-        obj['category'] = this.state.category;
+        obj['approachType'] = this.state.approachType;
         obj['buyTime'] = this.state.buyTime;
         obj['standards'] = this.state.standards;
         obj['materialType'] = this.state.materialType;
@@ -227,7 +227,7 @@ class revolving_materials extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.66:9999/materialRevolvingController/page", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.175:9999/materialRevolvingController/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 r.data.rows[i - 1]['key'] = i
@@ -253,7 +253,7 @@ class revolving_materials extends React.Component {
             })
         }
     }
-    selectChange(value, type) {
+    selectChange(type,value) {
         if (type == 'belong') {
             // 所属工程公司/项目部：
             this.setState({
@@ -264,10 +264,10 @@ class revolving_materials extends React.Component {
             this.setState({
                 status: value
             })
-        } else if (type == "category") {
+        } else if (type == "进场类别") {
             // 进场类别
             this.setState({
-                category: value
+                approachType: value
             })
         }else if (type == "类型") {
             // 类型
@@ -426,8 +426,8 @@ class revolving_materials extends React.Component {
                         <span className="title" >资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.status} onChange={this.selectChange.bind(this, "status")}>
                             {
-                                tabsData.map((item) => (
-                                    <Select.Option key={item.key}>{item.name}</Select.Option>
+                                tabsData.map((item1) => (
+                                    <Select.Option key={item1.key}>{item1.name}</Select.Option>
                                 ))
                             }
                         </Select>
@@ -438,10 +438,10 @@ class revolving_materials extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title" >进场类别：</span>
-                        <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "category")}>
+                        <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.approachType} onChange={this.selectChange.bind(this, "进场类别")}>
                             {
-                                categoryArr.map((item) => (
-                                    <Select.Option key={item.key}>{item.name}</Select.Option>
+                                categoryArr.map((item2) => (
+                                    <Select.Option key={item2.key}>{item2.name}</Select.Option>
                                 ))
                             }
                         </Select>
@@ -454,8 +454,8 @@ class revolving_materials extends React.Component {
                         <span className="title" >类型：</span>
                         <Select className="btn" showSearch defaultValue={materialTypeArr} placeholder="请选择" value={this.state.materialType} onChange={this.selectChange.bind(this,'类型')}>
                             {
-                                materialTypeArr.map((item) => (
-                                    <Select.Option key={item.key}>{item.name}</Select.Option>
+                                materialTypeArr.map((item3) => (
+                                    <Select.Option key={item3.key}>{item3.name}</Select.Option>
                                 ))
                             }
                         </Select>
@@ -473,8 +473,8 @@ class revolving_materials extends React.Component {
                         <span className="title" >工程类别：</span>
                         <Select className="btn" showSearch defaultValue={projectTypeArr} placeholder="请选择" value={this.state.projectType} onChange={this.selectChange.bind(this,'工程类型')}>
                             {
-                                projectTypeArr.map((item) => (
-                                    <Select.Option key={item.key}>{item.name}</Select.Option>
+                                projectTypeArr.map((item4) => (
+                                    <Select.Option key={item4.key}>{item4.name}</Select.Option>
                                 ))
                             }
                         </Select>
