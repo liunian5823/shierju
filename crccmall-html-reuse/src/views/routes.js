@@ -113,6 +113,7 @@ import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipm
 import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
 import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
 import bidding from "bundle-loader?lazy&name=disposal!@/twbureau/pages/bidding/index";
+import entrusted from "bundle-loader?lazy&name=disposal!@/twbureau/pages/entrusted/index";
 
 import NoAu from "@/pages/notFound";
 
@@ -268,6 +269,7 @@ const twRoutes = [
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
     { type: "route", path: "/tw/disposal/list", component: bundle(Empty, disposalList, { type: "callback" }) },//处置物资列表
     { type: "route", path: "/tw/bidding/list", component: bundle(Empty, bidding, { type: "callback" }) },//竞价单管理
+    { type: "route", path: "/tw/entrusted/list", component: bundle(Empty, entrusted, { type: "callback" }) },//委托处置管理
 
 ]
 export {

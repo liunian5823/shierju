@@ -119,6 +119,10 @@ class LeftNav extends React.Component {
                 key: '/tw/bidding/list', 
                 route: '',
                 name: '竞价单管理'
+            },{
+                key: '/tw/entrusted/list', 
+                route: '',
+                name: '委托处置管理'
             }]
         }]
         return (
