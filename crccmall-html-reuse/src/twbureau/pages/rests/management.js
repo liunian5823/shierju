@@ -2,31 +2,38 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
-import '../../style/list.css';
-import './index.css';
-import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
+import '../../style/index.css';
+import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
+import options from '../../util/address';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
-class equipment extends React.Component {
+class Rests extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             name: "",
-            belongingCompany: undefined,
+            belongingCompany:undefined,
             status: "",
-            exitTime: "",
+            exitTime:"",
             category: undefined,
-            buyTime: "",
-            manageNumber: "",
-            identifierNum: "",
+            buyTime:"",
+            standards:"",
+            provinceName:undefined,
+            cityName:undefined,
+            countyName: undefined,
+            materialType: undefined,
+            projectType: undefined,
+            provinceId: "",
+            cityId: "",
+            countyId: "",
             dataSource: [],
             columns: [
                 {
                     title: '编号',
-                    dataIndex: 'identifierNum',
-                    key: 'identifierNum'
+                    dataIndex: 'documentNumber',
+                    key: 'documentNumber'
                 },
                 {
                     title: '资产分类',
@@ -44,8 +51,28 @@ class equipment extends React.Component {
                 },
                 {
                     title: '资产名称',
-                    dataIndex: 'name',
-                    key: 'name'
+                    dataIndex: 'projectName',
+                    key: 'projectName'
+                },
+                {
+                    title: '工程类型',
+                    dataIndex: 'projectType',
+                    key: 'projectType',
+                    render: (value, row, index) => {
+                        if (value == '1') {
+                            return '铁路'
+                        } else if (value == '2') {
+                            return '公路'
+                        } else if (value == '3') {
+                            return '水利'
+                        }  else if (value == '4') {
+                            return '市政'
+                        } else if (value == '5') {
+                            return '电气化'
+                        } else {
+                            return '房建'
+                        }
+                    }
                 },
                 {
                     title: '规格',
@@ -66,40 +93,6 @@ class equipment extends React.Component {
                     title: '资产状态',
                     dataIndex: 'status',
                     key: 'status',
-                    render: (value, row, index) => {
-                        if (value == '1') {
-                            return '在用'
-                        } else if (value == '2') {
-                            return '闲置'
-                        } else if (value == '3') {
-                            return '可周转'
-                        } else if (value == '4') {
-                            return '周转中'
-                        } else if (value == '5') {
-                            return '已周转'
-                        } else if (value == '6') {
-                            return '可处置'
-                        } else if (value == '7') {
-                            return '处置中'
-                        } else if (value == '8') {
-                            return '已处置'
-                        } else if (value == '9') {
-                            return '可租赁'
-                        } else if (value == '10') {
-                            return '已租赁'
-                        } else if (value == '11') {
-                            return '报废'
-                        } else if (value == '12') {
-                            return '报损'
-                        } else {
-                            return ''
-                        }
-                    }
-                },
-                {
-                    title: '原值',
-                    dataIndex: 'originalValue',
-                    key: 'originalValue',
                 },
                 {
                     title: '所属工程公司',
@@ -113,19 +106,14 @@ class equipment extends React.Component {
                     key: 'department',
                 },
                 {
+                    title: '所在地',
+                    dataIndex: 'address',
+                    key: 'address',
+                },
+                {
                     title: '购入时间',
                     dataIndex: 'buyTime',
                     key: 'buyTime',
-                },
-                {
-                    title: '预计退场时间',
-                    dataIndex: 'exitTim',
-                    key: 'exitTim',
-                },
-                {
-                    title: '管理号码',
-                    dataIndex: 'manageNumber',
-                    key: 'manageNumber',
                 },
                 {
                     title: '操作',
@@ -144,6 +132,7 @@ class equipment extends React.Component {
 
     }
 
+
     componentWillMount() {
         var obj = {};
         obj['status'] = this.state.status;
@@ -158,14 +147,21 @@ class equipment extends React.Component {
     search() {
         // console.log(this.state)
         var obj = {};
-        obj['name'] = this.state.name
+        obj['projectName'] = this.state.name
         obj['belongingCompany'] = this.state.belongingCompany
         obj['status'] = this.state.status;
         obj['exitTime'] = this.state.exitTime
         obj['category'] = this.state.category;
         obj['buyTime'] = this.state.buyTime;
-        obj['manageNumber'] = this.state.manageNumber;
-        obj['identifierNum'] = this.state.identifierNum;
+        obj['materialType'] = this.state.materialType;
+        obj['standards'] = this.state.standards;
+        obj['provinceId'] = this.state.provinceId;
+        obj['cityId'] = this.state.cityId;
+        obj['countyId'] = this.state.countyId;
+        // obj['provinceName'] = this.state.provinceName;
+        // obj['cityName'] = this.state.cityName;
+        // obj['countyName'] = this.state.countyName;
+        obj['projectType'] = this.state.projectType;
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -177,10 +173,12 @@ class equipment extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.66:9999/materialEquipmentController/page", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.175:9999/materialOtherController/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
-                r.data.rows[i - 1]['key'] = i
+                var element = r.data.rows[i - 1]
+                element['key'] = i
+                element['address'] = element.provinceName + element.cityName + element.countyName
             }
             var dataSources = r.data.rows;
             this.setState({ dataSource: dataSources });
@@ -189,25 +187,21 @@ class equipment extends React.Component {
         })
     }
     inputChange(type,e) {
-        // console.log(type,e.target.value);
+        console.log(type,e.target.value);
         if (type == 'name') {
             // 资产名称
             this.setState({
                 name: e.target.value
             })
-        } else if (type == 'manage') {
-            // 管理号码
-            this.setState({
-                manageNumber: e.target.value
-            })
         } else {
-            // 编号
+            // 规格
             this.setState({
-                identifierNum: e.target.value
+                status: e.target.value
             })
         }
     }
     selectChange(value, type) {
+        console.log(value,type);
         if (type == 'belong') {
             // 所属工程公司/项目部：
             this.setState({
@@ -218,10 +212,20 @@ class equipment extends React.Component {
             this.setState({
                 status: value
             })
-        } else {
+        } else if (type == '进场类别') {
             // 进场类别
             this.setState({
                 category: value
+            })
+        } else if (type == '类型') {
+            // 类型
+            this.setState({
+                materialType: value
+            })
+        } else {
+            // 工程类型
+            this.setState({
+                projectType: value
             })
         }
     }
@@ -237,6 +241,13 @@ class equipment extends React.Component {
                 buyTime: dateString
             })
         }
+    }
+    onAddressChange = (value) => {
+        this.setState({
+            provinceId: value[0],
+            cityId: value[1],
+            countyId: value[2]
+        })
     }
     callback(key) {
         var obj = {};
@@ -310,13 +321,48 @@ class equipment extends React.Component {
             key: '2',
             name: '调入'
         }]
+        const materialTypeArr = [{
+            key: ' ',
+            name: '全部'
+        }, {
+            key: '1',
+            name: 'A'
+        }, {
+            key: '2',
+            name: 'B'
+        }, {
+            key: '3',
+            name: 'C'
+        }]
+        const projectTypeArr = [{
+            key: ' ',
+            name: '全部'
+        }, {
+            key: '1',
+            name: '铁路'
+        }, {
+            key: '2',
+            name: '公路'
+        }, {
+            key: '3',
+            name: '水利'
+        }, {
+            key: '4',
+            name: '市政'
+        }, {
+            key: '5',
+            name: '电气化'
+        }, {
+            key: '6',
+            name: '房建'
+        }]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
-                <Search search={this.search.bind(this)}>
+                <Search search={this.search}>
                     <div className="search_item">
                         <span className="title">资产名称：</span>
-                        <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this,'name')} />
+                        <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this,"name")} />
                     </div>
                     <div className="search_item">
                         <span className="title">所属工程公司/项目部：</span>
@@ -340,7 +386,7 @@ class equipment extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title" >进场类别：</span>
-                        <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "category")}>
+                        <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "进场类别")}>
                             {
                                 categoryArr.map((item) => (
                                     <Select.Option key={item.key}>{item.name}</Select.Option>
@@ -353,12 +399,32 @@ class equipment extends React.Component {
                         <DatePicker className="btn" onChange={this.timeChange.bind(this, "buy")} />
                     </div>
                     <div className="search_item">
-                        <span className="title">管理号码：</span>
-                        <Input className="btn" placeholder="请输入管理号码" value={this.state.manageNumber} onChange={this.inputChange.bind(this,'manage')} />
+                        <span className="title">类型：</span>
+                        <Select className="btn" showSearch defaultValue={materialTypeArr} placeholder="请选择" value={this.state.materialType} onChange={this.selectChange.bind(this,'类型')}>
+                            {
+                                materialTypeArr.map((item) => (
+                                    <Select.Option key={item.key}>{item.name}</Select.Option>
+                                ))
+                            }
+                        </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >编号：</span>
-                        <Input className="btn" placeholder="请输入编号" value={this.state.identifierNum} onChange={this.inputChange.bind(this,"Num")} />
+                        <span className="title" >规格：</span>
+                        <Input className="btn" placeholder="请输入"  value={this.state.standards} onChange={this.inputChange.bind(this,"规格")} />
+                    </div>
+                    <div className="search_item">
+                        <span className="title" >所在地：</span>
+                        <Cascader className="btn" options={options} placeholder="请选择地区" onChange={this.onAddressChange} />
+                    </div>
+                    <div className="search_item">
+                        <span className="title">工程类型：</span>
+                        <Select className="btn" showSearch defaultValue={projectTypeArr} placeholder="请选择" value={this.state.projectType} onChange={this.selectChange.bind(this,'工程类型')}>
+                            {
+                                projectTypeArr.map((item) => (
+                                    <Select.Option key={item.key}>{item.name}</Select.Option>
+                                ))
+                            }
+                        </Select>
                     </div>
                 </Search>
                 <div className="table">
@@ -400,4 +466,4 @@ class equipment extends React.Component {
 // function callback(key) {
 //   console.log(key);
 // }
-export default equipment
+export default Rests

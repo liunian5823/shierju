@@ -2,18 +2,17 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
-import '../../style/list.css';
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
-class updateQuery extends React.Component {
+class audit extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            status:"3",
+            status:"2",
             name: "",
             belongingCompany: undefined,
             beforeStatus: undefined,
@@ -164,13 +163,26 @@ class updateQuery extends React.Component {
                 },
                 {
                     title: '操作',
+                    dataIndex: '',
                     key: 'operation',
                     fixed: 'right',
-                    width: 80,
-                    render: () => {
+                    width:120,
+                    render: () => {//通过权限判断                        
                         return <div>
+                        <a className="edit">审核</a>
                         <a className="edit">查看</a>
                     </div>
+                        // console.log(value)
+                        // if () {
+                        //     return <div >
+                        //         <a className="edit">审核</a>
+                        //         <a className="edit">查看</a>
+                        //     </div>
+                        // } else {
+                        //     return <div >
+                        //         <a className="edit">查看</a>
+                        //     </div>
+                        // }
                     },
                 }
             ],
@@ -389,4 +401,4 @@ class updateQuery extends React.Component {
 // function callback(key) {
 //   console.log(key);
 // }
-export default updateQuery
+export default audit

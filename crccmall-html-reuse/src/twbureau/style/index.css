@@ -6,12 +6,6 @@
   font-size: 14px;
   margin-bottom: 24px;
 }
-.goodsList .ant-tabs-nav-scroll{
-  width: 90% !important;
-}
-.goodsList .ant-tabs-nav .ant-tabs-tab-inner{
-  padding: 8px 5px;
-}
 .btn,.search_item .ant-calendar-picker {
   width: 285px;
 }

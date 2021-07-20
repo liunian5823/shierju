@@ -2,8 +2,7 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
-import '../../style/list.css';
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
 
@@ -165,7 +164,6 @@ class revolving_materials extends React.Component {
                 },
                 {
                     title: '所在地',
-                    width: 250,
                     dataIndex: 'address',
                     key: 'address',
                 },
@@ -499,7 +497,7 @@ class revolving_materials extends React.Component {
                                         <Table
                                             dataSource={this.state.dataSource}
                                             columns={this.state.columns}
-                                            scroll={{ x: 1800 }}
+                                            scroll={{ x: 2000 }}
                                             pagination={{
                                                 position: ["bottomCenter"],
                                                 size: "small",

@@ -2,18 +2,17 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
-import '../../style/list.css';
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
-class audit extends React.Component {
+class applyFor extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            status:"2",
+            status: "1",
             name: "",
             belongingCompany: undefined,
             beforeStatus: undefined,
@@ -26,7 +25,7 @@ class audit extends React.Component {
                     title: '单据编号',
                     dataIndex: 'receiptNumber',
                     key: 'receiptNumber',
-                    width:160
+                    width: 160
                 },
                 {
                     title: '资产分类',
@@ -164,26 +163,22 @@ class audit extends React.Component {
                 },
                 {
                     title: '操作',
-                    dataIndex: '',
                     key: 'operation',
                     fixed: 'right',
-                    width:120,
-                    render: () => {//通过权限判断                        
-                        return <div>
-                        <a className="edit">审核</a>
-                        <a className="edit">查看</a>
-                    </div>
-                        // console.log(value)
-                        // if () {
-                        //     return <div >
-                        //         <a className="edit">审核</a>
-                        //         <a className="edit">查看</a>
-                        //     </div>
-                        // } else {
-                        //     return <div >
-                        //         <a className="edit">查看</a>
-                        //     </div>
-                        // }
+                    width:185,
+                    render: (value) => {
+                        if (value.status == '3') {
+                            return <div >
+                                <a className="edit">重新提交</a>
+                                <a className="edit">作废</a>
+                                <a className="edit">查看</a>
+                            </div>
+                        } else {
+                            return <div >
+                                <a className="edit">查看</a>
+                            </div>
+                        }
+
                     },
                 }
             ],
@@ -402,4 +397,4 @@ class audit extends React.Component {
 // function callback(key) {
 //   console.log(key);
 // }
-export default audit
+export default applyFor
