@@ -130,11 +130,11 @@ class GoodsList extends React.Component {
           key: 'operation',
           fixed: 'right',
           width: 100,
-          render: (text, record, index) => <a onClick={()=>this.inquire(text,record,index)}>查询</a>,
+          render: (text, record, index) => <a onClick={() => this.inquire(text, record, index)}>查询</a>,
         }
       ],
-      statistics:{
-        totalCount:'1'
+      statistics: {
+        totalCount: '1'
       },
       obj: "",
     };
@@ -173,7 +173,7 @@ class GoodsList extends React.Component {
   getUserInfo = () => {
     api.ajax("get", "http://10.10.9.175:9999/materialController/page", this.state.obj).then(r => {
 
-    
+
       for (var i = 1; i < r.data.rows.length + 1; i++) {
         r.data.rows[i - 1]['key'] = i
       }
@@ -184,7 +184,7 @@ class GoodsList extends React.Component {
       console.log(r)
     })
   }
-  huoqushuliang(){
+  huoqushuliang() {
     api.ajax("get", "http://10.10.9.175:9999/materialController/getstatusCount", this.state.obj).then(r => {
       console.log(r)
       var statisticss = r.data;
@@ -194,7 +194,11 @@ class GoodsList extends React.Component {
     })
   }
   callback(key) {
+    var obj = {};
     obj['status'] = key
+    obj['page'] = '1';
+    obj['rows'] = '10';
+    console.log(key);
     this.setState({
       obj: obj
     }, () => {
@@ -259,16 +263,16 @@ class GoodsList extends React.Component {
       projectname5: value[2]
     })
   }
-  inquire(text, record, index){
+  inquire(text, record, index) {
     // console.log(text, record, index)
-    this.props.history.push({ pathname: '/tw/goods/detail', state: { id: text.id ,type:text.type} })
+    this.props.history.push({ pathname: '/tw/goods/detail', state: { id: text.id, type: text.type } })
   }
 
-  
+
   render() {
     const tabsData = [{
       key: ' ',
-      name: '全部资产状态'
+      name: '全部'
     }, {
       key: '1',
       name: '在用'
@@ -283,13 +287,28 @@ class GoodsList extends React.Component {
       name: '周转中'
     }, {
       key: '5',
-      name: '闲置'
+      name: '已周转'
     }, {
       key: '6',
-      name: '可周转'
+      name: '可处置'
     }, {
       key: '7',
-      name: '周转中'
+      name: '处置中'
+    }, {
+      key: '8',
+      name: '已处置'
+    }, {
+      key: '9',
+      name: '可租赁'
+    }, {
+      key: '10',
+      name: '已租赁'
+    }, {
+      key: '11',
+      name: '报废'
+    }, {
+      key: '12',
+      name: '报损'
     }]
     return (
       <div>
@@ -346,7 +365,7 @@ class GoodsList extends React.Component {
             <Select className="address" showSearch placeholder="县" value={this.state.projectname5} onChange={this.projectname5.bind(this)}>
               <Option value="jack">海淀区</Option>
             </Select> */}
-            <Cascader className="btn" options={options} placeholder="请选择地区" onChange={this.onAddressChange}/> 
+            <Cascader className="btn" options={options} placeholder="请选择地区" onChange={this.onAddressChange} />
           </div>
         </Search>
         <div className="total">
@@ -375,7 +394,7 @@ class GoodsList extends React.Component {
             <div className="title">已租赁</div>
           </div>
         </div>
-        <div className="table">
+        <div className="table goodsList">
           <Tabs onChange={this.callback.bind(this)}>
             {
               tabsData.map((item, index) => {

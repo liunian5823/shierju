@@ -50,23 +50,27 @@ class LeftNav extends React.Component {
                 route: '',
                 name: '循环物资一览'
             },{
-                key: '/tw/goods/equipment', 
+                key: '/tw/revolving/management', 
+                route: '',
+                name: '周转材料管理'
+            },{
+                key: '/tw/equipment/management', 
                 route: '',
                 name: '施工设备管理'
             },{
-                key: '/tw/goods/rests', 
+                key: '/tw/rests/management', 
                 route: '',
                 name: '其他循环物资管理'
             },{
-                key: '/tw/goods/applyFor', 
+                key: '/tw/MaterialStatus/applyFor', 
                 route: '',
                 name: '物资状态更新申请'
             },{
-                key: '/tw/goods/audit', 
+                key: '/tw/MaterialStatus/audit', 
                 route: '',
                 name: '物资状态更新审核'
             },{
-                key: '/tw/goods/updateQuery', 
+                key: '/tw/MaterialStatus/updateQuery', 
                 route: '',
                 name: '物资状态更新查询'
             }]
@@ -83,6 +87,14 @@ class LeftNav extends React.Component {
                 key: '/tw/circle/applyFor', 
                 route: '',
                 name: '物资周转申请'
+            },{
+                key: '/tw/circle/audit', 
+                route: '',
+                name: '物资周转审核'
+            },{
+                key: '/tw/circle/query', 
+                route: '',
+                name: '物资周转查询'
             }]
         }, {
             key: 'rentManage', 
@@ -93,6 +105,16 @@ class LeftNav extends React.Component {
                 key: '/tw/rent/list', 
                 route: '',
                 name: '物资租赁明细'
+            }]
+        }, {
+            key: 'disposalManage', 
+            route: '',
+            name: '物资处置管理',
+            icon: './static/img/twbureau/chuzhi@2x.png',
+            subMenu: [{
+                key: '/tw/disposal/list', 
+                route: '',
+                name: '处置物资列表'
             }]
         }]
         return (

@@ -28,6 +28,7 @@ class Rent extends React.Component {
           title: '单据编号',
           dataIndex: 'receiptNumber',
           key: 'receiptNumber',
+          width:180,
           render: (value, row, index) => {
             const obj = {
               children: value,
@@ -67,6 +68,60 @@ class Rent extends React.Component {
           title: '资产名称',
           dataIndex: 'name',
           key: 'name',
+        },
+        {
+          title: '规格型号',
+          dataIndex: 'standards',
+          key: 'standards',
+        },
+        {
+          title: '数量',
+          dataIndex: 'name',
+          key: 'name',
+        },
+        {
+          title: '单位',
+          dataIndex: 'unit',
+          key: 'unit',
+        },
+        {
+          title: '租赁开始时间',
+          dataIndex: 'leaseStarttime',
+          key: 'leaseStarttime',
+        },
+        {
+          title: '租赁结束时间',
+          dataIndex: 'leaseEndtime',
+          key: 'leaseEndtime',
+        },
+        {
+          title: '租赁天数',
+          dataIndex: 'leasePeriod',
+          key: 'leasePeriod',
+        },
+        {
+          title: '单价',
+          dataIndex: 'unitPrice',
+          key: 'unitPrice',
+        },
+        {
+          title: '总租金',
+          dataIndex: 'totalRent',
+          key: 'totalRent',
+        },
+        {
+          title: '租赁到期',
+          dataIndex: 'leaseIsexpire',
+          key: 'leaseIsexpire',
+          render: (value, row, index) => {
+            if (value == '1') {
+              return '是'
+            } else if (value == '2') {
+              return '否'
+            } else {
+              return '即将到期'
+            }
+          }
         }
       ],
       obj: ""
@@ -243,6 +298,7 @@ class Rent extends React.Component {
           <Table
             dataSource={this.state.dataSource}
             columns={this.state.columns}
+            scroll={{ x: 1800 }}
             pagination={{
               position: ["bottomCenter"],
               size: "small",

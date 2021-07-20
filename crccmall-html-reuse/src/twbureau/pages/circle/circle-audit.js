@@ -127,7 +127,7 @@ class circle_applyFor extends React.Component {
 
     componentWillMount() {
         var obj = {};
-        obj['pageFlag'] = '1';
+        obj['pageFlag'] = '2';
         obj['type'] = this.state.type;
         obj['page'] = '1';
         obj['rows'] = '10';
@@ -139,7 +139,7 @@ class circle_applyFor extends React.Component {
     }
     callback(key) {
       var obj = {};
-      obj['pageFlag'] = '1';
+      obj['pageFlag'] = '2';
       obj['page'] = '1';
       obj['rows'] = '10';
       obj['type'] = key;
@@ -161,7 +161,7 @@ class circle_applyFor extends React.Component {
         obj['type'] = this.state.type;
         obj['toDepartmentId'] = this.state.toDepartmentId;
         obj['docNumber'] = this.state.docNumber;
-        obj['pageFlag'] = '1';
+        obj['pageFlag'] = '2';
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({

@@ -3,30 +3,30 @@ import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
 import '../../style/list.css';
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
-class audit extends React.Component {
+class equipment extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            status:"2",
             name: "",
             belongingCompany: undefined,
-            beforeStatus: undefined,
-            backStatus: undefined,
-            type: undefined,
+            status: "",
+            exitTime: "",
+            category: undefined,
+            buyTime: "",
+            manageNumber: "",
             identifierNum: "",
             dataSource: [],
             columns: [
                 {
-                    title: '单据编号',
-                    dataIndex: 'receiptNumber',
-                    key: 'receiptNumber',
-                    width:160
+                    title: '编号',
+                    dataIndex: 'identifierNum',
+                    key: 'identifierNum'
                 },
                 {
                     title: '资产分类',
@@ -48,7 +48,7 @@ class audit extends React.Component {
                     key: 'name'
                 },
                 {
-                    title: '规格型号',
+                    title: '规格',
                     dataIndex: 'standards',
                     key: 'standards',
                 },
@@ -63,13 +63,11 @@ class audit extends React.Component {
                     key: 'unit',
                 },
                 {
-                    title: '更新前资产状态',
-                    dataIndex: 'befoeupdateStatus',
-                    key: 'befoeupdateStatus',
+                    title: '资产状态',
+                    dataIndex: 'status',
+                    key: 'status',
                     render: (value, row, index) => {
                         if (value == '1') {
-                            return '在用'
-                        } else if (value == '1') {
                             return '在用'
                         } else if (value == '2') {
                             return '闲置'
@@ -99,40 +97,9 @@ class audit extends React.Component {
                     }
                 },
                 {
-                    title: '更新后资产状态',
-                    dataIndex: 'afterupdateStatus',
-                    key: 'afterupdateStatus',
-                    render: (value, row, index) => {
-                        if (value == '1') {
-                            return '在用'
-                        } else if (value == '1') {
-                            return '在用'
-                        } else if (value == '2') {
-                            return '闲置'
-                        } else if (value == '3') {
-                            return '可周转'
-                        } else if (value == '4') {
-                            return '周转中'
-                        } else if (value == '5') {
-                            return '已周转'
-                        } else if (value == '6') {
-                            return '可处置'
-                        } else if (value == '7') {
-                            return '处置中'
-                        } else if (value == '8') {
-                            return '已处置'
-                        } else if (value == '9') {
-                            return '可租赁'
-                        } else if (value == '10') {
-                            return '已租赁'
-                        } else if (value == '11') {
-                            return '报废'
-                        } else if (value == '12') {
-                            return '报损'
-                        } else {
-                            return ''
-                        }
-                    }
+                    title: '原值',
+                    dataIndex: 'originalValue',
+                    key: 'originalValue',
                 },
                 {
                     title: '所属工程公司',
@@ -146,37 +113,33 @@ class audit extends React.Component {
                     key: 'department',
                 },
                 {
-                    title: '单据状态',
-                    dataIndex: 'status',
-                    key: 'status',
-                    render: (value, row, index) => {
-                        if (value=="1") {
-                            return "审核中"
-                        }else if (value=="1") {
-                            return "审核通过"
-                        } else {
-                            return "审核拒绝"
-                        }
-                    }
+                    title: '购入时间',
+                    dataIndex: 'buyTime',
+                    key: 'buyTime',
                 },
                 {
-                    title: '审核人员',
-                    dataIndex: 'approver',
-                    key: 'approver',
+                    title: '预计退场时间',
+                    dataIndex: 'exitTim',
+                    key: 'exitTim',
+                },
+                {
+                    title: '管理号码',
+                    dataIndex: 'manageNumber',
+                    key: 'manageNumber',
                 },
                 {
                     title: '操作',
                     key: 'operation',
                     fixed: 'right',
                     width: 200,
-                    render: () => {
-                        return <div>
-                        <a className="edit">审核</a>
-                        <a className="edit">查看</a>
-                    </div>
-                    },
+                    render: () => <div>
+                        <a className="edit">查询</a>
+                        <a className="edit">修改</a>
+                        <a className="edit">更新状态</a>
+                    </div>,
                 }
             ],
+            obj:"",
         };
 
     }
@@ -197,10 +160,12 @@ class audit extends React.Component {
         var obj = {};
         obj['name'] = this.state.name
         obj['belongingCompany'] = this.state.belongingCompany
-        obj['befoeupdateStatus'] = this.state.beforeStatus;
-        obj['afterupdateStatus'] = this.state.backStatus
-        obj['type'] = this.state.type;
-        obj['receiptNumber'] = this.state.identifierNum;
+        obj['status'] = this.state.status;
+        obj['exitTime'] = this.state.exitTime
+        obj['category'] = this.state.category;
+        obj['buyTime'] = this.state.buyTime;
+        obj['manageNumber'] = this.state.manageNumber;
+        obj['identifierNum'] = this.state.identifierNum;
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -212,12 +177,10 @@ class audit extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/inForApproval/page", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.66:9999/materialEquipmentController/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
-                var element = r.data.rows[i - 1]
-                element['key'] = i
-                element['address'] = element.provinceName + element.cityName + element.countyName
+                r.data.rows[i - 1]['key'] = i
             }
             var dataSources = r.data.rows;
             this.setState({ dataSource: dataSources });
@@ -225,12 +188,17 @@ class audit extends React.Component {
             console.log(r)
         })
     }
-    inputChange(type, e) {
+    inputChange(type,e) {
         // console.log(type,e.target.value);
         if (type == 'name') {
             // 资产名称
             this.setState({
                 name: e.target.value
+            })
+        } else if (type == 'manage') {
+            // 管理号码
+            this.setState({
+                manageNumber: e.target.value
             })
         } else {
             // 编号
@@ -239,43 +207,53 @@ class audit extends React.Component {
             })
         }
     }
-
-    inputChange(type, e) {
-        // console.log(type,e.target.value);
-        if (type == 'name') {
-            // 资产名称
-            this.setState({
-                name: e.target.value
-            })
-        } else {
-            // 编号
-            this.setState({
-                identifierNum: e.target.value
-            })
-        }
-    }
-    selectChange(type, value) {
+    selectChange(value, type) {
         if (type == 'belong') {
             // 所属工程公司/项目部：
             this.setState({
                 belongingCompany: value
             })
-        } else if (type == '更新前') {
-            // 更新前资产状态
+        }else if (type == 'status') {
+            // 资产状态
             this.setState({
-                beforeStatus: value
-            })
-        } else if (type == '更新后') {
-            // 更新后资产状态
-            this.setState({
-                backStatus: value
+                status: value
             })
         } else {
-            // 资产分类
+            // 进场类别
             this.setState({
-                type: value
+                category: value
             })
         }
+    }
+    timeChange(type, data, dateString) {
+        if (type == 'exit') {
+            // 预计退场时间
+            this.setState({
+                exitTime: dateString
+            })
+        } else {
+            // 购入时间 
+            this.setState({
+                buyTime: dateString
+            })
+        }
+    }
+    callback(key) {
+        var obj = {};
+        obj['page'] = '1';
+        obj['rows'] = '10';
+        obj['status'] = key;
+        this.setState({
+            status: key
+        }, () => {
+            console.log(this.state.status);
+        })
+        this.setState({
+            obj: obj
+        }, () => {
+            console.log(obj);
+            this.getUserInfo();
+        });
     }
     handleClick() {
         console.log('456')
@@ -322,36 +300,33 @@ class audit extends React.Component {
             key: '12',
             name: '报损'
         }]
-        const tabsData2 = [{
+        const categoryArr = [{
             key: ' ',
             name: '全部'
         }, {
             key: '1',
-            name: '周转材料'
+            name: '自购'
         }, {
             key: '2',
-            name: '施工设备'
-        }, {
-            key: '3',
-            name: '其他'
+            name: '调入'
         }]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
-                <Search search={this.search}>
+                <Search search={this.search.bind(this)}>
                     <div className="search_item">
                         <span className="title">资产名称：</span>
-                        <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
+                        <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this,'name')} />
                     </div>
                     <div className="search_item">
                         <span className="title">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
-                            <Select.Option value="jack">局/处/项目部</Select.Option>
+                            <Option value="jack">局/处/项目部</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新前资产状态：</span>
-                        <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.beforeStatus} onChange={this.selectChange.bind(this, '更新前')}>
+                        <span className="title" >资产状态：</span>
+                        <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.status} onChange={this.selectChange.bind(this, "status")}>
                             {
                                 tabsData.map((item) => (
                                     <Select.Option key={item.key}>{item.name}</Select.Option>
@@ -360,42 +335,63 @@ class audit extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新后资产状态：</span>
-                        <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.backStatus} onChange={this.selectChange.bind(this, '更新后')}>
+                        <span className="title" >预计退场时间：</span>
+                        <DatePicker className="btn" onChange={this.timeChange.bind(this, "exit")} />
+                    </div>
+                    <div className="search_item">
+                        <span className="title" >进场类别：</span>
+                        <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "category")}>
                             {
-                                tabsData.map((item) => (
+                                categoryArr.map((item) => (
                                     <Select.Option key={item.key}>{item.name}</Select.Option>
                                 ))
                             }
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产分类：</span>
-                        <Select className="btn" showSearch defaultValue={tabsData2} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
-                            {
-                                tabsData2.map((item) => (
-                                    <Select.Option key={item.key}>{item.name}</Select.Option>
-                                ))
-                            }
-                        </Select>
+                        <span className="title" >购入时间：</span>
+                        <DatePicker className="btn" onChange={this.timeChange.bind(this, "buy")} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >单据编号：</span>
-                        <Input className="btn" placeholder="请输入" value={this.state.identifierNum} onChange={this.inputChange.bind(this, "num")} />
+                        <span className="title">管理号码：</span>
+                        <Input className="btn" placeholder="请输入管理号码" value={this.state.manageNumber} onChange={this.inputChange.bind(this,'manage')} />
+                    </div>
+                    <div className="search_item">
+                        <span className="title" >编号：</span>
+                        <Input className="btn" placeholder="请输入编号" value={this.state.identifierNum} onChange={this.inputChange.bind(this,"Num")} />
                     </div>
                 </Search>
                 <div className="table">
-                    <Table
-                        dataSource={this.state.dataSource}
-                        columns={this.state.columns}
-                        scroll={{ x: 1800 }}
-                        pagination={{
-                            position: ["bottomCenter"],
-                            size: "small",
-                            showSizeChanger: true,
-                            showQuickJumper: true
-                        }}
-                    />
+                    <div className='table-btn'>
+                        <div className='table-btn-left'>
+                            <Button type="primary">+ 录入资产信息</Button>
+                            <Button>导入台账信息</Button>
+                            <Button>台账模板下载</Button>
+                        </div>
+                        <Button className='table-btn-right' type="primary">导出</Button>
+                    </div>
+                    <Tabs onChange={this.callback.bind(this)}>
+                        {
+                            tabsData.map((item, index) => {
+                                return (
+
+                                    <TabPane tab={item.name} key={item.key}    >
+                                        <Table
+                                            dataSource={this.state.dataSource}
+                                            columns={this.state.columns}
+                                            scroll={{ x: 1800 }}
+                                            pagination={{
+                                                position: ["bottomCenter"],
+                                                size: "small",
+                                                showSizeChanger: true,
+                                                showQuickJumper: true
+                                            }}
+                                        />
+                                    </TabPane>
+                                )
+                            })
+                        }
+                    </Tabs>
                 </div>
             </div>
         )
@@ -404,4 +400,4 @@ class audit extends React.Component {
 // function callback(key) {
 //   console.log(key);
 // }
-export default audit
+export default equipment

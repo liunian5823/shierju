@@ -3,8 +3,9 @@ import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
 import '../../style/list.css';
-import './index.css';
-import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
+import '../../style/index.css';
+import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
+import options from '../../util/address';
 import Status from '@/twbureau/components/status'
 
 const TabPane = Tabs.TabPane;
@@ -26,6 +27,9 @@ class Rests extends React.Component {
             countyName: undefined,
             materialType: undefined,
             projectType: undefined,
+            provinceId: "",
+            cityId: "",
+            countyId: "",
             dataSource: [],
             columns: [
                 {
@@ -56,6 +60,21 @@ class Rests extends React.Component {
                     title: '工程类型',
                     dataIndex: 'projectType',
                     key: 'projectType',
+                    render: (value, row, index) => {
+                        if (value == '1') {
+                            return '铁路'
+                        } else if (value == '2') {
+                            return '公路'
+                        } else if (value == '3') {
+                            return '水利'
+                        }  else if (value == '4') {
+                            return '市政'
+                        } else if (value == '5') {
+                            return '电气化'
+                        } else {
+                            return '房建'
+                        }
+                    }
                 },
                 {
                     title: '规格',
@@ -110,7 +129,8 @@ class Rests extends React.Component {
                     </div>,
                 }
             ],
-            showStatus: false
+            showStatus: false,
+            obj:"",
         };
 
     }
@@ -138,9 +158,12 @@ class Rests extends React.Component {
         obj['buyTime'] = this.state.buyTime;
         obj['materialType'] = this.state.materialType;
         obj['standards'] = this.state.standards;
-        obj['provinceName'] = this.state.provinceName;
-        obj['cityName'] = this.state.cityName;
-        obj['countyName'] = this.state.countyName;
+        obj['provinceId'] = this.state.provinceId;
+        obj['cityId'] = this.state.cityId;
+        obj['countyId'] = this.state.countyId;
+        // obj['provinceName'] = this.state.provinceName;
+        // obj['cityName'] = this.state.cityName;
+        // obj['countyName'] = this.state.countyName;
         obj['projectType'] = this.state.projectType;
         obj['page'] = '1';
         obj['rows'] = '10';
@@ -221,6 +244,13 @@ class Rests extends React.Component {
                 buyTime: dateString
             })
         }
+    }
+    onAddressChange = (value) => {
+        this.setState({
+            provinceId: value[0],
+            cityId: value[1],
+            countyId: value[2]
+        })
     }
     callback(key) {
         var obj = {};
@@ -433,15 +463,7 @@ class Rests extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="title" >所在地：</span>
-                        <Select className="address" showSearch placeholder="省">
-                            <Option value="jack">北京市1</Option>
-                        </Select>
-                        <Select className="address" showSearch placeholder="市">
-                            <Option value="jack">北京市</Option>
-                        </Select>
-                        <Select className="address" showSearch placeholder="县">
-                            <Option value="jack">海淀区</Option>
-                        </Select>
+                        <Cascader className="btn" options={options} placeholder="请选择地区" onChange={this.onAddressChange} />
                     </div>
                     <div className="search_item">
                         <span className="title">工程类型：</span>

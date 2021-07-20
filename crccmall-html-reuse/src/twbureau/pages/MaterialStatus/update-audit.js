@@ -2,18 +2,17 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
-import '../../style/list.css';
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
-class applyFor extends React.Component {
+class audit extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            status: "1",
+            status:"2",
             name: "",
             belongingCompany: undefined,
             beforeStatus: undefined,
@@ -26,7 +25,7 @@ class applyFor extends React.Component {
                     title: '单据编号',
                     dataIndex: 'receiptNumber',
                     key: 'receiptNumber',
-                    width: 160
+                    width:160
                 },
                 {
                     title: '资产分类',
@@ -69,8 +68,6 @@ class applyFor extends React.Component {
                     render: (value, row, index) => {
                         if (value == '1') {
                             return '在用'
-                        } else if (value == '1') {
-                            return '在用'
                         } else if (value == '2') {
                             return '闲置'
                         } else if (value == '3') {
@@ -104,8 +101,6 @@ class applyFor extends React.Component {
                     key: 'afterupdateStatus',
                     render: (value, row, index) => {
                         if (value == '1') {
-                            return '在用'
-                        } else if (value == '1') {
                             return '在用'
                         } else if (value == '2') {
                             return '闲置'
@@ -154,8 +149,10 @@ class applyFor extends React.Component {
                             return "审核中"
                         } else if (value == "2") {
                             return "审核通过"
-                        } else {
+                        } else if (value == "3") {
                             return "审核拒绝"
+                        }else{
+                            return "审核拒绝待提交"
                         }
                     }
                 },
@@ -166,24 +163,30 @@ class applyFor extends React.Component {
                 },
                 {
                     title: '操作',
+                    dataIndex: '',
                     key: 'operation',
                     fixed: 'right',
-                    render: (value) => {
-                        if (value.status == '3') {
-                            return <div >
-                                <a className="edit">重新提交</a>
-                                <a className="edit">作废</a>
-                                <a className="edit">查看</a>
-                            </div>
-                        } else {
-                            return <div >
-                                <a className="edit">查看</a>
-                            </div>
-                        }
-
+                    width:120,
+                    render: () => {//通过权限判断                        
+                        return <div>
+                        <a className="edit">审核</a>
+                        <a className="edit">查看</a>
+                    </div>
+                        // console.log(value)
+                        // if () {
+                        //     return <div >
+                        //         <a className="edit">审核</a>
+                        //         <a className="edit">查看</a>
+                        //     </div>
+                        // } else {
+                        //     return <div >
+                        //         <a className="edit">查看</a>
+                        //     </div>
+                        // }
                     },
                 }
             ],
+            obj:"",
         };
 
     }
@@ -208,6 +211,7 @@ class applyFor extends React.Component {
         obj['afterupdateStatus'] = this.state.backStatus
         obj['type'] = this.state.type;
         obj['receiptNumber'] = this.state.identifierNum;
+        obj['status'] = this.state.status;
         obj['page'] = '1';
         obj['rows'] = '10';
         this.setState({
@@ -231,20 +235,6 @@ class applyFor extends React.Component {
         }).catch(r => {
             console.log(r)
         })
-    }
-    inputChange(type, e) {
-        // console.log(type,e.target.value);
-        if (type == 'name') {
-            // 资产名称
-            this.setState({
-                name: e.target.value
-            })
-        } else {
-            // 编号
-            this.setState({
-                identifierNum: e.target.value
-            })
-        }
     }
 
     inputChange(type, e) {
@@ -345,7 +335,7 @@ class applyFor extends React.Component {
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
-                <Search search={this.search}>
+                <Search search={this.search.bind(this)}>
                     <div className="search_item">
                         <span className="title">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
@@ -411,4 +401,4 @@ class applyFor extends React.Component {
 // function callback(key) {
 //   console.log(key);
 // }
-export default applyFor
+export default audit

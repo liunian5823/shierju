@@ -98,16 +98,20 @@ import Personal from "bundle-loader?lazy&name=Personal!@/pages/personal/user/Edi
 // 循环物资
 import circulation from "bundle-loader?lazy&name=Home!@/twbureau/pages/index/index";
 import goodsList from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/index";
-import equipment from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/equipment";
-import rests from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/rests";
-import applyFor from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/update-applyFor";
-import audit from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/update-audit";
-import updateQuery from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/update-query";
+import applyFor from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-applyFor";
+import audit from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-audit";
+import updateQuery from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-query";
 import circleList from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/index";
 import circle_applyFor from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-applyFor";
+import circle_audit from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-audit";
+import circle_query from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-query";
 import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/index";
 import goodsDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
 import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsList/edit"
+import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/management";
+import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
+import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
+import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
 
 import NoAu from "@/pages/notFound";
 
@@ -248,16 +252,20 @@ const deskRoutes = [
 const twRoutes = [
     { type: "route", path: "/tw/cirHome", component: bundle(Empty, circulation, { type: "callback" }) },
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
-    { type: "route", path: "/tw/goods/equipment", component: bundle(Empty, equipment, { type: "callback" }) },//施工
-    { type: "route", path: "/tw/goods/rests", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
-    { type: "route", path: "/tw/goods/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
-    { type: "route", path: "/tw/goods/audit", component: bundle(Empty, audit, { type: "callback" }) },//物资状态更新审核
-    { type: "route", path: "/tw/goods/updateQuery", component: bundle(Empty, updateQuery, { type: "callback" }) },//物资状态更新查询
+    { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
+    { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
+    { type: "route", path: "/tw/rests/management", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
+    { type: "route", path: "/tw/MaterialStatus/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
+    { type: "route", path: "/tw/MaterialStatus/audit", component: bundle(Empty, audit, { type: "callback" }) },//物资状态更新审核
+    { type: "route", path: "/tw/MaterialStatus/updateQuery", component: bundle(Empty, updateQuery, { type: "callback" }) },//物资状态更新查询
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
     { type: "route", path: "/tw/circle/applyFor", component: bundle(Empty, circle_applyFor, { type: "callback" }) },//物资周转申请
+    { type: "route", path: "/tw/circle/audit", component: bundle(Empty, circle_audit, { type: "callback" }) },//物资周转审核
+    { type: "route", path: "/tw/circle/query", component: bundle(Empty, circle_query, { type: "callback" }) },//物资周转查询
     { type: "route", path: "/tw/rent/list", component: bundle(Empty, rentList, { type: "callback" }) },
     { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodsDetail, { type: "callback" }) },
     { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
+    { type: "route", path: "/tw/disposal/list", component: bundle(Empty, disposalList, { type: "callback" }) },//处置物资列表
 
 ]
 export {

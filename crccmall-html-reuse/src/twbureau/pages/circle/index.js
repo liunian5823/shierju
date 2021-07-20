@@ -17,7 +17,7 @@ class Circle extends React.Component {
       belongingCompany: "",
       status: undefined,
       exitTime: "",
-      type: "",
+      type: "1",
       buyTime: "",
       classify: undefined,
       dataSource: [],
@@ -51,7 +51,7 @@ class Circle extends React.Component {
           key: 'name'
         },
         {
-          title: '规格',
+          title: '规格型号',
           dataIndex: 'standards',
           key: 'standards',
         },
@@ -59,6 +59,56 @@ class Circle extends React.Component {
           title: '数量',
           dataIndex: 'number',
           key: 'number',
+        },
+        {
+          title: '单位',
+          dataIndex: 'unit',
+          key: 'unit',
+        },
+        {
+          title: '资产状态',
+          dataIndex: 'status',
+          key: 'status',
+        },
+        {
+          title: '周转次数',
+          dataIndex: 'num1',
+          key: 'num1',
+        },
+        {
+          title: '辅料/配件名称',
+          dataIndex: 'num',
+          key: 'num2',
+        },
+        {
+          title: '辅料/配件子编号',
+          dataIndex: 'num3',
+          key: 'num3',
+        },
+        {
+          title: '辅料/配件数量',
+          dataIndex: 'num4',
+          key: 'num4',
+        },
+        {
+          title: '辅料/配件单位',
+          dataIndex: 'num5',
+          key: 'num5',
+        },
+        {
+          title: '所属工程公司',
+          dataIndex: 'companyName',
+          key: 'companyName',
+        },
+        {
+          title: '资产管理部门',
+          dataIndex: 'number',
+          key: 'number',
+        },
+        {
+          title: '日期',
+          dataIndex: 'date',
+          key: 'date',
         },
         {
           title: '操作',
@@ -180,19 +230,24 @@ class Circle extends React.Component {
     })
   }
   render() {
-    const tabsData = [{
-      key: ' ',
-      name: '全部'
-    }, {
-      key: '1',
-      name: '周转材料'
-    }, {
-      key: '2',
-      name: '施工设备'
-    }, {
-      key: '3',
-      name: '其他循环物资'
-    }]
+    const tabsData = [
+      // {
+      //   key: ' ',
+      //   name: '全部'
+      // },
+      {
+        key: '1',
+        name: '周转材料'
+      },
+      {
+        key: '2',
+        name: '施工设备'
+      },
+      {
+        key: '3',
+        name: '其他循环物资'
+      }
+    ]
     const Assetstates = [
       {
         key: ' ',
@@ -211,15 +266,29 @@ class Circle extends React.Component {
         name: '周转中'
       }, {
         key: '5',
-        name: '闲置'
+        name: '已周转'
       }, {
         key: '6',
-        name: '可周转'
+        name: '可处置'
       }, {
         key: '7',
-        name: '周转中'
-      }
-    ]
+        name: '处置中'
+      }, {
+        key: '8',
+        name: '已处置'
+      }, {
+        key: '9',
+        name: '可租赁'
+      }, {
+        key: '10',
+        name: '已租赁'
+      }, {
+        key: '11',
+        name: '报废'
+      }, {
+        key: '12',
+        name: '报损'
+      }]
     return (
       <div>
         <Breadcrumb location={this.props.match} />
@@ -269,26 +338,27 @@ class Circle extends React.Component {
           </div>
         </Search>
         <div className="table">
-          {/* <Tabs onChange={this.callback.bind(this)} activeKey={this.state.type}>
+          <Tabs onChange={this.callback.bind(this)} activeKey={this.state.type}>
             {
               tabsData.map((item, index) => {
                 return (
-                  <TabPane tab={item.name} key={item.key}> */}
-          <Table
-            dataSource={this.state.dataSource}
-            columns={this.state.columns}
-            pagination={{
-              position: ["bottomCenter"],
-              size: "small",
-              showSizeChanger: true,
-              showQuickJumper: true
-            }}
-          />
-          {/* </TabPane>
+                  <TabPane tab={item.name} key={item.key}>
+                    <Table
+                      dataSource={this.state.dataSource}
+                      columns={this.state.columns}
+                      scroll={{ x: 1950 }}
+                      pagination={{
+                        position: ["bottomCenter"],
+                        size: "small",
+                        showSizeChanger: true,
+                        showQuickJumper: true
+                      }}
+                    />
+                  </TabPane>
                 )
               })
             }
-          </Tabs> */}
+          </Tabs>
         </div>
       </div>
     )
