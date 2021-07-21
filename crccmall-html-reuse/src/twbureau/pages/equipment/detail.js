@@ -6,7 +6,7 @@ import api from '@/framework/axios';
 import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
-import { Table } from 'antd';
+import { Table, Radio } from 'antd';
 
 // 设备 履带挖掘机
 const Device = (e) => {
@@ -28,10 +28,6 @@ const Device = (e) => {
 const Info = (e) => {
   return (
     <div className="info">
-      <div className='accountTit'>
-        <div className="title">台账信息</div>
-        <a>查看物资循环明细</a>
-      </div>
       <div className="content">
         <div className="item">
           <span className="head">所属工程公司：</span>{e.location.belongingCompany}
@@ -43,91 +39,60 @@ const Info = (e) => {
           <span className="head">项目名称：</span>{e.location.projectName}
         </div>
         <div className="item">
-          <span className="head">所在地：</span>{e.location.provinceName}{e.location.cityName}{e.location.countyName}
+          <span className="head">管理号码：</span>{e.location.manageNumber}
         </div>
         <div className="item">
-          <span className="head">资产分类：</span>{e.location.type == "1" ? "周转材料" : e.location.type == "2" ? "施工设备" : "其他循环物资"}
+          <span className="head">资产分类：</span>
+          <Radio defaultChecked='true' disabled='true'>
+            {e.location.type == "1" ? "周转材料" : e.location.type == "2" ? "施工设备" : "其他循环物资"}
+          </Radio>
         </div>
         <div className="item">
-          <span className="head">材料编码：</span>{e.location.materialType}
-        </div>
-        <div className="item">
-          <span className="head">工程类型：</span>{filterType(e.location.projectType)}
+          <span className="head">型号：</span>{e.location.modelNumber}
         </div>
         <div className="item">
           <span className="head">资产名称：</span>{e.location.name}
         </div>
         <div className="item">
-          <span className="head">资产别名：</span>{e.location.assetsAlias}
-        </div>
-        <div className="item">
-          <span className="head">购入时间：</span>{e.location.buyTime}
-        </div>
-        <div className="item">
-          <span className="head">供应商：</span>{e.location.supplier}
-        </div>
-        <div className="item">
-          <span className="head">参数备注：</span>{e.location.parameterRemark}
+          <span className="head">装机功率：</span>{e.location.installedPower} KW
         </div>
         <div className="item">
           <span className="head">规格：</span>{e.location.standards}
         </div>
         <div className="item">
-          <span className="head">单价(不含税)：</span>{e.location.unitPriceTaxexclusive} 元
+          <span className="head">购置年月：</span>{e.location.buyTime}
         </div>
         <div className="item">
-          <span className="head">单价(含税)：</span>{e.location.unitPriceTaxinclusive} 元
+          <span className="head">生产厂家：</span>{e.location.manufacturer}
         </div>
         <div className="item">
-          <span className="head">原值：</span>{e.location.originalValue} 元
+          <span className="head">在用数量：</span>{e.location.number} {e.location.unit}
         </div>
         <div className="item">
-          <span className="head">数量：</span>{e.location.number} 吨
+          <span className="head">原值：</span>{e.location.originalValue}元
         </div>
         <div className="item">
-          <span className="head">待摊销金额：</span>{e.location.amountAmortised} 元
-        </div>
-        <div className="item">
-          <span className="head">已摊销比例：</span>{e.location.amortizationRatio} %
+          <span className="head">所在地：</span>{e.location.provinceName}{e.location.cityName}{e.location.countyName}
         </div>
         <div className="item">
           <span className="head">资产状态：</span>{filterStatus(e.location.status)}
         </div>
         <div className="item">
-          <span className="head">类型：</span>{e.location.materialType == "1" ? "A" : e.location.materialType == "2" ? "B" : "C"}
+          <span className="head">预计退场时间：</span>{e.location.exitTime}
         </div>
         <div className="item">
           <span className="head">进场类别：</span>{e.location.approachType == "1" ? "自购" : "调入"}
         </div>
         <div className="item">
-          <span className="head">预计退场时间：</span>{e.location.exitTime}
-        </div>
-        <div className="item">
-          <span className="head">周转次数：</span>{e.location.turnoverTime}
+          <span className="head">周转次数：</span>{e.location.turnoverTimes}
         </div>
         <div className="remarks">
           <span>备注：</span>
           <div>{e.location.remark}</div>
         </div>
       </div>
-    </div>
+    </div >
   )
-}
-// 工程类型
-const filterType = (type) => {
-  if (type == '1') {
-    return '铁路'
-  } else if (type == '2') {
-    return '公路'
-  } else if (type == '3') {
-    return '水利'
-  } else if (type == '4') {
-    return '市政'
-  } else if (type == '5') {
-    return '电气化'
-  } else {
-    return '房建'
-  }
 }
 // 资产状态
 const filterStatus = (status) => {
@@ -278,7 +243,7 @@ const Log = () => {
     </div>
   )
 }
-class revolvingDetail extends React.Component {
+class equipmentDetail extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -304,7 +269,7 @@ class revolvingDetail extends React.Component {
   }
   getUserInfo = () => {
     // console.log( this.props)
-    api.ajax("get", "http://10.10.9.175:9999/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
+    api.ajax("get", "http://10.10.9.175:9999/materialEquipmentController/getMaterialEquipment/" + this.props.match.params.id, {}).then(r => {
       console.log(r)
       var xiangqings = r.data
       this.setState({
@@ -376,4 +341,4 @@ const mapStateToProps = state => {
   return {
   }
 }
-export default withRouter(connect(mapStateToProps)(revolvingDetail))
+export default withRouter(connect(mapStateToProps)(equipmentDetail))
