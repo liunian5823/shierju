@@ -12,15 +12,15 @@ import { Table } from 'antd';
 const Device = (e) => {
   console.log(e)
   return (
-      <div className="device">
-        <div className="title">{e.location.id}</div>
-        <div className="content">
-          <div>闲置1台 ｜ 调拨锁定0台</div>
-          <div>资产管理部门：XXXXX部门</div>
-          <div>资产管理员：张三</div>
-          <a>查看联系方式</a>
-        </div>
+    <div className="device">
+      <div className="title">{e.location.id}</div>
+      <div className="content">
+        <div>闲置1台 ｜ 调拨锁定0台</div>
+        <div>资产管理部门：XXXXX部门</div>
+        <div>资产管理员：张三</div>
+        <a>查看联系方式</a>
       </div>
+    </div>
   )
 }
 
@@ -28,7 +28,10 @@ const Device = (e) => {
 const Info = (e) => {
   return (
     <div className="info">
-      <div className="title">台账信息</div>
+      <div className='accountTit'>
+        <div className="title">台账信息</div>
+        <a>查看物资循环明细</a>
+      </div>
       <div className="content">
         <div className="item">所属工程公司：{e.location.belongingCompany}</div>
         <div className="item">资产管理部门：{e.location.department}</div>
@@ -87,7 +90,7 @@ const Circle = () => {
       title: '时间',
       dataIndex: '2',
       key: '2'
-    }, 
+    },
     {
       title: '事件',
       dataIndex: '3',
@@ -131,10 +134,10 @@ const Circle = () => {
 // 物资循环日志
 const Log = () => {
   let columns = [{
-      title: '序号',
-      dataIndex: '1',
-      key: '1',
-      width: '100px'
+    title: '序号',
+    dataIndex: '1',
+    key: '1',
+    width: '100px'
   }, {
     title: '日期',
     dataIndex: '2',
@@ -171,7 +174,8 @@ const Log = () => {
           position: ["bottomCenter"],
           size: "small",
           showSizeChanger: true,
-          showQuickJumper: true}}
+          showQuickJumper: true
+        }}
       />
     </div>
   )
@@ -182,35 +186,35 @@ class GoodDetail extends React.Component {
     this.state = {
       imgIndex: 0,
       images: [
-        {source: './static/img/twbureau/order@2x.png'}, 
-        {source: './static/img/twbureau/jingjia@2x.png'},
-        {source: './static/img/twbureau/order@2x.png'}, 
-        {source: './static/img/twbureau/jingjia@2x.png'},
-        {source: './static/img/twbureau/order@2x.png'}, 
-        {source: './static/img/twbureau/jingjia@2x.png'},
-        {source: './static/img/twbureau/order@2x.png'}, 
-        {source: './static/img/twbureau/jingjia@2x.png'},
-        {source: './static/img/twbureau/order@2x.png'}, 
-        {source: './static/img/twbureau/jingjia@2x.png'}
+        { source: './static/img/twbureau/order@2x.png' },
+        { source: './static/img/twbureau/jingjia@2x.png' },
+        { source: './static/img/twbureau/order@2x.png' },
+        { source: './static/img/twbureau/jingjia@2x.png' },
+        { source: './static/img/twbureau/order@2x.png' },
+        { source: './static/img/twbureau/jingjia@2x.png' },
+        { source: './static/img/twbureau/order@2x.png' },
+        { source: './static/img/twbureau/jingjia@2x.png' },
+        { source: './static/img/twbureau/order@2x.png' },
+        { source: './static/img/twbureau/jingjia@2x.png' }
       ],
-      xiangqing:[],
+      xiangqing: [],
     }
   }
   componentWillMount() {
-   
+
     this.getUserInfo()
   }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.match.params.id + "/"+ this.props.match.params.type, {}).then(r => {
+    api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.match.params.id + "/" + this.props.match.params.type, {}).then(r => {
       console.log(r)
       var xiangqings = r.data
       this.setState({
-        xiangqing:xiangqings
+        xiangqing: xiangqings
       })
     }).catch(r => {
       console.log(r)
     })
-    
+
   }
   componentDidMount() {
     // 图片查看器
@@ -239,15 +243,15 @@ class GoodDetail extends React.Component {
     let { imgIndex, images } = this.state;
     return (
       <div className="detail">
-        <Breadcrumb location={this.props.match}/>
+        <Breadcrumb location={this.props.match} />
         <Device location={this.state.xiangqing}></Device>
         <Info location={this.state.xiangqing}></Info>
         <div className="goods_images">
           <div className="title">资产图片</div>
           <div className="box">
-            <div className="left" style={{visibility: imgIndex > 0 ? "visible" : "hidden"}} onClick={this.moveLeft}></div>
+            <div className="left" style={{ visibility: imgIndex > 0 ? "visible" : "hidden" }} onClick={this.moveLeft}></div>
             <div className="slider">
-              <ul id="images" style={{left: `-${imgIndex * 137}px`}}>
+              <ul id="images" style={{ left: `-${imgIndex * 137}px` }}>
                 {
                   images.map((image, index) => {
                     return (
@@ -259,7 +263,7 @@ class GoodDetail extends React.Component {
                 }
               </ul>
             </div>
-            <div className="right" style={{visibility: imgIndex < images.length - 6  ? "visible" : "hidden"}} onClick={this.moveRight}></div>
+            <div className="right" style={{ visibility: imgIndex < images.length - 6 ? "visible" : "hidden" }} onClick={this.moveRight}></div>
           </div>
         </div>
         <Enclosure />
@@ -268,7 +272,7 @@ class GoodDetail extends React.Component {
       </div>
     )
   }
-} 
+}
 const mapStateToProps = state => {
   return {
   }
