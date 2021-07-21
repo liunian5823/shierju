@@ -109,8 +109,10 @@ import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/ind
 import goodsDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
 import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsList/edit"
 import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/management";
+import revolvingDetail from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/detail";
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
 import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
+import restsDetail from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/detail";
 import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
 import bidding from "bundle-loader?lazy&name=disposal!@/twbureau/pages/bidding/index";
 import entrusted from "bundle-loader?lazy&name=disposal!@/twbureau/pages/entrusted/index";
@@ -257,8 +259,10 @@ const twRoutes = [
     { type: "route", path: "/tw/goods/detail/:id/:type", component: bundle(Empty, goodsDetail, { type: "callback" }) },
     { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
     { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
+    { type: "route", path: "/tw/revolving/detail/:id", component: bundle(Empty, revolvingDetail, { type: "callback" }) },//周转材料详情
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
     { type: "route", path: "/tw/rests/management", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
+    { type: "route", path: "/tw/rests/detail", component: bundle(Empty, restsDetail, { type: "callback" }) },//其它循环详情
     { type: "route", path: "/tw/MaterialStatus/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
     { type: "route", path: "/tw/MaterialStatus/audit", component: bundle(Empty, audit, { type: "callback" }) },//物资状态更新审核
     { type: "route", path: "/tw/MaterialStatus/updateQuery", component: bundle(Empty, updateQuery, { type: "callback" }) },//物资状态更新查询

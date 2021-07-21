@@ -41,6 +41,13 @@
   font-size: 14px;
   color: #333333;
 }
+.info .content .item .head {
+  display: inline-block;
+  width: 146px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: right;
+}
 .info .content .remarks {
   display: flex;
   width: 450px;
