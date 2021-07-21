@@ -132,8 +132,8 @@ class equipment extends React.Component {
                     key: 'operation',
                     fixed: 'right',
                     width: 200,
-                    render: () => <div>
-                        <a className="edit">查询</a>
+                    render: (text, record, index) => <div>
+                        <a className="edit" onClick={() => this.inquire(text, record, index)}>查询</a>
                         <a className="edit">修改</a>
                         <a className="edit">更新状态</a>
                     </div>,
@@ -175,9 +175,14 @@ class equipment extends React.Component {
         });
 
     }
+    // 查询 
+    inquire(text, record, index) {
+        // console.log(text)
+        this.props.history.push('/tw/equipment/detail/' + text.id)
+    }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.66:9999/materialEquipmentController/page", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.175:9999/materialEquipmentController/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 r.data.rows[i - 1]['key'] = i

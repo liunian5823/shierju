@@ -111,6 +111,7 @@ import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsL
 import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/management";
 import revolvingDetail from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/detail";
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
+import equipmentDetail from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/detail";
 import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
 import restsDetail from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/detail";
 import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
@@ -261,6 +262,7 @@ const twRoutes = [
     { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
     { type: "route", path: "/tw/revolving/detail/:id", component: bundle(Empty, revolvingDetail, { type: "callback" }) },//周转材料详情
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
+    { type: "route", path: "/tw/equipment/detail/:id", component: bundle(Empty, equipmentDetail, { type: "callback" }) },//施工详情
     { type: "route", path: "/tw/rests/management", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
     { type: "route", path: "/tw/rests/detail", component: bundle(Empty, restsDetail, { type: "callback" }) },//其它循环详情
     { type: "route", path: "/tw/MaterialStatus/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
