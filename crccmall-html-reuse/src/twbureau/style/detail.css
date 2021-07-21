@@ -146,6 +146,120 @@
   padding: 0 24px 24px 24px;
   margin-bottom: 8px;
 }
+/* 申请人信息 */
+.apply {
+  width: 992px;
+  height: 208px;
+  background: #FFFFFF;
+  padding-left: 24px;
+  margin-bottom: 8px;
+}
+.apply .content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.apply .content>div {
+  width: 400px;
+  height: 34px;
+  font-size: 14px;
+  color: #333333;
+  line-height: 34px;
+}
+/* 备注 */
+.remark {
+  width: 992px;
+  height: 281px;
+  background: #FFFFFF;
+  padding-left: 24px;
+  margin-bottom: 8px;
+}
+.remark .content {
+  width: 905px;
+  height: 185px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+/* 审批流程 */
+.audit {
+  width: 992px;
+  min-height: 332px;
+  background: #FFFFFF;
+  padding-left: 24px;
+  margin-bottom: 8px;
+}
+.audit .process {
+  padding: 0 38px 38px 100px;
+}
+.audit .process .item .head {
+  display: flex;
+}
+.audit .process .item .head>div{
+  width: 20px;
+  height: 20px;
+}
+.audit .process .item .head>span {
+  font-size: 14px;
+  color: #333333;
+  padding-left: 12px;
+}
+.audit .process .item .content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 61px;
+  margin: 7px 10px;
+  padding-left: 21px;
+}
+.audit .process .item .content>div {
+  font-size: 14px;
+  color: #999999;
+  margin-right: 24px;
+}
+.audit .process .agree .head>div {
+  background: url("../../static/img/twbureau/agree@2x.png");
+  background-size: cover;
+}
+.audit .process .agree .content {
+  border-left: 2px solid #6CD201;
+}
+.audit .process .refuse .head>div {
+  background: url("../../static/img/twbureau/refuse@2x.png");
+  background-size: cover;
+}
+.audit .process .refuse .content {
+  border-left: 2px solid #E40407;
+}
+.audit .process .waitting .head>div {
+  background: url("../../static/img/twbureau/waitting@2x.png");
+  background-size: cover;
+}
+.audit .process .waitting .content {
+  border-left: 2px solid #D6D6D6;
+}
+.audit .process .item:last-child .content {
+  border-left: none;
+}
+.audit .process .item .content .name {
+  width: 60px;
+}
+.audit .process .item .content .date {
+  width: 134px;
+}
+.audit .process .item .content .status {
+  width: 60px;
+}
+.audit .process .item .content .explain {
+  width: 320px;
+}
+/* 底部 */
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 992px;
+  height: 80px;
+  background: #FFFFFF;
+}
 /* 页面样式 */
 .title {
   line-height: 60px;
@@ -153,4 +267,8 @@
   font-size: 16px;
   font-weight: bold;
   color: #000000;
+}
+.title .export {
+  float: right;
+  margin-top: 14px;
 }

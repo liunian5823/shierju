@@ -106,14 +106,16 @@ import circle_applyFor from "bundle-loader?lazy&name=circleList!@/twbureau/pages
 import circle_audit from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-audit";
 import circle_query from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-query";
 import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/index";
-import goodsDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
-import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsList/edit"
+import goodsDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail";
+import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsList/edit";
 import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/management";
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
 import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
 import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
 import bidding from "bundle-loader?lazy&name=disposal!@/twbureau/pages/bidding/index";
 import entrusted from "bundle-loader?lazy&name=disposal!@/twbureau/pages/entrusted/index";
+import circleDetail from "bundle-loader?lazy&name=circleDetail!@/twbureau/pages/circle/detail";
+
 
 import NoAu from "@/pages/notFound";
 
@@ -256,6 +258,7 @@ const twRoutes = [
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
     { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodsDetail, { type: "callback" }) },
     { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
+    { type: "route", path: "/tw/circle/detail", component: bundle(Empty, circleDetail, { type: "callback" }) },
     { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
     { type: "route", path: "/tw/rests/management", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
