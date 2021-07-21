@@ -45,64 +45,67 @@ const Info = (e) => {
         <div className="item">
           <span className="head">资产分类：</span>{e.location.type}
         </div>
-        <div className="item">材料编码：</div>
-        <span className="head">所属工程公司：</span>工程类型：
+        <div className="item">
+          <span className="head">材料编码：</span>
+        </div>
+        <div className="item">
+          <span className="head">工程类型：</span>
+        </div>
+        <div className="item">
+          <span className="head">资产名称：</span>{e.location.name}
+        </div>
+        <div className="item">
+          <span className="head">资产别名：</span>
+        </div>
+        <div className="item">
+          <span className="head">购入时间：</span>
+        </div>
+        <div className="item">
+          <span className="head">供应商：</span>
+        </div>
+        <div className="item">
+          <span className="head">参数备注：</span>
+        </div>
+        <div className="item">
+          <span className="head">规格：</span>{e.location.standards}
+        </div>
+        <div className="item">
+          <span className="head">单价(不含税)：</span>元
+        </div>
+        <div className="item">
+          <span className="head">单价(含税)：</span>元
+        </div>
+        <div className="item">
+          <span className="head">原值：</span>{e.location.originalValue}
+        </div>
+        <div className="item">
+          <span className="head">数量：</span>吨
+        </div>
+        <div className="item">
+          <span className="head">待摊销金额：</span>元
+        </div>
+        <div className="item">
+          <span className="head">已摊销比例：</span>
+        </div>
+        <div className="item">
+          <span className="head">资产状态：</span>{e.location.status}
+        </div>
+        <div className="item">
+          <span className="head">类型：</span></div>
+        <div className="item">
+          <span className="head">进场类别：</span>{e.location.approachType}
+        </div>
+        <div className="item">
+          <span className="head">预计退场时间：</span>{e.location.exitTime}
+        </div>
+        <div className="item">
+          <span className="head">周转次数：</span>{e.location.turnoverTime}
+        </div>
+        <div className="remarks">
+          <span>备注：</span>
+          <div>{e.location.remark}</div>
+        </div>
       </div>
-      <div className="item">
-        <span className="head">资产名称：</span>{e.location.name}
-      </div>
-      <div className="item">
-        <span className="head">资产别名：</span>
-      </div>
-      <div className="item">
-        <span className="head">购入时间：</span>
-      </div>
-      <div className="item">
-        <span className="head">供应商：</span>
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>参数备注：
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>规格：{e.location.standards}
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>单价(不含税)：元
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>单价(含税)元
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>原值：{e.location.originalValue}
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>数量：吨
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>待摊销金额：元
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>已摊销比例：
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>资产状态：{e.location.status}
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>类型：</div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>进场类别：{e.location.approachType}
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>预计退场时间：{e.location.exitTime}
-      </div>
-      <div className="item">
-        <span className="head">所属工程公司：</span>周转次数：{e.location.turnoverTime}
-      </div>
-      <div className="remarks">
-        <span>备注：</span>
-        <div>{e.location.remark}</div>
-      </div>
-    </div>
     </div >
   )
 }
