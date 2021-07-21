@@ -61,6 +61,7 @@ const devConfig = {
     devServer: {
         contentBase: dir("dist"),
         historyApiFallback: true,
+        disableHostCheck:true,
         compress: true,
         hotOnly: true,
         inline: true, // ie11以下不支持inline
@@ -71,7 +72,7 @@ const devConfig = {
         hot: true,
         clientLogLevel: "error",
         publicPath: "/",
-        host: "127.0.0.1",
+        host: "0.0.0.0",
         port: 8001,
         proxy: {
             '/api': {

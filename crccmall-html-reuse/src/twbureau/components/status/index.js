@@ -246,7 +246,7 @@ class Status extends React.Component {
             </Form>
           </div>
           {(step == 'look' || step == 'vertify') &&<div>
-            <div className="title">审批流程</div>
+            <div className="status-title">审批流程</div>
             <div className="process">
             {
               process.map((item, index) => {
@@ -266,7 +266,7 @@ class Status extends React.Component {
           </div>
           </div>}
           {step == 'vertify' &&<div>
-            <div className="title">审批</div>
+            <div className="status-title">审批</div>
             <div className="vertify">
             <Form>
               <FormItem

@@ -176,7 +176,7 @@ const Log = () => {
     </div>
   )
 }
-class GoodDetail extends React.Component {
+class restsDetail extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -273,4 +273,4 @@ const mapStateToProps = state => {
   return {
   }
 }
-export default withRouter(connect(mapStateToProps)(GoodDetail))
+export default withRouter(connect(mapStateToProps)(restsDetail))
