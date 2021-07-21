@@ -264,7 +264,7 @@ const twRoutes = [
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
     { type: "route", path: "/tw/equipment/detail/:id", component: bundle(Empty, equipmentDetail, { type: "callback" }) },//施工详情
     { type: "route", path: "/tw/rests/management", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
-    { type: "route", path: "/tw/rests/detail", component: bundle(Empty, restsDetail, { type: "callback" }) },//其它循环详情
+    { type: "route", path: "/tw/rests/detail/:id", component: bundle(Empty, restsDetail, { type: "callback" }) },//其它循环详情
     { type: "route", path: "/tw/MaterialStatus/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
     { type: "route", path: "/tw/MaterialStatus/audit", component: bundle(Empty, audit, { type: "callback" }) },//物资状态更新审核
     { type: "route", path: "/tw/MaterialStatus/updateQuery", component: bundle(Empty, updateQuery, { type: "callback" }) },//物资状态更新查询
