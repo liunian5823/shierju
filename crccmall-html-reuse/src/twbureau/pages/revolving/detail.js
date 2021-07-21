@@ -103,7 +103,6 @@ const Info = (e) => {
         <div>{e.location.remark}</div>
       </div>
     </div>
-    </div >
   )
 }
 // 附件

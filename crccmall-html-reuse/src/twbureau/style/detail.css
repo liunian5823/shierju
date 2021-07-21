@@ -258,6 +258,16 @@
 .audit .process .item .content .explain {
   width: 320px;
 }
+/* 审批 */
+.vertify-box {
+  width: 992px;
+  background: #FFFFFF;
+  margin-bottom: 8px;
+  padding: 0 24px 24px 24px;
+}
+.vertify-box .vertify{
+  padding-left: 40px;
+}
 /* 底部 */
 .bottom {
   display: flex;

@@ -6,7 +6,10 @@ import api from '@/framework/axios';
 import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
-import { Table, Button, Input } from 'antd';
+import { Table, Button, Input, Form, Radio, Modal, message } from 'antd';
+
+const FormItem = Form.Item;
+const RadioGroup = Radio.Group;
 
 // 申请人信息
 const ApplyInfo = () => {
@@ -152,31 +155,149 @@ const Process = () => {
     </div>
   )
 }
-// 底部
-const Bottom = () => {
-  return (
-    <div className="bottom">
-      <Button type="primary">关闭</Button>
-    </div>
-  )
-}
 class CircleDetail extends React.Component{
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      imgIndex: 0,
+      images: [
+        {source: './static/img/twbureau/order@2x.png'}, 
+        {source: './static/img/twbureau/jingjia@2x.png'},
+        {source: './static/img/twbureau/order@2x.png'}, 
+        {source: './static/img/twbureau/jingjia@2x.png'},
+        {source: './static/img/twbureau/order@2x.png'}, 
+        {source: './static/img/twbureau/jingjia@2x.png'},
+        {source: './static/img/twbureau/order@2x.png'}, 
+        {source: './static/img/twbureau/jingjia@2x.png'},
+        {source: './static/img/twbureau/order@2x.png'}, 
+        {source: './static/img/twbureau/jingjia@2x.png'}
+      ],
+      verify: 1,
+      remark: 'wewqe',
+      visible: false
+    }
   }
   componentWillMount() {
   }
-  render(){
+  componentDidMount() {
+    // 图片查看器
+    const viewer = new Viewer(document.getElementById('images'), {
+      inline: false,
+      viewed() {
+        viewer.zoomTo(1);
+      },
+    });
+  }
+  moveLeft = () => {
+    if (this.state.imgIndex > 0) {
+      this.setState({
+        imgIndex: this.state.imgIndex - 1
+      })
+    }
+  }
+  moveRight = () => {
+    if (this.state.imgIndex < this.state.images.length - 6) {
+      this.setState({
+        imgIndex: this.state.imgIndex + 1
+      })
+    }
+  }
+  onVerifyChange = (e) => {
+    this.setState({
+      verify: e.target.value
+    })
+  }
+  onRemarkChange = (e) => {
+    this.setState({
+      remark: e.target.value
+    })
+  }
+  vertifyCertain = (e) => {
+    this.setState({
+      visible: true,
+    });
+  }
+  handleOk = () => {
+    this.setState({
+      visible: false,
+    });
+    this.success()
+  }
+  handleCancel = (e) => {
+    this.setState({
+      visible: false,
+    });
+  }
+  success = () => {
+    message.success('单据已审核拒绝');
+  };
+  error = () => {
+    message.error('出错啦~');
+  };
+  render() {
+    let { imgIndex, images } = this.state;
     return (
       <div className="detail">
         <Breadcrumb location={this.props.match}/>
         <ApplyInfo />
         <GoodsDetail />
+        <div className="goods_images">
+          <div className="title">资产图片</div>
+          <div className="box">
+            <div className="left" style={{visibility: imgIndex > 0 ? "visible" : "hidden"}} onClick={this.moveLeft}></div>
+            <div className="slider">
+              <ul id="images" style={{left: `-${imgIndex * 137}px`}}>
+                {
+                  images.map((image, index) => {
+                    return (
+                      <li key={index}>
+                        <img src={image.source} alt="Picture 1"></img>
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </div>
+            <div className="right" style={{visibility: imgIndex < images.length - 6  ? "visible" : "hidden"}} onClick={this.moveRight}></div>
+          </div>
+        </div>
         <Enclosure />
         <Remark />
         <Process />
-        <Bottom />
+        {/* 审批 */}
+        <div className="vertify-box">
+          <div className="title">审批</div>
+          <div className="vertify">
+            <Form>
+              <FormItem
+                  className="whole"
+                  label="审批结果："
+                >
+                  <RadioGroup onChange={this.onVerifyChange} value={this.state.verify}>
+                    <Radio key="all" value={1}>审核通过</Radio>
+                    <Radio key="part" value={0}>审核拒绝</Radio>
+                  </RadioGroup>
+                </FormItem>
+                <FormItem
+                className="whole"
+                label="备注："
+              >
+                <Input className="textarea" type="textarea" onChange={this.onRemarkChange} value={this.state.remark} />
+              </FormItem>
+            </Form>
+          </div>
+        </div>
+        <div className="bottom">
+          {/* <Button type="primary">关闭</Button> */}
+          {/* 审核按钮 */}
+          <Button>取消</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <Button type="primary" onClick={this.vertifyCertain}>确认</Button>
+        </div>
+        <Modal title="提示" width="320px" visible={this.state.visible}
+          onOk={this.handleOk} onCancel={this.handleCancel}
+        >
+          <p>请确认是否审核拒绝</p>
+        </Modal>
       </div>
     )
   }
