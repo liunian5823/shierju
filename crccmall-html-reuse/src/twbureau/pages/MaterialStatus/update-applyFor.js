@@ -4,6 +4,8 @@ import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
+import Status from '@/twbureau/components/status';
+import { map } from 'jquery';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
@@ -175,13 +177,16 @@ class applyFor extends React.Component {
                             </div>
                         } else {
                             return <div >
-                                <a className="edit">查看</a>
+                                <a className="edit" onClick={() => this.changeStatus(value)}>查看</a>
                             </div>
                         }
 
                     },
                 }
             ],
+            showStatus: false,
+            statusObj:"",
+            process:"",
             obj:"",
         };
 
@@ -273,7 +278,40 @@ class applyFor extends React.Component {
     handleClick() {
         console.log('456')
     }
-
+    changeStatus (e){
+        console.log(e) 
+        var status = {};
+        status['name'] = e.name;// 资产名称
+        status['type'] = e.type; // 资产类别
+        status['standards'] = e.standards; // 规格型号
+        status['department'] = e.department; // 资产管理部门
+        status['befoeupdateStatus'] = e.befoeupdateStatus; // 更新前资产状态
+        status['afterupdateStatus'] = e.afterupdateStatus; // 更新后资产状态
+        status['number1'] = e.number; //数量
+        status['unit1'] = e.unit; //单位
+        status['updateType'] = e.updateType =='0' ? 'all' : 'part'; // all-全部更新；part-部分更新
+        status['restStatus'] = e.updateRemainderStatus;//剩余物资状态
+        status['number2'] = e.name; //数量
+        status['unit2'] = e.name; //单位
+        status['remark'] = e.remark; // 备注
+        // for (var i = 1; i < e.statusUpdateApprovals.length + 1; i++) {
+        //     var element = e.list[i - 1]
+        //     console.log(element)
+        // }
+        this.setState({
+            statusObj: status,
+            showStatus: true,
+            process:""
+        },()=>{
+            console.log(this.state.statusObj);
+            api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+                console.log(r.data);
+            }).catch(r => {
+                console.log(r)
+            })
+        });
+    }
+    
     render() {
         const tabsData = [{
             key: ' ',
@@ -328,6 +366,32 @@ class applyFor extends React.Component {
             key: '3',
             name: '其他'
         }]
+         let process = [
+            {
+              head: '项目部XX部长',
+              name: '张三三',
+              dateTime: '2021.08.23 12:00:00',
+              status: '审核通过',
+              statusKey: 'agree', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            },
+            {
+              head: '项目管理员',
+              name: '李四小',
+              dateTime: '2021.08.23 12:00:00',
+              status: '审核中',
+              statusKey: 'waitting', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            },
+            {
+              head: '项目管理员',
+              name: '李四',
+              dateTime: '2021.08.23 12:00:00',
+              status: '拒绝',
+              statusKey: 'refuse', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            } 
+        ]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
@@ -390,6 +454,7 @@ class applyFor extends React.Component {
                         }}
                     />
                 </div>
+                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={process}/>
             </div>
         )
     }
