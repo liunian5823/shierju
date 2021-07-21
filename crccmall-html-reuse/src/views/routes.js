@@ -254,7 +254,7 @@ const deskRoutes = [
 const twRoutes = [
     { type: "route", path: "/tw/cirHome", component: bundle(Empty, circulation, { type: "callback" }) },
     { type: "route", path: "/tw/goods/list", component: bundle(Empty, goodsList, { type: "callback" }) },
-    { type: "route", path: "/tw/goods/detail", component: bundle(Empty, goodsDetail, { type: "callback" }) },
+    { type: "route", path: "/tw/goods/detail/:id/:type", component: bundle(Empty, goodsDetail, { type: "callback" }) },
     { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
     { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工

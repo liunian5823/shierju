@@ -265,7 +265,8 @@ class GoodsList extends React.Component {
   }
   inquire(text, record, index) {
     // console.log(text, record, index)
-    this.props.history.push({ pathname: '/tw/goods/detail', state: { id: text.id, type: text.type } })
+   this.props.history.push('/tw/goods/detail/' + text.id + '/' + text.type)
+
   }
 
 
