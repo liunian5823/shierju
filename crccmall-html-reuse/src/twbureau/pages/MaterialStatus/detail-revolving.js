@@ -13,7 +13,7 @@ const Device = (e) => {
   console.log(e)
   return (
     <div className="device">
-      <div className="title">{e.location.prodottoId}</div>
+      <div className="title">{e.location.id}</div>
       <div className="content">
         <div>闲置1台 ｜ 调拨锁定0台</div>
         <div>资产管理部门：{e.location.department}</div>
@@ -303,12 +303,14 @@ class detailRevolving extends React.Component {
     this.getUserInfo()
   }
   getUserInfo = () => {
-    console.log( this.props)
-    api.ajax("get", "http://10.10.9.65:9999/inForApproval/getByTypeAndprodottoId?type=" + this.props.match.params.type + "&prodottoId=" + this.props.match.params.prodottoId, {}).then(r => {
-      console.log(r)
+    // console.log( this.props)
+    api.ajax("get", "http://10.10.9.175:9999/inForApproval/getByTypeAndprodottoId?type=" + this.props.match.params.type + "&prodottoId=" + this.props.match.params.prodottoId, {}).then(r => {
+      // console.log(r)
       var xiangqings = r.data
       this.setState({
-        xiangqing: xiangqings
+        xiangqing: xiangqings[0]
+      },()=>{
+        console.log(this.state.xiangqing);
       })
     }).catch(r => {
       console.log(r)

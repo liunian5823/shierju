@@ -13,7 +13,7 @@ const Device = (e) => {
   console.log(e)
   return (
       <div className="device">
-        <div className="title">{e.location.prodottoId}</div>
+        <div className="title">{e.location.id}</div>
         <div className="content">
           <div>闲置1台 ｜ 调拨锁定0台</div>
           <div>资产管理部门：XXXXX部门</div>
@@ -205,7 +205,7 @@ class detailRests extends React.Component {
       console.log(r)
       var xiangqings = r.data
       this.setState({
-        xiangqing: xiangqings
+        xiangqing: xiangqings[0]
       })
     }).catch(r => {
       console.log(r)
