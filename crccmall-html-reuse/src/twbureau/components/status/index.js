@@ -241,7 +241,7 @@ class Status extends React.Component {
                 className="whole"
                 label="备注："
               >
-                <Input disabled={step !== 'update'} {...remarkProps} defaultValue={status.remark} className="textarea" type="textarea" />
+                <Input disabled={step !== 'update'} {...remarkProps} defaultValue={status.remark} value={status.remark} className="textarea" type="textarea" />
               </FormItem>
             </Form>
           </div>

@@ -345,7 +345,7 @@ class Top extends React.Component {
 					  url = platform.spUrl;
 				  }
 				  console.log("url:",url);
-				  this.props.history.push('/circulation')
+				  this.props.history.push('/tw/cirHome')
 				// console.log(systemConfigPath.jumpPlatforms('/circulation'))
 				// return
 					// window.location.href = systemConfigPath.jumpPlatforms('/circulation');

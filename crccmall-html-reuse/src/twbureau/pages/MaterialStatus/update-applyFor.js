@@ -2,11 +2,11 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
+import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
+import Status from '@/twbureau/components/status';
 
-const TabPane = Tabs.TabPane;
-const { RangePicker } = DatePicker;
 class applyFor extends React.Component {
 
     constructor(props) {
@@ -175,13 +175,16 @@ class applyFor extends React.Component {
                             </div>
                         } else {
                             return <div >
-                                <a className="edit">查看</a>
+                                <a className="edit" onClick={() => this.changeStatus(value)}>查看</a>
                             </div>
                         }
 
                     },
                 }
             ],
+            showStatus: false,
+            statusObj:"",
+            process:[],
             obj:"",
         };
 
@@ -273,7 +276,49 @@ class applyFor extends React.Component {
     handleClick() {
         console.log('456')
     }
-
+    changeStatus (e){       
+        this.state.statusObj = {}
+        this.state.process=[]
+        var status = {}
+        var process1=[]
+        var that=this
+        api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+            status['name'] = r.data.name;// 资产名称
+            status['type'] = r.data.type; // 资产类别
+            status['standards'] = r.data.standards; // 规格型号
+            status['department'] = r.data.department; // 资产管理部门
+            status['befoeupdateStatus'] = r.data.befoeupdateStatus; // 更新前资产状态
+            status['afterupdateStatus'] = r.data.afterupdateStatus; // 更新后资产状态
+            status['number1'] = r.data.number; //数量
+            status['unit1'] = r.data.unit; //单位
+            status['updateType'] = r.data.updateType =='0' ? 'all' : 'part'; // all-全部更新；part-部分更新
+            status['restStatus'] = r.data.updateRemainderStatus;//剩余物资状态
+            status['number2'] = r.data.updateAfterNumber; //数量
+            status['unit2'] = r.data.unit; //单位
+            status['remark'] = r.data.remark; // 备注
+            for (var i = 1; i < r.data.statusUpdateApprovals.length+ 1; i++) {
+                var processObj = {}
+                var element = r.data.statusUpdateApprovals[i - 1]
+                processObj['head'] = element.department;
+                processObj['name'] = element.approver;
+                processObj['dateTime'] = element.createTime;
+                processObj['status'] = element.sort == "0" ? "审核通过" : element.sort == "0" ? "审核拒绝" : "审核中"; // 0通过，1拒绝，2审核中
+                processObj['statusKey'] = element.sort == "0" ? "agree" : element.sort == "0" ? "refuse" : "waitting"; // agree通过 refuse拒绝 waitting审核中
+                processObj['explain'] = element.remark;
+                process1.push(processObj)
+                that.setState({
+                    process:process1,
+                });
+            }
+            that.setState({
+                statusObj: status,
+                showStatus: true,
+            });
+        }).catch(r => {
+            console.log(r)
+        })
+    }
+    
     render() {
         const tabsData = [{
             key: ' ',
@@ -328,6 +373,32 @@ class applyFor extends React.Component {
             key: '3',
             name: '其他'
         }]
+        let process = [
+            {
+              head: '项目部XX部长',
+              name: '张三三',
+              dateTime: '2021.08.23 12:00:00',
+              status: '审核通过',
+              statusKey: 'agree', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            },
+            {
+              head: '项目管理员',
+              name: '李四小',
+              dateTime: '2021.08.23 12:00:00',
+              status: '审核中',
+              statusKey: 'waitting', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            },
+            {
+              head: '项目管理员',
+              name: '李四',
+              dateTime: '2021.08.23 12:00:00',
+              status: '拒绝',
+              statusKey: 'refuse', // agree通过 refuse拒绝 waitting审核中
+              explain: '我是审批说明'
+            } 
+        ]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
@@ -390,6 +461,7 @@ class applyFor extends React.Component {
                         }}
                     />
                 </div>
+                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={this.state.process}/>
             </div>
         )
     }
