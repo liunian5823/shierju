@@ -208,6 +208,9 @@ class disposalList extends React.Component {
             }, {
                 key: '11',
                 name: '报废'
+            }, {
+                key: '12',
+                name: '报损'
             }]
         return (
             <div>

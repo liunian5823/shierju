@@ -7,33 +7,6 @@ import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
 
 const TabPane = Tabs.TabPane;
-const Assetstates = [
-  {
-    key: ' ',
-    name: '全部资产状态'
-  }, {
-    key: '1',
-    name: '在用'
-  }, {
-    key: '2',
-    name: '闲置'
-  }, {
-    key: '3',
-    name: '可周转'
-  }, {
-    key: '4',
-    name: '周转中'
-  }, {
-    key: '5',
-    name: '闲置'
-  }, {
-    key: '6',
-    name: '可周转'
-  }, {
-    key: '7',
-    name: '周转中'
-  }
-]
 const classification = [
   {
     key: ' ',
@@ -327,9 +300,9 @@ class GoodsList extends React.Component {
           </div>
           <div className="search_item">
             <span className="head" >资产状态：</span>
-            <Select className="btn" defaultValue={Assetstates} showSearch placeholder="请选择" value={this.state.projectname1} onChange={this.projectname1.bind(this)}>
-              {Assetstates.map(Assetstates => (
-                <Option key={Assetstates.key}>{Assetstates.name}</Option>
+            <Select className="btn" defaultValue={tabsData} showSearch placeholder="请选择" value={this.state.projectname1} onChange={this.projectname1.bind(this)}>
+              {tabsData.map(item => (
+                <Option key={item.key}>{item.name}</Option>
               ))}
 
             </Select>

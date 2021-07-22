@@ -12,6 +12,7 @@ class audit extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            step:"look",
             status:"2",
             name: "",
             belongingCompany: undefined,
@@ -169,18 +170,18 @@ class audit extends React.Component {
                     width:120,
                     render: (value) => {//通过权限判断                        
                         return <div>
-                        <a className="edit">审核</a>
-                        <a className="edit" onClick={() => this.changeStatus(value)}>查看</a>
+                        <a className="edit" onClick={() => this.changeStatus(value,'vertify')}>审核</a>
+                        <a className="edit" onClick={() => this.changeStatus(value,'look')}>查看</a>
                     </div>
                         // console.log(value)
                         // if () {
                         //     return <div >
-                        //         <a className="edit">审核</a>
-                        //         <a className="edit">查看</a>
+                        //         <a className="edit" onClick={() => this.changeStatus(value,'vertify')}>审核</a>
+                        //         <a className="edit" onClick={() => this.changeStatus(value,'look')}>查看</a>
                         //     </div>
                         // } else {
                         //     return <div >
-                        //         <a className="edit">查看</a>
+                        //         <a className="edit" onClick={() => this.changeStatus(value,'look')}>查看</a>
                         //     </div>
                         // }
                     },
@@ -280,7 +281,10 @@ class audit extends React.Component {
     handleClick() {
         console.log('456')
     }
-    changeStatus (e){       
+    changeStatus (e,value){
+        console.log(value);
+        this.state.step=value
+        console.log(this.state.step);
         this.state.statusObj = {}
         this.state.process=[]
         var status = {}
@@ -439,7 +443,7 @@ class audit extends React.Component {
                         }}
                     />
                 </div>
-                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={this.state.process}/>
+                <Status visible={this.state.showStatus} step={this.state.step} status={this.state.statusObj} process={this.state.process}/>
             </div>
         )
     }

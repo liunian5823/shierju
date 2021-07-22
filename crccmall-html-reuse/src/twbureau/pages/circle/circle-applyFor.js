@@ -144,9 +144,6 @@ class circle_applyFor extends React.Component {
       obj['rows'] = '10';
       obj['type'] = key;
       this.setState({
-        type: key
-      })
-      this.setState({
         obj: obj
       }, () => {
         console.log(obj);
@@ -278,7 +275,7 @@ class circle_applyFor extends React.Component {
                     </div>
                 </Search>
                 <div className="table">
-                    <Tabs onChange={this.callback.bind(this)} activeKey={this.state.type}>
+                    <Tabs onChange={this.callback.bind(this)}>
                         {
                             tabsData.map((item, index) => {
                                 return (

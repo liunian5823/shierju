@@ -167,11 +167,11 @@ class applyFor extends React.Component {
                     fixed: 'right',
                     width:185,
                     render: (value) => {
-                        if (value.status == '3') {
+                        if (value.status == '1' || value.status == '4') {
                             return <div >
                                 <a className="edit">重新提交</a>
                                 <a className="edit">作废</a>
-                                <a className="edit">查看</a>
+                                <a className="edit" onClick={() => this.changeStatus(value)}>查看</a>
                             </div>
                         } else {
                             return <div >
@@ -283,6 +283,7 @@ class applyFor extends React.Component {
         var process1=[]
         var that=this
         api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+            status['id'] = r.data.id;// 产品id
             status['name'] = r.data.name;// 资产名称
             status['type'] = r.data.type; // 资产类别
             status['standards'] = r.data.standards; // 规格型号
