@@ -188,6 +188,12 @@ class Status extends React.Component {
               <FormItem>
                 资产名称：{status.name}
               </FormItem>
+              <FormItem>
+                更新前物资状态：{status.befoeupdateStatus}
+              </FormItem>
+              <FormItem>
+                数量：{status.number1}
+              </FormItem>
               <FormItem
                 className="whole"
                 label="更新类型："
@@ -196,12 +202,6 @@ class Status extends React.Component {
                   <Radio key="all" value={"all"}>全部更新</Radio>
                   <Radio key="part" value={"part"}>部分更新</Radio>
                 </RadioGroup>
-              </FormItem>
-              <FormItem>
-                更新前物资状态：{status.befoeupdateStatus}
-              </FormItem>
-              <FormItem>
-                数量：{status.number1}
               </FormItem>
               <FormItem
                 label="更新后物资状态："
