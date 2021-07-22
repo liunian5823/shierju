@@ -65,7 +65,7 @@ const GoodsDetail = () => {
     <div className="circle">
       <div className="title">
         物资详情
-        <Button className="export" type="primary">导出Excel</Button>
+        <Button className="button" type="primary">导出Excel</Button>
       </div>
       <Table
         dataSource={dataSource}

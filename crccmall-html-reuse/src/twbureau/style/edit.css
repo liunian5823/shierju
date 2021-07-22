@@ -28,25 +28,25 @@
   width: 588px;
   height: 185px;
 }
-.goods_edit .file {
+.file {
   width: 992px;
   height: 128px;
   background: #FFFFFF;
   padding: 0 24px 24px 24px;
   margin-bottom: 8px;
 }
-.goods_edit .file .upload {
+.file .upload {
   display: flex;
   margin-top: -20px;
 }
-.goods_edit .file .rc-upload {
+.file .rc-upload {
   margin-top: 20px;
   margin-right: 10px;
 }
-.goods_edit .file .ant-upload-list-text>span {
+.file .ant-upload-list-text>span {
   display: flex;
 }
-.goods_edit .file .ant-upload-list-item-done {
+.file .ant-upload-list-item-done {
   width: 150px;
 }
 .goods_edit .images {
@@ -89,6 +89,30 @@
   height: 80px;
   background: #FFFFFF;
   margin-bottom: 8px;
+}
+.search {
+  display: flex;
+  flex-wrap: wrap;
+}
+.search .search_item {
+  display: flex;
+}
+.search .search_item:first-child {
+  margin-right: 20px;
+}
+.search .search_item .name {
+  width: 70px;
+  line-height: 32px;
+}
+.search .search_item .btn {
+  width: 305px;
+}
+.search .btn_box {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 /* 页面样式 */
 .title {
