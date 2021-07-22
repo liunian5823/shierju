@@ -118,6 +118,7 @@ import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disp
 import bidding from "bundle-loader?lazy&name=disposal!@/twbureau/pages/bidding/index";
 import entrusted from "bundle-loader?lazy&name=disposal!@/twbureau/pages/entrusted/index";
 import circleEdit from "bundle-loader?lazy&name=circleEdit!@/twbureau/pages/circle/edit";
+import logs from "bundle-loader?lazy&name=logs!@/twbureau/pages/logs/index";
 
 import NoAu from "@/pages/notFound";
 
@@ -278,7 +279,8 @@ const twRoutes = [
     { type: "route", path: "/tw/bidding/list", component: bundle(Empty, bidding, { type: "callback" }) },//竞价单管理
     { type: "route", path: "/tw/entrusted/list", component: bundle(Empty, entrusted, { type: "callback" }) },//委托处置管理
 
-    { type: "route", path: "/tw/circle/edit", component: bundle(Empty, circleEdit, { type: "callback" }) }
+    { type: "route", path: "/tw/circle/edit", component: bundle(Empty, circleEdit, { type: "callback" }) },
+    { type: "route", path: "/tw/logs", component: bundle(Empty, logs, { type: "callback" }) }
 
 ]
 export {
