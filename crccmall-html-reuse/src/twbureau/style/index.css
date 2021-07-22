@@ -81,3 +81,10 @@
 .table-btn .table-btn-left button{
   margin-right: 10px;
 }
+
+.ant-tabs-nav-scroll{
+  width: 90% !important;
+}
+.ant-tabs-nav .ant-tabs-tab-inner{
+  padding: 8px 5px;
+}

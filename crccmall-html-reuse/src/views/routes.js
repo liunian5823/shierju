@@ -101,6 +101,9 @@ import goodsList from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsL
 import applyFor from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-applyFor";
 import audit from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-audit";
 import updateQuery from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-query";
+import detailRevolving from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detail-revolving";
+import detailEquipment from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detail-equipment";
+import detailRests from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detai-restsl";
 import circleList from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/index";
 import circle_applyFor from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-applyFor";
 import circle_audit from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-audit";
@@ -270,6 +273,9 @@ const twRoutes = [
     { type: "route", path: "/tw/MaterialStatus/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
     { type: "route", path: "/tw/MaterialStatus/audit", component: bundle(Empty, audit, { type: "callback" }) },//物资状态更新审核
     { type: "route", path: "/tw/MaterialStatus/updateQuery", component: bundle(Empty, updateQuery, { type: "callback" }) },//物资状态更新查询
+    { type: "route", path: "/tw/MaterialStatus/detailRevolving/:type/:prodottoId", component: bundle(Empty, detailRevolving, { type: "callback" }) },//物资状态更新周转详情
+    { type: "route", path: "/tw/MaterialStatus/detailEquipment/:type/:prodottoId", component: bundle(Empty, detailEquipment, { type: "callback" }) },//物资状态更新设备详情
+    { type: "route", path: "/tw/MaterialStatus/detailRests/:type/:prodottoId", component: bundle(Empty, detailRests, { type: "callback" }) },//物资状态更新周转详情
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
     { type: "route", path: "/tw/circle/applyFor", component: bundle(Empty, circle_applyFor, { type: "callback" }) },//物资周转申请
     { type: "route", path: "/tw/circle/audit", component: bundle(Empty, circle_audit, { type: "callback" }) },//物资周转审核

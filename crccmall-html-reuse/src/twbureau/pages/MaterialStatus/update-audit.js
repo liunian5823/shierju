@@ -291,6 +291,7 @@ class audit extends React.Component {
         var process1=[]
         var that=this
         api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+            status['prodottoId'] = r.data.prodottoId;// 产品id
             status['name'] = r.data.name;// 资产名称
             status['type'] = r.data.type; // 资产类别
             status['standards'] = r.data.standards; // 规格型号
@@ -443,7 +444,7 @@ class audit extends React.Component {
                         }}
                     />
                 </div>
-                <Status visible={this.state.showStatus} step={this.state.step} status={this.state.statusObj} process={this.state.process}/>
+                <Status visible={this.state.showStatus} step={this.state.step} status={this.state.statusObj} process={this.state.process} history={this.props.history}/>
             </div>
         )
     }

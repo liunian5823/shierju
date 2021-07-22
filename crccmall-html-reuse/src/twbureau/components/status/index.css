@@ -114,3 +114,6 @@
   color: #000000;
   padding: 24px;
 }
+.detail{
+  cursor: pointer;
+}

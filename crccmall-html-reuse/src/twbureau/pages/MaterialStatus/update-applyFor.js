@@ -283,19 +283,24 @@ class applyFor extends React.Component {
         var process1=[]
         var that=this
         api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
-            status['id'] = r.data.id;// 产品id
+            status['prodottoId'] = r.data.prodottoId;// 产品id
             status['name'] = r.data.name;// 资产名称
             status['type'] = r.data.type; // 资产类别
             status['standards'] = r.data.standards; // 规格型号
             status['department'] = r.data.department; // 资产管理部门
             status['befoeupdateStatus'] = r.data.befoeupdateStatus; // 更新前资产状态
             status['afterupdateStatus'] = r.data.afterupdateStatus; // 更新后资产状态
-            status['number1'] = r.data.number; //数量
-            status['unit1'] = r.data.unit; //单位
+            // status['number1'] = r.data.number; //数量
+            // status['unit1'] = r.data.unit; //单位
+            status['number1'] = 12; //数量
+            status['unit1'] = "个"; //单位
             status['updateType'] = r.data.updateType =='0' ? 'all' : 'part'; // all-全部更新；part-部分更新
             status['restStatus'] = r.data.updateRemainderStatus;//剩余物资状态
-            status['number2'] = r.data.updateAfterNumber; //数量
-            status['unit2'] = r.data.unit; //单位
+            // status['number2'] = r.data.updateAfterNumber; //数量 
+            // status['unit2'] = r.data.unit; //单位
+            
+            status['number2'] = 999; //数量
+            status['unit2'] = "个"; //单位
             status['remark'] = r.data.remark; // 备注
             for (var i = 1; i < r.data.statusUpdateApprovals.length+ 1; i++) {
                 var processObj = {}
@@ -462,7 +467,7 @@ class applyFor extends React.Component {
                         }}
                     />
                 </div>
-                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={this.state.process}/>
+                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={this.state.process} history={this.props.history}/>
             </div>
         )
     }
