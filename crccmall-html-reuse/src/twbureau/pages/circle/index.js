@@ -24,8 +24,15 @@ class Circle extends React.Component {
       columns: [
         {
           title: '周转类别',
-          dataIndex: 'key',
-          key: 'key'
+          dataIndex: 'turnoverCategory',
+          key: 'turnoverCategory ',
+          render: (value, row, index) => {
+            if (value == '0') {
+              return '主材料/设备'
+            } else if (value == '12') {
+              return '辅料/配件'
+            }
+          }
         },
         // {
         //   title: '主材料/设备',
@@ -48,52 +55,142 @@ class Circle extends React.Component {
         {
           title: '资产名称',
           dataIndex: 'name',
-          key: 'name'
+          key: 'name',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '规格型号',
           dataIndex: 'standards',
           key: 'standards',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '数量',
           dataIndex: 'number',
           key: 'number',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '单位',
           dataIndex: 'unit',
           key: 'unit',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '资产状态',
           dataIndex: 'status',
           key: 'status',
+          render: (value, row, index) => {
+            if (value == '1') {
+              return '在用'
+            } else if (value == '2') {
+              return '闲置'
+            } else if (value == '3') {
+              return '可周转'
+            } else if (value == '4') {
+              return '周转中'
+            } else if (value == '5') {
+              return '已周转'
+            } else if (value == '6') {
+              return '可处置'
+            } else if (value == '7') {
+              return '处置中'
+            } else if (value == '8') {
+              return '已处置'
+            } else if (value == '9') {
+              return '可租赁'
+            } else if (value == '10') {
+              return '已租赁'
+            } else if (value == '11') {
+              return '报废'
+            } else if (value == '12') {
+              return '报损'
+            } else {
+              return '—'
+            }
+          }
         },
         {
           title: '周转次数',
-          dataIndex: 'num1',
-          key: 'num1',
+          dataIndex: 'turnoverTimes;',
+          key: 'turnoverTimes;',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '辅料/配件名称',
-          dataIndex: 'num',
-          key: 'num2',
+          dataIndex: 'ingredientsName;',
+          key: 'ingredientsName;',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '辅料/配件子编号',
-          dataIndex: 'num3',
-          key: 'num3',
+          dataIndex: 'receiptNumber;',
+          key: 'receiptNumber;',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '辅料/配件数量',
-          dataIndex: 'num4',
-          key: 'num4',
+          dataIndex: 'ingredientsNumber;',
+          key: 'ingredientsNumber;',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }
+          }
         },
         {
           title: '辅料/配件单位',
-          dataIndex: 'num5',
-          key: 'num5',
+          dataIndex: 'ingredientsUnit;',
+          key: 'ingredientsUnit;',
+          render: (value, row, index) => {
+            if (value == null) {
+              return '—'
+            }else{
+              return value
+            }
+          }
         },
         {
           title: '所属工程公司',
@@ -102,13 +199,13 @@ class Circle extends React.Component {
         },
         {
           title: '资产管理部门',
-          dataIndex: 'number',
-          key: 'number',
+          dataIndex: 'departmentName',
+          key: 'departmentName',
         },
         {
           title: '日期',
-          dataIndex: 'date',
-          key: 'date',
+          dataIndex: 'createTime;',
+          key: 'createTime;',
         },
         {
           title: '操作',
