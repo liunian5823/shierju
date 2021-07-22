@@ -290,17 +290,12 @@ class applyFor extends React.Component {
             status['department'] = r.data.department; // 资产管理部门
             status['befoeupdateStatus'] = r.data.befoeupdateStatus; // 更新前资产状态
             status['afterupdateStatus'] = r.data.afterupdateStatus; // 更新后资产状态
-            // status['number1'] = r.data.number; //数量
-            // status['unit1'] = r.data.unit; //单位
-            status['number1'] = 12; //数量
-            status['unit1'] = "个"; //单位
+            status['number1'] = r.data.number; //数量
+            status['unit1'] = r.data.unit; //单位
             status['updateType'] = r.data.updateType =='0' ? 'all' : 'part'; // all-全部更新；part-部分更新
             status['restStatus'] = r.data.updateRemainderStatus;//剩余物资状态
-            // status['number2'] = r.data.updateAfterNumber; //数量 
-            // status['unit2'] = r.data.unit; //单位
-            
-            status['number2'] = 999; //数量
-            status['unit2'] = "个"; //单位
+            status['number2'] = r.data.updateAfterNumber; //数量 
+            status['unit2'] = r.data.unit; //单位
             status['remark'] = r.data.remark; // 备注
             for (var i = 1; i < r.data.statusUpdateApprovals.length+ 1; i++) {
                 var processObj = {}
