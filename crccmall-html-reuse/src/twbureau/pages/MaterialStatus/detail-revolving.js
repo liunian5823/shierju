@@ -125,8 +125,10 @@ const filterType = (type) => {
     return '市政'
   } else if (type == '5') {
     return '电气化'
-  } else {
+  } else if (value == '6') {
     return '房建'
+  } else {
+    return ''
   }
 }
 // 资产状态
@@ -309,7 +311,7 @@ class detailRevolving extends React.Component {
       var xiangqings = r.data
       this.setState({
         xiangqing: xiangqings[0]
-      },()=>{
+      }, () => {
         console.log(this.state.xiangqing);
       })
     }).catch(r => {

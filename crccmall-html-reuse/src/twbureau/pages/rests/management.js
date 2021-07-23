@@ -71,8 +71,10 @@ class Rests extends React.Component {
                             return '市政'
                         } else if (value == '5') {
                             return '电气化'
-                        } else {
+                        } else if (value == '6') {
                             return '房建'
+                        } else {
+                            return ''
                         }
                     }
                 },

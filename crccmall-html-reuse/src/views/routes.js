@@ -112,6 +112,7 @@ import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/ind
 import goodsDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
 import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsList/edit"
 import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/management";
+import revolvingEdit from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/edit";
 import revolvingDetail from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/detail";
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
 import equipmentDetail from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/detail";
@@ -265,6 +266,7 @@ const twRoutes = [
     { type: "route", path: "/tw/goods/detail/:id/:type", component: bundle(Empty, goodsDetail, { type: "callback" }) },
     { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
     { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
+    { type: "route", path: "/tw/revolving/edit/:type/:id", component: bundle(Empty, revolvingEdit, { type: "callback" }) },//周转材料录入
     { type: "route", path: "/tw/revolving/detail/:id", component: bundle(Empty, revolvingDetail, { type: "callback" }) },//周转材料详情
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
     { type: "route", path: "/tw/equipment/detail/:id", component: bundle(Empty, equipmentDetail, { type: "callback" }) },//施工详情

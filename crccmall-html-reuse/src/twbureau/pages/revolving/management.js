@@ -7,6 +7,7 @@ import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
 import Status from '@/twbureau/components/status';
+import { Link } from 'react-router-dom'
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
@@ -68,8 +69,10 @@ class revolving_materials extends React.Component {
                             return '市政'
                         } else if (value == '5') {
                             return '电气化'
-                        } else {
+                        } else if (value == '5') {
                             return '房建'
+                        }else{
+                            return ""
                         }
                     }
                 },
@@ -181,7 +184,7 @@ class revolving_materials extends React.Component {
                     width: 200,
                     render: (text, record, index) => <div>
                         <a className="edit" onClick={() => this.inquire(text, record, index)}>查询</a>
-                        <a className="edit">修改</a>
+                        <a className="edit" onClick={() => this.revise(text, record, index)}>修改</a>
                         <a className="edit" onClick={() => this.changeStatus(text)}>更新状态</a>
                     </div>,
                 }
@@ -231,6 +234,11 @@ class revolving_materials extends React.Component {
     inquire(text, record, index) {
         // console.log(text)
         this.props.history.push('/tw/revolving/detail/' + text.id)
+    }
+    // 修改
+    revise(text, record, index) {
+        // console.log(text)
+        this.props.history.push('/tw/revolving/edit/revise/' + text.id)
     }
     // 获取列表数据
     getUserInfo = () => {
@@ -515,7 +523,9 @@ class revolving_materials extends React.Component {
                 <div className="table">
                     <div className='table-btn'>
                         <div className='table-btn-left'>
-                            <Button type="primary">+ 录入资产信息</Button>
+                            <Link to="/tw/revolving/edit/add/1">
+                                <Button type="primary">+ 录入资产信息</Button>
+                            </Link>                            
                             <Button>导入台账信息</Button>
                             <Button>台账模板下载</Button>
                         </div>

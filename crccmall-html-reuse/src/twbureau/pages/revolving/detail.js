@@ -125,9 +125,11 @@ const filterType = (type) => {
     return '市政'
   } else if (type == '5') {
     return '电气化'
-  } else {
+  } else if (type == '6') {
     return '房建'
-  }
+  } else {
+    return ''
+}
 }
 // 资产状态
 const filterStatus = (status) => {
