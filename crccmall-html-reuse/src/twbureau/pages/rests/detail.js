@@ -32,22 +32,26 @@ const Info = (e) => {
       <div className="content">
         <div className="item">所属工程公司：{e.location.belongingCompany}</div>
         <div className="item">资产管理部门：{e.location.department}</div>
-        <div className="item">项目名称：{e.location.projectName}</div>
-        <div className="item">管理号码：{e.location.manageNumber}</div>
-        <div className="item">资产分类：{e.location.type}</div>
-        <div className="item">型号：{e.location.modelNumber}</div>
-        <div className="item">资产名称：{e.location.assetsAlias}</div>
-        <div className="item">装机功率：{e.location.installedPower}</div>
-        <div className="item">规格：{e.location.standards}</div>
-        <div className="item">购置年月：{e.location.buyTime}</div>
-        <div className="item">生产厂家：{e.location.manufacturer}</div>
-        <div className="item">在用数量：{e.location.number}</div>
-        <div className="item">原值：{e.location.originalValue}</div>
+        <div className="item">项目名称：{e.location.department}</div>
         <div className="item">所在地：{e.location.provinceName}{e.location.cityName}{e.location.countyName}</div>
+        <div className="item">资产分类：{e.location.type}</div>
+        <div className="item">材料编码：{e.location.documentNumber}</div>
+        <div className="item">工程类型：{e.location.projectType}</div>
+        <div className="item">资产名称：{e.location.name}</div>
+        <div className="item">资产别名：{e.location.assetsAlias}</div>
+        <div className="item">购入时间：{e.location.buyTime}</div>
+        <div className="item">供应商：{e.location.supplier}</div>
+        <div className="item">参数备注：{e.location.parameterRemark}</div>
+        <div className="item">规格：{e.location.standards}</div>
+        <div className="item">单价(不含税)：{e.location.unitPriceTaxinclusive}{e.location.cityName}{e.location.countyName}</div>
+        <div className="item">原值：{e.location.originalValue}</div>
+        <div className="item">数量：{e.location.number}</div>
+        <div className="item">已摊销比例：{e.location.amortizationRatio}</div>
         <div className="item">资产状态：{e.location.status}</div>
+        <div className="item">类型：{e.location.materialType}</div>
+        <div className="item">进场类别：{e.location.approachType}</div>
         <div className="item">预计退场时间：{e.location.exitTime}</div>
-        <div className="item">进场类别：{e.location.category}</div>
-        <div className="item">周转次数：{e.location.turnoverTimes}</div>
+        <div className="item">周转次数：{e.location.turnoverTime}</div>
         <div className="remarks">
           <span>备注：</span>
           <div>{e.location.remark}</div>
@@ -201,12 +205,12 @@ class restsDetail extends React.Component {
     this.getUserInfo()
   }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.match.params.id + "/"+ this.props.match.params.type, {}).then(r => {
+    api.ajax("get", "http://10.10.9.175:9999//materialOtherController/getMaerialOther/" + this.props.match.params.id, {}).then(r => {
       console.log(r)
-      var xiangqings = r.data
-      this.setState({
-        xiangqing:xiangqings
-      })
+      // var xiangqings = r.data
+      // this.setState({
+      //   xiangqing:xiangqings
+      // })
     }).catch(r => {
       console.log(r)
     })
