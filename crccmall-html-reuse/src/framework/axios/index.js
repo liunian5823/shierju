@@ -1,5 +1,5 @@
 import './axios';
-
+import qs from 'qs'
 // 自定义判断元素类型JS
 function toType(obj) {
   return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
@@ -74,34 +74,20 @@ export default class Api {
     if (params) {
       params = filterNull(params);
     }
-    console.log(options)
-    var a = { responseType: "blob" };
     return new Promise((resolve, reject) => {
-      axios({
-        method: method,
-        url: url,
-        // baseURL: root,
-        timeout: 40000,
-        // headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        data: method === 'POST' || method === 'post' || method === 'PUT' || method === 'put' ? params : null,
-        params: method === 'GET' || method === 'get' ? params : null,
-        withCredentials: true,
-        ...options,
-        a
-      }).then((res) => {
-        if (res.code == '403') {
-          window.location.href = SystemConfig.configs.loginUrl;
-        }
-        if (res.code == '200' || res.code == '000000') {
+      var a = { responseType: "blob" };
+      axios
+        .post(url, qs.parse(params), a)
+        .then(res => {
           resolve(res);
-        } else {
-          reject(res);
-        }
-      }).catch((err) => {
-        //请求失败
-        reject(err);
-      })
-    })
+        })
+        .catch(err => {
+          reject(err.response);
+          if (err.response.data.message != "") {
+    
+          }
+        });
+    });
   }
   
 }

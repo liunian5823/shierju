@@ -76,12 +76,10 @@ const devConfig = {
         port: 8001,
         proxy: {
             '/api': {
-                target: 'http://10.10.9.175:9999/',
+                target: 'https://106.39.82.13:8443',
                 changeOrigin: true,
-                // secure: false,
-                pathRewrite: {
-                    "^/api": ""
-                  }
+                secure: false,
+           
             },
             // '/common': {
             //     target: 'http://192.168.0.188:9011',
