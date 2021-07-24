@@ -14,8 +14,11 @@ class revolvingEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+
       formData:{
-        turnoverTime:"1"
+        revolvingName:"10",
+        turnoverTime:"1",
+      
       },
       typeFlag: true,
       uploadFileConfig: {
@@ -135,7 +138,11 @@ class revolvingEdit extends React.Component {
 
     this.setState({ imageList });
   }
-
+  handleChange(e) {
+    this.setState({
+      revolvingName: e.target.value
+    })
+  }
 
   render() {
     const formItemLayout = {
@@ -144,73 +151,89 @@ class revolvingEdit extends React.Component {
     };
     const { getFieldProps, getFieldDecorator, isFieldValidating } = this.props.form;
     const addressProps = getFieldProps('address', {
-      rules: [{ required: true, type: 'array', message: '请选择地址' },
-      {initialValue:this.state.formData.address}],
+      initialValue:this.state.formData.address,
+      rules: [{ required: true, type: 'array', message: '请选择地址' },],
       trigger: ['onBlur', 'onChange'],
     });
     const revolvingNameProps = getFieldProps('revolvingName', {
+      initialValue:this.state.formData.revolvingName,
       rules: [{ required: true, message: '请输入资产名称' }],
       trigger: ['onBlur', 'onChange'],
     });
 
     const supplierProps = getFieldProps('supplier', {
+      initialValue:this.state.formData.supplier,
       rules: [{ required: true, message: '请选择供应商' }],
       trigger: ['onBlur', 'onChange'],
     });
     const buyTimeProps = getFieldProps('buyTime', {
+      initialValue:this.state.formData.buyTime,
       rules: [{ required: true, type: 'date', message: '请选择购入日期' }],
       trigger: ['onBlur', 'onChange'],
     })
     const assetsAliasProps = getFieldProps('assetsAlias', {
+      initialValue:this.state.formData.assetsAlias,
       rules: [{ max: 30, message: '最多可输入30 个字符' }],
       trigger: ['onChange'],
     })
     const parameterProps = getFieldProps('parameterRemark', {
+      initialValue:this.state.formData.parameterRemark,
       rules: [{ max: 30, message: '最多可输入30 个字符' }],
       trigger: ['onChange'],
     })
     const standardsProps = getFieldProps('standards', {
+      initialValue:this.state.formData.standards,
       rules: [{ max: 30, message: '最多可输入30 个字符' }],
       trigger: ['onChange'],
     })
     const TaxexclusiveProps = getFieldProps('unitPriceTaxexclusive', {
+      initialValue:this.state.formData.unitPriceTaxexclusive,
       rules: [{ required: true, message: "请输入" }],
       trigger: ['onBlur', 'onChange'],
     })
     const TaxinclusiveProps = getFieldProps('unitPriceTaxinclusive', {
+      initialValue:this.state.formData.unitPriceTaxinclusive,
       rules: [{ required: true, message: "请输入金额" }],
       trigger: ['onBlur', 'onChange'],
     })
     const originalProps = getFieldProps('originalValue', {
+      initialValue:this.state.formData.originalValue,
       rules: [{ required: true, message: "请输入原值" }],
       trigger: ['onBlur', 'onChange'],
     })
     const numberProps = getFieldProps('number', {
+      initialValue:this.state.formData.number,
       rules: [{ required: true, message: "请输入数量", trigger: "blur" },
       { max: 30, message: '最多可输入30 个字符' }],
       trigger: ['onChange'],
     })
     const unitProps = getFieldProps('unit', {
+      initialValue:this.state.formData.unit,
       rules: [{ required: true, message: "请选择单位" }],
       trigger: ['onBlur', 'onChange'],
     })
     const ratioProps = getFieldProps('amortizationRatio', {
+      initialValue:this.state.formData.amortizationRatio,
       rules: [{ required: true, message: "请输入已摊销比例" }],
       trigger: ['onBlur', 'onChange'],
     })
     const statusProps = getFieldProps('status', {
+      initialValue:this.state.formData.status,
       rules: [{ required: true, message: "请选择物资状态" }],
       trigger: ['onBlur', 'onChange'],
     })
-    const typeProps = getFieldProps('materialType', {
+    const typeProps = getFieldProps('typeProps', {
+      initialValue:this.state.formData.typeProps,
       rules: [{ required: true, message: "请选择类型" }],
       trigger: ['onBlur', 'onChange'],
     })
     const approachProps = getFieldProps('approachType', {
+      initialValue: this.state.formData.approachType,
       rules: [{ required: true, message: "请选择进场类别" }],
       trigger: ['onBlur', 'onChange'],
     })
     const exitProps = getFieldProps('exitTime', {
+      initialValue: this.state.formData.exitTime,
       rules: [{ required: true, type: 'date', message: "请选择日期" }],
       trigger: ['onBlur', 'onChange'],
     })
@@ -219,12 +242,12 @@ class revolvingEdit extends React.Component {
         <Breadcrumb location={this.props.match} />
         <div className="info">
           <div className="title">台账信息</div>
-          <Form horizontal className="box" initialValues={{ turnoverTime: 1  }} >
+          <Form horizontal className="box"  >
             <FormItem
               {...formItemLayout}
               label="所属工程公司："
             >
-              <Select showSearch placeholder="请选择" {...getFieldProps('belongingCompany',{initialValue:this.state.formData.belongingCompany})}>
+              <Select showSearch placeholder="请选择">
                 <Option value="jack">局/处/项目部</Option>
               </Select>
             </FormItem>
@@ -232,7 +255,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="资产管理部门："
             >
-              <Select showSearch placeholder="请选择" {...getFieldProps('department',{initialValue:this.state.formData.department})}>
+              <Select showSearch placeholder="请选择">
                 <Option value="jack">XXX项目部</Option>
               </Select>
             </FormItem>
@@ -240,7 +263,9 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="项目名称："
             >
-              <Input placeholder="请输入" {...getFieldProps('name',{initialValue:this.state.formData.name})} />
+              <Select showSearch placeholder="请选择">
+                <Option value="jack">XXX项目部</Option>
+              </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -258,13 +283,13 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="材料编码："
             >
-              <Input placeholder="请输入" {...getFieldProps('materialType',{initialValue:this.state.formData.materialType})} />
+              <Input placeholder="请输入"  />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="工程类型"
             >
-              <Select showSearch placeholder="请选择" {...getFieldProps('projectType',{initialValue:this.state.formData.belongingCompany})}>
+              <Select showSearch placeholder="请选择" >
                 <Option value="1">铁路</Option>
                 <Option value="2">公路</Option>
                 <Option value="3">水利</Option>
@@ -277,57 +302,58 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="资产名称"
             >
-              <Input {...revolvingNameProps} placeholder="请输入" {...getFieldProps('revolvingName',{initialValue:this.state.formData.revolvingName})} />
+              <Input {...revolvingNameProps} placeholder="请输入"   />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="供应商"
             >
-              <Select showSearch placeholder="请选择" {...supplierProps} {...getFieldProps('supplier',{initialValue:this.state.formData.supplier})} >
+              <Select showSearch placeholder="请选择" {...supplierProps}  >
                 <Option value="jack">XXX项目部</Option>
               </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="购入时间"
+            
             >
-              <DatePicker  {...buyTimeProps} {...getFieldProps('buyTime',{initialValue:this.state.formData.buyTime})}/>
+              <DatePicker  {...buyTimeProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="资产别名"
             >
-              <Input placeholder="请输入" {...assetsAliasProps} {...getFieldProps('assetsAlias',{initialValue:this.state.formData.assetsAlias})}/>
+              <Input placeholder="请输入" {...assetsAliasProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="参数备注"
             >
-              <Input placeholder="请输入" {...parameterProps} {...getFieldProps('parameterRemark',{initialValue:this.state.formData.parameterRemark})}/>
+              <Input placeholder="请输入" {...parameterProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="规格"
             >
-              <Input placeholder="请输入" addonAfter="元" {...standardsProps} {...getFieldProps('standards',{initialValue:this.state.formData.standards})}/>
+              <Input placeholder="请输入" addonAfter="元" {...standardsProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="单价（不含税）"
             >
-              <Input placeholder="请输入" addonAfter="元" {...TaxexclusiveProps} {...getFieldProps('unitPriceTaxexclusive',{initialValue:this.state.formData.unitPriceTaxexclusive})}/>
+              <Input placeholder="请输入" addonAfter="元" {...TaxexclusiveProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="单价（含税）"
             >
-              <Input placeholder="请输入" addonAfter="元" {...TaxinclusiveProps} {...getFieldProps('unitPriceTaxinclusive',{initialValue:this.state.formData.unitPriceTaxinclusive})}/>
+              <Input placeholder="请输入" addonAfter="元" {...TaxinclusiveProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="原值"
             >
-              <Input placeholder="请输入" addonAfter="元" {...originalProps} {...getFieldProps('originalValue',{initialValue:this.state.formData.originalValue})}/>
+              <Input placeholder="请输入" addonAfter="元" {...originalProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -335,8 +361,8 @@ class revolvingEdit extends React.Component {
               required
               className='item-number'
             >
-              <Input placeholder="请输入"  {...numberProps} {...getFieldProps('number',{initialValue:this.state.formData.number})}/>
-              <Select placeholder="请选择" {...unitProps} {...getFieldProps('unit',{initialValue:this.state.formData.unit})}>
+              <Input placeholder="请输入"  {...numberProps} />
+              <Select placeholder="请选择" {...unitProps} >
                 <Option value="0">套</Option>
                 <Option value="1">台</Option>
                 <Option value="2">根</Option>
@@ -354,19 +380,19 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="待摊销金额"
             >
-              <Input placeholder="请输入" addonAfter="元" disabled={this.state.typeFlag} {...getFieldProps('amountAmortised',{initialValue:this.state.formData.amountAmortised})} />
+              <Input placeholder="请输入" addonAfter="元" disabled={this.state.typeFlag} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="已摊销比例"
             >
-              <Input placeholder="请输入" {...ratioProps} {...getFieldProps('amortizationRatio',{initialValue:this.state.formData.amortizationRatio})} />
+              <Input placeholder="请输入" {...ratioProps}  />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="资产状态"
             >
-              <Select showSearch placeholder="请选择" {...statusProps} {...getFieldProps('status',{initialValue:this.state.formData.status})}>
+              <Select showSearch placeholder="请选择" {...statusProps} >
                 <Option value="1">在用</Option>
                 <Option value="2">闲置</Option>
                 <Option value="3">可周转</Option>
@@ -381,7 +407,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="类型"
             >
-              <Select showSearch placeholder="请选择" {...typeProps} {...getFieldProps('materialType',{initialValue:this.state.formData.status})}>
+              <Select showSearch placeholder="请选择" {...typeProps} >
                 <Option value="1">A</Option>
                 <Option value="2">B</Option>
                 <Option value="3">C</Option>
@@ -391,7 +417,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="进场类别"
             >
-              <Select showSearch placeholder="请选择" {...approachProps} {...getFieldProps('approachType', { initialValue: this.state.formData.approachType })}>
+              <Select showSearch placeholder="请选择" {...approachProps} >
                 <Option value="0">自购</Option>
                 <Option value="1">调入</Option>
               </Select>
@@ -400,20 +426,20 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="预计退场时间"
             >
-              <DatePicker {...exitProps} {...getFieldProps('exitTime', { initialValue: this.state.formData.exitTime })}/>
+              <DatePicker {...exitProps}/>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="周转次数"
             >
-              <Input disabled={true} {...getFieldProps('turnoverTime', { initialValue: this.state.formData.turnoverTime })} />
+              <Input disabled={true} />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="备注"
               className="whole"
             >
-              <input type="textarea" className="texteara" {...getFieldProps('remark', { initialValue: this.state.formData.remark })} />
+              <input type="textarea" className="texteara" />
             </FormItem>
           </Form>
         </div>

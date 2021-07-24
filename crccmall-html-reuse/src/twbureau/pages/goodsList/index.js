@@ -138,11 +138,7 @@ class GoodsList extends React.Component {
       this.getUserInfo();
     });
   }
-  handleChange(e) {
-    this.setState({
-      value: e.target.value
-    })
-  }
+ 
   getUserInfo = () => {
     api.ajax("get", "http://10.10.9.175:9999/materialController/page", this.state.obj).then(r => {
 
@@ -212,6 +208,26 @@ class GoodsList extends React.Component {
   specification(e) {
     this.setState({
       specification: e.target.value
+    })
+  }
+  daochu(){
+    api.File("post", "@/materialRevolvingController/revolvingExport", {}).then(r => {
+      console.log(r)
+    
+    }).catch(r => {
+      console.log(r)
+      // var a = r.headers["content-disposition"].split(
+      //   "filename*=UTF-8''"
+      // )[1];
+      var title = decodeURIComponent('123');
+      var url = window.URL.createObjectURL(new Blob([r.data]));
+      var link = document.createElement("a");
+      link.style.display = "none";
+      link.href = url;
+
+      link.setAttribute("download", title);
+      document.body.appendChild(link);
+      link.click();
     })
   }
   // projectname3(key) {
@@ -391,7 +407,7 @@ class GoodsList extends React.Component {
               })
             }
           </Tabs>
-          <Button className="export" type="primary">导出</Button>
+          <Button className="export" type="primary" onClick={this.daochu.bind(this)}>导出</Button>
         </div>
       </div>
     )

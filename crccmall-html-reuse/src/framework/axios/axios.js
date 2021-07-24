@@ -37,6 +37,7 @@ axios.interceptors.request.use((config) => {
         config.headers['Content-Type'] = 'application/json'
         delete config.headers['change_content_type']
     }
+    // config.headers['Content-Type'] = 'application/json;charset=UTF-8'
     config.headers['X-Requested-With'] = 'XMLHttpRequest';
     config.headers['If-Modified-Since'] = '0';
     if (config.headers['Sub-Platform'] === '0') {
@@ -56,12 +57,16 @@ axios.interceptors.request.use((config) => {
 
 const errMsg = "系统错误!请重试,或联系管理员.";
 axios.interceptors.response.use((response) => {
+    // console.log(response.data instanceof Blob)
     if (response.data == undefined || (response.data && (response.data.status == "FAILURE" || response.data.code == "400000"))) {
+      
         Util.alert(errMsg, { type: "error" });
         return undefined;
     }
+
     return response.data;
 }, (err) => {
+
     if (err && err.response) {
         switch (err.response.status) {
             case 400:
