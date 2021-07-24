@@ -13,7 +13,6 @@ class circle_applyFor extends React.Component {
         super(props);
         this.state = {
             activeKey:"1",
-            name: "",
             companyId: undefined,
             type: "1",
             toDepartmentId: undefined,
@@ -91,8 +90,10 @@ class circle_applyFor extends React.Component {
                             return "审核中"
                         } else if (value == "2") {
                             return "审核通过"
-                        } else {
+                        } else if (value == "3") {
                             return "审核拒绝"
+                        }else if (value == "4") {
+                            return "审核拒绝待提交"
                         }
                     }
                 },
@@ -159,7 +160,6 @@ class circle_applyFor extends React.Component {
         })
         // console.log(this.state)
         var obj = {};
-        obj['name'] = this.state.name
         obj['companyId'] = this.state.companyId
         obj['type'] = this.state.type;
         obj['toDepartmentId'] = this.state.toDepartmentId;
@@ -176,7 +176,7 @@ class circle_applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.66:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -192,7 +192,7 @@ class circle_applyFor extends React.Component {
     // 查看
     inquire(text, record, index) {
       // console.log(text, record, index)
-     this.props.history.push('/tw/circle/detail/' + text.id )
+     this.props.history.push('/tw/circle/detail/' + text.id + '/' + text.upCompany )
     }
 
     inputChange(type, e) {

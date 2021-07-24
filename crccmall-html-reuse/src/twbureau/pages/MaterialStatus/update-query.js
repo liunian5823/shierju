@@ -150,7 +150,7 @@ class updateQuery extends React.Component {
                             return "审核通过"
                         } else if (value == "3") {
                             return "审核拒绝"
-                        }else{
+                        }else if (value == "4") {
                             return "审核拒绝待提交"
                         }
                     }

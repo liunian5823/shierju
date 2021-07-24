@@ -12,55 +12,119 @@ const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
 // 申请人信息
-const ApplyInfo = () => {
+const ApplyInfo = (e) => {
   return (
       <div className="apply">
         <div className="title">申请人信息</div>
         <div className="content">
-          <div>申请日期：2021-06-05</div>
-          <div>所属工程公司：XXX公司</div>
-          <div>项目名称： XXX项目部</div>
-          <div>部门省份：北京市 北京市 海淀区</div>
-          <div>申请人姓名：张三</div>
+          <div>申请日期：{e.location.createTime}</div>
+          <div>所属工程公司：{e.location.toCompany}</div>
+          <div>项目名称： {e.location.projectName}</div>
+          <div>部门省份：{e.location.provinceName}{e.location.cityName}{e.location.countyName}</div>
+          <div>申请人姓名：{e.location.applyforUserName}</div>
         </div>
       </div>
   )
 }
 // 物资详情
-const GoodsDetail = () => {
+const GoodsDetail = (e) => {
   let columns = [
     {
       title: '序号',
-      dataIndex: '1',
-      key: '1',
+      dataIndex: 'index',
+      key: 'index',
     }, {
-      title: '时间',
-      dataIndex: '2',
-      key: '2'
+      title: '周转部门',
+      dataIndex: 'upCompany',
+      key: 'upCompany'
     }, 
     {
-      title: '事件',
-      dataIndex: '3',
-      key: '3',
+      title: '材料类型',
+      dataIndex: 'type',
+      key: 'type',
+      render: (value, row, index) => {
+          if (value == '1') {
+              return '周转材料'
+          } else if (value == '2') {
+              return '施工设备'
+          } else if (value == '3') {
+              return '其他循环物资'
+          } else {
+              return ''
+          }
+      }
     }, {
-      title: '描述',
-      dataIndex: '4',
-      key: '4'
-    }
-  ]
-  let dataSource = [
+      title: '资产名称',
+      dataIndex: 'assetName',
+      key: 'assetName'
+    },
     {
-      1: 1,
-      2: "2020-10-01 08:00:00",
-      3: "物资录入",
-      4: "初始信息：录入物资信息，物资状态为在用"
+      title: '规格型号',
+      dataIndex: 'specification',
+      key: 'specification',
     }, {
-      1: 1,
-      2: "2020-10-01 08:00:00",
-      3: "物资录入",
-      4: "初始信息：录入物资信息，物资状态为在用"
+      title: '闲置数量',
+      dataIndex: 'leaveCount',
+      key: 'leaveCount'
+    }, 
+    {
+      title: '单位',
+      dataIndex: 'unit',
+      key: 'unit',
+    }, {
+      title: '购置原值 (元)',
+      dataIndex: 'originalValue',
+      key: 'originalValue'
+    }, 
+    {
+      title: '申请周转数量',
+      dataIndex: 'appliedNumber',
+      key: 'appliedNumber',
+    }, {
+      title: '周转价 (元)',
+      dataIndex: 'turnoverPrice',
+      key: 'turnoverPrice'
+    }, 
+    {
+      title: '已周转次数',
+      dataIndex: 'turnoverTime',
+      key: 'turnoverTime',
+    }, {
+      title: '周转后状态',
+      dataIndex: 'status',
+      key: 'status',
+      render: (value, row, index) => {
+          if (value == '1') {
+              return '在用'
+          } else if (value == '2') {
+              return '闲置'
+          } else if (value == '3') {
+              return '可周转'
+          } else if (value == '4') {
+              return '周转中'
+          } else if (value == '5') {
+              return '已周转'
+          } else if (value == '6') {
+              return '可处置'
+          } else if (value == '7') {
+              return '处置中'
+          } else if (value == '8') {
+              return '已处置'
+          } else if (value == '9') {
+              return '可租赁'
+          } else if (value == '10') {
+              return '已租赁'
+          } else if (value == '11') {
+              return '报废'
+          } else if (value == '12') {
+              return '报损'
+          } else {
+              return ''
+          }
+      }
     }
   ]
+  let dataSource = e.location
   return (
     <div className="circle">
       <div className="title">
@@ -70,6 +134,7 @@ const GoodsDetail = () => {
       <Table
         dataSource={dataSource}
         columns={columns}
+        scroll={{ x: 1500 }}
       />
     </div>
   )
@@ -105,33 +170,34 @@ const Remark = () => {
   )
 }
 // 审批流程
-const Process = () => {
-  let process = [
-    {
-      head: '项目部XX部长',
-      name: '张三三',
-      dateTime: '2021.08.23 12:00:00',
-      status: '审核通过',
-      statusKey: 'agree', // agree通过 refuse拒绝 waitting审核中
-      explain: '我是审批说明'
-    },
-    {
-      head: '项目管理员',
-      name: '李四小',
-      dateTime: '2021.08.23 12:00:00',
-      status: '审核中',
-      statusKey: 'waitting', // agree通过 refuse拒绝 waitting审核中
-      explain: '我是审批说明'
-    },
-    {
-      head: '项目管理员',
-      name: '李四',
-      dateTime: '2021.08.23 12:00:00',
-      status: '拒绝',
-      statusKey: 'refuse', // agree通过 refuse拒绝 waitting审核中
-      explain: '我是审批说明'
-    } 
-  ]
+const Process = (e) => {
+  let process=e.location
+  // let process = [
+  //   {
+  //     head: '项目部XX部长',
+  //     name: '张三三',
+  //     dateTime: '2021.08.23 12:00:00',
+  //     status: '审核通过',
+  //     statusKey: 'agree', // agree通过 refuse拒绝 waitting审核中
+  //     explain: '我是审批说明'
+  //   },
+  //   {
+  //     head: '项目管理员',
+  //     name: '李四小',
+  //     dateTime: '2021.08.23 12:00:00',
+  //     status: '审核中',
+  //     statusKey: 'waitting', // agree通过 refuse拒绝 waitting审核中
+  //     explain: '我是审批说明'
+  //   },
+  //   {
+  //     head: '项目管理员',
+  //     name: '李四',
+  //     dateTime: '2021.08.23 12:00:00',
+  //     status: '拒绝',
+  //     statusKey: 'refuse', // agree通过 refuse拒绝 waitting审核中
+  //     explain: '我是审批说明'
+  //   } 
+  // ]
   return (
     <div className="audit">
       <div className="title">审批流程</div>
@@ -140,12 +206,12 @@ const Process = () => {
           process.map((item, index) => {
             return (
               <div key={index} className={`item ${item.statusKey}`}>
-                <div className="head"><div></div><span>{item.head}</span></div>
+                <div className="head"><div></div><span>{item.turnoverApprovalId}</span></div>
                 <div className="content">
-                  <div className="name">{item.name}</div>
-                  <div className="date">{item.dateTime}</div>
-                  <div className="status">{item.status}</div>
-                  <div className="explain">审批说明：{item.explain}</div>
+                  <div className="name">{item.approver}</div>
+                  <div className="date">{item.approvalTime}</div>
+                  <div className="status">{item.state=="0" ? "审核通过" : element.state == "1" ? "审核拒绝" : element.state == "2" ? "审核中" : ""}</div>
+                  <div className="explain">审批说明：{item.remark}</div>
                 </div>
               </div>
             )
@@ -174,7 +240,8 @@ class CircleDetail extends React.Component{
       ],
       verify: 1,
       remark: 'wewqe',
-      visible: false
+      visible: false,
+      xiangqing: [],
     }
   }
   componentWillMount() {
@@ -184,6 +251,15 @@ class CircleDetail extends React.Component{
     api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/getMaterialApproval/" + this.props.match.params.id ,{}).then(r => {
       console.log(r)
       var xiangqings = r.data
+      for (let index = 0;  index< xiangqings.approvalRematerialInfoList.length; index++) {
+        const element = xiangqings.approvalRematerialInfoList[index];
+        element['index']=index+1
+        element['upCompany']=this.props.match.params.upCompany
+      }      
+      for (let index2 = 0;  index2< xiangqings.approvalProcessList.length; index2++) {
+        const element2 = xiangqings.approvalProcessList[index2];
+        element2['statusKey']=element['state']=="0" ? "agree" : element['state'] == "1" ? "refuse" : element['state'] == "2" ? "waitting" : ""
+      }
       this.setState({
         xiangqing: xiangqings
       })
@@ -251,8 +327,8 @@ class CircleDetail extends React.Component{
     return (
       <div className="detail">
         <Breadcrumb location={this.props.match}/>
-        <ApplyInfo />
-        <GoodsDetail />
+        <ApplyInfo  location={this.state.xiangqing}/>
+        <GoodsDetail location={this.state.xiangqing.approvalRematerialInfoList}/>
         <div className="goods_images">
           <div className="title">资产图片</div>
           <div className="box">
@@ -275,7 +351,7 @@ class CircleDetail extends React.Component{
         </div>
         <Enclosure />
         <Remark />
-        <Process />
+        <Process location={this.state.xiangqing.approvalProcessList}/>
         {/* 审批 */}
         <div className="vertify-box">
           <div className="title">审批</div>

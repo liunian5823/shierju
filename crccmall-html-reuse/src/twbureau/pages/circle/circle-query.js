@@ -13,7 +13,6 @@ class circle_applyFor extends React.Component {
         super(props);
         this.state = {
             activeKey:"1",
-            name: "",
             companyId: undefined,
             type: "1",
             toDepartmentId: undefined,
@@ -89,7 +88,7 @@ class circle_applyFor extends React.Component {
                             return "审核中"
                         } else if (value == "2") {
                             return "审核通过"
-                        } else {
+                        } else if (value == "3" || value == "4") {
                             return "审核拒绝"
                         }
                     }
@@ -104,16 +103,16 @@ class circle_applyFor extends React.Component {
                     key: 'operation',
                     fixed: 'right',
                     width: 185,
-                    render: (value) => {
-                        if (value.approvaStatus == '3') {
+                    render: (text, record, index) => {
+                        if (text.approvaStatus == '3') {
                             return <div >
                                 <a className="edit">重新提交</a>
                                 <a className="edit">作废</a>
-                                <a className="edit">查看</a>
+                                <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
                             </div>
                         } else {
                             return <div >
-                                <a className="edit">查看</a>
+                                <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
                             </div>
                         }
 
@@ -157,7 +156,6 @@ class circle_applyFor extends React.Component {
         })
         // console.log(this.state)
         var obj = {};
-        obj['name'] = this.state.name
         obj['companyId'] = this.state.companyId
         obj['type'] = this.state.type;
         obj['toDepartmentId'] = this.state.toDepartmentId;
@@ -174,7 +172,7 @@ class circle_applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.66:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -186,6 +184,11 @@ class circle_applyFor extends React.Component {
         }).catch(r => {
             console.log(r)
         })
+    }
+    // 查看
+    inquire(text, record, index) {
+      // console.log(text, record, index)
+     this.props.history.push('/tw/circle/detail/' + text.id )
     }
 
     inputChange(type, e) {
