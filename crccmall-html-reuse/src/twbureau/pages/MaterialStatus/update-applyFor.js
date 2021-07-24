@@ -151,7 +151,7 @@ class applyFor extends React.Component {
                             return "审核通过"
                         } else if (value == "3") {
                             return "审核拒绝"
-                        }else{
+                        }else if (value == "4") {
                             return "审核拒绝待提交"
                         }
                     }
@@ -222,7 +222,7 @@ class applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/inForApproval/page", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.66:9999/inForApproval/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -282,7 +282,7 @@ class applyFor extends React.Component {
         var status = {}
         var process1=[]
         var that=this
-        api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+        api.ajax("get", "http://10.10.9.66:9999/inForApproval/get?id="+ e.id, {}).then(r => {
             status['prodottoId'] = r.data.prodottoId;// 产品id
             status['name'] = r.data.name;// 资产名称
             status['type'] = r.data.type; // 资产类别
