@@ -16,7 +16,7 @@ const Device = (e) => {
       <div className="title">{e.location.id}</div>
       <div className="content">
         <div>闲置1台 ｜ 调拨锁定0台</div>
-        <div>资产管理部门：XXXXX部门</div>
+        <div>资产管理部门：{e.location.department}</div>
         <div>资产管理员：张三</div>
         <a>查看联系方式</a>
       </div>
@@ -33,24 +33,78 @@ const Info = (e) => {
         <a>查看物资循环明细</a>
       </div>
       <div className="content">
-        <div className="item">所属工程公司：{e.location.belongingCompany}</div>
-        <div className="item">资产管理部门：{e.location.department}</div>
-        <div className="item">项目名称：{e.location.projectName}</div>
-        <div className="item">管理号码：{e.location.manageNumber}</div>
-        <div className="item">资产分类：{e.location.type}</div>
-        <div className="item">型号：{e.location.modelNumber}</div>
-        <div className="item">资产名称：{e.location.assetsAlias}</div>
-        <div className="item">装机功率：{e.location.installedPower}</div>
-        <div className="item">规格：{e.location.standards}</div>
-        <div className="item">购置年月：{e.location.buyTime}</div>
-        <div className="item">生产厂家：{e.location.manufacturer}</div>
-        <div className="item">在用数量：{e.location.number}</div>
-        <div className="item">原值：{e.location.originalValue}</div>
-        <div className="item">所在地：{e.location.provinceName}{e.location.cityName}{e.location.countyName}</div>
-        <div className="item">资产状态：{e.location.status}</div>
-        <div className="item">预计退场时间：{e.location.exitTime}</div>
-        <div className="item">进场类别：{e.location.category}</div>
-        <div className="item">周转次数：{e.location.turnoverTimes}</div>
+        <div className="item">
+          <span className="head">所属工程公司：</span>{e.location.belongingCompany}
+        </div>
+        <div className="item">
+          <span className="head">资产管理部门：</span>{e.location.department}
+        </div>
+        <div className="item">
+          <span className="head">项目名称：</span>{e.location.projectName}
+        </div>
+        <div className="item">
+          <span className="head">所在地：</span>{e.location.provinceName}{e.location.cityName}{e.location.countyName}
+        </div>
+        <div className="item">
+          <span className="head">资产分类：</span>{e.location.type == "1" ? "周转材料" : e.location.type == "2" ? "施工设备" : "其他循环物资"}
+        </div>
+        <div className="item">
+          <span className="head">材料编码：</span>{e.location.materialType}
+        </div>
+        <div className="item">
+          <span className="head">工程类型：</span>{filterType(e.location.projectType)}
+        </div>
+        <div className="item">
+          <span className="head">资产名称：</span>{e.location.name}
+        </div>
+        <div className="item">
+          <span className="head">资产别名：</span>{e.location.assetsAlias}
+        </div>
+        <div className="item">
+          <span className="head">购入时间：</span>{e.location.buyTime}
+        </div>
+        <div className="item">
+          <span className="head">供应商：</span>{e.location.supplier}
+        </div>
+        <div className="item">
+          <span className="head">参数备注：</span>{e.location.parameterRemark}
+        </div>
+        <div className="item">
+          <span className="head">规格：</span>{e.location.standards}
+        </div>
+        <div className="item">
+          <span className="head">单价(不含税)：</span>{e.location.unitPriceTaxexclusive} 元
+        </div>
+        <div className="item">
+          <span className="head">单价(含税)：</span>{e.location.unitPriceTaxinclusive} 元
+        </div>
+        <div className="item">
+          <span className="head">原值：</span>{e.location.originalValue} 元
+        </div>
+        <div className="item">
+          <span className="head">数量：</span>{e.location.number} 吨
+        </div>
+        <div className="item">
+          <span className="head">待摊销金额：</span>{e.location.amountAmortised} 元
+        </div>
+        <div className="item">
+          <span className="head">已摊销比例：</span>{e.location.amortizationRatio} %
+        </div>
+        <div className="item">
+          <span className="head">资产状态：</span>{filterStatus(e.location.status)}
+        </div>
+        <div className="item">
+          <span className="head">类型：</span>{e.location.materialType == "1" ? "A" : e.location.materialType == "2" ? "B" : "C"}
+        </div>
+        <div className="item">
+          <span className="head">进场类别：</span>{e.location.approachType == "1" ? "自购" : "调入"}
+        </div>
+        <div className="item">
+          <span className="head">预计退场时间：</span>{e.location.exitTime}
+        </div>
+        <div className="item">
+          <span className="head">周转次数：</span>{e.location.turnoverTime}
+        </div>
         <div className="remarks">
           <span>备注：</span>
           <div>{e.location.remark}</div>
@@ -58,6 +112,52 @@ const Info = (e) => {
       </div>
     </div>
   )
+}
+// 工程类型
+const filterType = (type) => {
+  if (type == '1') {
+    return '铁路'
+  } else if (type == '2') {
+    return '公路'
+  } else if (type == '3') {
+    return '水利'
+  } else if (type == '4') {
+    return '市政'
+  } else if (type == '5') {
+    return '电气化'
+  } else if (type == '6') {
+    return '房建'
+  } else {
+    return ''
+}
+}
+// 资产状态
+const filterStatus = (status) => {
+  if (status == '1') {
+    return '在用'
+  } else if (status == '2') {
+    return '闲置'
+  } else if (status == '3') {
+    return '可周转'
+  } else if (status == '4') {
+    return '周转中'
+  } else if (status == '5') {
+    return '已周转'
+  } else if (status == '6') {
+    return '可处置'
+  } else if (status == '7') {
+    return '处置中'
+  } else if (status == '8') {
+    return '已处置'
+  } else if (status == '9') {
+    return '可租赁'
+  } else if (status == '10') {
+    return '已租赁'
+  } else if (status == '11') {
+    return '报废'
+  } else if (status == '12') {
+    return '报损'
+  }
 }
 // 附件
 const Enclosure = () => {
@@ -201,19 +301,18 @@ class circleListDetail extends React.Component {
     }
   }
   componentWillMount() {
-
     this.getUserInfo()
   }
   getUserInfo = () => {
-    // api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.match.params.id + "/" + this.props.match.params.type, {}).then(r => {
-    //   console.log(r)
-    //   var xiangqings = r.data
-    //   this.setState({
-    //     xiangqing: xiangqings
-    //   })
-    // }).catch(r => {
-    //   console.log(r)
-    // })
+    api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.match.params.id + "/" + this.props.match.params.type, {}).then(r => {
+      console.log(r)
+      var xiangqings = r.data
+      this.setState({
+        xiangqing: xiangqings
+      })
+    }).catch(r => {
+      console.log(r)
+    })
 
   }
   componentDidMount() {

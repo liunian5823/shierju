@@ -281,7 +281,7 @@ const twRoutes = [
     { type: "route", path: "/tw/MaterialStatus/detailEquipment/:type/:prodottoId", component: bundle(Empty, detailEquipment, { type: "callback" }) },//物资状态更新设备详情
     { type: "route", path: "/tw/MaterialStatus/detailRests/:type/:prodottoId", component: bundle(Empty, detailRests, { type: "callback" }) },//物资状态更新周转详情
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
-    { type: "route", path: "/tw/circle/listDetail/:id", component: bundle(Empty, circleListDetail, { type: "callback" }) },//物资周转列表详情
+    { type: "route", path: "/tw/circle/listDetail/:id/:type", component: bundle(Empty, circleListDetail, { type: "callback" }) },//物资周转列表详情
     { type: "route", path: "/tw/circle/detail/:id", component: bundle(Empty, CircleDetail, { type: "callback" }) },//物资周转申请、审核、查询详情
     { type: "route", path: "/tw/circle/applyFor", component: bundle(Empty, circle_applyFor, { type: "callback" }) },//物资周转申请
     { type: "route", path: "/tw/circle/audit", component: bundle(Empty, circle_audit, { type: "callback" }) },//物资周转审核

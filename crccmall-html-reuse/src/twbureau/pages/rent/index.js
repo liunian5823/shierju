@@ -3,8 +3,7 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
-import '../../style/list.css'
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 import api from '@/framework/axios';
 
