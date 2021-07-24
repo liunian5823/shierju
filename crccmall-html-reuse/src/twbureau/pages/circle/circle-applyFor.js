@@ -256,17 +256,17 @@ class circle_applyFor extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     {/* <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
                     </div> */}
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.companyId} onChange={this.selectChange.bind(this, 'company')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产分类：</span>
+                        <span className="head">资产分类：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
                             {
                                 tabsData.map((item) => (
@@ -276,13 +276,13 @@ class circle_applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title">周转部门：</span>
+                        <span className="head">周转部门：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.toDepartmentId} onChange={this.selectChange.bind(this, '周转部门')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >单据编号：</span>
+                        <span className="head">单据编号：</span>
                         <Input className="btn" placeholder="请输入" value={this.state.docNumber} onChange={this.inputChange.bind(this, "num")} />
                     </div>
                 </Search>
