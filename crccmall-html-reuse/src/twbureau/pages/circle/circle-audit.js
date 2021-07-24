@@ -13,6 +13,7 @@ class circle_applyFor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            activeKey:"1",
             name: "",
             companyId: undefined,
             type: "1",
@@ -144,13 +145,17 @@ class circle_applyFor extends React.Component {
       obj['rows'] = '10';
       obj['type'] = key;
       this.setState({
-        obj: obj
+        obj: obj,
+        activeKey:key
       }, () => {
         console.log(obj);
         this.getUserInfo();
       });
     }
     search() {
+        this.setState({
+          activeKey:this.state.type
+        })
         // console.log(this.state)
         var obj = {};
         obj['name'] = this.state.name
@@ -275,7 +280,7 @@ class circle_applyFor extends React.Component {
                     </div>
                 </Search>
                 <div className="table">
-                    <Tabs onChange={this.callback.bind(this)}>
+                    <Tabs onChange={this.callback.bind(this)} activeKey={this.state.activeKey}>
                         {
                             tabsData.map((item, index) => {
                                 return (
@@ -283,7 +288,7 @@ class circle_applyFor extends React.Component {
                                         <Table
                                             dataSource={this.state.dataSource}
                                             columns={this.state.columns}
-                                            scroll={{ x: 1800 }}
+                                            scroll={{ x: 1500 }}
                                             pagination={{
                                                 position: ["bottomCenter"],
                                                 size: "small",

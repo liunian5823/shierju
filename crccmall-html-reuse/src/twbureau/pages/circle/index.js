@@ -13,6 +13,7 @@ class Circle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeKey:"1",
       name: "",
       belongingCompany: "",
       status: undefined,
@@ -212,9 +213,9 @@ class Circle extends React.Component {
           key: 'operation',
           fixed: 'right',
           width: 200,
-          render: () => <div>
+          render: (text, record, index) => <div>
             <a className="edit">申请调拨</a>
-            <a className="edit">查看</a>
+            <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
           </div>,
         }
       ],
@@ -286,13 +287,17 @@ class Circle extends React.Component {
     obj['rows'] = '10';
     obj['type'] = key;
     this.setState({
-      obj: obj
+      obj: obj,
+      activeKey:key
     }, () => {
       console.log(obj);
       this.getUserInfo();
     });
   }
   search() {
+    this.setState({
+      activeKey:this.state.type
+    })
     console.log(this.state)
     var obj = {};
     obj['name'] = this.state.name;
@@ -322,6 +327,11 @@ class Circle extends React.Component {
     }).catch(r => {
       console.log(r)
     })
+  }
+  // 查看
+  inquire(text, record, index) {
+    // console.log(text, record, index)
+   this.props.history.push('/tw/circle/listDetail/' + text.id )
   }
   render() {
     const tabsData = [
@@ -432,7 +442,7 @@ class Circle extends React.Component {
           </div>
         </Search>
         <div className="table">
-          <Tabs onChange={this.callback.bind(this)}>
+          <Tabs onChange={this.callback.bind(this)} activeKey={this.state.activeKey}>
             {
               tabsData.map((item, index) => {
                 return (
@@ -440,7 +450,7 @@ class Circle extends React.Component {
                     <Table
                       dataSource={this.state.dataSource}
                       columns={this.state.columns}
-                      scroll={{ x: 1950 }}
+                      scroll={{ x: 2000 }}
                       pagination={{
                         position: ["bottomCenter"],
                         size: "small",

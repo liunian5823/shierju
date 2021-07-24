@@ -405,17 +405,17 @@ class applyFor extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
                     </div>
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新前资产状态：</span>
+                        <span className="head">更新前资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.beforeStatus} onChange={this.selectChange.bind(this, '更新前')}>
                             {
                                 tabsData.map((item) => (
@@ -425,7 +425,7 @@ class applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新后资产状态：</span>
+                        <span className="head">更新后资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.backStatus} onChange={this.selectChange.bind(this, '更新后')}>
                             {
                                 tabsData.map((item) => (
@@ -435,7 +435,7 @@ class applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产分类：</span>
+                        <span className="head">资产分类：</span>
                         <Select className="btn" showSearch defaultValue={tabsData2} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
                             {
                                 tabsData2.map((item) => (
@@ -445,7 +445,7 @@ class applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >单据编号：</span>
+                        <span className="head">单据编号：</span>
                         <Input className="btn" placeholder="请输入" value={this.state.identifierNum} onChange={this.inputChange.bind(this, "num")} />
                     </div>
                 </Search>

@@ -105,9 +105,11 @@ import detailRevolving from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/p
 import detailEquipment from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detail-equipment";
 import detailRests from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detai-restsl";
 import circleList from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/index";
+import circleListDetail from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/list-detail";
 import circle_applyFor from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-applyFor";
 import circle_audit from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-audit";
 import circle_query from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-query";
+import CircleDetail from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/detail";
 import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/index";
 import goodsDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
 import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsList/edit"
@@ -279,6 +281,8 @@ const twRoutes = [
     { type: "route", path: "/tw/MaterialStatus/detailEquipment/:type/:prodottoId", component: bundle(Empty, detailEquipment, { type: "callback" }) },//物资状态更新设备详情
     { type: "route", path: "/tw/MaterialStatus/detailRests/:type/:prodottoId", component: bundle(Empty, detailRests, { type: "callback" }) },//物资状态更新周转详情
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
+    { type: "route", path: "/tw/circle/listDetail/:id", component: bundle(Empty, circleListDetail, { type: "callback" }) },//物资周转列表详情
+    { type: "route", path: "/tw/circle/detail/:id", component: bundle(Empty, CircleDetail, { type: "callback" }) },//物资周转申请、审核、查询详情
     { type: "route", path: "/tw/circle/applyFor", component: bundle(Empty, circle_applyFor, { type: "callback" }) },//物资周转申请
     { type: "route", path: "/tw/circle/audit", component: bundle(Empty, circle_audit, { type: "callback" }) },//物资周转审核
     { type: "route", path: "/tw/circle/query", component: bundle(Empty, circle_query, { type: "callback" }) },//物资周转查询

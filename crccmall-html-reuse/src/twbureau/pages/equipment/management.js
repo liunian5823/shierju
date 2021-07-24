@@ -348,17 +348,17 @@ class equipment extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this,'name')} />
                     </div>
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
                             <Option value="jack">局/处/项目部</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产状态：</span>
+                        <span className="head">资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.status} onChange={this.selectChange.bind(this, "status")}>
                             {
                                 tabsData.map((item) => (
@@ -368,11 +368,11 @@ class equipment extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >预计退场时间：</span>
+                        <span className="head">预计退场时间：</span>
                         <DatePicker className="btn" onChange={this.timeChange.bind(this, "exit")} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >进场类别：</span>
+                        <span className="head">进场类别：</span>
                         <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "category")}>
                             {
                                 categoryArr.map((item) => (
@@ -382,15 +382,15 @@ class equipment extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >购入时间：</span>
+                        <span className="head">购入时间：</span>
                         <DatePicker className="btn" onChange={this.timeChange.bind(this, "buy")} />
                     </div>
                     <div className="search_item">
-                        <span className="title">管理号码：</span>
+                        <span className="head">管理号码：</span>
                         <Input className="btn" placeholder="请输入管理号码" value={this.state.manageNumber} onChange={this.inputChange.bind(this,'manage')} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >编号：</span>
+                        <span className="head">编号：</span>
                         <Input className="btn" placeholder="请输入编号" value={this.state.identifierNum} onChange={this.inputChange.bind(this,"Num")} />
                     </div>
                 </Search>

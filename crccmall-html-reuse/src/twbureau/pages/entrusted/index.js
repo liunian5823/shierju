@@ -108,13 +108,13 @@ class entrusted extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">单据状态：</span>
+                        <span className="head">单据状态：</span>
                         <Select className="btn" showSearch placeholder="请选择">
                             <Option value="1">1</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title">资产分类：</span>
+                        <span className="head">资产分类：</span>
                         <Select className="btn" showSearch placeholder="请选择">
                             <Option value=" ">全部</Option>
                             <Option value="1">周转材料</Option>

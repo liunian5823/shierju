@@ -178,6 +178,18 @@ class CircleDetail extends React.Component{
     }
   }
   componentWillMount() {
+    this.getUserInfo();
+  }
+  getUserInfo = () => {
+    api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/getMaterialApproval/" + this.props.match.params.id ,{}).then(r => {
+      console.log(r)
+      var xiangqings = r.data
+      this.setState({
+        xiangqing: xiangqings
+      })
+    }).catch(r => {
+      console.log(r)
+    })
   }
   componentDidMount() {
     // 图片查看器

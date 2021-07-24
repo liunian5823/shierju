@@ -217,17 +217,17 @@ class disposalList extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.handleChange.bind(this)} />
                     </div>
                     <div className="search_item">
-                        <span className="title">工程公司/项目部：</span>
+                        <span className="head">工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.belongChange.bind(this)}>
                             <Option value="jack">局/处/项目部</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产状态：</span>
+                        <span className="head">资产状态：</span>
                         <Select className="btn" showSearch placeholder="请选择" defaultValue={Assetstates} value={this.state.status} onChange={this.statusChange.bind(this)}>
                             {Assetstates.map(Assetstates => (
                                 <Select.Option key={Assetstates.key}>{Assetstates.name}</Select.Option>
@@ -236,7 +236,7 @@ class disposalList extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title">所属工程公司：</span>
+                        <span className="head">所属工程公司：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.belongChange.bind(this)}>
                             <Option value="jack">局/处/项目部</Option>
                         </Select>
