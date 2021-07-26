@@ -12,11 +12,11 @@ class Status extends React.Component {
       visible: props.visible,
       updateType: "all",
       verify: 1,
-      remark: 'wewqe',
+      remark: '',
       showConfirmModel: false,
     }
   }
-  
+
   static defaultProps = {
     visible: false, // 默认值不展示
     step: "look", // step当前步骤 look：查看物资状态 update: 更新状态 vertify: 审核
@@ -63,10 +63,21 @@ class Status extends React.Component {
     //     explain: '我是审批说明'
     //   }
     // ]
-  } 
-  componentWillReceiveProps(nextProps){
+  }
+  // 详情
+  details(e) {
+    // 1:周转材料；2:施工设备;3:其他循环物资
+    if(e.type=="1"){
+      this.props.history.push('/tw/MaterialStatus/detailRevolving/' + e.type + '/' + e.prodottoId)
+    }else if(e.type=="2"){
+      this.props.history.push('/tw/MaterialStatus/detailEquipment/' + e.type + '/' + e.prodottoId)
+    }else if(e.type=="3"){
+      this.props.history.push('/tw/MaterialStatus/detailRests/' + e.type + '/' + e.prodottoId)
+    }  
+  }
+  componentWillReceiveProps(nextProps) {
     this.setState({
-        visible: nextProps.visible
+      visible: nextProps.visible
     })
   }
   onUpdateTypeChange = (e) => {
@@ -130,16 +141,16 @@ class Status extends React.Component {
       ]
     } else {
       footer = [
-      <Button key="back" type="ghost" onClick={this.handleCancel}>取 消</Button>,
-      <Button key="submit" type="primary" onClick={this.handleCertain}>
-        确 认
-      </Button>]
+        <Button key="back" type="ghost" onClick={this.handleCancel}>取 消</Button>,
+        <Button key="submit" type="primary" onClick={this.handleCertain}>
+          确 认
+        </Button>]
     }
     return footer
   }
-  render () {
-    let { visible } = {...this.state}
-    let { status, process, step } = {...this.props}
+  render() {
+    let { visible } = { ...this.state }
+    let { status, process, step } = { ...this.props }
     const { getFieldProps } = this.props.form;
     const afterupdateStatusProps = getFieldProps('afterupdateStatus', {
       rules: [
@@ -152,7 +163,7 @@ class Status extends React.Component {
       rules: this.state.updateType == 'part' ? [
         { required: true, message: '请选择剩余物资状态' },
       ] : [
-        { required: false}
+        { required: false }
       ],
     });
     const number2Props = getFieldProps('number2')
@@ -162,6 +173,34 @@ class Status extends React.Component {
         { required: true, message: '请填写备注' },
       ],
     });
+    // 资产状态
+    const filterStatus = (status) => {
+      if (status == '1') {
+        return '在用'
+      } else if (status == '2') {
+        return '闲置'
+      } else if (status == '3') {
+        return '可周转'
+      } else if (status == '4') {
+        return '周转中'
+      } else if (status == '5') {
+        return '已周转'
+      } else if (status == '6') {
+        return '可处置'
+      } else if (status == '7') {
+        return '处置中'
+      } else if (status == '8') {
+        return '已处置'
+      } else if (status == '9') {
+        return '可租赁'
+      } else if (status == '10') {
+        return '已租赁'
+      } else if (status == '11') {
+        return '报废'
+      } else if (status == '12') {
+        return '报损'
+      }
+    }
 
     return (
       <div>
@@ -173,14 +212,14 @@ class Status extends React.Component {
           onOk={this.handleSubmit}
           onCancel={this.handleCancel}
           footer={this.createFooter()}
-          >
+        >
           <div className="content">
             <Form>
               <FormItem>
                 资产管理部门：{status.department}
               </FormItem>
               <FormItem>
-                资产类别：{status.type}
+                资产类别：{status.type == "1" ? "周转材料" : status.type == "2" ? "施工设备" : "其他循环物资"}
               </FormItem>
               <FormItem>
                 规格型号：{status.standards}
@@ -189,10 +228,10 @@ class Status extends React.Component {
                 资产名称：{status.name}
               </FormItem>
               <FormItem>
-                更新前物资状态：{status.befoeupdateStatus}
+                更新前物资状态：{filterStatus(status.befoeupdateStatus)}
               </FormItem>
               <FormItem>
-                数量：{status.number1}
+                数量：<span className='detail' onClick={() => this.details(status)}>{status.number1} {status.unit1}</span>
               </FormItem>
               <FormItem
                 className="whole"
@@ -207,36 +246,62 @@ class Status extends React.Component {
                 label="更新后物资状态："
               >
                 <Select disabled={step !== 'update'} {...afterupdateStatusProps} className="s_size" showSearch placeholder="请选择" defaultValue={status.afterupdateStatus}>
-                  <Option value="0">在用</Option>
-                  <Option value="1">闲置</Option>
+                  <Option value="1">在用</Option>
+                  <Option value="2">闲置</Option>
+                  <Option value="3">可周转</Option>
+                  <Option value="4">可处置</Option>
+                  <Option value="5">可租赁</Option>
+                  <Option value="6">已周转</Option>
+                  <Option value="7">已处置</Option>
+                  <Option value="8">已租赁</Option>
+                  <Option value="9">报废</Option>
+                  <Option value="10">报损</Option>
                 </Select>
               </FormItem>
               <FormItem
                 label="更新数量："
               >
-                <Input disabled={step !== 'update'} {...number1Props} defaultValue={status.number1} className="s_size" placeholder="请输入"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <Input disabled={step !== 'update'} {...number1Props} defaultValue={status.number1} className="s_size" placeholder="请输入" />&nbsp;&nbsp;&nbsp;&nbsp;
                 <Select disabled={step !== 'update'} {...unit1Props} defaultValue={status.unit1} className="xs_size" showSearch placeholder="请选择">
                   <Option value="0">套</Option>
                   <Option value="1">台</Option>
+                  <Option value="2">根</Option>
+                  <Option value="3">块</Option>
+                  <Option value="4">片</Option>
+                  <Option value="5">间</Option>
+                  <Option value="6">个</Option>
+                  <Option value="7">节</Option>
+                  <Option value="8">米</Option>
+                  <Option value="9">平米</Option>
+                  <Option value="10">吨</Option>
                 </Select>
               </FormItem>
-              { this.state.updateType == "part" && <FormItem
+              {this.state.updateType == "part" && <FormItem
                 label="剩余物资状态："
               >
                 <Select disabled={step !== 'update'} {...restProps} defaultValue={status.restStatus} className="s_size" showSearch placeholder="请选择">
                   <Option value="0">在用</Option>
                   <Option value="1">闲置</Option>
                 </Select>
-              </FormItem> }
-              { this.state.updateType == "part" && <FormItem
+              </FormItem>}
+              {this.state.updateType == "part" && <FormItem
                 label="更新数量："
               >
-                <Input disabled={step !== 'update'} {...number2Props} defaultValue={status.restStatus} className="s_size" placeholder="请输入"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <Input disabled={step !== 'update'} {...number2Props} defaultValue={status.restStatus} className="s_size" placeholder="请输入" />&nbsp;&nbsp;&nbsp;&nbsp;
                 <Select disabled={step !== 'update'} {...unit2Props} defaultValue={status.unit2} className="xs_size" showSearch placeholder="请选择">
                   <Option value="0">套</Option>
                   <Option value="1">台</Option>
+                  <Option value="2">根</Option>
+                  <Option value="3">块</Option>
+                  <Option value="4">片</Option>
+                  <Option value="5">间</Option>
+                  <Option value="6">个</Option>
+                  <Option value="7">节</Option>
+                  <Option value="8">米</Option>
+                  <Option value="9">平米</Option>
+                  <Option value="10">吨</Option>
                 </Select>
-              </FormItem> }
+              </FormItem>}
               <FormItem
                 className="whole"
                 label="备注："
@@ -245,31 +310,31 @@ class Status extends React.Component {
               </FormItem>
             </Form>
           </div>
-          {(step == 'look' || step == 'vertify') &&<div>
+          {(step == 'look' || step == 'vertify') && <div>
             <div className="status-title">审批流程</div>
             <div className="process">
-            {
-              process.map((item, index) => {
-                return (
-                  <div key={index} className={`item ${item.statusKey}`}>
-                    <div className="head"><div></div><span>{item.head}</span></div>
-                    <div className="info">
-                      <div className="name">{item.name}</div>
-                      <div className="date">{item.dateTime}</div>
-                      <div className="status">{item.status}</div>
-                      <div className="explain">审批说明：{item.explain}</div>
+              {
+                process.map((item, index) => {
+                  return (
+                    <div key={index} className={`item ${item.statusKey}`}>
+                      <div className="head"><div></div><span>{item.head}</span></div>
+                      <div className="info">
+                        <div className="name">{item.name}</div>
+                        <div className="date">{item.dateTime}</div>
+                        <div className="status">{item.status}</div>
+                        <div className="explain">审批说明：{item.explain}</div>
+                      </div>
                     </div>
-                  </div>
-                )
-              })
-            }
-          </div>
+                  )
+                })
+              }
+            </div>
           </div>}
-          {step == 'vertify' &&<div>
+          {step == 'vertify' && <div>
             <div className="status-title">审批</div>
             <div className="vertify">
-            <Form>
-              <FormItem
+              <Form>
+                <FormItem
                   className="whole"
                   label="审批结果："
                 >
@@ -279,13 +344,13 @@ class Status extends React.Component {
                   </RadioGroup>
                 </FormItem>
                 <FormItem
-                className="whole"
-                label="备注："
-              >
-                <Input className="textarea" type="textarea" onChange={this.onRemarkChange} value={this.state.remark} />
-              </FormItem>
-            </Form>
-          </div>
+                  className="whole"
+                  label="备注："
+                >
+                  <Input className="textarea" type="textarea" onChange={this.onRemarkChange} value={this.state.remark} />
+                </FormItem>
+              </Form>
+            </div>
           </div>}
         </Modal>
         <Modal title="提示" width="388px" visible={this.state.showConfirmModel}

@@ -151,7 +151,7 @@ class applyFor extends React.Component {
                             return "审核通过"
                         } else if (value == "3") {
                             return "审核拒绝"
-                        }else{
+                        }else if (value == "4") {
                             return "审核拒绝待提交"
                         }
                     }
@@ -222,7 +222,7 @@ class applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/inForApproval/page", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.66:9999/inForApproval/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -282,8 +282,8 @@ class applyFor extends React.Component {
         var status = {}
         var process1=[]
         var that=this
-        api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
-            status['id'] = r.data.id;// 产品id
+        api.ajax("get", "http://10.10.9.66:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+            status['prodottoId'] = r.data.prodottoId;// 产品id
             status['name'] = r.data.name;// 资产名称
             status['type'] = r.data.type; // 资产类别
             status['standards'] = r.data.standards; // 规格型号
@@ -294,7 +294,7 @@ class applyFor extends React.Component {
             status['unit1'] = r.data.unit; //单位
             status['updateType'] = r.data.updateType =='0' ? 'all' : 'part'; // all-全部更新；part-部分更新
             status['restStatus'] = r.data.updateRemainderStatus;//剩余物资状态
-            status['number2'] = r.data.updateAfterNumber; //数量
+            status['number2'] = r.data.updateAfterNumber; //数量 
             status['unit2'] = r.data.unit; //单位
             status['remark'] = r.data.remark; // 备注
             for (var i = 1; i < r.data.statusUpdateApprovals.length+ 1; i++) {
@@ -405,17 +405,17 @@ class applyFor extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
                     </div>
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新前资产状态：</span>
+                        <span className="head">更新前资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.beforeStatus} onChange={this.selectChange.bind(this, '更新前')}>
                             {
                                 tabsData.map((item) => (
@@ -425,7 +425,7 @@ class applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新后资产状态：</span>
+                        <span className="head">更新后资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.backStatus} onChange={this.selectChange.bind(this, '更新后')}>
                             {
                                 tabsData.map((item) => (
@@ -435,7 +435,7 @@ class applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产分类：</span>
+                        <span className="head">资产分类：</span>
                         <Select className="btn" showSearch defaultValue={tabsData2} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
                             {
                                 tabsData2.map((item) => (
@@ -445,7 +445,7 @@ class applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >单据编号：</span>
+                        <span className="head">单据编号：</span>
                         <Input className="btn" placeholder="请输入" value={this.state.identifierNum} onChange={this.inputChange.bind(this, "num")} />
                     </div>
                 </Search>
@@ -462,7 +462,7 @@ class applyFor extends React.Component {
                         }}
                     />
                 </div>
-                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={this.state.process}/>
+                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={this.state.process} history={this.props.history}/>
             </div>
         )
     }

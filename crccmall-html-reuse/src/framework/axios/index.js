@@ -1,5 +1,5 @@
 import './axios';
-
+import qs from 'qs'
 // 自定义判断元素类型JS
 function toType(obj) {
   return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
@@ -43,6 +43,7 @@ export default class Api {
     if (params) {
       params = filterNull(params);
     }
+    console.log(options)
     return new Promise((resolve, reject) => {
       axios({
         method: method,
@@ -69,4 +70,24 @@ export default class Api {
       })
     })
   }
+  static File(method, url, params, options = {}) {
+    if (params) {
+      params = filterNull(params);
+    }
+    return new Promise((resolve, reject) => {
+      var a = { responseType: "blob" };
+      axios
+        .post(url, qs.parse(params), a)
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err.response);
+          if (err.response.data.message != "") {
+    
+          }
+        });
+    });
+  }
+  
 }

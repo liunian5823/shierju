@@ -3,8 +3,7 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
-import '../../style/list.css'
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 import api from '@/framework/axios';
 
@@ -244,19 +243,19 @@ class Rent extends React.Component {
         <Breadcrumb location={this.props.match} />
         <Search search={this.search.bind(this)}>
           <div className="search_item">
-            <span className="title">承租方：</span>
+            <span className="head">承租方：</span>
             <Select className="btn" showSearch placeholder="请选择">
               <Option value="jack">局/处/项目部</Option>
             </Select>
           </div>
           <div className="search_item">
-            <span className="title">出租方：</span>
+            <span className="head">出租方：</span>
             <Select className="btn" showSearch placeholder="请选择">
               <Option value="jack">局/处/项目部</Option>
             </Select>
           </div>
           <div className="search_item">
-            <span className="title" >资产分类：</span>
+            <span className="head">资产分类：</span>
             <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.type} onChange={this.typeChange.bind(this)}>
               {
                 tabsData.map((type) => (
@@ -266,21 +265,21 @@ class Rent extends React.Component {
             </Select>
           </div>
           <div className="search_item">
-            <span className="title">单据编号：</span>
+            <span className="head">单据编号：</span>
             <Input className="btn" placeholder="请输入" value={this.state.receiptNumber} onChange={this.handleChange.bind(this)} />
           </div>
           <div className="search_item">
-            <span className="title" >资产名称：</span>
+            <span className="head">资产名称：</span>
             <Select className="btn" showSearch placeholder="请选择">
               <Option value="jack">全部</Option>
             </Select>
           </div>
           <div className="search_item">
-            <span className="title" >租赁周期：</span>
+            <span className="head">租赁周期：</span>
             <RangePicker className="btn" onChange={this.periodChange.bind(this)} />
           </div>
           <div className="search_item">
-            <span className="title" >租赁到期：</span>
+            <span className="head">租赁到期：</span>
             <Select className="btn" showSearch placeholder="请选择" value={this.state.expire} onChange={this.expireChange.bind(this)} >
               <Select.Option value="all">全部</Select.Option>
               <Select.Option value="1">是</Select.Option>

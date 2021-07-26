@@ -79,6 +79,7 @@ const devConfig = {
                 target: 'https://106.39.82.13:8443',
                 changeOrigin: true,
                 secure: false,
+           
             },
             // '/common': {
             //     target: 'http://192.168.0.188:9011',

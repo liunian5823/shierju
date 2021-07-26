@@ -5,6 +5,7 @@ import api from '@/framework/axios';
 import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
+import Status from '@/twbureau/components/status';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
@@ -135,10 +136,12 @@ class equipment extends React.Component {
                     render: (text, record, index) => <div>
                         <a className="edit" onClick={() => this.inquire(text, record, index)}>查询</a>
                         <a className="edit">修改</a>
-                        <a className="edit">更新状态</a>
+                        <a className="edit" onClick={() => this.changeStatus(text)}>更新状态</a>
                     </div>,
                 }
             ],
+            showStatus: false,
+            statusObj:"",
             obj:"",
         };
 
@@ -263,6 +266,31 @@ class equipment extends React.Component {
     handleClick() {
         console.log('456')
     }
+    changeStatus (e){
+        console.log(e.id);
+        this.state.statusObj = {}
+        this.state.process=[]
+        var status = {}
+        var process1=[]
+        var that=this
+        status['name'] = e.name;// 资产名称
+        status['type'] = e.type; // 资产类别
+        status['standards'] = e.standards; // 规格型号
+        status['department'] = e.department; // 资产管理部门
+        status['befoeupdateStatus'] = e.status; // 更新前资产状态
+        status['afterupdateStatus'] = e.afterupdateStatus; // 更新后资产状态
+        status['number1'] = e.number; //数量
+        status['unit1'] = e.unit; //单位
+        status['updateType'] = e.updateType == '0' ? 'all' : 'part'; // all-全部更新；part-部分更新
+        status['restStatus'] = e.updateRemainderStatus;//剩余物资状态
+        status['number2'] = e.updateAfterNumber; //数量 
+        status['unit2'] = e.unit; //单位
+        status['remark'] = e.remark; // 备注
+        that.setState({
+            statusObj: status,
+            showStatus: true,
+        });
+    }
 
     render() {
         const tabsData = [{
@@ -320,17 +348,17 @@ class equipment extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this,'name')} />
                     </div>
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
                             <Option value="jack">局/处/项目部</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产状态：</span>
+                        <span className="head">资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.status} onChange={this.selectChange.bind(this, "status")}>
                             {
                                 tabsData.map((item) => (
@@ -340,11 +368,11 @@ class equipment extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >预计退场时间：</span>
+                        <span className="head">预计退场时间：</span>
                         <DatePicker className="btn" onChange={this.timeChange.bind(this, "exit")} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >进场类别：</span>
+                        <span className="head">进场类别：</span>
                         <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.category} onChange={this.selectChange.bind(this, "category")}>
                             {
                                 categoryArr.map((item) => (
@@ -354,15 +382,15 @@ class equipment extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >购入时间：</span>
+                        <span className="head">购入时间：</span>
                         <DatePicker className="btn" onChange={this.timeChange.bind(this, "buy")} />
                     </div>
                     <div className="search_item">
-                        <span className="title">管理号码：</span>
+                        <span className="head">管理号码：</span>
                         <Input className="btn" placeholder="请输入管理号码" value={this.state.manageNumber} onChange={this.inputChange.bind(this,'manage')} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >编号：</span>
+                        <span className="head">编号：</span>
                         <Input className="btn" placeholder="请输入编号" value={this.state.identifierNum} onChange={this.inputChange.bind(this,"Num")} />
                     </div>
                 </Search>
@@ -398,6 +426,7 @@ class equipment extends React.Component {
                         }
                     </Tabs>
                 </div>
+                <Status visible={this.state.showStatus} step="update" status={this.state.statusObj} history={this.props.history}/>
             </div>
         )
     }

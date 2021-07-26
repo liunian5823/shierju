@@ -280,7 +280,7 @@ const Log = () => {
     </div>
   )
 }
-class revolvingDetail extends React.Component {
+class circleListDetail extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -301,12 +301,10 @@ class revolvingDetail extends React.Component {
     }
   }
   componentWillMount() {
-
     this.getUserInfo()
   }
   getUserInfo = () => {
-    // console.log( this.props)
-    api.ajax("get", "http://10.10.9.175:9999/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
+    api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.match.params.id + "/" + this.props.match.params.type, {}).then(r => {
       console.log(r)
       var xiangqings = r.data
       this.setState({
@@ -378,4 +376,4 @@ const mapStateToProps = state => {
   return {
   }
 }
-export default withRouter(connect(mapStateToProps)(revolvingDetail))
+export default withRouter(connect(mapStateToProps)(circleListDetail))

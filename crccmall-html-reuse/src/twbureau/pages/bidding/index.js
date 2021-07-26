@@ -168,37 +168,37 @@ class bidding extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">项目部：</span>
+                        <span className="head">项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择项目部">
                             <Option value="jack">项目部</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title">名称/单号：</span>
+                        <span className="head">名称/单号：</span>
                         <Input className="btn" placeholder="请输入名称或单号"/>
                     </div>
                     <div className="search_item">
-                        <span className="title">发布日期：</span>
+                        <span className="head">发布日期：</span>
                         <RangePicker className="btn"/>
                     </div>
                     <div className="search_item">
-                        <span className="title">竞价开始时间：</span>
+                        <span className="head">竞价开始时间：</span>
                         <RangePicker className="btn"/>
                     </div>
                     <div className="search_item">
-                        <span className="title">报名截止时间：</span>
+                        <span className="head">报名截止时间：</span>
                         <RangePicker className="btn"/>
                     </div>
                     <div className="search_item">
-                        <span className="title">竞价结束时间：</span>
+                        <span className="head">竞价结束时间：</span>
                         <RangePicker className="btn"/>
                     </div>
                     <div className="search_item">
-                        <span className="title">下单日期：</span>
+                        <span className="head">下单日期：</span>
                         <RangePicker className="btn"/>
                     </div>
                     <div className="search_item">
-                        <span className="title">竞价方式：</span>
+                        <span className="head">竞价方式：</span>
                         <Select className="btn" showSearch placeholder="请选择竞价方式">
                             <Option value=" ">全部</Option>
                             <Option value="1">邀请竞价</Option>
@@ -206,13 +206,13 @@ class bidding extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title">竞价状态：</span>
+                        <span className="head">竞价状态：</span>
                         <Select className="btn" showSearch placeholder="请选择竞价状态">
                             <Option value="1">竞价状态</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title">处置方式：</span>
+                        <span className="head">处置方式：</span>
                         <Select className="btn" showSearch placeholder="请选择竞价方式">
                             <Option value=" ">全部</Option>
                             <Option value="1">按批次计价</Option>

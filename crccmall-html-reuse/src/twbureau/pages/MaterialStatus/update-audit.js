@@ -152,7 +152,7 @@ class audit extends React.Component {
                             return "审核通过"
                         } else if (value == "3") {
                             return "审核拒绝"
-                        }else{
+                        }else if (value == "4") {
                             return "审核拒绝待提交"
                         }
                     }
@@ -291,6 +291,7 @@ class audit extends React.Component {
         var process1=[]
         var that=this
         api.ajax("get", "http://10.10.9.175:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+            status['prodottoId'] = r.data.prodottoId;// 产品id
             status['name'] = r.data.name;// 资产名称
             status['type'] = r.data.type; // 资产类别
             status['standards'] = r.data.standards; // 规格型号
@@ -386,17 +387,17 @@ class audit extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
                     </div>
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新前资产状态：</span>
+                        <span className="head">更新前资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.beforeStatus} onChange={this.selectChange.bind(this, '更新前')}>
                             {
                                 tabsData.map((item) => (
@@ -406,7 +407,7 @@ class audit extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >更新后资产状态：</span>
+                        <span className="head">更新后资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.backStatus} onChange={this.selectChange.bind(this, '更新后')}>
                             {
                                 tabsData.map((item) => (
@@ -416,7 +417,7 @@ class audit extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产分类：</span>
+                        <span className="head">资产分类：</span>
                         <Select className="btn" showSearch defaultValue={tabsData2} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
                             {
                                 tabsData2.map((item) => (
@@ -426,7 +427,7 @@ class audit extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >单据编号：</span>
+                        <span className="head">单据编号：</span>
                         <Input className="btn" placeholder="请输入" value={this.state.identifierNum} onChange={this.inputChange.bind(this, "num")} />
                     </div>
                 </Search>
@@ -443,7 +444,7 @@ class audit extends React.Component {
                         }}
                     />
                 </div>
-                <Status visible={this.state.showStatus} step={this.state.step} status={this.state.statusObj} process={this.state.process}/>
+                <Status visible={this.state.showStatus} step={this.state.step} status={this.state.statusObj} process={this.state.process} history={this.props.history}/>
             </div>
         )
     }

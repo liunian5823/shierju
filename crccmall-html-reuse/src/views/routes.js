@@ -101,14 +101,20 @@ import goodsList from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsL
 import applyFor from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-applyFor";
 import audit from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-audit";
 import updateQuery from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/update-query";
+import detailRevolving from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detail-revolving";
+import detailEquipment from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detail-equipment";
+import detailRests from "bundle-loader?lazy&name=MaterialStatus!@/twbureau/pages/MaterialStatus/detai-restsl";
 import circleList from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/index";
+import circleListDetail from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/list-detail";
 import circle_applyFor from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-applyFor";
 import circle_audit from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-audit";
 import circle_query from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/circle-query";
+import CircleDetail from "bundle-loader?lazy&name=circleList!@/twbureau/pages/circle/detail";
 import rentList from "bundle-loader?lazy&name=rentList!@/twbureau/pages/rent/index";
 import goodsDetail from "bundle-loader?lazy&name=goodsList!@/twbureau/pages/goodsList/detail"
 import goodsEdit from "bundle-loader?lazy&name=goodsEdit!@/twbureau/pages/goodsList/edit"
 import revolving_materials from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/management";
+import revolvingEdit from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/edit";
 import revolvingDetail from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/detail";
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
 import equipmentDetail from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/detail";
@@ -264,6 +270,7 @@ const twRoutes = [
     { type: "route", path: "/tw/goods/detail/:id/:type", component: bundle(Empty, goodsDetail, { type: "callback" }) },
     { type: "route", path: "/tw/goods/edit", component: bundle(Empty, goodsEdit, { type: "callback" }) },
     { type: "route", path: "/tw/revolving/management", component: bundle(Empty, revolving_materials, { type: "callback" }) },//周转材料
+    { type: "route", path: "/tw/revolving/edit/:type/:id", component: bundle(Empty, revolvingEdit, { type: "callback" }) },//周转材料录入
     { type: "route", path: "/tw/revolving/detail/:id", component: bundle(Empty, revolvingDetail, { type: "callback" }) },//周转材料详情
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
     { type: "route", path: "/tw/equipment/detail/:id", component: bundle(Empty, equipmentDetail, { type: "callback" }) },//施工详情
@@ -272,7 +279,12 @@ const twRoutes = [
     { type: "route", path: "/tw/MaterialStatus/applyFor", component: bundle(Empty, applyFor, { type: "callback" }) },//物资状态更新申请
     { type: "route", path: "/tw/MaterialStatus/audit", component: bundle(Empty, audit, { type: "callback" }) },//物资状态更新审核
     { type: "route", path: "/tw/MaterialStatus/updateQuery", component: bundle(Empty, updateQuery, { type: "callback" }) },//物资状态更新查询
+    { type: "route", path: "/tw/MaterialStatus/detailRevolving/:type/:prodottoId", component: bundle(Empty, detailRevolving, { type: "callback" }) },//物资状态更新周转详情
+    { type: "route", path: "/tw/MaterialStatus/detailEquipment/:type/:prodottoId", component: bundle(Empty, detailEquipment, { type: "callback" }) },//物资状态更新设备详情
+    { type: "route", path: "/tw/MaterialStatus/detailRests/:type/:prodottoId", component: bundle(Empty, detailRests, { type: "callback" }) },//物资状态更新周转详情
     { type: "route", path: "/tw/circle/list", component: bundle(Empty, circleList, { type: "callback" }) },
+    { type: "route", path: "/tw/circle/listDetail/:id/:type", component: bundle(Empty, circleListDetail, { type: "callback" }) },//物资周转列表详情
+    { type: "route", path: "/tw/circle/detail/:id/:upCompany", component: bundle(Empty, CircleDetail, { type: "callback" }) },//物资周转申请、审核、查询详情
     { type: "route", path: "/tw/circle/applyFor", component: bundle(Empty, circle_applyFor, { type: "callback" }) },//物资周转申请
     { type: "route", path: "/tw/circle/audit", component: bundle(Empty, circle_audit, { type: "callback" }) },//物资周转审核
     { type: "route", path: "/tw/circle/query", component: bundle(Empty, circle_query, { type: "callback" }) },//物资周转查询

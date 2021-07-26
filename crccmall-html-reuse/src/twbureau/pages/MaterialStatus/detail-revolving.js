@@ -125,11 +125,11 @@ const filterType = (type) => {
     return '市政'
   } else if (type == '5') {
     return '电气化'
-  } else if (type == '6') {
+  } else if (value == '6') {
     return '房建'
   } else {
     return ''
-}
+  }
 }
 // 资产状态
 const filterStatus = (status) => {
@@ -280,7 +280,7 @@ const Log = () => {
     </div>
   )
 }
-class revolvingDetail extends React.Component {
+class detailRevolving extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -306,11 +306,13 @@ class revolvingDetail extends React.Component {
   }
   getUserInfo = () => {
     // console.log( this.props)
-    api.ajax("get", "http://10.10.9.175:9999/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
-      console.log(r)
+    api.ajax("get", "http://10.10.9.175:9999/inForApproval/getByTypeAndprodottoId?type=" + this.props.match.params.type + "&prodottoId=" + this.props.match.params.prodottoId, {}).then(r => {
+      // console.log(r)
       var xiangqings = r.data
       this.setState({
-        xiangqing: xiangqings
+        xiangqing: xiangqings[0]
+      }, () => {
+        console.log(this.state.xiangqing);
       })
     }).catch(r => {
       console.log(r)
@@ -378,4 +380,4 @@ const mapStateToProps = state => {
   return {
   }
 }
-export default withRouter(connect(mapStateToProps)(revolvingDetail))
+export default withRouter(connect(mapStateToProps)(detailRevolving))

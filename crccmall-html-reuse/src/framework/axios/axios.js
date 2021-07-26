@@ -25,6 +25,7 @@ axios.interceptors.request.use((config) => {
     //         config.url = config.url.replace("@", SystemConfig.configs.axiosUrl);
     //     }
     // }
+    
     if (config.url.indexOf("@") != -1) {
         config.url = config.url.replace("@", SystemConfig.configs.axiosUrl);
     }
@@ -32,11 +33,12 @@ axios.interceptors.request.use((config) => {
         config.data = Qs.stringify(config.data);
         config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
     }
-
+  
     if (config.headers['change_content_type']) {
         config.headers['Content-Type'] = 'application/json'
         delete config.headers['change_content_type']
     }
+    // config.headers['Content-Type'] = 'application/json;charset=UTF-8'
     config.headers['X-Requested-With'] = 'XMLHttpRequest';
     config.headers['If-Modified-Since'] = '0';
     if (config.headers['Sub-Platform'] === '0') {
@@ -52,16 +54,21 @@ axios.interceptors.request.use((config) => {
     config.headers['token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTEwMTUwOTgsInVzZXJfbmFtZSI6IjIwMjM0IiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjM0OWVkNTFhLTAzNjctNDUwNC1hYzI1LTNmMzUzODA1YzdmZSIsImNsaWVudF9pZCI6InN1bnRyYXkiLCJzY29wZSI6WyJhbGwiXX0.gv8H-JLXukr6syxsDSb34CKgim_ieWeBMkoOP932Tr4";
     // config.headers['Authorization'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTEwMTUwOTgsInVzZXJfbmFtZSI6IjIwMjM0IiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjM0OWVkNTFhLTAzNjctNDUwNC1hYzI1LTNmMzUzODA1YzdmZSIsImNsaWVudF9pZCI6InN1bnRyYXkiLCJzY29wZSI6WyJhbGwiXX0.gv8H-JLXukr6syxsDSb34CKgim_ieWeBMkoOP932Tr4";
     return config;
+   
 });
 
 const errMsg = "系统错误!请重试,或联系管理员.";
 axios.interceptors.response.use((response) => {
     if (response.data == undefined || (response.data && (response.data.status == "FAILURE" || response.data.code == "400000"))) {
+      
         Util.alert(errMsg, { type: "error" });
         return undefined;
     }
+
     return response.data;
+  
 }, (err) => {
+    console.log('123')
     if (err && err.response) {
         switch (err.response.status) {
             case 400:

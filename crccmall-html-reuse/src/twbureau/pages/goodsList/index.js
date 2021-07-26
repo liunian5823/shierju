@@ -214,6 +214,24 @@ class GoodsList extends React.Component {
       specification: e.target.value
     })
   }
+  daochu(){
+    api.File("post", "http://10.10.9.175:9999/materialRevolvingController/revolvingExport", {}).then(r => {
+      console.log(r)
+      var title = decodeURIComponent('循环物资台帐表.xls');
+      var url = window.URL.createObjectURL(new Blob([r.data]));
+      var link = document.createElement("a");
+      link.style.display = "none";
+      link.href = url;
+
+      link.setAttribute("download", title);
+      document.body.appendChild(link);
+      link.click();
+    
+    }).catch(r => {
+      console.log(r)
+     
+    })
+  }
   // projectname3(key) {
   //   this.setState({
   //     projectname3: key
@@ -391,7 +409,7 @@ class GoodsList extends React.Component {
               })
             }
           </Tabs>
-          <Button className="export" type="primary">导出</Button>
+          <Button className="export" type="primary" onClick={this.daochu.bind(this)}>导出</Button>
         </div>
       </div>
     )

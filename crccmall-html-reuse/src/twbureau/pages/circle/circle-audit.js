@@ -2,8 +2,7 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
-import '../../style/list.css';
-import './index.css';
+import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
 const TabPane = Tabs.TabPane;
@@ -13,7 +12,7 @@ class circle_applyFor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
+            activeKey:"1",
             companyId: undefined,
             type: "1",
             toDepartmentId: undefined,
@@ -89,8 +88,10 @@ class circle_applyFor extends React.Component {
                             return "审核中"
                         } else if (value == "2") {
                             return "审核通过"
-                        } else {
+                        } else if (value == "3") {
                             return "审核拒绝"
+                        }else if (value == "4") {
+                            return "审核拒绝待提交"
                         }
                     }
                 },
@@ -104,16 +105,16 @@ class circle_applyFor extends React.Component {
                     key: 'operation',
                     fixed: 'right',
                     width: 185,
-                    render: (value) => {
-                        if (value.approvaStatus == '3') {
+                    render: (text, record, index) => {
+                        if (text.approvaStatus == '3') {
                             return <div >
                                 <a className="edit">重新提交</a>
                                 <a className="edit">作废</a>
-                                <a className="edit">查看</a>
+                                <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
                             </div>
                         } else {
                             return <div >
-                                <a className="edit">查看</a>
+                                <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
                             </div>
                         }
 
@@ -144,16 +145,19 @@ class circle_applyFor extends React.Component {
       obj['rows'] = '10';
       obj['type'] = key;
       this.setState({
-        obj: obj
+        obj: obj,
+        activeKey:key
       }, () => {
         console.log(obj);
         this.getUserInfo();
       });
     }
     search() {
+        this.setState({
+          activeKey:this.state.type
+        })
         // console.log(this.state)
         var obj = {};
-        obj['name'] = this.state.name
         obj['companyId'] = this.state.companyId
         obj['type'] = this.state.type;
         obj['toDepartmentId'] = this.state.toDepartmentId;
@@ -170,7 +174,7 @@ class circle_applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
+        api.ajax("get", "http://10.10.9.66:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -182,6 +186,11 @@ class circle_applyFor extends React.Component {
         }).catch(r => {
             console.log(r)
         })
+    }
+    // 查看
+    inquire(text, record, index) {
+      // console.log(text, record, index)
+     this.props.history.push('/tw/circle/detail/' + text.id )
     }
 
     inputChange(type, e) {
@@ -244,17 +253,17 @@ class circle_applyFor extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     {/* <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, "name")} />
                     </div> */}
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.companyId} onChange={this.selectChange.bind(this, 'company')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产分类：</span>
+                        <span className="head">资产分类：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.type} onChange={this.selectChange.bind(this, '资产分类')}>
                             {
                                 tabsData.map((item) => (
@@ -264,18 +273,18 @@ class circle_applyFor extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title">周转部门：</span>
+                        <span className="head">周转部门：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.toDepartmentId} onChange={this.selectChange.bind(this, '周转部门')}>
                             <Select.Option value="jack">局/处/项目部</Select.Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >单据编号：</span>
+                        <span className="head">单据编号：</span>
                         <Input className="btn" placeholder="请输入" value={this.state.docNumber} onChange={this.inputChange.bind(this, "num")} />
                     </div>
                 </Search>
                 <div className="table">
-                    <Tabs onChange={this.callback.bind(this)}>
+                    <Tabs onChange={this.callback.bind(this)} activeKey={this.state.activeKey}>
                         {
                             tabsData.map((item, index) => {
                                 return (
@@ -283,7 +292,7 @@ class circle_applyFor extends React.Component {
                                         <Table
                                             dataSource={this.state.dataSource}
                                             columns={this.state.columns}
-                                            scroll={{ x: 1800 }}
+                                            scroll={{ x: 1500 }}
                                             pagination={{
                                                 position: ["bottomCenter"],
                                                 size: "small",

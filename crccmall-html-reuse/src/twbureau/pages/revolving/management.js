@@ -6,6 +6,8 @@ import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
+import Status from '@/twbureau/components/status';
+import { Link } from 'react-router-dom'
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
@@ -67,8 +69,10 @@ class revolving_materials extends React.Component {
                             return '市政'
                         } else if (value == '5') {
                             return '电气化'
-                        } else {
+                        } else if (value == '5') {
                             return '房建'
+                        }else{
+                            return ""
                         }
                     }
                 },
@@ -180,11 +184,13 @@ class revolving_materials extends React.Component {
                     width: 200,
                     render: (text, record, index) => <div>
                         <a className="edit" onClick={() => this.inquire(text, record, index)}>查询</a>
-                        <a className="edit">修改</a>
-                        <a className="edit">更新状态</a>
+                        <a className="edit" onClick={() => this.revise(text, record, index)}>修改</a>
+                        <a className="edit" onClick={() => this.changeStatus(text)}>更新状态</a>
                     </div>,
                 }
             ],
+            showStatus: false,
+            statusObj: "",
             obj: "",
         };
 
@@ -228,6 +234,11 @@ class revolving_materials extends React.Component {
     inquire(text, record, index) {
         // console.log(text)
         this.props.history.push('/tw/revolving/detail/' + text.id)
+    }
+    // 修改
+    revise(text, record, index) {
+        // console.log(text)
+        this.props.history.push('/tw/revolving/edit/revise/' + text.id)
     }
     // 获取列表数据
     getUserInfo = () => {
@@ -325,6 +336,31 @@ class revolving_materials extends React.Component {
     handleClick() {
         console.log('456')
     }
+    changeStatus(e) {
+        console.log(e);
+        this.state.statusObj = {}
+        this.state.process = []
+        var status = {}
+        var process1 = []
+        var that = this
+        status['name'] = e.name;// 资产名称
+        status['type'] = e.type; // 资产类别
+        status['standards'] = e.standards; // 规格型号
+        status['department'] = e.department; // 资产管理部门
+        status['befoeupdateStatus'] = e.status; // 更新前资产状态
+        status['afterupdateStatus'] = e.afterupdateStatus; // 更新后资产状态
+        status['number1'] = e.number; //数量
+        status['unit1'] = e.unit; //单位
+        status['updateType'] = e.updateType == '0' ? 'all' : 'part'; // all-全部更新；part-部分更新
+        status['restStatus'] = e.updateRemainderStatus;//剩余物资状态
+        status['number2'] = e.updateAfterNumber; //数量 
+        status['unit2'] = e.unit; //单位
+        status['remark'] = e.remark; // 备注
+        that.setState({
+            statusObj: status,
+            showStatus: true,
+        });
+    }
 
     render() {
         const tabsData = [{
@@ -417,17 +453,17 @@ class revolving_materials extends React.Component {
                 <Breadcrumb location={this.props.match} />
                 <Search search={this.search.bind(this)}>
                     <div className="search_item">
-                        <span className="title">资产名称：</span>
+                        <span className="head">资产名称：</span>
                         <Input className="btn" placeholder="请输入资产名称" value={this.state.name} onChange={this.inputChange.bind(this, 'name')} />
                     </div>
                     <div className="search_item">
-                        <span className="title">所属工程公司/项目部：</span>
+                        <span className="head">所属工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.selectChange.bind(this, 'belong')}>
                             <Option value="jack">局/处/项目部</Option>
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >资产状态：</span>
+                       <span className="head">资产状态：</span>
                         <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.status} onChange={this.selectChange.bind(this, "status")}>
                             {
                                 tabsData.map((item1) => (
@@ -437,11 +473,11 @@ class revolving_materials extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >预计退场时间：</span>
+                       <span className="head">预计退场时间：</span>
                         <DatePicker className="btn" onChange={this.timeChange.bind(this, "exit")} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >进场类别：</span>
+                       <span className="head">进场类别：</span>
                         <Select className="btn" showSearch defaultValue={categoryArr} placeholder="请选择" value={this.state.approachType} onChange={this.selectChange.bind(this, "进场类别")}>
                             {
                                 categoryArr.map((item2) => (
@@ -451,11 +487,11 @@ class revolving_materials extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >购入时间：</span>
+                       <span className="head">购入时间：</span>
                         <DatePicker className="btn" onChange={this.timeChange.bind(this, "buy")} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >类型：</span>
+                       <span className="head">类型：</span>
                         <Select className="btn" showSearch defaultValue={materialTypeArr} placeholder="请选择" value={this.state.materialType} onChange={this.selectChange.bind(this, '类型')}>
                             {
                                 materialTypeArr.map((item3) => (
@@ -465,16 +501,16 @@ class revolving_materials extends React.Component {
                         </Select>
                     </div>
                     <div className="search_item">
-                        <span className="title" >规格：</span>
+                       <span className="head">规格：</span>
                         <Input className="btn" placeholder="请输入编号" value={this.state.standards} onChange={this.inputChange.bind(this, "规格")} />
                     </div>
 
                     <div className="search_item">
-                        <span className="title" >所在地：</span>
+                       <span className="head">所在地：</span>
                         <Cascader className="btn" options={options} placeholder="请选择地区" onChange={this.onAddressChange} />
                     </div>
                     <div className="search_item">
-                        <span className="title" >工程类别：</span>
+                       <span className="head">工程类别：</span>
                         <Select className="btn" showSearch defaultValue={projectTypeArr} placeholder="请选择" value={this.state.projectType} onChange={this.selectChange.bind(this, '工程类型')}>
                             {
                                 projectTypeArr.map((item4) => (
@@ -487,7 +523,9 @@ class revolving_materials extends React.Component {
                 <div className="table">
                     <div className='table-btn'>
                         <div className='table-btn-left'>
-                            <Button type="primary">+ 录入资产信息</Button>
+                            <Link to="/tw/revolving/edit/add/1">
+                                <Button type="primary">+ 录入资产信息</Button>
+                            </Link>                            
                             <Button>导入台账信息</Button>
                             <Button>台账模板下载</Button>
                         </div>
@@ -516,6 +554,7 @@ class revolving_materials extends React.Component {
                         }
                     </Tabs>
                 </div>
+                <Status visible={this.state.showStatus} step="update" status={this.state.statusObj} history={this.props.history} />
             </div>
         )
     }
