@@ -5,7 +5,7 @@ import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 
 const TabPane = Tabs.TabPane;
 class Circle extends React.Component {
@@ -225,6 +225,7 @@ class Circle extends React.Component {
   componentWillMount() {
     var obj = {};
     obj['type'] = this.state.type;
+    obj['status'] = '3';
     obj['page'] = '1';
     obj['rows'] = '10';
     this.setState({
@@ -282,6 +283,7 @@ class Circle extends React.Component {
   }
   callback(key) {
     var obj = {};
+    obj['status'] = '3';
     obj['page'] = '1';
     obj['rows'] = '10';
     obj['type'] = key;
@@ -300,12 +302,13 @@ class Circle extends React.Component {
     console.log(this.state)
     var obj = {};
     obj['name'] = this.state.name;
-    obj['companyId;'] = this.state.belongingCompany;
-    obj['status'] = this.state.status;
+    obj['companyId'] = this.state.belongingCompany;
+    // obj['status'] = this.state.status;
     obj['exitTime'] = this.state.exitTime;
     obj['type'] = this.state.type;
     obj['buyTime'] = this.state.buyTime;
     obj['materialType'] = this.state.classify;
+    obj['status'] = '3';
     obj['page'] = '1';
     obj['rows'] = '10';
     this.setState({
@@ -316,7 +319,7 @@ class Circle extends React.Component {
   }
   // 获取列表数据
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/turnoverMaterialsPage", this.state.obj).then(r => {
+    httpsapi.ajax("get", "/materialTurnoverApprovalController/turnoverMaterialsPage", this.state.obj).then(r => {
       console.log(r.data.rows);
       for (var i = 1; i < r.data.rows.length + 1; i++) {
         r.data.rows[i - 1]['key'] = i

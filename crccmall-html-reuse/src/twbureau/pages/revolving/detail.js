@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
@@ -129,7 +129,7 @@ const filterType = (type) => {
     return '房建'
   } else {
     return ''
-}
+  }
 }
 // 资产状态
 const filterStatus = (status) => {
@@ -305,8 +305,7 @@ class revolvingDetail extends React.Component {
     this.getUserInfo()
   }
   getUserInfo = () => {
-    // console.log( this.props)
-    api.ajax("get", "http://10.10.9.175:9999/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
+    httpsapi.ajax("get", "/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
       console.log(r)
       var xiangqings = r.data
       this.setState({

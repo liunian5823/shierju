@@ -2,6 +2,7 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import './index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
@@ -144,9 +145,18 @@ class GoodsList extends React.Component {
     })
   }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/page", this.state.obj).then(r => {
-
-
+    // api.ajax("get", "http://10.10.9.66:9999/materialController/page", this.state.obj).then(r => {
+    //   for (var i = 1; i < r.data.rows.length + 1; i++) {
+    //     r.data.rows[i - 1]['key'] = i
+    //   }
+    //   var dataSources = r.data.rows;
+    //   this.setState({ dataSource: dataSources });
+    //   this.huoqushuliang();
+    // }).catch(r => {
+    //   console.log(r)
+    // })
+    console.log(this.state.obj);
+    httpsapi.ajax("get", "/materialController/page", this.state.obj).then(r => {
       for (var i = 1; i < r.data.rows.length + 1; i++) {
         r.data.rows[i - 1]['key'] = i
       }
@@ -158,12 +168,22 @@ class GoodsList extends React.Component {
     })
   }
   huoqushuliang() {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/getstatusCount", this.state.obj).then(r => {
-      console.log(r)
-      var statisticss = r.data;
-      this.setState({ statistics: statisticss });
+    // api.ajax("get", "http://10.10.9.66:9999/materialController/getstatusCount", this.state.obj).then(r => {
+    //   console.log(r)
+    //   var statisticss = r.data;
+    //   this.setState({ statistics: statisticss });
+    // }).catch(r => {
+    //   console.log(r)
+    // })
+    httpsapi.ajax("get", "/materialController/getstatusCount", this.state.obj).then(r => {
+      for (var i = 1; i < r.data.rows.length + 1; i++) {
+        r.data.rows[i - 1]['key'] = i
+      }
+      var dataSources = r.data.rows;
+      this.setState({ dataSource: dataSources });
+      this.huoqushuliang();
     }).catch(r => {
-      console.log(r)
+        console.log(r)
     })
   }
   callback(key) {
@@ -215,7 +235,7 @@ class GoodsList extends React.Component {
     })
   }
   daochu(){
-    api.File("post", "http://10.10.9.175:9999/materialRevolvingController/revolvingExport", {}).then(r => {
+    httpsapi.File("post", "/materialRevolvingController/revolvingExport", {}).then(r => {
       console.log(r)
       var title = decodeURIComponent('循环物资台帐表.xls');
       var url = window.URL.createObjectURL(new Blob([r.data]));

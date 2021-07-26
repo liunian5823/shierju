@@ -1,7 +1,7 @@
 import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
@@ -102,20 +102,11 @@ class circle_applyFor extends React.Component {
                     title: '操作',
                     key: 'operation',
                     fixed: 'right',
-                    width: 185,
+                    width: 85,
                     render: (text, record, index) => {
-                        if (text.approvaStatus == '3') {
-                            return <div >
-                                <a className="edit">重新提交</a>
-                                <a className="edit">作废</a>
-                                <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
-                            </div>
-                        } else {
-                            return <div >
-                                <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
-                            </div>
-                        }
-
+                        return <div >
+                            <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
+                        </div>
                     },
                 }
             ],
@@ -172,7 +163,7 @@ class circle_applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.66:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
+        httpsapi.ajax("get", "/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -187,8 +178,8 @@ class circle_applyFor extends React.Component {
     }
     // 查看
     inquire(text, record, index) {
-      // console.log(text, record, index)
-     this.props.history.push('/tw/circle/detail/' + text.id )
+        // console.log(text, record, index)
+        this.props.history.push('/tw/circle/detail/' + text.id + '/' + text.upCompany)
     }
 
     inputChange(type, e) {

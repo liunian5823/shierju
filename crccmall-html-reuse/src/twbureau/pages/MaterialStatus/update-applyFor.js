@@ -1,7 +1,7 @@
 import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
@@ -222,7 +222,7 @@ class applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.66:9999/inForApproval/page", this.state.obj).then(r => {
+        httpsapi.ajax("get", "/inForApproval/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -282,7 +282,7 @@ class applyFor extends React.Component {
         var status = {}
         var process1=[]
         var that=this
-        api.ajax("get", "http://10.10.9.66:9999/inForApproval/get?id="+ e.id, {}).then(r => {
+        httpsapi.ajax("get", "/inForApproval/get?id="+ e.id, {}).then(r => {
             status['prodottoId'] = r.data.prodottoId;// 产品id
             status['name'] = r.data.name;// 资产名称
             status['type'] = r.data.type; // 资产类别

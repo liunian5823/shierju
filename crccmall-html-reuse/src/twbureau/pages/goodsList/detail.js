@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
@@ -205,16 +205,15 @@ class GoodDetail extends React.Component {
     this.getUserInfo()
   }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/getMaterial/" + this.props.match.params.id + "/" + this.props.match.params.type, {}).then(r => {
+    httpsapi.ajax("get", "/materialController/getMaterial/" + this.props.match.params.id + "/" + this.props.match.params.type, {}).then(r => {
       console.log(r)
       var xiangqings = r.data
       this.setState({
         xiangqing: xiangqings
       })
     }).catch(r => {
-      console.log(r)
+        console.log(r)
     })
-
   }
   componentDidMount() {
     // 图片查看器

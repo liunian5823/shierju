@@ -5,7 +5,7 @@ import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
@@ -213,7 +213,7 @@ class Rent extends React.Component {
   }
   // 获取列表数据
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/rentalInfo/page", this.state.obj).then(r => {
+    httpsapi.ajax("get", "/rentalInfo/page", this.state.obj).then(r => {
       console.log(r.data.rows);
       for (var i = 1; i < r.data.rows.length + 1; i++) {
         r.data.rows[i - 1]['key'] = i

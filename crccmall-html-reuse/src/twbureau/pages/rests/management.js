@@ -1,7 +1,7 @@
 import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
@@ -178,7 +178,7 @@ class Rests extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/materialOtherController/page", this.state.obj).then(r => {
+        httpsapi.ajax("get", "/materialOtherController/page", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
