@@ -1,0 +1,50 @@
+.approve .button {
+  margin-bottom: 24px;
+}
+.approve .btn_box {
+  display: flex;
+  justify-content: flex-end;
+}
+.approve_edit .box{
+  width: 992px;
+  height: 562px;
+  background: #FFFFFF;
+  margin: 8px 0;
+  padding: 0 36px;
+  font-size: 14px;
+  color: #666666;
+}
+.approve_edit .box b {
+  color: #000;
+}
+.approve_edit .box .ant-form-item {
+  display: flex;
+}
+.approve_edit .box .ant-form-item-label {
+  width: 100px;
+  text-align: right;
+}
+.approve_edit .box .comp {
+  width: 285px;
+}
+.approve_edit .box .add {
+  margin-bottom: 20px;
+}
+.approve_edit .box .add .red{
+  color: #f50;
+}
+.approve_edit .box .add .little {
+  font-size: 11px; 
+}
+.approve_edit .box .add .btn {
+  width: 64px;
+  margin-left: 120px;
+}
+.approve_edit .bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 992px;
+  height: 80px;
+  background: #FFFFFF;
+}

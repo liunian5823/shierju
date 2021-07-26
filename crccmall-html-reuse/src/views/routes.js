@@ -119,6 +119,8 @@ import bidding from "bundle-loader?lazy&name=disposal!@/twbureau/pages/bidding/i
 import entrusted from "bundle-loader?lazy&name=disposal!@/twbureau/pages/entrusted/index";
 import circleEdit from "bundle-loader?lazy&name=circleEdit!@/twbureau/pages/circle/edit";
 import logs from "bundle-loader?lazy&name=logs!@/twbureau/pages/logs/index";
+import approve from "bundle-loader?lazy&name=approve!@/twbureau/pages/system/approve/index";
+import approveEdit from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/approve/edit";
 
 import NoAu from "@/pages/notFound";
 
@@ -280,7 +282,9 @@ const twRoutes = [
     { type: "route", path: "/tw/entrusted/list", component: bundle(Empty, entrusted, { type: "callback" }) },//委托处置管理
 
     { type: "route", path: "/tw/circle/edit", component: bundle(Empty, circleEdit, { type: "callback" }) },
-    { type: "route", path: "/tw/logs", component: bundle(Empty, logs, { type: "callback" }) }
+    { type: "route", path: "/tw/logs", component: bundle(Empty, logs, { type: "callback" }) }, // 操作日志
+    { type: "route", path: "/tw/system/approve/index", component: bundle(Empty, approve, { type: "callback" }) }, // 系统设置-物资状态更新审批
+    { type: "route", path: "/tw/system/approve/edit", component: bundle(Empty, approveEdit, { type: "callback" }) }, // 系统设置-物资状态更新审批添加及编辑
 
 ]
 export {

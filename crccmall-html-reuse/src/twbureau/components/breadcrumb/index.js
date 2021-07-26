@@ -24,6 +24,8 @@ class Breadcrumb extends React.Component {
           this.curLocation = '物资租赁管理'
         } else if (path.indexOf('/tw/logs') >= 0) {
           this.curLocation = '日志管理'
+        } else if (path.indexOf('/tw/system') >= 0) {
+          this.curLocation = '系统设置'
         }
       }
     }

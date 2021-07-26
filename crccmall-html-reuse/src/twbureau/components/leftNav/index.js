@@ -127,6 +127,16 @@ class LeftNav extends React.Component {
             // }
             ]
         },{
+            key: 'system', 
+            route: '',
+            name: '系统设置',
+            icon: './static/img/twbureau/set@2x.png',
+            subMenu: [{
+                key: '/tw/system/approve/index',
+                route: '',
+                name: '审批配置'
+            }]
+        },{
             key: 'logs', 
             route: '',
             name: '操作日志',
