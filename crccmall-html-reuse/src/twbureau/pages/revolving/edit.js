@@ -5,6 +5,7 @@ import Breadcrumb from '@/twbureau/components/breadcrumb';
 import { Form, Input, Select, DatePicker, Tabs, Button, Table, Cascader, Upload, Icon } from 'antd';
 import '../../style/edit.css';
 import options from '../../util/address';
+// import optionss from '../../util/addresss'
 import httpsapi from '@/twbureau/api/api';
 
 const createForm = Form.create;
@@ -18,8 +19,9 @@ class revolvingEdit extends React.Component {
       formData:{
         revolvingName:"10",
         turnoverTime:"1",
-      
+        
       },
+      optionss:[],
       typeFlag: true,
       uploadFileConfig: {
         name: 'file',
@@ -51,22 +53,37 @@ class revolvingEdit extends React.Component {
         multiple: true
       },
       imageList: [
-        {
-          uid: -1,
-          name: 'x8.png',
-          status: 'done',
-          url: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
-        },
-        {
-          uid: 0,
-          name: 'x90.png',
-          status: 'done',
-          url: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
-        }
+        // {
+        //   uid: -1,
+        //   name: 'x8.png',
+        //   status: 'done',
+        //   url: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+        // },
+        // {
+        //   uid: 0,
+        //   name: 'x90.png',
+        //   status: 'done',
+        //   url: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+        // }
       ]
     }
   }
   componentWillMount() {
+    this.huoquname()
+  }
+  huoquname(){
+    httpsapi.ajax("get", "/dictController/getDict", {}).then(r => {
+      console.log(r.data)
+      this.setState({
+        optionss: r.data
+      },() => {
+        this.huoqulist()
+      })
+    }).catch(r => {
+      console.log(r)
+    })
+  }
+  huoqulist(){
     var type = this.props.match.params.type
     if (type == 'add') {
       this.setState({
@@ -79,6 +96,8 @@ class revolvingEdit extends React.Component {
       })
       httpsapi.ajax("get", "/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
         console.log(r)
+        var string =r.data.provinceId + ',' + r.data.cityId + ',' + r.data.countyId;
+        r.data.address = string.split(',');
         var xiangqings = r.data
         this.setState({
           formData:xiangqings
@@ -116,14 +135,32 @@ class revolvingEdit extends React.Component {
       labelCol: { span: 6 },
       wrapperCol: { span: 15 },
     };
+    const formItemLayouts = {
+      labelCol: { span: 3},
+      wrapperCol: { span: 19 },
+    };
     const { getFieldProps, getFieldDecorator, isFieldValidating } = this.props.form;
+
+    const subordinateProps = getFieldProps('belongingCompany',{
+      initialValue:this.state.formData.companyId,
+    });
+    const departmentProps = getFieldProps('department',{
+      initialValue:this.state.formData.departmentId,
+    })
+    const projectProps = getFieldProps('projectName',{
+      initialValue:this.state.formData.projectId,
+    })
+    const projectTypeProps = getFieldProps('projectType',{
+      initialValue:this.state.formData.projectType,
+    })
     const addressProps = getFieldProps('address', {
       initialValue:this.state.formData.address,
       rules: [{ required: true, type: 'array', message: '请选择地址' },],
       trigger: ['onBlur', 'onChange'],
     });
     const revolvingNameProps = getFieldProps('revolvingName', {
-      initialValue:this.state.formData.revolvingName,
+      // initialValue:this.state.formData.name,
+      initialValue:['01','00001'],
       rules: [{ required: true, message: '请输入资产名称' }],
       trigger: ['onBlur', 'onChange'],
     });
@@ -189,12 +226,13 @@ class revolvingEdit extends React.Component {
       rules: [{ required: true, message: "请选择物资状态" }],
       trigger: ['onBlur', 'onChange'],
     })
-    const typeProps = getFieldProps('typeProps', {
-      initialValue:this.state.formData.typeProps,
+    const materialTypeProps = getFieldProps('materialType', {
+      initialValue:this.state.formData.materialType,
       rules: [{ required: true, message: "请选择类型" }],
       trigger: ['onBlur', 'onChange'],
     })
     const approachProps = getFieldProps('approachType', {
+
       initialValue: this.state.formData.approachType,
       rules: [{ required: true, message: "请选择进场类别" }],
       trigger: ['onBlur', 'onChange'],
@@ -203,6 +241,16 @@ class revolvingEdit extends React.Component {
       initialValue: this.state.formData.exitTime,
       rules: [{ required: true, type: 'date', message: "请选择日期" }],
       trigger: ['onBlur', 'onChange'],
+    })
+    // amortizedProps
+    const amortizedProps = getFieldProps('amountAmortised', {
+      initialValue: this.state.formData.amountAmortised,
+      rules: [{ required: true, type: 'date', message: "请选择日期" }],
+      trigger: ['onBlur', 'onChange'],
+    })
+    // remarkProps
+    const remarkProps = getFieldProps('remark', {
+      initialValue: this.state.formData.remark,
     })
     return (
       <div className="goods_edit">
@@ -214,24 +262,24 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="所属工程公司："
             >
-              <Select showSearch placeholder="请选择">
-                <Option value="jack">局/处/项目部</Option>
+              <Select showSearch {...subordinateProps} placeholder="请选择">
+                <Option value={1}>局/处/项目部</Option>
               </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="资产管理部门："
             >
-              <Select showSearch placeholder="请选择">
-                <Option value="jack">XXX项目部</Option>
+              <Select showSearch {...departmentProps} placeholder="请选择">
+                <Option value={1}>XXX项目部</Option>
               </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="项目名称："
             >
-              <Select showSearch placeholder="请选择">
-                <Option value="jack">XXX项目部</Option>
+              <Select showSearch {...projectProps} placeholder="请选择">
+                <Option value={1}>XXX项目部</Option>
               </Select>
             </FormItem>
             <FormItem
@@ -250,13 +298,13 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="材料编码："
             >
-              <Input placeholder="请输入"  />
+              <Input placeholder="请输入" disabled />
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="工程类型"
             >
-              <Select showSearch placeholder="请选择" >
+              <Select showSearch {...projectTypeProps} placeholder="请选择" >
                 <Option value="1">铁路</Option>
                 <Option value="2">公路</Option>
                 <Option value="3">水利</Option>
@@ -269,7 +317,8 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="资产名称"
             >
-              <Input {...revolvingNameProps} placeholder="请输入"   />
+              <Cascader {...revolvingNameProps} options={this.state.optionss} placeholder="请选择"/>
+              {/* <Input {...revolvingNameProps} placeholder="请输入"   /> */}
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -347,7 +396,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="待摊销金额"
             >
-              <Input placeholder="请输入" addonAfter="元" disabled={this.state.typeFlag} />
+              <Input placeholder="请输入" addonAfter="元" {...amortizedProps} disabled={this.state.typeFlag} />
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -360,21 +409,21 @@ class revolvingEdit extends React.Component {
               label="资产状态"
             >
               <Select showSearch placeholder="请选择" {...statusProps} >
-                <Option value="1">在用</Option>
-                <Option value="2">闲置</Option>
-                <Option value="3">可周转</Option>
-                <Option value="5">已周转</Option>
-                <Option value="6">可处置</Option>
-                <Option value="8">已处置</Option>
-                <Option value="9">可租赁</Option>
-                <Option value="10">已租赁</Option>
+                <Option value={1}>在用</Option>
+                <Option value={2}>闲置</Option>
+                <Option value={3}>可周转</Option>
+                <Option value={4}>已周转</Option>
+                <Option value={5}>可处置</Option>
+                <Option value={6}>已处置</Option>
+                <Option value={7}>可租赁</Option>
+                <Option value={8}>已租赁</Option>
               </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="类型"
             >
-              <Select showSearch placeholder="请选择" {...typeProps} >
+              <Select showSearch placeholder="请选择" {...materialTypeProps} >
                 <Option value="1">A</Option>
                 <Option value="2">B</Option>
                 <Option value="3">C</Option>
@@ -385,8 +434,8 @@ class revolvingEdit extends React.Component {
               label="进场类别"
             >
               <Select showSearch placeholder="请选择" {...approachProps} >
-                <Option value="0">自购</Option>
-                <Option value="1">调入</Option>
+                <Option value={0}>自购</Option>
+                <Option value={1}>调入</Option>
               </Select>
             </FormItem>
             <FormItem
@@ -402,11 +451,12 @@ class revolvingEdit extends React.Component {
               <Input disabled={true} />
             </FormItem>
             <FormItem
-              {...formItemLayout}
+              {...formItemLayouts}
               label="备注"
-              className="whole"
+              className="remark"
             >
-              <input type="textarea" className="texteara" />
+              <Input type="textarea" {...remarkProps} autosize={{ minRows: 4, maxRows: 6 }} />
+              {/* <input type="textarea" {...remarkProps} className="texteara" /> */}
             </FormItem>
           </Form>
         </div>
@@ -459,18 +509,21 @@ class revolvingEdit extends React.Component {
     // })
   }
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();3
+    
     this.props.form.validateFieldsAndScroll((errors, values) => {
+      console.log(values);
       if (!!errors) {
         console.log('Errors in form!!!');
         return;
       }
-      console.log('Submit!!!');
+      
+      return
       values['type'] = "1"
+      values['name'] = values.revolvingName[1]
       values['provinceId'] = values.address[0]
       values['cityId'] = values.address[1]
       values['countyId'] = values.address[2]
-      console.log(options);
       for (let index = 0; index < options.length; index++) {
         const element = options[index];
         if (element.value == values.address[0]) {

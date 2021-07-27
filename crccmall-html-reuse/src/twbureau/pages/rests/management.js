@@ -7,7 +7,7 @@ import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
 import Status from '@/twbureau/components/status'
-
+import { Link } from 'react-router-dom'
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
 class Rests extends React.Component {
@@ -279,7 +279,10 @@ class Rests extends React.Component {
             showStatus: true
         })
     }
-
+    entering(text){
+        console.log('123')
+        this.props.history.push('/tw/rests/edit/add/1')
+    }
     render() {
         const tabsData = [{
             key: ' ',
@@ -481,7 +484,9 @@ class Rests extends React.Component {
                 <div className="table">
                     <div className='table-btn'>
                         <div className='table-btn-left'>
-                            <Button type="primary">+ 录入资产信息</Button>
+                             <Link to="/tw/rests/edit/add/1">
+                                <Button type="primary">+ 录入资产信息</Button>
+                            </Link>
                             <Button>导入台账信息</Button>
                             <Button>台账模板下载</Button>
                             {/* 更新状态测试 */}

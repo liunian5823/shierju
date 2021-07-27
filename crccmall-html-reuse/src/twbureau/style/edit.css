@@ -21,7 +21,7 @@
   text-align: right;
 }
 .goods_edit .box .whole {
-  width: 920px;
+  width: 100%;
 }
 .goods_edit .box .texteara {
   width: 588px;
@@ -139,4 +139,8 @@
 }
 .item-number .ant-form-item-control .ant-select-arrow:before{
   float: right;
+}
+
+.remark{
+  width: 100% !important;
 }

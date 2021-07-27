@@ -128,6 +128,8 @@ import logs from "bundle-loader?lazy&name=logs!@/twbureau/pages/logs/index";
 import approve from "bundle-loader?lazy&name=approve!@/twbureau/pages/system/approve/index";
 import approveEdit from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/approve/edit";
 import goodsStatus from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/config/goods";
+import restsEdit from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/edit";
+
 
 import NoAu from "@/pages/notFound";
 
@@ -299,6 +301,9 @@ const twRoutes = [
     { type: "route", path: "/tw/system/approve/index", component: bundle(Empty, approve, { type: "callback" }) }, // 系统设置-物资状态更新审批
     { type: "route", path: "/tw/system/approve/edit", component: bundle(Empty, approveEdit, { type: "callback" }) }, // 系统设置-物资状态更新审批添加及编辑
     { type: "route", path: "/tw/system/config/goods", component: bundle(Empty, goodsStatus, { type: "callback" }) }, // 系统设置-资产状态更新配置
+
+
+	{ type: "route", path: "/tw/rests/edit/:type/:id", component: bundle(Empty, restsEdit, { type: "callback" }) }, // 其他物资循环管理-添加
 
 ]
 export {
