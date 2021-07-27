@@ -2,7 +2,9 @@ import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
 import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import './index.css';
+import wenjianxiazai from '../../api/wenjianxiazai';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
 
@@ -144,9 +146,9 @@ class GoodsList extends React.Component {
     })
   }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/page", this.state.obj).then(r => {
 
-
+    console.log(this.state.obj);
+    httpsapi.ajax("get", "/materialController/page", this.state.obj).then(r => {
       for (var i = 1; i < r.data.rows.length + 1; i++) {
         r.data.rows[i - 1]['key'] = i
       }
@@ -158,13 +160,14 @@ class GoodsList extends React.Component {
     })
   }
   huoqushuliang() {
-    api.ajax("get", "http://10.10.9.175:9999/materialController/getstatusCount", this.state.obj).then(r => {
+    httpsapi.ajax("get", "/materialController/getstatusCount", this.state.obj).then(r => {
       console.log(r)
       var statisticss = r.data;
       this.setState({ statistics: statisticss });
     }).catch(r => {
       console.log(r)
     })
+
   }
   callback(key) {
     var obj = {};
@@ -215,22 +218,8 @@ class GoodsList extends React.Component {
     })
   }
   daochu(){
-    api.File("post", "http://10.10.9.175:9999/materialRevolvingController/revolvingExport", {}).then(r => {
-      console.log(r)
-      var title = decodeURIComponent('循环物资台帐表.xls');
-      var url = window.URL.createObjectURL(new Blob([r.data]));
-      var link = document.createElement("a");
-      link.style.display = "none";
-      link.href = url;
-
-      link.setAttribute("download", title);
-      document.body.appendChild(link);
-      link.click();
-    
-    }).catch(r => {
-      console.log(r)
-     
-    })
+    //导出
+    wenjianxiazai.exports("/materialRevolvingController/revolvingExport", this.state.obj)
   }
   // projectname3(key) {
   //   this.setState({

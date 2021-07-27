@@ -1,7 +1,7 @@
 import React from 'react';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
 import Search from '@/twbureau/components/search';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 
@@ -12,7 +12,7 @@ class circle_applyFor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeKey:"1",
+            activeKey: "1",
             companyId: undefined,
             type: "1",
             toDepartmentId: undefined,
@@ -92,7 +92,7 @@ class circle_applyFor extends React.Component {
                             return "审核通过"
                         } else if (value == "3") {
                             return "审核拒绝"
-                        }else if (value == "4") {
+                        } else if (value == "4") {
                             return "审核拒绝待提交"
                         }
                     }
@@ -108,7 +108,7 @@ class circle_applyFor extends React.Component {
                     fixed: 'right',
                     width: 185,
                     render: (text, record, index) => {
-                        if (text.approvaStatus == '3') {
+                        if (text.status == '1' || text.status == '4') {
                             return <div >
                                 <a className="edit">重新提交</a>
                                 <a className="edit">作废</a>
@@ -141,22 +141,22 @@ class circle_applyFor extends React.Component {
         });
     }
     callback(key) {
-      var obj = {};
-      obj['pageFlag'] = '1';
-      obj['page'] = '1';
-      obj['rows'] = '10';
-      obj['type'] = key;
-      this.setState({
-        obj: obj,
-        activeKey:key
-      }, () => {
-        console.log(obj);
-        this.getUserInfo();
-      });
+        var obj = {};
+        obj['pageFlag'] = '1';
+        obj['page'] = '1';
+        obj['rows'] = '10';
+        obj['type'] = key;
+        this.setState({
+            obj: obj,
+            activeKey: key
+        }, () => {
+            console.log(obj);
+            this.getUserInfo();
+        });
     }
     search() {
         this.setState({
-          activeKey:this.state.type
+            activeKey: this.state.type
         })
         // console.log(this.state)
         var obj = {};
@@ -176,7 +176,7 @@ class circle_applyFor extends React.Component {
     }
     // 获取列表数据
     getUserInfo = () => {
-        api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
+        httpsapi.ajax("get", "/materialTurnoverApprovalController/turnoverApplyforPage", this.state.obj).then(r => {
             console.log(r.data.rows);
             for (var i = 1; i < r.data.rows.length + 1; i++) {
                 var element = r.data.rows[i - 1]
@@ -191,8 +191,8 @@ class circle_applyFor extends React.Component {
     }
     // 查看
     inquire(text, record, index) {
-      // console.log(text, record, index)
-     this.props.history.push('/tw/circle/detail/' + text.id + '/' + text.upCompany )
+        // console.log(text, record, index)
+        this.props.history.push('/tw/circle/detail/' + text.id + '/' + text.upCompany)
     }
 
     inputChange(type, e) {

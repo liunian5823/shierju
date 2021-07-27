@@ -7,6 +7,7 @@ import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
 import { Table } from 'antd';
+import httpsapi from '@/twbureau/api/api';
 
 // 设备 履带挖掘机
 const Device = (e) => {
@@ -205,7 +206,7 @@ class restsDetail extends React.Component {
     this.getUserInfo()
   }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999//materialOtherController/getMaerialOther/" + this.props.match.params.id, {}).then(r => {
+    httpsapi.ajax("get", "/materialOtherController/getMaerialOther/" + this.props.match.params.id, {}).then(r => {
       console.log(r)
       // var xiangqings = r.data
       // this.setState({

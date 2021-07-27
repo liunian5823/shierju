@@ -5,7 +5,7 @@ import Breadcrumb from '@/twbureau/components/breadcrumb';
 import { Form, Input, Select, DatePicker, Tabs, Button, Table, Cascader, Upload, Icon } from 'antd';
 import '../../style/edit.css';
 import options from '../../util/address';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 
 const createForm = Form.create;
 const FormItem = Form.Item;
@@ -77,42 +77,9 @@ class revolvingEdit extends React.Component {
       this.setState({
         typeFlag: false
       })
-      api.ajax("get", "http://10.10.9.175:9999/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
+      httpsapi.ajax("get", "/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
         console.log(r)
-        var xiangqings = r.data        
-        // xiangqings = {
-        //   address: ["110000", "110100", "110101"],
-        //   amortizationRatio: "10",
-        //   approachType: "0",
-        //   assetsAlias: "别名723",
-        //   belongingCompany: "jack",
-        //   buyTime: "2021-07-23T10:01:17.506Z",
-        //   cityId: "110100",
-        //   cityName: "市辖区",
-        //   countyId: "110101",
-        //   countyName: "东城区",
-        //   department: "jack",
-        //   exitTime: "2021-07-23T10:01:40.594Z",
-        //   materialType: "01-01-00001-210609000001",
-        //   name: "项目名称723",
-        //   number: "678",
-        //   amountAmortised:'12',
-        //   originalValue: "412",
-        //   parameterRemark: "sfsdg",
-        //   projectType: "1",
-        //   provinceId: "110000",
-        //   provinceName: "北京市",
-        //   remark: "54564",
-        //   revolvingName: "资产名称723",
-        //   standards: "561",
-        //   status: "1",
-        //   supplier: "jack",
-        //   turnoverTime: 0,
-        //   type: "1",
-        //   unit: "0",
-        //   unitPriceTaxexclusive: "451",
-        //   unitPriceTaxinclusive: "500",
-        // }
+        var xiangqings = r.data
         this.setState({
           formData:xiangqings
         })
@@ -524,7 +491,7 @@ class revolvingEdit extends React.Component {
       }
       console.log(values);
       if (this.state.typeFlag) {
-        api.ajax("post", "http://10.10.9.175:9999/materialRevolvingController/insertRevolving", { ...values }).then(r => {
+        httpsapi.ajax("post", "/materialRevolvingController/insertRevolving", { ...values }).then(r => {
           if (r) {
             if (refresh) { refresh() } else {
               this.handleSearch(this.state.dataSource.pageNum, this.state.dataSource.pageSize);
@@ -533,7 +500,7 @@ class revolvingEdit extends React.Component {
           }
         });
       } else {
-        api.ajax("post", "http://10.10.9.66:9999/materialRevolvingController/updateMaterialRevolving", { ...values }).then(r => {
+        httpsapi.ajax("post", "/materialRevolvingController/updateMaterialRevolving", { ...values }).then(r => {
           if (r) {
             if (refresh) { refresh() } else {
               this.handleSearch(this.state.dataSource.pageNum, this.state.dataSource.pageSize);

@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Breadcrumb from '@/twbureau/components/breadcrumb';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 import '../../style/detail.css'
 import 'viewerjs/dist/viewer.css';
 import Viewer from 'viewerjs';
@@ -13,9 +13,9 @@ const RadioGroup = Radio.Group;
 
 // 申请人信息
 const ApplyInfo = (e) => {
+  console.log(e.location);
   return (
       <div className="apply">
-        <div className="title">申请人信息</div>
         <div className="content">
           <div>申请日期：{e.location.createTime}</div>
           <div>所属工程公司：{e.location.toCompany}</div>
@@ -28,6 +28,7 @@ const ApplyInfo = (e) => {
 }
 // 物资详情
 const GoodsDetail = (e) => {
+  console.log(e.location);
   let columns = [
     {
       title: '序号',
@@ -124,7 +125,7 @@ const GoodsDetail = (e) => {
       }
     }
   ]
-  let dataSource = e.location
+  let dataSource =e.location
   return (
     <div className="circle">
       <div className="title">
@@ -132,9 +133,9 @@ const GoodsDetail = (e) => {
         <Button className="button" type="primary">导出Excel</Button>
       </div>
       <Table
+        scroll={{ x: 1500 }}
         dataSource={dataSource}
         columns={columns}
-        scroll={{ x: 1500 }}
       />
     </div>
   )
@@ -171,33 +172,8 @@ const Remark = () => {
 }
 // 审批流程
 const Process = (e) => {
+  console.log(e.location);
   let process=e.location
-  // let process = [
-  //   {
-  //     head: '项目部XX部长',
-  //     name: '张三三',
-  //     dateTime: '2021.08.23 12:00:00',
-  //     status: '审核通过',
-  //     statusKey: 'agree', // agree通过 refuse拒绝 waitting审核中
-  //     explain: '我是审批说明'
-  //   },
-  //   {
-  //     head: '项目管理员',
-  //     name: '李四小',
-  //     dateTime: '2021.08.23 12:00:00',
-  //     status: '审核中',
-  //     statusKey: 'waitting', // agree通过 refuse拒绝 waitting审核中
-  //     explain: '我是审批说明'
-  //   },
-  //   {
-  //     head: '项目管理员',
-  //     name: '李四',
-  //     dateTime: '2021.08.23 12:00:00',
-  //     status: '拒绝',
-  //     statusKey: 'refuse', // agree通过 refuse拒绝 waitting审核中
-  //     explain: '我是审批说明'
-  //   } 
-  // ]
   return (
     <div className="audit">
       <div className="title">审批流程</div>
@@ -206,12 +182,12 @@ const Process = (e) => {
           process.map((item, index) => {
             return (
               <div key={index} className={`item ${item.statusKey}`}>
-                <div className="head"><div></div><span>{item.turnoverApprovalId}</span></div>
+                <div className="head"><div></div><span>{item.head}</span></div>
                 <div className="content">
-                  <div className="name">{item.approver}</div>
-                  <div className="date">{item.approvalTime}</div>
-                  <div className="status">{item.state=="0" ? "审核通过" : element.state == "1" ? "审核拒绝" : element.state == "2" ? "审核中" : ""}</div>
-                  <div className="explain">审批说明：{item.remark}</div>
+                  <div className="name">{item.name}</div>
+                  <div className="date">{item.dateTime}</div>
+                  <div className="status">{item.status}</div>
+                  <div className="explain">审批说明：{item.explain}</div>
                 </div>
               </div>
             )
@@ -242,14 +218,17 @@ class CircleDetail extends React.Component{
       remark: 'wewqe',
       visible: false,
       xiangqing: [],
+      process:[],
     }
   }
   componentWillMount() {
+    console.log('jisjjjjjjjjjjj');
     this.getUserInfo();
   }
   getUserInfo = () => {
-    api.ajax("get", "http://10.10.9.175:9999/materialTurnoverApprovalController/getMaterialApproval/" + this.props.match.params.id ,{}).then(r => {
+    httpsapi.ajax("get", "/materialTurnoverApprovalController/getMaterialApproval/" + this.props.match.params.id ,{}).then(r => {
       console.log(r)
+      var processArr=[]
       var xiangqings = r.data
       for (let index = 0;  index< xiangqings.approvalRematerialInfoList.length; index++) {
         const element = xiangqings.approvalRematerialInfoList[index];
@@ -257,11 +236,19 @@ class CircleDetail extends React.Component{
         element['upCompany']=this.props.match.params.upCompany
       }      
       for (let index2 = 0;  index2< xiangqings.approvalProcessList.length; index2++) {
+        var processItem={}
         const element2 = xiangqings.approvalProcessList[index2];
-        element2['statusKey']=element['state']=="0" ? "agree" : element['state'] == "1" ? "refuse" : element['state'] == "2" ? "waitting" : ""
+        processItem['head']=element2['turnoverApprovalId']
+        processItem['name']=element2['approver']
+        processItem['dateTime']=element2['approvalTime']
+        processItem['status']=element2['state']=="0" ? "审核通过" : element2['state'] == "1" ? "审核拒绝" : element2['state'] == "2" ? "审核中" : ""
+        processItem['explain']=element2['remark']
+        processItem['statusKey']=element2['state']=="0" ? "agree" : element2['state'] == "1" ? "refuse" : element2['state'] == "2" ? "waitting" : ""
+        processArr.push(processItem)
       }
       this.setState({
-        xiangqing: xiangqings
+        xiangqing: xiangqings,
+        process:processArr
       })
     }).catch(r => {
       console.log(r)
@@ -327,8 +314,8 @@ class CircleDetail extends React.Component{
     return (
       <div className="detail">
         <Breadcrumb location={this.props.match}/>
-        <ApplyInfo  location={this.state.xiangqing}/>
-        <GoodsDetail location={this.state.xiangqing.approvalRematerialInfoList}/>
+        <ApplyInfo location={this.state.xiangqing}/>
+        <GoodsDetail location={this.state.xiangqing.approvalRematerialInfoList} />
         <div className="goods_images">
           <div className="title">资产图片</div>
           <div className="box">
@@ -351,7 +338,7 @@ class CircleDetail extends React.Component{
         </div>
         <Enclosure />
         <Remark />
-        <Process location={this.state.xiangqing.approvalProcessList}/>
+        <Process location={this.state.process}/>
         {/* 审批 */}
         <div className="vertify-box">
           <div className="title">审批</div>

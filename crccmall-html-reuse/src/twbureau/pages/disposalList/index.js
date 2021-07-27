@@ -6,7 +6,7 @@ import Search from '@/twbureau/components/search';
 import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
-import api from '@/framework/axios';
+import httpsapi from '@/twbureau/api/api';
 
 const TabPane = Tabs.TabPane;
 class disposalList extends React.Component {
@@ -24,114 +24,219 @@ class disposalList extends React.Component {
                     standards:"m9022",
                     number:34,
                 }
-            ],
-            columns: [
+            ],columns: [
                 {
-                    title: '周转类别',
-                    dataIndex: 'key',
-                    key: 'key'
+                  title: '周转类别',
+                  dataIndex: 'turnoverCategory',
+                  key: 'turnoverCategory ',
+                  render: (value, row, index) => {
+                    if (value == '0') {
+                      return '主材料/设备'
+                    } else if (value == '12') {
+                      return '辅料/配件'
+                    }
+                  }
                 },
                 // {
                 //   title: '主材料/设备',
                 //   children: []
                 // },
                 {
-                    title: '资产分类',
-                    dataIndex: 'type',
-                    key: 'type',
-                    render: (value, row, index) => {
-                        if (value == '1') {
-                            return '周转材料'
-                        } else if (value == '2') {
-                            return '施工设备'
-                        } else {
-                            return '其他循环物资'
-                        }
+                  title: '资产分类',
+                  dataIndex: 'type',
+                  key: 'type',
+                  render: (value, row, index) => {
+                    if (value == '1') {
+                      return '周转材料'
+                    } else if (value == '2') {
+                      return '施工设备'
+                    } else {
+                      return '其他循环物资'
                     }
+                  }
                 },
                 {
-                    title: '资产名称',
-                    dataIndex: 'name',
-                    key: 'name'
+                  title: '资产名称',
+                  dataIndex: 'name',
+                  key: 'name',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '规格型号',
-                    dataIndex: 'standards',
-                    key: 'standards',
+                  title: '规格型号',
+                  dataIndex: 'standards',
+                  key: 'standards',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '数量',
-                    dataIndex: 'number',
-                    key: 'number',
+                  title: '数量',
+                  dataIndex: 'number',
+                  key: 'number',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '单位',
-                    dataIndex: 'unit',
-                    key: 'unit',
+                  title: '单位',
+                  dataIndex: 'unit',
+                  key: 'unit',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '资产状态',
-                    dataIndex: 'status',
-                    key: 'status',
+                  title: '资产状态',
+                  dataIndex: 'status',
+                  key: 'status',
+                  render: (value, row, index) => {
+                    if (value == '1') {
+                      return '在用'
+                    } else if (value == '2') {
+                      return '闲置'
+                    } else if (value == '3') {
+                      return '可周转'
+                    } else if (value == '4') {
+                      return '周转中'
+                    } else if (value == '5') {
+                      return '已周转'
+                    } else if (value == '6') {
+                      return '可处置'
+                    } else if (value == '7') {
+                      return '处置中'
+                    } else if (value == '8') {
+                      return '已处置'
+                    } else if (value == '9') {
+                      return '可租赁'
+                    } else if (value == '10') {
+                      return '已租赁'
+                    } else if (value == '11') {
+                      return '报废'
+                    } else if (value == '12') {
+                      return '报损'
+                    } else {
+                      return '—'
+                    }
+                  }
                 },
                 {
-                    title: '周转次数',
-                    dataIndex: 'num1',
-                    key: 'num1',
+                  title: '周转次数',
+                  dataIndex: 'turnoverTimes;',
+                  key: 'turnoverTimes;',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '辅料/配件名称',
-                    dataIndex: 'num',
-                    key: 'num2',
+                  title: '辅料/配件名称',
+                  dataIndex: 'ingredientsName;',
+                  key: 'ingredientsName;',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '辅料/配件子编号',
-                    dataIndex: 'num3',
-                    key: 'num3',
+                  title: '辅料/配件子编号',
+                  dataIndex: 'receiptNumber;',
+                  key: 'receiptNumber;',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '辅料/配件数量',
-                    dataIndex: 'num4',
-                    key: 'num4',
+                  title: '辅料/配件数量',
+                  dataIndex: 'ingredientsNumber;',
+                  key: 'ingredientsNumber;',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }
+                  }
                 },
                 {
-                    title: '辅料/配件单位',
-                    dataIndex: 'num5',
-                    key: 'num5',
+                  title: '辅料/配件单位',
+                  dataIndex: 'ingredientsUnit;',
+                  key: 'ingredientsUnit;',
+                  render: (value, row, index) => {
+                    if (value == null) {
+                      return '—'
+                    }else{
+                      return value
+                    }
+                  }
                 },
                 {
-                    title: '所属工程公司',
-                    dataIndex: 'companyName',
-                    key: 'companyName',
+                  title: '所属工程公司',
+                  dataIndex: 'companyName',
+                  key: 'companyName',
                 },
                 {
-                    title: '资产管理部门',
-                    dataIndex: 'number',
-                    key: 'number',
+                  title: '资产管理部门',
+                  dataIndex: 'departmentName',
+                  key: 'departmentName',
                 },
                 {
-                    title: '日期',
-                    dataIndex: 'date',
-                    key: 'date',
+                  title: '日期',
+                  dataIndex: 'createTime;',
+                  key: 'createTime;',
                 },
                 {
-                    title: '操作',
-                    key: 'operation',
-                    fixed: 'right',
-                    width: 230,
-                    render: () => <div>
-                        <a className="edit">发布竞价单</a>
-                        <a className="edit">委托处置</a>
-                        <a className="edit">查看</a>
-                    </div>,
+                  title: '操作',
+                  key: 'operation',
+                  fixed: 'right',
+                  width: 200,
+                  render: (text, record, index) => <div>
+                    <a className="edit" onClick={() => this.inquire(text, record, index)}>查看</a>
+                  </div>,
                 }
-            ],
+              ],
             obj: "",
         };
     }
 
-    componentWillMount() { }
-    // 资产名称
+    
+    componentWillMount() {
+        var obj = {};
+        obj['status'] = 6;
+        obj['page'] = '1';
+        obj['rows'] = '10';
+        this.setState({
+        obj: obj
+        }, () => {
+        this.getUserInfo();
+        });
+    } 
+        // 资产名称
     handleChange(e) {
         this.setState({
             name: e.target.value
@@ -151,6 +256,36 @@ class disposalList extends React.Component {
         })
     }
     search() {
+      console.log(this.state)
+      var obj = {};
+      obj['name'] = this.state.name;
+      obj['companyId'] = this.state.belongingCompany;
+      obj['status'] =6;
+      
+      obj['page'] = '1';
+      obj['rows'] = '10';
+      this.setState({
+        obj: obj
+      }, () => {
+        this.getUserInfo();
+      });
+    }
+    // 获取列表数据
+    getUserInfo = () => {
+      httpsapi.ajax("get", "/materialTurnoverApprovalController/turnoverMaterialsPage", this.state.obj).then(r => {
+        console.log(r.data.rows);
+        for (var i = 1; i < r.data.rows.length + 1; i++) {
+          r.data.rows[i - 1]['key'] = i
+        }
+        var dataSources = r.data.rows;
+        this.setState({ dataSource: dataSources });
+      }).catch(r => {
+        console.log(r)
+      })
+    }
+    // 查看
+    inquire(text, record, index) {
+      // console.log(text, record, index)
     }
     render() {
         const tabsData = [
@@ -184,33 +319,24 @@ class disposalList extends React.Component {
             }, {
                 key: '3',
                 name: '可周转'
-            }, {
-                key: '4',
-                name: '周转中'
-            }, {
-                key: '5',
-                name: '已周转'
-            }, {
+            },{
                 key: '6',
                 name: '可处置'
-            }, {
-                key: '7',
-                name: '处置中'
-            }, {
-                key: '8',
-                name: '已处置'
-            }, {
+            },{
                 key: '9',
                 name: '可租赁'
             }, {
+                key: '5',
+                name: '已周转'
+            },  {
+                key: '8',
+                name: '已处置'
+            },  {
                 key: '10',
                 name: '已租赁'
             }, {
                 key: '11',
                 name: '报废'
-            }, {
-                key: '12',
-                name: '报损'
             }]
         return (
             <div>
@@ -246,7 +372,7 @@ class disposalList extends React.Component {
                     <Table
                         dataSource={this.state.dataSource}
                         columns={this.state.columns}
-                        scroll={{ x: 1950 }}
+                        scroll={{ x: 2000 }}
                         pagination={{
                             position: ["bottomCenter"],
                             size: "small",
