@@ -1,0 +1,122 @@
+.goods_status .main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 992px;
+  height: 650px;
+  background: #FFFFFF;
+  padding: 24px;
+}
+.goods_status .main .search {
+  display: flex;
+  height: 32px;
+  width: 100%;
+  font-size: 14px;
+  color: #666666;
+}
+.goods_status .main .search>label {
+  line-height: 32px;
+}
+.goods_status .main .search .ant-input {
+  width: 285px;
+  height: 32px;
+  margin-right: 24px;
+}
+.goods_status .main .list {
+  width: 408px;
+  min-height: 515px;
+  margin-right: 34px;
+}
+.goods_status .main .list .head {
+  width: 408px;
+  height: 50px;
+  line-height: 50px;
+  background: #F7F7F7;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  padding-left: 24px;
+}
+.goods_status .main .list .item {
+  display: flex;
+  height: 80px;
+  line-height: 80px;
+  color: #595A59;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s; /* Firefox 4 */
+  -webkit-transition: all 0.5s; /* Safari 和 Chrome */
+  -o-transition: all 0.5s; /* Opera */
+}
+.goods_status .main .list .item>label {
+  width: 350px;
+}
+.goods_status .main .list .item .arrow {
+  opacity: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 36px;
+  border-top: 1px solid  #2B86EE;
+  border-right: 1px solid  #2B86EE;
+  transform:rotate(45deg);
+  -ms-transform:rotate(45deg); 	/* IE 9 */
+  -moz-transform:rotate(45deg); 	/* Firefox */
+  -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+  -o-transform:rotate(45deg); 	
+  transition: all 0.5s;
+  -moz-transition: all 0.5s; /* Firefox 4 */
+  -webkit-transition: all 0.5s; /* Safari 和 Chrome */
+  -o-transition: all 0.5s; /* Opera */
+}
+.goods_status .main .list .item:hover {
+  color: #2B86EE;
+}
+.goods_status .main .list .item:hover .arrow {
+  opacity: 1;
+}
+.goods_status .main .list .save {
+  margin-left: 195px;
+}
+.goods_status .main .edit {
+  width: 502px;
+  height: 515px;
+  background: rgba(45, 183, 245, 0.05);
+}
+.goods_status .main .edit {
+  padding-left: 24px;
+}
+.goods_status .main .edit .head {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  padding-top: 24px;
+  margin-bottom: 30px;
+}
+.goods_status .main .edit .item {
+  margin-bottom: 24px;
+}
+.goods_status .main .edit .item>label {
+  display: block;
+  font-size: 14px;
+  color: #595A59;
+  height: 28px;
+}
+.goods_status .main .edit .item .star {
+  color: #E51D27;
+}
+.goods_status .main .edit .item .btn {
+  width: 285px;
+  height: 32px;
+  margin-right: 12px;
+}
+.goods_status .main .edit .item .textarea {
+  width: 454px;
+  height: 95px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.ant-select-selection {
+  height: 32px;
+}

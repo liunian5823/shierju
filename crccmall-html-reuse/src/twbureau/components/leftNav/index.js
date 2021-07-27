@@ -135,6 +135,10 @@ class LeftNav extends React.Component {
                 key: '/tw/system/approve/index',
                 route: '',
                 name: '审批配置'
+            }, {
+                key: '/tw/system/config/goods',
+                route: '',
+                name: '资产状态更新配置'
             }]
         },{
             key: 'logs', 
