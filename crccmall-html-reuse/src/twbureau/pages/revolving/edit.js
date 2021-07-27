@@ -95,9 +95,24 @@ class revolvingEdit extends React.Component {
         typeFlag: false
       })
       httpsapi.ajax("get", "/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
-        console.log(r)
+        console.log(r.data.buyTime)
+        var date = new Date(r.data.buyTime)
+        let y = date.getFullYear()
+        let m = date.getMonth() + 1
+        m = m < 10 ? ('0' + m) : m
+        let d = date.getDate()
+        d = d < 10 ? ('0' + d) : d
+        r.data.buyTime= new Date(y + '-' + m + '-' + d)
+        var date = new Date(r.data.exitTime)
+        let y1 = date.getFullYear()
+        let m2 = date.getMonth() + 1
+        m2 = m2 < 10 ? ('0' + m2) : m2
+        let d2 = date.getDate()
+        d2 = d2 < 10 ? ('0' + d2) : d2
+        r.data.exitTime= new Date(y1 + '-' + m2 + '-' + d2)
         var string =r.data.provinceId + ',' + r.data.cityId + ',' + r.data.countyId;
         r.data.address = string.split(',');
+        r.data.number = r.data.number.toString()
         var xiangqings = r.data
         this.setState({
           formData:xiangqings
@@ -172,6 +187,7 @@ class revolvingEdit extends React.Component {
     });
     const buyTimeProps = getFieldProps('buyTime', {
       initialValue:this.state.formData.buyTime,
+      // initialValue:new Date('2020-01-01'),
       rules: [{ required: true, type: 'date', message: '请选择购入日期' }],
       trigger: ['onBlur', 'onChange'],
     })
@@ -192,33 +208,34 @@ class revolvingEdit extends React.Component {
     })
     const TaxexclusiveProps = getFieldProps('unitPriceTaxexclusive', {
       initialValue:this.state.formData.unitPriceTaxexclusive,
-      rules: [{ required: true, message: "请输入" }],
+      rules: [{ required: true, message: "请输入" },{ required: true, pattern: new RegExp(/^[1-9]\d*$/, "g"), message: "只能输入数字" }],
       trigger: ['onBlur', 'onChange'],
     })
     const TaxinclusiveProps = getFieldProps('unitPriceTaxinclusive', {
       initialValue:this.state.formData.unitPriceTaxinclusive,
-      rules: [{ required: true, message: "请输入金额" }],
+      rules: [{ required: true, message: "请输入金额" },{ required: true, pattern: new RegExp(/^[1-9]\d*$/, "g"), message: "只能输入数字" }],
       trigger: ['onBlur', 'onChange'],
     })
     const originalProps = getFieldProps('originalValue', {
       initialValue:this.state.formData.originalValue,
-      rules: [{ required: true, message: "请输入原值" }],
+      rules: [{ required: true, message: "请输入原值" },{ required: true, pattern: new RegExp(/^[1-9]\d*$/, "g"), message: "只能输入数字" }],
       trigger: ['onBlur', 'onChange'],
     })
     const numberProps = getFieldProps('number', {
+
       initialValue:this.state.formData.number,
       rules: [{ required: true, message: "请输入数量", trigger: "blur" },
-      { max: 30, message: '最多可输入30 个字符' }],
+      { max: 30, message: '最多可输入30 个字符' },{ required: true, pattern: new RegExp(/^[1-9]\d*$/, "g"), message: "只能输入数字" }],
       trigger: ['onChange'],
     })
     const unitProps = getFieldProps('unit', {
-      initialValue:this.state.formData.unit,
+      initialValue:1,
       rules: [{ required: true, message: "请选择单位" }],
       trigger: ['onBlur', 'onChange'],
     })
     const ratioProps = getFieldProps('amortizationRatio', {
       initialValue:this.state.formData.amortizationRatio,
-      rules: [{ required: true, message: "请输入已摊销比例" }],
+      rules: [{ required: true, message: "请输入已摊销比例" },{ required: true, pattern: new RegExp(/^[1-9]\d*$/, "g"), message: "只能输入数字" }],
       trigger: ['onBlur', 'onChange'],
     })
     const statusProps = getFieldProps('status', {
@@ -238,15 +255,14 @@ class revolvingEdit extends React.Component {
       trigger: ['onBlur', 'onChange'],
     })
     const exitProps = getFieldProps('exitTime', {
-      initialValue: this.state.formData.exitTime,
+       initialValue: this.state.formData.exitTime,
       rules: [{ required: true, type: 'date', message: "请选择日期" }],
       trigger: ['onBlur', 'onChange'],
     })
     // amortizedProps
     const amortizedProps = getFieldProps('amountAmortised', {
       initialValue: this.state.formData.amountAmortised,
-      rules: [{ required: true, type: 'date', message: "请选择日期" }],
-      trigger: ['onBlur', 'onChange'],
+    
     })
     // remarkProps
     const remarkProps = getFieldProps('remark', {
@@ -351,7 +367,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="规格"
             >
-              <Input placeholder="请输入" addonAfter="元" {...standardsProps} />
+              <Input placeholder="请输入" {...standardsProps} />
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -379,17 +395,17 @@ class revolvingEdit extends React.Component {
             >
               <Input placeholder="请输入"  {...numberProps} />
               <Select placeholder="请选择" {...unitProps} >
-                <Option value="0">套</Option>
-                <Option value="1">台</Option>
-                <Option value="2">根</Option>
-                <Option value="3">块</Option>
-                <Option value="4">片</Option>
-                <Option value="5">间</Option>
-                <Option value="6">个</Option>
-                <Option value="7">节</Option>
-                <Option value="8">米</Option>
-                <Option value="9">平米</Option>
-                <Option value="10">吨</Option>
+                <Option value={0}>套</Option>
+                <Option value={1}>台</Option>
+                <Option value={2}>根</Option>
+                <Option value={3}>块</Option>
+                <Option value={4}>片</Option>
+                <Option value={5}>间</Option>
+                <Option value={6}>个</Option>
+                <Option value={7}>节</Option>
+                <Option value={8}>米</Option>
+                <Option value={9}>平米</Option>
+                <Option value={10}>吨</Option>
               </Select>
             </FormItem>
             <FormItem
@@ -509,21 +525,34 @@ class revolvingEdit extends React.Component {
     // })
   }
   handleSubmit = (e) => {
-    e.preventDefault();3
-    
+    e.preventDefault();
+ 
     this.props.form.validateFieldsAndScroll((errors, values) => {
-      console.log(values);
+     
       if (!!errors) {
         console.log('Errors in form!!!');
         return;
       }
       
-      return
+    
       values['type'] = "1"
-      values['name'] = values.revolvingName[1]
+      values['firstValue'] = values.revolvingName[0]
+      values['secondValue'] = values.revolvingName[1]
       values['provinceId'] = values.address[0]
       values['cityId'] = values.address[1]
       values['countyId'] = values.address[2]
+      for(var i = 0 ; i < this.state.optionss.length ; i++){
+        console.log(this.state.optionss[i].value , values.revolvingName[0])
+        if(this.state.optionss[i].value == values.revolvingName[0]){
+          console.log(this.state.optionss[i].children)
+          for(var p = 0 ; p < this.state.optionss[i].children.length ; p++){
+           
+            values['name'] = this.state.optionss[i].children[p].label
+          }
+        }
+       
+      }
+
       for (let index = 0; index < options.length; index++) {
         const element = options[index];
         if (element.value == values.address[0]) {
