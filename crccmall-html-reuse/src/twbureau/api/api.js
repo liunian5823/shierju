@@ -80,6 +80,7 @@ export default class httpsapi {
       axios
         .post(apis+url, qs.parse(params), a)
         .then(res => {
+          console.log(res)
           resolve(res);
         })
         .catch(err => {
