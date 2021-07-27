@@ -30,8 +30,7 @@
 .resubmit .whole .ant-form-item-label{
   width: 72px;
 }
-.resubmit .whole .ant-form-item-control,
-.update .ant-form-item-control{
+.resubmit .whole .ant-form-item-control{
   display: flex;
 }
 .resubmit .s_size {

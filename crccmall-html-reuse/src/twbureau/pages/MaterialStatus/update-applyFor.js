@@ -325,6 +325,7 @@ class applyFor extends React.Component {
     changeResubmit(e){         
         console.log(e);
         var resubmit = {}       
+        resubmit['id'] =e.id;// id
         resubmit['prodottoId'] =e.prodottoId;// 产品id
         resubmit['name'] =e.name;// 资产名称
         resubmit['type'] =e.type; // 资产类别
