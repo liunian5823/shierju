@@ -6,6 +6,7 @@ import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 import Status from '@/twbureau/components/status';
+import Resubmit from './resubmit';
 
 class applyFor extends React.Component {
 
@@ -169,7 +170,7 @@ class applyFor extends React.Component {
                     render: (value) => {
                         if (value.status == '1' || value.status == '4') {
                             return <div >
-                                <a className="edit">重新提交</a>
+                                <a className="edit" onClick={()=>this.changeResubmit(value)}>重新提交</a>
                                 <a className="edit">作废</a>
                                 <a className="edit" onClick={() => this.changeStatus(value)}>查看</a>
                             </div>
@@ -183,7 +184,9 @@ class applyFor extends React.Component {
                 }
             ],
             showStatus: false,
+            showResubmit:false,
             statusObj:"",
+            resubmitObj:"",
             process:[],
             obj:"",
         };
@@ -319,7 +322,40 @@ class applyFor extends React.Component {
             console.log(r)
         })
     }
-    
+    changeResubmit(e){         
+        console.log(e);
+        var resubmit = {}       
+        resubmit['prodottoId'] =e.prodottoId;// 产品id
+        resubmit['name'] =e.name;// 资产名称
+        resubmit['type'] =e.type; // 资产类别
+        resubmit['standards'] =e.standards; // 规格型号
+        resubmit['department'] =e.department; // 资产管理部门
+        resubmit['befoeupdateStatus'] =e.befoeupdateStatus; // 更新前资产状态
+        resubmit['afterupdateStatus'] =e.afterupdateStatus; // 更新后资产状态
+        resubmit['number1'] =e.number; //数量
+        resubmit['unit1'] =e.unit; //单位
+        resubmit['updateType'] =e.updateType =='0' ? 'all' : e.updateType =='1' ? 'part' :''; // all-全部更新；part-部分更新
+        this.setState({
+            resubmitObj: resubmit,
+            showResubmit: true,
+        },()=>{
+            console.log(this.state.showResubmit);
+        });
+    }
+    getResubmit(val){
+        this.setState({
+            showResubmit: val,
+        },()=>{
+            console.log(this.state.showResubmit);
+        });
+    }
+    getStatus(val){
+        this.setState({
+            showStatus: val,
+        },()=>{
+            console.log(this.state.showResubmit);
+        });
+    }
     render() {
         const tabsData = [{
             key: ' ',
@@ -462,7 +498,8 @@ class applyFor extends React.Component {
                         }}
                     />
                 </div>
-                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} process={this.state.process} history={this.props.history}/>
+                <Status visible={this.state.showStatus} step="look" status={this.state.statusObj} statusModule={this.getStatus.bind(this)} process={this.state.process} history={this.props.history}/>
+                <Resubmit visible={this.state.showResubmit} status={this.state.resubmitObj} resubmitModule={this.getResubmit.bind(this)} history={this.props.history}/>
             </div>
         )
     }

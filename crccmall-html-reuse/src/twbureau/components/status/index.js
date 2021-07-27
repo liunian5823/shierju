@@ -67,13 +67,13 @@ class Status extends React.Component {
   // 详情
   details(e) {
     // 1:周转材料；2:施工设备;3:其他循环物资
-    if(e.type=="1"){
+    if (e.type == "1") {
       this.props.history.push('/tw/MaterialStatus/detailRevolving/' + e.type + '/' + e.prodottoId)
-    }else if(e.type=="2"){
+    } else if (e.type == "2") {
       this.props.history.push('/tw/MaterialStatus/detailEquipment/' + e.type + '/' + e.prodottoId)
-    }else if(e.type=="3"){
+    } else if (e.type == "3") {
       this.props.history.push('/tw/MaterialStatus/detailRests/' + e.type + '/' + e.prodottoId)
-    }  
+    }
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -116,6 +116,8 @@ class Status extends React.Component {
   handleCancel = () => {
     this.setState({
       visible: false
+    }, () => {
+      this.props.statusModule(this.state.visible)
     })
   }
   handleConfirmOk = () => {
@@ -249,13 +251,13 @@ class Status extends React.Component {
                   <Option value="1">在用</Option>
                   <Option value="2">闲置</Option>
                   <Option value="3">可周转</Option>
-                  <Option value="4">可处置</Option>
-                  <Option value="5">可租赁</Option>
-                  <Option value="6">已周转</Option>
-                  <Option value="7">已处置</Option>
-                  <Option value="8">已租赁</Option>
-                  <Option value="9">报废</Option>
-                  <Option value="10">报损</Option>
+                  <Option value="6">可处置</Option>
+                  <Option value="9">可租赁</Option>
+                  <Option value="5">已周转</Option>
+                  <Option value="8">已处置</Option>
+                  <Option value="10">已租赁</Option>
+                  <Option value="11">报废</Option>
+                  <Option value="12">报损</Option>
                 </Select>
               </FormItem>
               <FormItem
