@@ -343,6 +343,7 @@ class revolving_materials extends React.Component {
         var status = {}
         var process1 = []
         var that = this
+        status['id'] =e.id;// 产品id
         status['name'] = e.name;// 资产名称
         status['type'] = e.type; // 资产类别
         status['standards'] = e.standards; // 规格型号

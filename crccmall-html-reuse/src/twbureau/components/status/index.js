@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button, Form, Radio, Select, Input } from 'antd';
 import './index.css';
+import httpsapi from '@/twbureau/api/api';
 
 const createForm = Form.create;
 const FormItem = Form.Item;
@@ -10,10 +11,11 @@ class Status extends React.Component {
     super(props)
     this.state = {
       visible: props.visible,
-      updateType: "all",
+      updateType: props.updateType,
       verify: 1,
       remark: '',
       showConfirmModel: false,
+      data:''
     }
   }
 
@@ -77,7 +79,8 @@ class Status extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
-      visible: nextProps.visible
+      visible: nextProps.visible,
+      updateType: nextProps.updateType
     })
   }
   onUpdateTypeChange = (e) => {
@@ -106,7 +109,9 @@ class Status extends React.Component {
         showConfirmModel: true
       })
       console.log('Submit!!!');
-      console.log(values);
+      this.setState({
+        data: values
+      })
     });
   }
   // 审核
@@ -121,7 +126,55 @@ class Status extends React.Component {
     })
   }
   handleConfirmOk = () => {
+    this.setState({
+      showConfirmModel: false,
+      visible: false
+    })
+    console.log(this.props.status);
+    if (this.props.step == "update") {
+      var dataObj = {},obj=this.state.data
+      if (obj.unit2 == '0') {
+        obj['updateUnit'] = '套'
+      } else if (obj.unit2 == '1') {
+        obj['updateUnit'] = '台'
+      } else if (obj.unit2 == '2') {
+        obj['updateUnit'] = '根'
+      } else if (obj.unit2 == '3') {
+        obj['updateUnit'] = '块'
+      } else if (obj.unit2 == '4') {
+        obj['updateUnit'] = '片'
+      } else if (obj.unit2 == '5') {
+        obj['updateUnit'] = '间'
+      } else if (obj.unit2 == '6') {
+        obj['updateUnit'] = '个'
+      } else if (obj.unit2 == '7') {
+        obj['updateUnit'] = '节'
+      } else if (obj.unit2 == '8') {
+        obj['updateUnit'] = '米'
+      } else if (obj.unit2 == '9') {
+        obj['updateUnit'] = '平米'
+      } else if (obj.unit2 == '10') {
+        obj['updateUnit'] = '吨'
+      }
+      dataObj['id'] =this.props.status.id;// 产品id
+      dataObj['name'] =this.props.status.name;// 资产名称
+      dataObj['type'] =this.props.status.type; // 资产类别
+      dataObj['standards'] =this.props.status.standards; // 规格型号
+      dataObj['department'] =this.props.status.department; // 资产管理部门
+      dataObj['befoeupdateStatus'] =this.props.status.befoeupdateStatus; // 更新前资产状态
+      dataObj['afterupdateStatus'] =obj.afterupdateStatus; // 更新后资产状态
+      dataObj['updateNumber'] =obj.updateNumber; // 更新后数量
+      dataObj['updateNumber'] =obj.updateNumber; // 备注
+      dataObj['remark'] =obj.remark; //备注
+      dataObj['unit'] =this.props.status.unit; //单位
+      dataObj['updateType'] =this.props.status.updateType =='0' ? 'all' : this.props.status.updateType =='1' ? 'part' : ''; // all-全部更新；part-部分更新
+      console.log(dataObj);
+      httpsapi.ajax("post", "/inForApproval/save", dataObj).then(r => {
 
+      }).catch(r => {
+          console.log(r)
+      })
+    }
   }
   handleConfirmCancel = () => {
     this.setState({
@@ -155,22 +208,37 @@ class Status extends React.Component {
     let { status, process, step } = { ...this.props }
     const { getFieldProps } = this.props.form;
     const afterupdateStatusProps = getFieldProps('afterupdateStatus', {
+      initialValue:this.props.status.afterupdateStatus,
+    },
+    {
       rules: [
         { required: true, message: '请选择更新后物资状态' },
       ],
     });
-    const number1Props = getFieldProps('number1')
-    const unit1Props = getFieldProps('unit1')
+    const number1Props = getFieldProps('number1', {
+      initialValue:this.props.status.number1,
+    })
+    const unit1Props = getFieldProps('unit1', {
+      initialValue:this.props.status.unit1,
+    })
     const restProps = getFieldProps('restStatus', {
+      initialValue:this.props.status.restStatus,
+    }, 
+    {
       rules: this.state.updateType == 'part' ? [
         { required: true, message: '请选择剩余物资状态' },
       ] : [
         { required: false }
       ],
     });
-    const number2Props = getFieldProps('number2')
-    const unit2Props = getFieldProps('unit2')
+    const number2Props = getFieldProps('updateNumber', {
+      initialValue:this.props.status.updateNumber,
+    })
+    const unit2Props = getFieldProps('unit2', {
+      initialValue:this.props.status.remark,
+    })
     const remarkProps = getFieldProps('remark', {
+      initialValue:this.props.status.remark,
       rules: [
         { required: true, message: '请填写备注' },
       ],
@@ -209,7 +277,7 @@ class Status extends React.Component {
         <Modal
           className="status"
           width="710px"
-          title="查看物资状态"
+          title={step !== 'update' ? '查看物资状态' : '修改看物资状态'}
           visible={visible}
           onOk={this.handleSubmit}
           onCancel={this.handleCancel}
@@ -263,7 +331,7 @@ class Status extends React.Component {
               <FormItem
                 label="更新数量："
               >
-                <Input disabled={step !== 'update'} {...number1Props} defaultValue={status.number1} className="s_size" placeholder="请输入" />&nbsp;&nbsp;&nbsp;&nbsp;
+                <Input disabled={step !== 'update'} {...number1Props} defaultValue={status.number1} className="s_size" placeholder="请输入" />
                 <Select disabled={step !== 'update'} {...unit1Props} defaultValue={status.unit1} className="xs_size" showSearch placeholder="请选择">
                   <Option value="0">套</Option>
                   <Option value="1">台</Option>
@@ -308,7 +376,7 @@ class Status extends React.Component {
                 className="whole"
                 label="备注："
               >
-                <Input disabled={step !== 'update'} {...remarkProps} defaultValue={status.remark} value={status.remark} className="textarea" type="textarea" />
+                <Input disabled={step !== 'update'} {...remarkProps} className="textarea" type="textarea" />
               </FormItem>
             </Form>
           </div>

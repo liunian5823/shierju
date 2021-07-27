@@ -323,9 +323,8 @@ class applyFor extends React.Component {
         })
     }
     changeResubmit(e){         
-        console.log(e);
+        log
         var resubmit = {}       
-        resubmit['id'] =e.id;// id
         resubmit['prodottoId'] =e.prodottoId;// 产品id
         resubmit['name'] =e.name;// 资产名称
         resubmit['type'] =e.type; // 资产类别
@@ -335,7 +334,7 @@ class applyFor extends React.Component {
         resubmit['afterupdateStatus'] =e.afterupdateStatus; // 更新后资产状态
         resubmit['number1'] =e.number; //数量
         resubmit['unit1'] =e.unit; //单位
-        resubmit['updateType'] =e.updateType =='0' ? 'all' : e.updateType =='1' ? 'part' :''; // all-全部更新；part-部分更新
+        resubmit['updateType'] =e.updateType =='0' ? 'all' : e.updateType =='1' ? 'part' : ''; // all-全部更新；part-部分更新
         this.setState({
             resubmitObj: resubmit,
             showResubmit: true,
