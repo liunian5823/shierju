@@ -71,7 +71,7 @@ export default class httpsapi {
       })
     })
   }
-  static File(method, url, params, options = {}) {
+  static File( url, params) {
     if (params) {
       params = filterNull(params);
     }
@@ -84,9 +84,6 @@ export default class httpsapi {
         })
         .catch(err => {
           reject(err.response);
-          if (err.response.data.message != "") {
-    
-          }
         });
     });
   }
