@@ -6,6 +6,7 @@ import '../../style/list.css';
 import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table } from 'antd';
 import Status from '@/twbureau/components/status';
+import { Link } from 'react-router-dom'
 
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
@@ -267,12 +268,11 @@ class equipment extends React.Component {
         console.log('456')
     }
     changeStatus (e){
-        console.log(e.id);
         this.state.statusObj = {}
-        this.state.process=[]
+        this.state.process = []
         var status = {}
-        var process1=[]
-        var that=this
+        var that = this
+        status['id'] =e.id;// 产品id
         status['name'] = e.name;// 资产名称
         status['type'] = e.type; // 资产类别
         status['standards'] = e.standards; // 规格型号
@@ -281,7 +281,7 @@ class equipment extends React.Component {
         status['afterupdateStatus'] = e.afterupdateStatus; // 更新后资产状态
         status['number1'] = e.number; //数量
         status['unit1'] = e.unit; //单位
-        status['updateType'] = e.updateType == '0' ? 'all' : 'part'; // all-全部更新；part-部分更新
+        status['updateType'] = e.updateType// 0-全部更新；1-部分更新
         status['restStatus'] = e.updateRemainderStatus;//剩余物资状态
         status['number2'] = e.updateAfterNumber; //数量 
         status['unit2'] = e.unit; //单位
@@ -291,7 +291,11 @@ class equipment extends React.Component {
             showStatus: true,
         });
     }
-
+    statusModule(value){
+        this.setState({
+            showStatus: value
+        });
+    }
     render() {
         const tabsData = [{
             key: ' ',
@@ -397,7 +401,9 @@ class equipment extends React.Component {
                 <div className="table">
                     <div className='table-btn'>
                         <div className='table-btn-left'>
-                            <Button type="primary">+ 录入资产信息</Button>
+                            <Link to="/tw/equipment/edit/add/add">
+                                <Button type="primary">+ 录入资产信息</Button>
+                            </Link>
                             <Button>导入台账信息</Button>
                             <Button>台账模板下载</Button>
                         </div>
@@ -426,7 +432,7 @@ class equipment extends React.Component {
                         }
                     </Tabs>
                 </div>
-                <Status visible={this.state.showStatus} step="update" status={this.state.statusObj} history={this.props.history}/>
+                <Status visible={this.state.showStatus} step="update" statusModule={this.statusModule.bind(this)} status={this.state.statusObj} history={this.props.history}/>
             </div>
         )
     }
