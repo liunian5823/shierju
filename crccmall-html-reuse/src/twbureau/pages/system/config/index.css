@@ -1,32 +1,31 @@
-.goods_status .main {
+.main {
   display: flex;
   flex-wrap: wrap;
   width: 992px;
-  height: 650px;
+  min-height: 650px;
   background: #FFFFFF;
   padding: 24px;
 }
-.goods_status .main .search {
+.main .search {
   display: flex;
   height: 32px;
   width: 100%;
   font-size: 14px;
   color: #666666;
 }
-.goods_status .main .search>label {
+.main .search>label {
   line-height: 32px;
 }
-.goods_status .main .search .ant-input {
+.main .search .ant-input {
   width: 285px;
   height: 32px;
   margin-right: 24px;
 }
-.goods_status .main .list {
+.main .list {
   width: 408px;
-  min-height: 515px;
   margin-right: 34px;
 }
-.goods_status .main .list .head {
+.main .list .head {
   width: 408px;
   height: 50px;
   line-height: 50px;
@@ -37,11 +36,16 @@
   color: #666666;
   padding-left: 24px;
 }
-.goods_status .main .list .item {
+.main .list .head>label {
+  display: inline-block;
+  width: 52px;
+}
+.main .list .item {
   display: flex;
   height: 80px;
   line-height: 80px;
   color: #595A59;
+  padding-left: 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.5s;
@@ -49,10 +53,14 @@
   -webkit-transition: all 0.5s; /* Safari 和 Chrome */
   -o-transition: all 0.5s; /* Opera */
 }
-.goods_status .main .list .item>label {
+.main .list .item>label {
   width: 350px;
 }
-.goods_status .main .list .item .arrow {
+.main .list .item>label>label {
+  display: inline-block;
+  width: 52px;
+}
+.main .list .item .arrow {
   opacity: 0;
   width: 8px;
   height: 8px;
@@ -69,54 +77,144 @@
   -webkit-transition: all 0.5s; /* Safari 和 Chrome */
   -o-transition: all 0.5s; /* Opera */
 }
-.goods_status .main .list .item:hover {
+.main .list .item:hover {
   color: #2B86EE;
 }
-.goods_status .main .list .item:hover .arrow {
+.main .list .item:hover .arrow {
   opacity: 1;
 }
-.goods_status .main .save {
+.main .save {
   margin-left: 195px;
 }
-.goods_status .main .edit {
+.main .edit {
   width: 502px;
-  height: 515px;
   background: rgba(45, 183, 245, 0.05);
-}
-.goods_status .main .edit {
   padding-left: 24px;
+  min-height: 515px;
 }
-.goods_status .main .edit .head {
+.main .edit .head {
   font-size: 18px;
   font-weight: bold;
   color: #333333;
   padding-top: 24px;
   margin-bottom: 30px;
 }
-.goods_status .main .edit .item {
+.main .edit .item {
+  position: relative;
   margin-bottom: 24px;
 }
-.goods_status .main .edit .item>label {
+.main .edit .item>label {
   display: block;
   font-size: 14px;
   color: #595A59;
   height: 28px;
 }
-.goods_status .main .edit .item .star {
+.main .edit .item .star {
   color: #E51D27;
 }
-.goods_status .main .edit .item .btn {
+.main .edit .item .btn {
   width: 285px;
   height: 32px;
   margin-right: 12px;
 }
-.goods_status .main .edit .item .textarea {
+.main .edit .item .textarea {
   width: 454px;
   height: 95px;
   background: #FFFFFF;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
+.main .edit .item .addOption {
+  position: absolute;
+  right: 200px;
+  top: -6px;
+}
+.main .edit .card {
+  display: flex;
+  margin-bottom: 31px;
+}
+.main .edit .card .left {
+  width: 333px;
+  height: 244px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-right: 24px;
+  padding: 24px;
+  position: relative;
+}
+.main .edit .card .left .close {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  cursor: pointer;
+}
+.main .edit .card .left .select {
+  width: 285px;
+  margin-bottom: 14px;
+}
+.main .edit .card .left .text {
+  font-size: 11px;
+  color: #000000;
+  line-height: 15px;
+  padding-bottom: 14px;
+}
+.main .edit .card .left .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 134px;
+  height: 133px;
+  margin-left: 76px;
+  background-size: cover;
+}
+.main .edit .card .right {
+  width: 74px;
+  min-height: 244px;
+  padding-top: 80px;
+}
+.main .edit .card .right .button {
+  width: 74px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #2DB7F5;
+  color: #2DB7F5;
+  background: rgba(45, 183, 245, 0.05);
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.main .edit .card .right .button .anticon {
+  margin-left: -6px;
+  font-size: 15px;
+}
+.main .edit .card .right .button .anticon-up {
+  font-size: 12px;
+}
+.main .edit .bottom {
+  margin: 24px 0 24px 96px;
+}
 .ant-select-selection {
   height: 32px;
+}
+.upload .ant-upload {
+  width: 134px;
+  height: 134px;
+  margin: 0;
+  /* background: url('../../../../static/img/twbureau/jingjia@2x.png'); */
+  background-size: cover;
+}
+.upload .anticon-plus {
+  font-size: 30px;
+  margin: 10px 0;
+}
+.opacity0 {
+  opacity: 0;
+}
+.opacity1 {
+  opacity: 1;
+}
+.ant-upload-text {
+  font-size: 14px;
+  padding-bottom: 30px;
 }
