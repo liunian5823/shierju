@@ -15,12 +15,14 @@ class revolvingEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      id:"",
       formData:{
         revolvingName:"10",
         turnoverTime:"1",
         
       },
+      Projecttypes:[],
+      Projecttypess:[],
       optionss:[],
       typeFlag: true,
       uploadFileConfig: {
@@ -77,6 +79,31 @@ class revolvingEdit extends React.Component {
       this.setState({
         optionss: r.data
       },() => {
+        console.log('1')
+        this.huoqunames()
+      })
+    }).catch(r => {
+      console.log(r)
+    })
+  }
+  huoqunames(){
+    httpsapi.ajax("get", "/dictController/getDictBytype/2", {}).then(r => {
+      console.log(r.data)
+      this.setState({
+        Projecttypes: r.data
+      },() => {
+        this.huoqunamess()
+      })
+    }).catch(r => {
+      console.log(r)
+    })
+  }
+  huoqunamess(){
+    httpsapi.ajax("get", "/dictController/getDictBytype/3", {}).then(r => {
+      console.log(r.data)
+      this.setState({
+        Projecttypess: r.data
+      },() => {
         this.huoqulist()
       })
     }).catch(r => {
@@ -85,14 +112,17 @@ class revolvingEdit extends React.Component {
   }
   huoqulist(){
     var type = this.props.match.params.type
+    console.log(this.props.match.params.id)
     if (type == 'add') {
       this.setState({
         typeFlag: true,
+       
       })
     
     } else {
       this.setState({
-        typeFlag: false
+        typeFlag: false,
+        id:this.props.match.params.id
       })
       httpsapi.ajax("get", "/materialRevolvingController/getMaerialRevolving/" + this.props.match.params.id, {}).then(r => {
         console.log(r.data.buyTime)
@@ -113,6 +143,7 @@ class revolvingEdit extends React.Component {
         var string =r.data.provinceId + ',' + r.data.cityId + ',' + r.data.countyId;
         r.data.address = string.split(',');
         r.data.number = r.data.number.toString()
+        console.log(r.data.address)
         var xiangqings = r.data
         this.setState({
           formData:xiangqings
@@ -156,13 +187,13 @@ class revolvingEdit extends React.Component {
     };
     const { getFieldProps, getFieldDecorator, isFieldValidating } = this.props.form;
 
-    const subordinateProps = getFieldProps('belongingCompany',{
+    const subordinateProps = getFieldProps('companyId',{
       initialValue:this.state.formData.companyId,
     });
-    const departmentProps = getFieldProps('department',{
+    const departmentProps = getFieldProps('departmentId',{
       initialValue:this.state.formData.departmentId,
     })
-    const projectProps = getFieldProps('projectName',{
+    const projectProps = getFieldProps('projectId',{
       initialValue:this.state.formData.projectId,
     })
     const projectTypeProps = getFieldProps('projectType',{
@@ -174,8 +205,8 @@ class revolvingEdit extends React.Component {
       trigger: ['onBlur', 'onChange'],
     });
     const revolvingNameProps = getFieldProps('revolvingName', {
-      // initialValue:this.state.formData.name,
-      initialValue:['01','00001'],
+      initialValue:this.state.formData.name,
+      // initialValue:['01','00001'],
       rules: [{ required: true, message: '请输入资产名称' }],
       trigger: ['onBlur', 'onChange'],
     });
@@ -229,7 +260,7 @@ class revolvingEdit extends React.Component {
       trigger: ['onChange'],
     })
     const unitProps = getFieldProps('unit', {
-      initialValue:1,
+      initialValue:this.state.formData.unit,
       rules: [{ required: true, message: "请选择单位" }],
       trigger: ['onBlur', 'onChange'],
     })
@@ -278,15 +309,15 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="所属工程公司："
             >
-              <Select showSearch {...subordinateProps} placeholder="请选择">
-                <Option value={1}>局/处/项目部</Option>
+              <Select showSearch {...subordinateProps} placeholder="请选择" disabled = {!this.state.typeFlag}>
+                <Option value={1} >局/处/项目部</Option>
               </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="资产管理部门："
             >
-              <Select showSearch {...departmentProps} placeholder="请选择">
+              <Select showSearch {...departmentProps} placeholder="请选择" disabled = {!this.state.typeFlag}>
                 <Option value={1}>XXX项目部</Option>
               </Select>
             </FormItem>
@@ -294,7 +325,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="项目名称："
             >
-              <Select showSearch {...projectProps} placeholder="请选择">
+              <Select showSearch {...projectProps} placeholder="请选择" disabled = {!this.state.typeFlag}>
                 <Option value={1}>XXX项目部</Option>
               </Select>
             </FormItem>
@@ -302,7 +333,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="所在地："
             >
-              <Cascader {...addressProps} options={options} placeholder="请选择地区"/>
+              <Cascader {...addressProps} options={options} placeholder="请选择地区" />
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -321,26 +352,32 @@ class revolvingEdit extends React.Component {
               label="工程类型"
             >
               <Select showSearch {...projectTypeProps} placeholder="请选择" >
-                <Option value="1">铁路</Option>
+                {
+                  this.state.Projecttypes.map((item) => {
+                    return  <options value={item.dictName} >{item.dictName}</options>
+                  })
+                }
+               
+                {/* <Option value="1">铁路</Option>
                 <Option value="2">公路</Option>
                 <Option value="3">水利</Option>
                 <Option value="4">市政</Option>
                 <Option value="5">电气化</Option>
-                <Option value="6">房建</Option>
+                <Option value="6">房建</Option> */}
               </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="资产名称"
             >
-              <Cascader {...revolvingNameProps} options={this.state.optionss} placeholder="请选择"/>
+              <Cascader {...revolvingNameProps} options={this.state.optionss} placeholder="请选择" disabled = {!this.state.typeFlag}/>
               {/* <Input {...revolvingNameProps} placeholder="请输入"   /> */}
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="供应商"
             >
-              <Select showSearch placeholder="请选择" {...supplierProps}  >
+              <Select showSearch placeholder="请选择" {...supplierProps} disabled = {!this.state.typeFlag} >
                 <Option value="jack">XXX项目部</Option>
               </Select>
             </FormItem>
@@ -361,7 +398,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="参数备注"
             >
-              <Input placeholder="请输入" {...parameterProps} />
+              <Input placeholder="请输入" {...parameterProps}  disabled = {!this.state.typeFlag}/>
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -393,26 +430,20 @@ class revolvingEdit extends React.Component {
               required
               className='item-number'
             >
-              <Input placeholder="请输入"  {...numberProps} />
-              <Select placeholder="请选择" {...unitProps} >
-                <Option value={0}>套</Option>
-                <Option value={1}>台</Option>
-                <Option value={2}>根</Option>
-                <Option value={3}>块</Option>
-                <Option value={4}>片</Option>
-                <Option value={5}>间</Option>
-                <Option value={6}>个</Option>
-                <Option value={7}>节</Option>
-                <Option value={8}>米</Option>
-                <Option value={9}>平米</Option>
-                <Option value={10}>吨</Option>
+              <Input placeholder="请输入"  {...numberProps} disabled = {!this.state.typeFlag}/>
+              <Select placeholder="请选择" {...unitProps} disabled = {!this.state.typeFlag}>
+              {
+                  this.state.Projecttypess.map((item) => {
+                    return  <options value={item.dictName} >{item.dictName}</options>
+                  })
+                }
               </Select>
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="待摊销金额"
             >
-              <Input placeholder="请输入" addonAfter="元" {...amortizedProps} disabled={this.state.typeFlag} />
+              <Input placeholder="请输入" addonAfter="元" {...amortizedProps} disabled={this.state.typeFlag}  />
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -424,7 +455,7 @@ class revolvingEdit extends React.Component {
               {...formItemLayout}
               label="资产状态"
             >
-              <Select showSearch placeholder="请选择" {...statusProps} >
+              <Select showSearch placeholder="请选择" {...statusProps} disabled = {!this.state.typeFlag} >
                 <Option value={1}>在用</Option>
                 <Option value={2}>闲置</Option>
                 <Option value={3}>可周转</Option>
@@ -541,12 +572,14 @@ class revolvingEdit extends React.Component {
       values['provinceId'] = values.address[0]
       values['cityId'] = values.address[1]
       values['countyId'] = values.address[2]
+      values['belongingCompany'] = 'XXX公司'
+      values['department'] = 'XXX公司'
+      values['projectName'] = 'XXX公司'
       for(var i = 0 ; i < this.state.optionss.length ; i++){
         console.log(this.state.optionss[i].value , values.revolvingName[0])
         if(this.state.optionss[i].value == values.revolvingName[0]){
           console.log(this.state.optionss[i].children)
           for(var p = 0 ; p < this.state.optionss[i].children.length ; p++){
-           
             values['name'] = this.state.optionss[i].children[p].label
           }
         }
@@ -582,6 +615,8 @@ class revolvingEdit extends React.Component {
           }
         });
       } else {
+        console.log(this.state.id)
+        values['id'] = this.state.id;
         httpsapi.ajax("post", "/materialRevolvingController/updateMaterialRevolving", { ...values }).then(r => {
           if (r) {
             if (refresh) { refresh() } else {

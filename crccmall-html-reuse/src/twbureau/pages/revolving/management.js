@@ -465,7 +465,7 @@ class revolving_materials extends React.Component {
                     </div>
                     <div className="search_item">
                         <span className="head">资产状态：</span>
-                        <Select className="btn" showSearch defaultValue={tabsData} placeholder="请选择" value={this.state.status} onChange={this.selectChange.bind(this, "status")}>
+                        <Select className="btn" showSearch   placeholder="请选择" value={this.state.status} onChange={this.selectChange.bind(this, "status")}>
                             {
                                 tabsData.map((item1) => (
                                     <Select.Option key={item1.key}>{item1.name}</Select.Option>
@@ -524,7 +524,7 @@ class revolving_materials extends React.Component {
                 <div className="table">
                     <div className='table-btn'>
                         <div className='table-btn-left'>
-                            <Link to="/tw/revolving/edit/add/1">
+                            <Link to="/tw/revolving/edit/add/add">
                                 <Button type="primary">+ 录入资产信息</Button>
                             </Link>
                             <Button>导入台账信息</Button>
