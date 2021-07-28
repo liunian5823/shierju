@@ -204,7 +204,7 @@ class revolvingEdit extends React.Component {
       rules: [{ required: true, type: 'array', message: '请选择地址' },],
       trigger: ['onBlur', 'onChange'],
     });
-    const revolvingNameProps = getFieldProps('revolvingName', {
+    const revolvingNameProps = getFieldProps('name', {
       initialValue:this.state.formData.name,
       // initialValue:['01','00001'],
       rules: [{ required: true, message: '请输入资产名称' }],
