@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Form, Radio, Select, Input } from 'antd';
+import { Modal, Button, Form, Radio, Select, Input, Alert } from 'antd';
 import './index.css';
 import httpsapi from '@/twbureau/api/api';
 
@@ -11,11 +11,11 @@ class Status extends React.Component {
     super(props)
     this.state = {
       visible: props.visible,
-      updateType: props.updateType,
+      updateType: 0,
       verify: 1,
       remark: '',
       showConfirmModel: false,
-      data:''
+      data: ''
     }
   }
 
@@ -79,13 +79,14 @@ class Status extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
-      visible: nextProps.visible,
-      updateType: nextProps.updateType
+      visible: nextProps.visible
     })
   }
   onUpdateTypeChange = (e) => {
     this.setState({
       updateType: e.target.value
+    }, () => {
+      console.log(this.state.updateType);
     })
   }
   onVerifyChange = (e) => {
@@ -130,9 +131,9 @@ class Status extends React.Component {
       showConfirmModel: false,
       visible: false
     })
-    console.log(this.props.status);
+    console.log(this.props.status, this.state.updateType);
     if (this.props.step == "update") {
-      var dataObj = {},obj=this.state.data
+      var dataObj = {}, obj = this.state.data
       if (obj.unit2 == '0') {
         obj['updateUnit'] = '套'
       } else if (obj.unit2 == '1') {
@@ -156,23 +157,25 @@ class Status extends React.Component {
       } else if (obj.unit2 == '10') {
         obj['updateUnit'] = '吨'
       }
-      dataObj['id'] =this.props.status.id;// 产品id
-      dataObj['name'] =this.props.status.name;// 资产名称
-      dataObj['type'] =this.props.status.type; // 资产类别
-      dataObj['standards'] =this.props.status.standards; // 规格型号
-      dataObj['department'] =this.props.status.department; // 资产管理部门
-      dataObj['befoeupdateStatus'] =this.props.status.befoeupdateStatus; // 更新前资产状态
-      dataObj['afterupdateStatus'] =obj.afterupdateStatus; // 更新后资产状态
-      dataObj['updateNumber'] =obj.updateNumber; // 更新后数量
-      dataObj['updateNumber'] =obj.updateNumber; // 备注
-      dataObj['remark'] =obj.remark; //备注
-      dataObj['unit'] =this.props.status.unit; //单位
-      dataObj['updateType'] =this.props.status.updateType =='0' ? 'all' : this.props.status.updateType =='1' ? 'part' : ''; // all-全部更新；part-部分更新
+      dataObj['id'] = this.props.status.id;// id
+      dataObj['department'] = this.props.status.department; // 资产管理部门
+      dataObj['type'] = this.props.status.type; // 资产类别
+      dataObj['standards'] = this.props.status.standards; // 规格型号
+      dataObj['name'] = this.props.status.name;// 资产名称
+      dataObj['befoeupdateStatus'] = this.props.status.befoeupdateStatus; // 更新前资产状态
+      dataObj['number'] = this.props.status.number1; // 数量
+      dataObj['unit'] = this.props.status.unit1; //单位
+      dataObj['updateType'] = this.state.updateType // 0-全部更新；1-部分更新
+      dataObj['afterupdateStatus'] = obj.afterupdateStatus; // 更新后资产状态
+      dataObj['updateNumber'] = obj.updateNumber; // 更新后数量
+      dataObj['updateRemainderStatus'] = obj.updateRemainderStatus; // 更新后资产状态
+      dataObj['updateAfterNumber'] = obj.updateAfterNumber; // 更新后数量
+      dataObj['remark'] = obj.remark; //备注
       console.log(dataObj);
       httpsapi.ajax("post", "/inForApproval/save", dataObj).then(r => {
-
+        console.log(r);
       }).catch(r => {
-          console.log(r)
+        console.log(r)
       })
     }
   }
@@ -203,42 +206,45 @@ class Status extends React.Component {
     }
     return footer
   }
+  checkPass(rule, value, callback) {
+    console.log(value);
+    callback();
+  }
   render() {
     let { visible } = { ...this.state }
     let { status, process, step } = { ...this.props }
     const { getFieldProps } = this.props.form;
-    const afterupdateStatusProps = getFieldProps('afterupdateStatus', {
-      initialValue:this.props.status.afterupdateStatus,
-    },
-    {
-      rules: [
-        { required: true, message: '请选择更新后物资状态' },
-      ],
-    });
-    const number1Props = getFieldProps('number1', {
-      initialValue:this.props.status.number1,
+    const updateTypeProps = getFieldProps('updateType',
+      { 
+        initialValue: this.props.status.updateType == '' || this.props.status.updateType == undefined ? this.state.updateType : this.props.status.updateType,
+        rules: [{ required: true, message: '请选择更新类型' }],
+        trigger: ['onBlur', 'onChange'],
+      }
+    );
+    const afterupdateStatusProps = getFieldProps('afterupdateStatus',
+      { 
+        initialValue: this.props.status.afterupdateStatus ,
+        rules: [{ required: true, message: '请选择更新后物资状态' },{ validator: this.checkPass },],
+        trigger: ['onBlur', 'onChange'],
+      }
+    );
+    const updateNumberProps = getFieldProps('updateNumber', {
+      initialValue: this.props.status.updateNumber,
+    })
+    const remainderProps = getFieldProps('updateRemainderStatus',
+      { 
+        initialValue: this.props.status.updateRemainderStatus, 
+        rules: this.state.updateType == 1 ? [{ required: true, message: '请选择剩余物资状态' },] : [{ required: false }], 
+      }
+    );
+    const afterNumberProps = getFieldProps('updateAfterNumber', {
+      initialValue: this.props.status.updateAfterNumber,
     })
     const unit1Props = getFieldProps('unit1', {
-      initialValue:this.props.status.unit1,
-    })
-    const restProps = getFieldProps('restStatus', {
-      initialValue:this.props.status.restStatus,
-    }, 
-    {
-      rules: this.state.updateType == 'part' ? [
-        { required: true, message: '请选择剩余物资状态' },
-      ] : [
-        { required: false }
-      ],
-    });
-    const number2Props = getFieldProps('updateNumber', {
-      initialValue:this.props.status.updateNumber,
-    })
-    const unit2Props = getFieldProps('unit2', {
-      initialValue:this.props.status.remark,
+      initialValue: this.props.status.unit1,
     })
     const remarkProps = getFieldProps('remark', {
-      initialValue:this.props.status.remark,
+      initialValue: this.props.status.remark,
       rules: [
         { required: true, message: '请填写备注' },
       ],
@@ -271,6 +277,32 @@ class Status extends React.Component {
         return '报损'
       }
     }
+    // 单位
+    const filterUnit= (unit) => {
+      if (unit == '0') {
+        return '套'
+      } else if (unit == '1') {
+        return '台'
+      } else if (unit == '2') {
+        return '根'
+      } else if (unit == '3') {
+        return '块'
+      } else if (unit == '4') {
+        return '片'
+      } else if (unit == '5') {
+        return '间'
+      } else if (unit == '6') {
+        return '个'
+      } else if (unit == '7') {
+        return '节'
+      } else if (unit == '8') {
+        return '米'
+      } else if (unit == '9') {
+        return '平米'
+      } else if (unit == '10') {
+        return '吨'
+      }
+    }
 
     return (
       <div>
@@ -301,21 +333,21 @@ class Status extends React.Component {
                 更新前物资状态：{filterStatus(status.befoeupdateStatus)}
               </FormItem>
               <FormItem>
-                数量：<span className='detail' onClick={() => this.details(status)}>{status.number1} {status.unit1}</span>
+                数量：<span className='detail' onClick={() => this.details(status)}>{status.number1} {filterUnit(status.unit1)}</span>
               </FormItem>
               <FormItem
                 className="whole"
                 label="更新类型："
               >
-                <RadioGroup disabled={step !== 'update'} onChange={this.onUpdateTypeChange} defaultValue={status.updateType}>
-                  <Radio key="all" value={"all"}>全部更新</Radio>
-                  <Radio key="part" value={"part"}>部分更新</Radio>
+                <RadioGroup disabled={step !== 'update'} {...updateTypeProps} onChange={this.onUpdateTypeChange.bind(this)}>
+                  <Radio key="all" value={0}>全部更新</Radio>
+                  <Radio key="part" value={1}>部分更新</Radio>
                 </RadioGroup>
               </FormItem>
               <FormItem
                 label="更新后物资状态："
               >
-                <Select disabled={step !== 'update'} {...afterupdateStatusProps} className="s_size" showSearch placeholder="请选择" defaultValue={status.afterupdateStatus}>
+                <Select disabled={step !== 'update'} {...afterupdateStatusProps} className="s_size" showSearch placeholder="请选择">
                   <Option value="1">在用</Option>
                   <Option value="2">闲置</Option>
                   <Option value="3">可周转</Option>
@@ -331,8 +363,8 @@ class Status extends React.Component {
               <FormItem
                 label="更新数量："
               >
-                <Input disabled={step !== 'update'} {...number1Props} defaultValue={status.number1} className="s_size" placeholder="请输入" />
-                <Select disabled={step !== 'update'} {...unit1Props} defaultValue={status.unit1} className="xs_size" showSearch placeholder="请选择">
+                <Input disabled={step !== 'update'} {...updateNumberProps} className="s_size" placeholder="请输入" />
+                <Select disabled={step !== 'update'} disabled={true} {...unit1Props} className="xs_size" showSearch placeholder="请选择">
                   <Option value="0">套</Option>
                   <Option value="1">台</Option>
                   <Option value="2">根</Option>
@@ -346,19 +378,27 @@ class Status extends React.Component {
                   <Option value="10">吨</Option>
                 </Select>
               </FormItem>
-              {this.state.updateType == "part" && <FormItem
+              {this.state.updateType == 1 && <FormItem
                 label="剩余物资状态："
               >
-                <Select disabled={step !== 'update'} {...restProps} defaultValue={status.restStatus} className="s_size" showSearch placeholder="请选择">
-                  <Option value="0">在用</Option>
-                  <Option value="1">闲置</Option>
+                <Select disabled={step !== 'update'} {...remainderProps} className="s_size" showSearch placeholder="请选择">
+                  <Option value="1">在用</Option>
+                  <Option value="2">闲置</Option>
+                  <Option value="3">可周转</Option>
+                  <Option value="6">可处置</Option>
+                  <Option value="9">可租赁</Option>
+                  <Option value="5">已周转</Option>
+                  <Option value="8">已处置</Option>
+                  <Option value="10">已租赁</Option>
+                  <Option value="11">报废</Option>
+                  <Option value="12">报损</Option>
                 </Select>
               </FormItem>}
-              {this.state.updateType == "part" && <FormItem
+              {this.state.updateType == 1 && <FormItem
                 label="更新数量："
               >
-                <Input disabled={step !== 'update'} {...number2Props} defaultValue={status.restStatus} className="s_size" placeholder="请输入" />&nbsp;&nbsp;&nbsp;&nbsp;
-                <Select disabled={step !== 'update'} {...unit2Props} defaultValue={status.unit2} className="xs_size" showSearch placeholder="请选择">
+                <Input disabled={step !== 'update'} {...afterNumberProps} className="s_size" placeholder="请输入" />
+                <Select disabled={step !== 'update'} disabled={true} {...unit1Props} className="xs_size" showSearch placeholder="请选择">
                   <Option value="0">套</Option>
                   <Option value="1">台</Option>
                   <Option value="2">根</Option>

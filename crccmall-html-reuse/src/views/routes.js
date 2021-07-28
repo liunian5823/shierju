@@ -118,6 +118,7 @@ import revolvingEdit from "bundle-loader?lazy&name=revolving!@/twbureau/pages/re
 import revolvingDetail from "bundle-loader?lazy&name=revolving!@/twbureau/pages/revolving/detail";
 import equipment from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/management";
 import equipmentDetail from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/detail";
+import equipmentEdit from "bundle-loader?lazy&name=equipment!@/twbureau/pages/equipment/edit";
 import rests from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/management";
 import restsDetail from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/detail";
 import disposalList from "bundle-loader?lazy&name=disposal!@/twbureau/pages/disposalList/index";
@@ -128,8 +129,8 @@ import logs from "bundle-loader?lazy&name=logs!@/twbureau/pages/logs/index";
 import approve from "bundle-loader?lazy&name=approve!@/twbureau/pages/system/approve/index";
 import approveEdit from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/approve/edit";
 import goodsStatus from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/config/goods";
+import thumbnail from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/config/Thumbnail";
 import restsEdit from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/edit";
-
 
 import NoAu from "@/pages/notFound";
 
@@ -276,6 +277,7 @@ const twRoutes = [
     { type: "route", path: "/tw/revolving/edit/:type/:id", component: bundle(Empty, revolvingEdit, { type: "callback" }) },//周转材料录入
     { type: "route", path: "/tw/revolving/detail/:id", component: bundle(Empty, revolvingDetail, { type: "callback" }) },//周转材料详情
     { type: "route", path: "/tw/equipment/management", component: bundle(Empty, equipment, { type: "callback" }) },//施工
+    { type: "route", path: "/tw/equipment/edit/:type/:id", component: bundle(Empty, equipmentEdit, { type: "callback" }) },//施工录入
     { type: "route", path: "/tw/equipment/detail/:id", component: bundle(Empty, equipmentDetail, { type: "callback" }) },//施工详情
     { type: "route", path: "/tw/rests/management", component: bundle(Empty, rests, { type: "callback" }) },//其它循环
     { type: "route", path: "/tw/rests/detail/:id", component: bundle(Empty, restsDetail, { type: "callback" }) },//其它循环详情
@@ -301,6 +303,7 @@ const twRoutes = [
     { type: "route", path: "/tw/system/approve/index", component: bundle(Empty, approve, { type: "callback" }) }, // 系统设置-物资状态更新审批
     { type: "route", path: "/tw/system/approve/edit", component: bundle(Empty, approveEdit, { type: "callback" }) }, // 系统设置-物资状态更新审批添加及编辑
     { type: "route", path: "/tw/system/config/goods", component: bundle(Empty, goodsStatus, { type: "callback" }) }, // 系统设置-资产状态更新配置
+    { type: "route", path: "/tw/system/config/thumbnail", component: bundle(Empty, thumbnail, { type: "callback" }) }, // 系统设置-菜单缩略图配置
 
 
 	{ type: "route", path: "/tw/rests/edit/:type/:id", component: bundle(Empty, restsEdit, { type: "callback" }) }, // 其他物资循环管理-添加

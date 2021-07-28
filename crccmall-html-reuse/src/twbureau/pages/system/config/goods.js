@@ -20,7 +20,7 @@ class Status extends React.Component {
       }, {
         name: '周转材料-转处置材料配置',
         key: 1
-      }],// 字段名称
+      }],
       columns: [
         {
           title: '序号',
