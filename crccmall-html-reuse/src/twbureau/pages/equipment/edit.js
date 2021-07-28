@@ -11,7 +11,7 @@ import httpsapi from '@/twbureau/api/api';
 const createForm = Form.create;
 const FormItem = Form.Item;
 const Option = Select.Option;
-class revolvingEdit extends React.Component {
+class equipmentEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -598,5 +598,5 @@ const mapStateToProps = state => {
   return {
   }
 }
-revolvingEdit = createForm()(revolvingEdit)
-export default withRouter(connect(mapStateToProps)(revolvingEdit))
+equipmentEdit = createForm()(equipmentEdit)
+export default withRouter(connect(mapStateToProps)(equipmentEdit))

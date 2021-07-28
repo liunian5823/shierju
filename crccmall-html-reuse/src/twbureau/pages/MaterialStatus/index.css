@@ -1,0 +1,56 @@
+.resubmit {
+  border-radius: 4px;
+  width: 710px;
+}
+.resubmit .ant-modal-header {
+  height: 45px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: none;
+}
+.resubmit .ant-modal-footer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-top: none;
+}
+.resubmit .ant-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.resubmit .ant-form-item {
+  display: flex;
+  width: 300px;
+  margin-bottom: 10px;
+}
+.resubmit .whole {
+  display: flex;
+  width: 678px;
+}
+.resubmit .whole .ant-form-item-label{
+  width: 72px;
+}
+.resubmit .whole .ant-form-item-control{
+  display: flex;
+}
+.resubmit .s_size {
+  width: 125px;
+}
+.resubmit .xs_size {
+  width: 70px;
+}
+.resubmit .content {
+  padding: 0 38px;
+}
+.resubmit-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(59, 59, 59);
+  padding: 10px 0;
+}
+.detail{
+  cursor: pointer;
+}
+.resubmit .leaseControl,.resubmit .ant-calendar-picker{
+  width: 470px;
+}

@@ -15,7 +15,6 @@ class Circle extends React.Component {
       activeKey:"1",
       name: "",
       belongingCompany: "",
-      status: undefined,
       exitTime: "",
       type: "1",
       buyTime: "",
@@ -246,13 +245,6 @@ class Circle extends React.Component {
       belongingCompany: value
     })
   }
-  // 资产状态  
-  statusChange(value) {
-    console.log(value);
-    this.setState({
-      status: value
-    })
-  }
   // 预计退场时间
   exitTimeChange(date, dateString) {
     // console.log(dateString);
@@ -303,7 +295,6 @@ class Circle extends React.Component {
     var obj = {};
     obj['name'] = this.state.name;
     obj['companyId'] = this.state.belongingCompany;
-    // obj['status'] = this.state.status;
     obj['exitTime'] = this.state.exitTime;
     obj['type'] = this.state.type;
     obj['buyTime'] = this.state.buyTime;
@@ -407,15 +398,6 @@ class Circle extends React.Component {
             <span className="head">所属工程公司/项目部：</span>
             <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.belongChange.bind(this)}>
               <Option value="jack">局/处/项目部</Option>
-            </Select>
-          </div>
-          <div className="search_item">
-            <span className="head">资产状态：</span>
-            <Select className="btn" showSearch placeholder="请选择" defaultValue={Assetstates} value={this.state.status} onChange={this.statusChange.bind(this)}>
-              {Assetstates.map(Assetstates => (
-                <Select.Option key={Assetstates.key}>{Assetstates.name}</Select.Option>
-              ))}
-
             </Select>
           </div>
           <div className="search_item">

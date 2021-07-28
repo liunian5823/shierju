@@ -7,7 +7,7 @@ import '../../style/index.css';
 import { Input, Select, DatePicker, Tabs, Button, Table, Cascader } from 'antd';
 import options from '../../util/address';
 import Status from '@/twbureau/components/status'
-
+import { Link } from 'react-router-dom'
 const TabPane = Tabs.TabPane;
 const { RangePicker } = DatePicker;
 class Rests extends React.Component {
@@ -127,7 +127,7 @@ class Rests extends React.Component {
                     render: (text, record, index) => <div>
                         <a className="edit" onClick={() => this.inquire(text, record, index)} >查询</a>
                         <a className="edit">修改</a>
-                        <a className="edit">更新状态</a>
+                        <a className="edit" onClick={() => this.changeStatus(text)}>更新状态</a>
                     </div>,
                 }
             ],
@@ -274,12 +274,39 @@ class Rests extends React.Component {
     inquire(text) {
         this.props.history.push('/tw/rests/detail/' + text.id)
     }
-    changeStatus = () => {
-        this.setState({
-            showStatus: true
-        })
+    changeStatus (e){
+        this.state.statusObj = {}
+        this.state.process = []
+        var status = {}
+        var that = this
+        status['id'] =e.id;// 产品id
+        status['name'] = e.name;// 资产名称
+        status['type'] = e.type; // 资产类别
+        status['standards'] = e.standards; // 规格型号
+        status['department'] = e.department; // 资产管理部门
+        status['befoeupdateStatus'] = e.status; // 更新前资产状态
+        status['afterupdateStatus'] = e.afterupdateStatus; // 更新后资产状态
+        status['number1'] = e.number; //数量
+        status['unit1'] = e.unit; //单位
+        status['updateType'] = e.updateType// 0-全部更新；1-部分更新
+        status['restStatus'] = e.updateRemainderStatus;//剩余物资状态
+        status['number2'] = e.updateAfterNumber; //数量 
+        status['unit2'] = e.unit; //单位
+        status['remark'] = e.remark; // 备注
+        that.setState({
+            statusObj: status,
+            showStatus: true,
+        });
     }
-
+    statusModule(value){
+        this.setState({
+            showStatus: value
+        });
+    }
+    entering(text){
+        console.log('123')
+        this.props.history.push('/tw/rests/edit/add/1')
+    }
     render() {
         const tabsData = [{
             key: ' ',
@@ -481,11 +508,13 @@ class Rests extends React.Component {
                 <div className="table">
                     <div className='table-btn'>
                         <div className='table-btn-left'>
-                            <Button type="primary">+ 录入资产信息</Button>
+                             <Link to="/tw/rests/edit/add/1">
+                                <Button type="primary">+ 录入资产信息</Button>
+                            </Link>
                             <Button>导入台账信息</Button>
                             <Button>台账模板下载</Button>
                             {/* 更新状态测试 */}
-                            <Button onClick={this.changeStatus}>测试更新状态</Button> 
+                            {/* <Button onClick={this.changeStatus}>测试更新状态</Button>  */}
                         </div>
                         <Button className='table-btn-right' type="primary">导出</Button>
                     </div>
@@ -512,7 +541,7 @@ class Rests extends React.Component {
                         }
                     </Tabs>
                 </div>
-                <Status visible={this.state.showStatus} step="vertify" status={status} process={process}/>
+                <Status visible={this.state.showStatus} step="vertify" statusModule={this.statusModule.bind(this)} status={status} process={process} history={this.props.history}/>
             </div>
         )
     }

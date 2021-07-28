@@ -337,12 +337,11 @@ class revolving_materials extends React.Component {
         console.log('456')
     }
     changeStatus(e) {
-        console.log(e);
         this.state.statusObj = {}
         this.state.process = []
         var status = {}
-        var process1 = []
         var that = this
+        status['id'] =e.id;// 产品id
         status['name'] = e.name;// 资产名称
         status['type'] = e.type; // 资产类别
         status['standards'] = e.standards; // 规格型号
@@ -351,7 +350,7 @@ class revolving_materials extends React.Component {
         status['afterupdateStatus'] = e.afterupdateStatus; // 更新后资产状态
         status['number1'] = e.number; //数量
         status['unit1'] = e.unit; //单位
-        status['updateType'] = e.updateType == '0' ? 'all' : 'part'; // all-全部更新；part-部分更新
+        status['updateType'] = e.updateType// 0-全部更新；1-部分更新
         status['restStatus'] = e.updateRemainderStatus;//剩余物资状态
         status['number2'] = e.updateAfterNumber; //数量 
         status['unit2'] = e.unit; //单位
@@ -361,7 +360,11 @@ class revolving_materials extends React.Component {
             showStatus: true,
         });
     }
-
+    statusModule(value){
+        this.setState({
+            showStatus: value
+        });
+    }
     render() {
         const tabsData = [{
             key: ' ',
@@ -554,7 +557,7 @@ class revolving_materials extends React.Component {
                         }
                     </Tabs>
                 </div>
-                <Status visible={this.state.showStatus} step="update" status={this.state.statusObj} history={this.props.history} />
+                <Status visible={this.state.showStatus} step="update" status={this.state.statusObj} statusModule={this.statusModule.bind(this)} history={this.props.history} />
             </div>
         )
     }

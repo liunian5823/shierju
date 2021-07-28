@@ -236,7 +236,7 @@ class disposalList extends React.Component {
         this.getUserInfo();
         });
     } 
-        // 资产名称
+    // 资产名称
     handleChange(e) {
         this.setState({
             name: e.target.value
@@ -246,13 +246,6 @@ class disposalList extends React.Component {
     belongChange(value) {
         this.setState({
             belongingCompany: value
-        })
-    }
-    // 资产状态  
-    statusChange(value) {
-        console.log(value);
-        this.setState({
-            status: value
         })
     }
     search() {
@@ -306,38 +299,6 @@ class disposalList extends React.Component {
                 name: '其他循环物资'
             }
         ]
-        const Assetstates = [
-            {
-                key: ' ',
-                name: '全部资产状态'
-            }, {
-                key: '1',
-                name: '在用'
-            }, {
-                key: '2',
-                name: '闲置'
-            }, {
-                key: '3',
-                name: '可周转'
-            },{
-                key: '6',
-                name: '可处置'
-            },{
-                key: '9',
-                name: '可租赁'
-            }, {
-                key: '5',
-                name: '已周转'
-            },  {
-                key: '8',
-                name: '已处置'
-            },  {
-                key: '10',
-                name: '已租赁'
-            }, {
-                key: '11',
-                name: '报废'
-            }]
         return (
             <div>
                 <Breadcrumb location={this.props.match} />
@@ -350,15 +311,6 @@ class disposalList extends React.Component {
                         <span className="head">工程公司/项目部：</span>
                         <Select className="btn" showSearch placeholder="请选择" value={this.state.belongingCompany} onChange={this.belongChange.bind(this)}>
                             <Option value="jack">局/处/项目部</Option>
-                        </Select>
-                    </div>
-                    <div className="search_item">
-                        <span className="head">资产状态：</span>
-                        <Select className="btn" showSearch placeholder="请选择" defaultValue={Assetstates} value={this.state.status} onChange={this.statusChange.bind(this)}>
-                            {Assetstates.map(Assetstates => (
-                                <Select.Option key={Assetstates.key}>{Assetstates.name}</Select.Option>
-                            ))}
-
                         </Select>
                     </div>
                     <div className="search_item">

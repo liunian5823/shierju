@@ -1,6 +1,6 @@
 import '@/framework/axios/axios';
 import qs from 'qs'
-const apis = 'http://10.10.9.66:9999'
+const apis = 'http://10.10.9.65:9999'
 // 自定义判断元素类型JS
 function toType(obj) {
   return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
