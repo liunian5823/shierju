@@ -216,7 +216,6 @@ class SupplierDetails extends React.Component {
   querySubPlatformList = () => {
     api.ajax("GET", "@/sub/subPlatform/querySubPlatformListByUserAndCompany", {
     }).then(r => {
-      
       if(r.code == "200"){
         let spUuid = r.data.filter(i =>{
           //测试已开通显示

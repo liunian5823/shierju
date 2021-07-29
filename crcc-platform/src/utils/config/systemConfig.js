@@ -11,17 +11,18 @@ const temporaryConfig = {
 };
 //test
 const systemConfig_production_test = {
-  axiosUrlQM: 'https://106.39.82.13:8443/api/platform',
-  axiosUrl: 'https://106.39.82.13:8443/api',
-  uploadUrl: 'https://106.39.82.13:8443/api/base/file',
+  axiosUrlQM: '/api/platform',
+  axiosUrl: '/api',
+  uploadUrl: '/api/base/file',
   resourceUrl: 'https://106.39.82.13:8443/', //资源服务器域名
-  ecCaptchaUrl: 'https://106.39.82.13:8443/api', //图片验证码url
+  ecCaptchaUrl: '/api', //图片验证码url
 
   projectNameGaoda: '/static/platform/index.html#',
+  // projectNameGaoda: 'http://localhost:3000/#',
   projectCrccmallPath: '/static/crccmall/#',
   axiosUrlGaoda: '/api',
   dfsPath: '/',
-  downUrl: 'https://106.39.82.13:8443/',
+  downUrl: '/',
   ec_axiosUrl: '/edsServer',
   purchaserUrl: '/static/purchaser/#',
 };
@@ -51,14 +52,14 @@ const systemConfig_production_demo = {
   axiosUrlQM: '/api/platform',
   axiosUrl: '/api',
   uploadUrl: '/api/base/file',
-  resourceUrl: 'https://demo.crccmall.com/', //资源服务器域名
+  resourceUrl: '/', //资源服务器域名
   ecCaptchaUrl: '/api', //图片验证码url
 
   projectNameGaoda: '/#',
   projectCrccmallPath: '/static/crccmall/#',
   axiosUrlGaoda: '/api',
   dfsPath: '/',
-  downUrl: 'http://demo.crccmall.com/',
+  downUrl: '/',
   ec_axiosUrl: '/edsServer',
   purchaserUrl: '/static/purchaser/#',
 };

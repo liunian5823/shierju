@@ -10,7 +10,7 @@ import less from './index.less';
 import BuildList from "./bulidList";
 import UploadFile from '@/components/uploadFile';
 import {filePathDismant} from "@/utils/dom";
-import BaseTable from "components/baseTable";
+import BaseTable from "@/components/baseTable";
 //保证金状态
 const _MAINBIDOBJ = baseService._saleMainBid_obj;
 export default class AccountclearDetail extends React.Component {
@@ -341,7 +341,7 @@ export default class AccountclearDetail extends React.Component {
     }
     //上传成功
     uploadSuccess = (file) => {
-        const formData = this.state.formData;
+       const formData = this.state.formData;
         const f = filePathDismant(file.response.data);
 
         this.setState({
@@ -590,7 +590,7 @@ export default class AccountclearDetail extends React.Component {
                         <Row className="reuse_row">
                             <Col className="reuse_label" span="5">上传附件</Col>
                             <Col className="reuse_value" span="15">
-                                <UploadFile
+                               <UploadFile
                                     className={'upload_s'}
                                     disabled={!!formData.filePath}
                                     tip

@@ -2,11 +2,11 @@ import {Row, Col, Icon, Card, Button, Modal} from 'antd';
 
 import less from './index.less'
 import React from "react";
-import NewForm from "components/newForm";
-import AuthButton from "components/authButton";
-import BaseTabs from "components/baseTabs";
-import SaleBondManage from "business/saleBondManage";
-import BaseTable from "components/baseTable";
+import NewForm from "@/components/newForm";
+// import AuthButton from "components/authButton";
+// import BaseTabs from "components/baseTabs";
+// import SaleBondManage from "business/saleBondManage";
+import BaseTable from "@/components/baseTable";
 
 export default class BuildList extends React.Component {
     constructor(props){

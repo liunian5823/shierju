@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const dir = path.join.bind(path, __dirname);
 const isProd = process.env.NODE_ENV === "production";
-const isDev = process.env.NODE_ENV === "dev";
+const isDev = process.env.NODE_ENV === "development";
 const rootPath = path.resolve(__dirname, '');
 
 const webpack = require("webpack");

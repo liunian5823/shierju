@@ -74,7 +74,12 @@ const devConfig = {
     host: '127.0.0.1',
     port: 3000,
     proxy: {
-      '/jetty': {
+      '/api': {
+        target: 'https://106.39.82.13:8443/',
+        changeOrigin: true,
+        secure: false,
+      },
+      /*'/jetty': {
         logLevel: 'debug',
         target: 'https://test.crccmall.com:8443/api',
         changeOrigin: true,
@@ -178,23 +183,23 @@ const devConfig = {
         },
       },
       //测试统计接口
-      /*'/crcc/statistics': {
+      /!*'/crcc/statistics': {
                 target: 'http://127.0.0.1:8690',
                 changeOrigin: true,
                 secure: false,
                 pathRewrite: {
                     '^/crcc/statistics': ''
                 }
-            },*/
+            },*!/
       //测试platform接口
-      /*'/crcc/platform': {
+      /!*'/crcc/platform': {
                 target: 'http://localhost:8700',
                 changeOrigin: true,
                 secure: false,
                 pathRewrite: {
                     '^/crcc/platform': ''
                 }
-            },*/
+            },*!/
       //测试接口
       '/crcc': {
         target: 'https://test.crccmall.com:8443',
@@ -233,7 +238,7 @@ const devConfig = {
         pathRewrite: {
           '^/qing': '',
         },
-      },
+      },*/
     },
   },
 };

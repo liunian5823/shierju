@@ -65,7 +65,7 @@ class Top extends React.Component {
       const { dispatch } = this.props;
       window.localStorage.setItem('premesSonType', key.key)
       dispatch(setUserAuth());
-	  if(key.key == 'ZWMS' || key.key == 'ZXHS' || key.key == 'DZZB' || key.key == 'ZWMP'){
+	  if(key.key == 'ZWMS' || key.key == 'ZXHS' || key.key == 'DZZB' || key.key == 'ZWMP' || key.key == 'ZCZQ'){
 		  this.props.history.push('/home')
 	  }
     })
@@ -112,6 +112,11 @@ class Top extends React.Component {
             <img src={zhaobiao} width={15} />电子招标
           </div>
         </Menu.Item>
+        <Menu.Item value="直采平台" key="ZCZQ">
+          <div className={less.menu_item_div}>
+            <img src={zhaobiao} width={15} />直采专区
+          </div>
+        </Menu.Item>
       </Menu>
     );
     return (
@@ -131,7 +136,9 @@ class Top extends React.Component {
                 this.state.premesSonType == 'HT' ? '运营管理后台':
                 this.state.premesSonType == 'ZWMS' ? '二三类物资':
                 this.state.premesSonType == 'ZXHS' ? '物资循环':
-                this.state.premesSonType == 'DZZB' ? '电子招标': '运营管理后台'
+                this.state.premesSonType == 'DZZB' ? '电子招标':
+                this.state.premesSonType == 'ZCZQ' ? '直采专区':
+                        '运营管理后台'
               }
               <img src={down} width={12}/>
             </a>

@@ -1,0 +1,70 @@
+.bondDetail .card {
+  box-sizing: border-box;
+  padding: 10px;
+}
+.bondDetail .money {
+  color: #F50F50;
+}
+.bondDetail .title {
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+.bondDetail .title .title_text {
+  padding-left: 40px;
+  position: relative;
+  font-weight: bold;
+}
+.bondDetail .title .title_text::before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #2DB7F5;
+  border-radius: 2px;
+  color: #FFF;
+  text-align: center;
+  font-weight: normal;
+}
+.bondDetail .topMesage {
+  width: 60%;
+  display: block;
+  height: 100%;
+}
+.bondDetail .rightspan {
+  width: 40%;
+  display: block;
+  float: left;
+}
+.bondDetail .flex {
+  display: flex;
+  justify-content: space-between;
+}
+.bondDetail .examine {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+}
+.bondDetail .examine .examine_status_no {
+  color: #FA9B13;
+}
+.bondDetail .examine .examine_status_ing {
+  color: #FA9B13;
+}
+.bondDetail .examine .examine_status_was {
+  color: #FA9B13;
+}
+.bondDetail .inputwidth {
+  width: 100px;
+}
+.textcolor {
+  box-sizing: border-box;
+  padding-left: 20px !important;
+  word-break: break-all;
+  color: #2DB7F5;
+  text-decoration: underline;
+}

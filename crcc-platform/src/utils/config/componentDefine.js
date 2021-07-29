@@ -87,6 +87,28 @@ const getPagination_ = function (pagination, onChange, onShowSizeChange) {
     };
 };
 
+const form_ = {
+    layout: {
+        style: {
+            display: "table",
+            lineHeight: "22px"
+        },
+        labelCol: {
+            style: {
+                float: "left",
+                width: 98
+            }
+        },
+        wrapperCol: {
+            style: {
+                display: "table-cell",
+                width: "100%",
+                verticalAlign: "middle"
+            }
+        }
+    }
+}
+
 module.exports = {
-    antModal_, table_, tablePagination_, getPagination_, btnName_, row_, upload_, upload_suntray
+    antModal_, table_, tablePagination_, getPagination_, btnName_, row_, upload_, upload_suntray, form_
 }

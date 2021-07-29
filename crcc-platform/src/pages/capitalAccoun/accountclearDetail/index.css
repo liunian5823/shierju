@@ -1,0 +1,232 @@
+.bondDetail .card {
+  box-sizing: border-box;
+  padding: 10px;
+}
+.bondDetail .money {
+  color: #F50F50;
+}
+.bondDetail .title {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+.bondDetail .title .title_text {
+  padding-left: 70px;
+  position: relative;
+  font-weight: bold;
+}
+.bondDetail .title .title_text::before {
+  content: "部门";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: #2DB7F5;
+  border-radius: 2px;
+  color: #FFF;
+  text-align: center;
+  font-weight: normal;
+}
+.bondDetail .floatright {
+  float: right;
+}
+.bondDetail .textcolor {
+  box-sizing: border-box;
+  padding-left: 20px !important;
+  word-break: break-all;
+  color: #2DB7F5;
+  text-decoration: underline;
+}
+.bondDetail .note {
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 38px;
+}
+.bondDetail .notedetal {
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}
+.bondDetail .colorred {
+  color: red;
+  font-size: 20px;
+}
+.bondDetail .topMesage {
+  width: 50%;
+  display: block;
+  height: 100%;
+}
+.bondDetail .wid40 {
+  width: 50%;
+  display: block;
+  margin-left: 50%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.bondDetail .wid50 {
+  width: 50%;
+  display: block;
+  margin-left: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.bondDetail .th {
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.bondDetail .fonts20 {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  text-align: right;
+}
+.bondDetail .fontsred20 {
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+}
+.bondDetail .rightspan {
+  width: 50%;
+  display: block;
+  float: left;
+}
+.bondDetail .disleft {
+  width: 60%;
+}
+.bondDetail .disright {
+  width: 40%;
+}
+.bondDetail .borderbottom {
+  border-bottom: 1px solid black;
+}
+.bondDetail .mb100 {
+  margin-bottom: 100px;
+}
+.bondDetail .mb50 {
+  margin-bottom: 50px;
+}
+.bondDetail .colorbottred {
+  box-sizing: border-box;
+  padding-left: 20px !important;
+  word-break: break-all;
+  color: red;
+}
+.bondDetail .flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+.bondDetail .examine {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+}
+.bondDetail .examine .examine_status_no {
+  color: #FA9B13;
+}
+.bondDetail .examine .examine_status_ing {
+  color: #FA9B13;
+}
+.bondDetail .examine .examine_status_was {
+  color: #FA9B13;
+}
+.bondDetail .inputwidth {
+  width: 100px;
+}
+.padlr100 {
+  padding: 0 0 0 100px;
+}
+.dasling {
+  padding: 0 0 0 35px;
+  margin-bottom: 20px;
+}
+.detaileft {
+  width: 60%;
+  position: relative;
+}
+.detairight {
+  width: 40%;
+  position: relative;
+}
+.toptipsleft,
+.toptipsright {
+  height: 32px;
+  border-radius: 0px 0px 16px 0px;
+  position: absolute;
+  top: -34px;
+  left: -24px;
+  padding: 0 15px;
+  line-height: 32px;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+.toptipsleft {
+  background: #FA6400;
+}
+.toptipsright {
+  background: #44D7B6;
+}
+.fonts28 {
+  font-size: 28px;
+  font-weight: bold;
+}
+.colorleft {
+  color: #FA6400;
+}
+.colorright {
+  color: #44D7B6;
+}
+.fontwblod {
+  font-weight: bold;
+  font-size: 18px;
+}
+.fonts14 {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.texright {
+  text-align: right !important;
+  color: #666 !important;
+}
+.colorbacl {
+  font-size: 14px;
+  width: 320px;
+  background: #FFFAE2;
+  border: 1px solid #FFE9A5;
+  padding: 11px 17px;
+  color: rgba(0, 0, 0, 0.45);
+}
+.colornother {
+  color: #FA6400;
+}
+.cardledt {
+  text-align: right;
+  line-height: 33px;
+  margin-right: 10px  ;
+  width: 510px;
+}
+.cardacc {
+  width: 285px;
+  height: 151px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 20px;
+}
+.cardaccord {
+  border-color: red;
+}
+.huikuan {
+  font-size: 19px;
+  color: #515151;
+}
+.fonts18 {
+  font-size: 18px;
+}

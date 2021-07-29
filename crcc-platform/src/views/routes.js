@@ -318,11 +318,34 @@ import CustomerMargin from "bundle-loader?lazy&name=customerMargin!@/pages/custo
 import CustomerDel from "bundle-loader?lazy&name=CustomerDel!@/pages/customer/del";
 
 //不明来款清分
-import AccountClear from "bundle-loader?lazy&name=AccountClear!@/pages/capitalAccoun/accountClear";
-import AccountclearDetail from "bundle-loader?lazy&name=AccountclearDetail!@/pages/capitalAccoun/AccountclearDetail";//详情
+// import AccountClear from "bundle-loader?lazy&name=AccountClear!@/pages/capitalAccoun/accountClear";
+// import AccountclearDetail from "bundle-loader?lazy&name=AccountclearDetail!@/pages/capitalAccoun/AccountclearDetail";//详情
 
 //不明来款清分-复核
-import AccountReview from "bundle-loader?lazy&name=AccountReview!@/pages/capitalAccoun/accountReview";
+// import AccountReview from "bundle-loader?lazy&name=AccountReview!@/pages/capitalAccoun/accountReview";
+
+//挂账清分列表
+import XhFinanceHang from "bundle-loader?lazy&name=XhFinanceHang!@/pages/xhFinanceHang/clearing";
+//挂账清分详情页面
+import XhFinanceHangDetail from "bundle-loader?lazy&name=xhFinanceHangDetail!@/pages/xhFinanceHang/clearing/detail";
+
+//挂账清分复核列表
+import XHFinanceApprovalHangList from "bundle-loader?lazy&name=XHFinanceApprovalHangList!@/pages/xhFinanceHang/approval";
+//挂账清分复核审核页面
+import XHFinanceApprovalHangDetail from "bundle-loader?lazy&name=XHFinanceApprovalHangDetail!@/pages/xhFinanceHang/approval/detail";
+
+//供应商直采审核列表
+import fristHandApprovalList from "bundle-loader?lazy&name=XHFinanceApprovalHangDetail!@/pages/fristHandApproval/list";
+
+//直采专区栏位
+import FirsthandDpBoothGoodsList from "bundle-loader?lazy&name=FirsthandDpBoothGoodsList!@/pages/firsthand/boothGoods";
+//合同关联商品列表
+import ContractGoodsList from "bundle-loader?lazy&name=FirsthandDpBoothGoodsList!@/pages/firsthand/contractGoods";
+import ContractApprovalDetail from "bundle-loader?lazy&name=contractApprovalDetail!@/pages/firsthand/detail";
+import FirsthandContractRelease from "bundle-loader?lazy&name=firsthandContractRelease!@/pages/firsthand/firsthandContractRelease";
+import FirsthandContractList from "bundle-loader?lazy&name=firsthandContractRelease!@/pages/firsthand/firsthandContractList";
+import ContractDetail from "bundle-loader?lazy&name=contractDetail!@/pages/firsthand/contractDetail";
+
 /***
  * 1.路由需要填入类型，地址，组件，
  * 2.如果该地址有子地址，需要增加进行精准匹配： exact:true
@@ -641,12 +664,39 @@ const routes = [
 
 	 // 客服中心
      { type: "route", path: "/customer/margin", component: bundle(Empty, CustomerMargin, { type: "callback" }) },
-     { type: "route", path: "/customer/del", component: bundle(Empty, CustomerDel, { type: "callback" }) },
+     { type: "route", path: "/customer/del/:uuids", component: bundle(Empty, CustomerDel, { type: "callback" }) },
      // 财务管理
-	 { type: "route", path: "/capitalAccoun/accountClear/", component: bundle(Empty, AccountClear, { type: "callback" }) },
+	/* { type: "route", path: "/capitalAccoun/accountClear/", component: bundle(Empty, AccountClear, { type: "callback" }) },
      { type: "route", path: "/capitalAccoun/accountclearDetail/", component: bundle(Empty, AccountclearDetail, { type: "callback" }) },
-	 { type: "route", path: "/capitalAccoun/accountReview/", component: bundle(Empty, AccountReview, { type: "callback" }) },//复核
- 
+	 { type: "route", path: "/capitalAccoun/accountReview/", component: bundle(Empty, AccountReview, { type: "callback" }) },//复核*/
+	 //循环物资挂账清分列表
+	 { type: "route", path: "/xhFinanceHang/financeList", component: bundle(Empty, XhFinanceHang, { type: "callback" }) },//挂账清分
+
+	 { type: "route", path: "/xhFinanceHang/financeDetail/:uuids", component: bundle(Empty, XhFinanceHangDetail, { type: "callback" }) },//挂账清分
+
+	 //循环物资挂账清分复核列表
+	 { type: "route", path: "/xhFinanceHang/financeApprovalList", component: bundle(Empty, XHFinanceApprovalHangList, { type: "callback" }) },//复核
+
+	 //循环物资挂账清分复核详情
+	 { type: "route", path: "/xhFinanceHang/financeApprovalDetail/:uuids", component: bundle(Empty, XHFinanceApprovalHangDetail, { type: "callback" }) },//复核
+
+	//直采供应商审核
+	{ type: "route", path: "/firsthand/approvalSupplierList", component: bundle(Empty, 	fristHandApprovalList, { type: "callback" }) },//复核
+
+
+	//直采专区栏位
+	{ type: "route", path: "/firsthand/boothGoods", component: bundle(Empty, FirsthandDpBoothGoodsList, { type: "callback" }) },
+	//合同关联商品管理
+	{ type: "route", path: "/firsthand/contractGoodsList", component: bundle(Empty, ContractGoodsList, { type: "callback" }) },
+	{ type: "route", path: "/firsthand/contractGoodsDetail", component: bundle(Empty, ContractApprovalDetail, { type: "callback" }) },
+	//直采合同新增
+	{ type: "route", path: "/firsthand/firsthandContractRelease", component: bundle(Empty, FirsthandContractRelease, { type: "callback" }) },
+	{ type: "route", path: "/firsthand/firsthandContractList", component: bundle(Empty, FirsthandContractList, { type: "callback" }) },
+	{ type: "route", path: "/firsthand/contractDetail", component: bundle(Empty, ContractDetail, { type: "callback" }) },
+
+
 	{ type: "route", component: NoAu },
+
+
 ];
 export default routes;
