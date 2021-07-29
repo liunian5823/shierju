@@ -342,310 +342,310 @@ const routes = [
     { type: "route", path: "/reuse/bidManagement/details/:uuids", component: bundle(Empty, ReuseBidManagementDetails, { type: "callback" }), exact: true },
 	{ type: "route", path: "/reuse/channelManagement", component: bundle(Empty, ReuseChannelManagement, { type: "callback" }), exact: true },
 	/*竞价管理 */
-	{ type: "route", path: "/platInvoice/bidlist/bidDetail/:uuids", component: bundle(Empty, BidDetail, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/reglist/regdetailView/:type/:uuids/:contendUuids", component: bundle(Empty, RegDetailFn, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/reglist/regdetailAcceptance/:type/:uuids/:contendUuids", component: bundle(Empty, RegDetailFn, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/reglist/regdetailHandle/:type/:uuids/:contendUuids", component: bundle(Empty, RegDetailFn, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/bidlist", component: bundle(Empty, BidListFn, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/reglist", component: bundle(Empty, RegListFn, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/bidlist/bidDetail/:uuids", component: bundle(Empty, BidDetail, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/reglist/regdetailView/:type/:uuids/:contendUuids", component: bundle(Empty, RegDetailFn, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/reglist/regdetailAcceptance/:type/:uuids/:contendUuids", component: bundle(Empty, RegDetailFn, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/reglist/regdetailHandle/:type/:uuids/:contendUuids", component: bundle(Empty, RegDetailFn, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/bidlist", component: bundle(Empty, BidListFn, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/reglist", component: bundle(Empty, RegListFn, { type: "callback" }) },
 
-	{ type: "route", path: "/home", component: bundle(Empty, HomeFn, { type: "callback" }) },
-	{ type: "route", path: "/message/messageList", component: bundle(Empty, MessageList, { type: "callback" }) },
-	// 二三类消息
-	{ type: "route", path: "/messageNew/messageList", component: bundle(Empty, MessageListNew, { type: "callback" }) },
-	// 物资循环消息
+	// { type: "route", path: "/home", component: bundle(Empty, HomeFn, { type: "callback" }) },
+	// { type: "route", path: "/message/messageList", component: bundle(Empty, MessageList, { type: "callback" }) },
+	// // 二三类消息
+	// { type: "route", path: "/messageNew/messageList", component: bundle(Empty, MessageListNew, { type: "callback" }) },
+	// // 物资循环消息
 	{ type: "route", path: "/messageReuse/messageList", component: bundle(Empty, MessageListReuse, { type: "callback" }) },
-	// 电子招标消息
-	{ type: "route", path: "/messageTender/messageList", component: bundle(Empty, MessageListTender, { type: "callback" }) },
-	// 个人中心消息列表
-	{ type: "route", path: "/message/centerMessageList", component: bundle(Empty, CenterMessageList, { type: "callback" }) },
-    { type: "route", path: "/contract/signatureManagementList", component: bundle(Empty, signatureManagementList, { type: "callback" }) },/*平台协议签章管理*/
-    { type: "route", path: "/contract/supplySignatureManagementList", component: bundle(Empty, supplySignatureManagementList, { type: "callback" }) },/*平台补充协议签章管理*/
-	/***平台管理后台***/
-	/*系统管理*/
-	{ type: "route", path: "/sys/menu", component: bundle(Empty, Menu, { type: "callback" }) },
-	/*组织管理*/
-	{ type: "route", path: "/orgManagement/subAccount", component: bundle(Empty, SubAccount, { type: "callback" }), exact: true },
-	{ type: "route", path: "/orgManagement/subAccount/details/:uuids?/:managerFlag?", component: bundle(Empty, SubAccountDetails, { type: "callback" }) },
-	{ type: "route", path: "/orgManagement/role", component: bundle(Empty, Role, { type: "callback" }), exact: true },
-	{ type: "route", path: "/orgManagement/role/edit/:uuids?/:id?", component: bundle(Empty, RoleEdit, { type: "callback" }) },
-	{ type: "route", path: "/orgManagement/role/details/:uuids/:id", component: bundle(Empty, RoleDetails, { type: "callback" }) },
+	// // 电子招标消息
+	// { type: "route", path: "/messageTender/messageList", component: bundle(Empty, MessageListTender, { type: "callback" }) },
+	// // 个人中心消息列表
+	// { type: "route", path: "/message/centerMessageList", component: bundle(Empty, CenterMessageList, { type: "callback" }) },
+  //   { type: "route", path: "/contract/signatureManagementList", component: bundle(Empty, signatureManagementList, { type: "callback" }) },/*平台协议签章管理*/
+  //   { type: "route", path: "/contract/supplySignatureManagementList", component: bundle(Empty, supplySignatureManagementList, { type: "callback" }) },/*平台补充协议签章管理*/
+	// /***平台管理后台***/
+	// /*系统管理*/
+	// { type: "route", path: "/sys/menu", component: bundle(Empty, Menu, { type: "callback" }) },
+	// /*组织管理*/
+	// { type: "route", path: "/orgManagement/subAccount", component: bundle(Empty, SubAccount, { type: "callback" }), exact: true },
+	// { type: "route", path: "/orgManagement/subAccount/details/:uuids?/:managerFlag?", component: bundle(Empty, SubAccountDetails, { type: "callback" }) },
+	// { type: "route", path: "/orgManagement/role", component: bundle(Empty, Role, { type: "callback" }), exact: true },
+	// { type: "route", path: "/orgManagement/role/edit/:uuids?/:id?", component: bundle(Empty, RoleEdit, { type: "callback" }) },
+	// { type: "route", path: "/orgManagement/role/details/:uuids/:id", component: bundle(Empty, RoleDetails, { type: "callback" }) },
 
-	/* 供应商管理-新加的 */
-	{ type: "route", path: "/materialsUser/materialsUserManage", component: bundle(Empty, MaterialsUserManage, { type: "callback" }), exact: true },
-	{ type: "route", path: "/materialsUser/materialsUserManage/add", component: bundle(Empty, MaterialsUserManageAdd, { type: "callback" }) },
-	{ type: "route", path: "/materialsUser/materialsUserManage/details/:id", component: bundle(Empty, SupplierDetails, { type: "callback" }) },
-	/* 供应商管理 */
-	{ type: "route", path: "/supplierManagement/supplierManagement", component: bundle(Empty, SupplierManagement, { type: "callback" }), exact: true },
-	{ type: "route", path: "/supplierManagement/supplierManagement/add", component: bundle(Empty, AddSupplier, { type: "callback" }) },
-	{ type: "route", path: "/supplierManagement/supplierManagement/details/:id", component: bundle(Empty, MaterialsUserManageDetails, { type: "callback" }) },
+	// /* 供应商管理-新加的 */
+	// { type: "route", path: "/materialsUser/materialsUserManage", component: bundle(Empty, MaterialsUserManage, { type: "callback" }), exact: true },
+	// { type: "route", path: "/materialsUser/materialsUserManage/add", component: bundle(Empty, MaterialsUserManageAdd, { type: "callback" }) },
+	// { type: "route", path: "/materialsUser/materialsUserManage/details/:id", component: bundle(Empty, SupplierDetails, { type: "callback" }) },
+	// /* 供应商管理 */
+	// { type: "route", path: "/supplierManagement/supplierManagement", component: bundle(Empty, SupplierManagement, { type: "callback" }), exact: true },
+	// { type: "route", path: "/supplierManagement/supplierManagement/add", component: bundle(Empty, AddSupplier, { type: "callback" }) },
+	// { type: "route", path: "/supplierManagement/supplierManagement/details/:id", component: bundle(Empty, MaterialsUserManageDetails, { type: "callback" }) },
 
-	{ type: "route", path: "/supplierManagement/supplierEvaluation", component: bundle(Empty, SupplierEvaluation, { type: "callback" }) },
-	{ type: "route", path: "/supplierManagement/supplierBlacklist", component: bundle(Empty, SupplierBlacklist, { type: "callback" }), exact: true },
-	{ type: "route", path: "/supplierManagement/supplierBlacklist/details/:uuids", component: bundle(Empty, SupplierBlacklistDetails, { type: "callback" }) },
+	// { type: "route", path: "/supplierManagement/supplierEvaluation", component: bundle(Empty, SupplierEvaluation, { type: "callback" }) },
+	// { type: "route", path: "/supplierManagement/supplierBlacklist", component: bundle(Empty, SupplierBlacklist, { type: "callback" }), exact: true },
+	// { type: "route", path: "/supplierManagement/supplierBlacklist/details/:uuids", component: bundle(Empty, SupplierBlacklistDetails, { type: "callback" }) },
 
-	{ type: "route", path: "/supplierManagement/corporateBlacklist", component: bundle(Empty, CorporateBlacklist, { type: "callback" }), exact: true },
-	{ type: "route", path: "/supplierManagement/corporateBlacklist/details/:uuids", component: bundle(Empty, CorporateBlacklistDetails, { type: "callback" }) },
-	{ type: "route", path: "/supplierManagement/vrq", component: bundle(Empty, ViolationRecordQuery, { type: "callback" }) },
-	{ type: "route", path: "/ecUserApprovalLog/queryBackLogByName", component: bundle(Empty, QueryBackLogByName, { type: "callback" }), exact: true },//客服中心，代办查询
-	{ type: "route", path: "/officeGoodsStatistics", component: bundle(Empty, ThirdGoodsStatistics, { type: "callback" }), exact: true }, //办公用品导入统计 周宝
-	{ type: "route", path: "/ecUserApprovalLog/queryBackLogByName/audit/:uuids", component: bundle(Empty, QueryBackLogByNameBasic, { type: "callback" }) },
-	{ type: "route", path: "/ecUserApprovalLog/queryBackLogByName/audits/:uuids", component: bundle(Empty, QueryBackLogByNameBasics, { type: "callback" }) },
-	{ type: "route", path: "/ecUserApprovalLog/queryBackLogByName/auditss/:uuids", component: bundle(Empty, QueryBackLogByNameBasicss, { type: "callback" }) },
-	{ type: "route", path: "/ecUserApprovalLog/queryBackLogByName/details/:id", component: bundle(Empty, QueryBackLogByNameDetails, { type: "callback" }) },
-	{ type: "route", path: "/supplierManagement/supplyImportExcel", component: bundle(Empty, SupplyImportExcel, { type: "callback" }) },
-	/* 黑名单 */
-	{ type: "route", path: "/supplierManagement/supplierBlacklistNew", component: bundle(Empty, supplierBlacklistNew, { type: "callback" }), exact: true },
-	{ type: "route", path: "/supplierManagement/supplierBlacklistNew/details/:uuids", component: bundle(Empty, supplierBlacklistDetailsNew, { type: "callback" }) },
+	// { type: "route", path: "/supplierManagement/corporateBlacklist", component: bundle(Empty, CorporateBlacklist, { type: "callback" }), exact: true },
+	// { type: "route", path: "/supplierManagement/corporateBlacklist/details/:uuids", component: bundle(Empty, CorporateBlacklistDetails, { type: "callback" }) },
+	// { type: "route", path: "/supplierManagement/vrq", component: bundle(Empty, ViolationRecordQuery, { type: "callback" }) },
+	// { type: "route", path: "/ecUserApprovalLog/queryBackLogByName", component: bundle(Empty, QueryBackLogByName, { type: "callback" }), exact: true },//客服中心，代办查询
+	// { type: "route", path: "/officeGoodsStatistics", component: bundle(Empty, ThirdGoodsStatistics, { type: "callback" }), exact: true }, //办公用品导入统计 周宝
+	// { type: "route", path: "/ecUserApprovalLog/queryBackLogByName/audit/:uuids", component: bundle(Empty, QueryBackLogByNameBasic, { type: "callback" }) },
+	// { type: "route", path: "/ecUserApprovalLog/queryBackLogByName/audits/:uuids", component: bundle(Empty, QueryBackLogByNameBasics, { type: "callback" }) },
+	// { type: "route", path: "/ecUserApprovalLog/queryBackLogByName/auditss/:uuids", component: bundle(Empty, QueryBackLogByNameBasicss, { type: "callback" }) },
+	// { type: "route", path: "/ecUserApprovalLog/queryBackLogByName/details/:id", component: bundle(Empty, QueryBackLogByNameDetails, { type: "callback" }) },
+	// { type: "route", path: "/supplierManagement/supplyImportExcel", component: bundle(Empty, SupplyImportExcel, { type: "callback" }) },
+	// /* 黑名单 */
+	// { type: "route", path: "/supplierManagement/supplierBlacklistNew", component: bundle(Empty, supplierBlacklistNew, { type: "callback" }), exact: true },
+	// { type: "route", path: "/supplierManagement/supplierBlacklistNew/details/:uuids", component: bundle(Empty, supplierBlacklistDetailsNew, { type: "callback" }) },
 
 
-	/* 采购商管理 */
-	{ type: "route", path: "/purchaser/purchaser", component: bundle(Empty, Purchaser, { type: "callback" }) },
-	{ type: "route", path: "/purchaser/addPurchaser", component: bundle(Empty, AddPurchaser, { type: "callback" }) },
-	{ type: "route", path: "/purchaser/editPurchaser/:uuids", component: bundle(Empty, EditPurchaser, { type: "callback" }) },
-	{ type: "route", path: "/purchaser/detailPurchaser/:uuids/:companyId", component: bundle(Empty, DetailPurchaser, { type: "callback" }) },
-	{ type: "route", path: "/purchaser/detailOrganization/:uuids", component: bundle(Empty, DetailOrganization, { type: "callback" }) },
-	/* 推荐供应商统计 */
-    { type: "route", path: "/purchaser/twoLevelCompany", component: bundle(Empty, TwoLevelCompany, { type: "callback" })},
-    { type: "route", path: "/purchaser/threeLevelCompany", component: bundle(Empty, ThreeLevelCompany, { type: "callback" })},
-    { type: "route", path: "/purchaser/threeLevelCompanyUser", component: bundle(Empty, ThreeLevelCompanyUser, { type: "callback" })},
-    { type: "route", path: "/purchaser/recommendedSupplier", component: bundle(Empty, RecommendedSupplier, { type: "callback" })},
-	/*挂账异常记录*/
-    { type: "route", path: "/financialCenter/financeHang", component: bundle(Empty, FinanceHang, { type: "callback" })},
-    { type: "route", path: "/financialCenter/detailFinanceHang", component: bundle(Empty, DetailFinanceHang, { type: "callback" })},
-	{ type: "route", path: "/financialCenter/handleFinanceHang", component: bundle(Empty, HandleFinanceHang, { type: "callback" })},
-	/*新挂账异常记录*/
-    { type: "route", path: "/financialCenter/financeHangNew", component: bundle(Empty, FinanceHangNew, { type: "callback" })},
-    { type: "route", path: "/financialCenter/detailFinanceHangNew/:workOrdersId/:id", component: bundle(Empty, DetailFinanceHangNew, { type: "callback" })},
-    { type: "route", path: "/financialCenter/handleFinanceHangNew/:workOrdersId/:id", component: bundle(Empty, HandleFinanceHangNew, { type: "callback" })},
-    { type: "route", path: "/financialCenter/acceptance/:workOrdersId/:id", component: bundle(Empty, Acceptance, { type: "callback" })},
+	// /* 采购商管理 */
+	// { type: "route", path: "/purchaser/purchaser", component: bundle(Empty, Purchaser, { type: "callback" }) },
+	// { type: "route", path: "/purchaser/addPurchaser", component: bundle(Empty, AddPurchaser, { type: "callback" }) },
+	// { type: "route", path: "/purchaser/editPurchaser/:uuids", component: bundle(Empty, EditPurchaser, { type: "callback" }) },
+	// { type: "route", path: "/purchaser/detailPurchaser/:uuids/:companyId", component: bundle(Empty, DetailPurchaser, { type: "callback" }) },
+	// { type: "route", path: "/purchaser/detailOrganization/:uuids", component: bundle(Empty, DetailOrganization, { type: "callback" }) },
+	// /* 推荐供应商统计 */
+  //   { type: "route", path: "/purchaser/twoLevelCompany", component: bundle(Empty, TwoLevelCompany, { type: "callback" })},
+  //   { type: "route", path: "/purchaser/threeLevelCompany", component: bundle(Empty, ThreeLevelCompany, { type: "callback" })},
+  //   { type: "route", path: "/purchaser/threeLevelCompanyUser", component: bundle(Empty, ThreeLevelCompanyUser, { type: "callback" })},
+  //   { type: "route", path: "/purchaser/recommendedSupplier", component: bundle(Empty, RecommendedSupplier, { type: "callback" })},
+	// /*挂账异常记录*/
+  //   { type: "route", path: "/financialCenter/financeHang", component: bundle(Empty, FinanceHang, { type: "callback" })},
+  //   { type: "route", path: "/financialCenter/detailFinanceHang", component: bundle(Empty, DetailFinanceHang, { type: "callback" })},
+	// { type: "route", path: "/financialCenter/handleFinanceHang", component: bundle(Empty, HandleFinanceHang, { type: "callback" })},
+	// /*新挂账异常记录*/
+  //   { type: "route", path: "/financialCenter/financeHangNew", component: bundle(Empty, FinanceHangNew, { type: "callback" })},
+  //   { type: "route", path: "/financialCenter/detailFinanceHangNew/:workOrdersId/:id", component: bundle(Empty, DetailFinanceHangNew, { type: "callback" })},
+  //   { type: "route", path: "/financialCenter/handleFinanceHangNew/:workOrdersId/:id", component: bundle(Empty, HandleFinanceHangNew, { type: "callback" })},
+  //   { type: "route", path: "/financialCenter/acceptance/:workOrdersId/:id", component: bundle(Empty, Acceptance, { type: "callback" })},
 	
-	/*挂账复核记录*/
-    { type: "route", path: "/financialCenter/financeReview", component: bundle(Empty, FinanceReview, { type: "callback" })},
-    // { type: "route", path: "/financialCenter/detailFinanceReview/:workOrdersId", component: bundle(Empty, DetailFinanceReview, { type: "callback" })},
-    { type: "route", path: "/financialCenter/detailFinanceReview", component: bundle(Empty, DetailFinanceReview, { type: "callback" })},
-    { type: "route", path: "/financialCenter/auditFinanceReview", component: bundle(Empty, AuditFinanceReview, { type: "callback" })},
+	// /*挂账复核记录*/
+  //   { type: "route", path: "/financialCenter/financeReview", component: bundle(Empty, FinanceReview, { type: "callback" })},
+  //   // { type: "route", path: "/financialCenter/detailFinanceReview/:workOrdersId", component: bundle(Empty, DetailFinanceReview, { type: "callback" })},
+  //   { type: "route", path: "/financialCenter/detailFinanceReview", component: bundle(Empty, DetailFinanceReview, { type: "callback" })},
+  //   { type: "route", path: "/financialCenter/auditFinanceReview", component: bundle(Empty, AuditFinanceReview, { type: "callback" })},
 
-	/* 新结算单详情 */
-	{ type: "route", path: "/financialCenter/platSettlementListNew/settlementDetailNew/:id/:uuids", component: bundle(Empty, SettlementDetailNew, { type: "callback" })},
-	{ type: "route", path: "/financialManagement/settlevoucher", component: bundle(Empty, SettleVoucher, { type: "callback" })},
-	// <Route path="/financialManagement/settlevoucher" component={createComponent(SettleVoucher)}></Route>
-	/* 采购商结算单详情 */
-	{ type: "route", path: "/financialCenter/purchaserSettlementDetail/:uuids", component: bundle(Empty, PurchaserSettlementDetail, { type: "callback" })},
-	/* 新采购商结算单详情 */
-    // { type: "route", path: "/financialCenter/purchaserSettlementDetailNew/:uuids", component: bundle(Empty, PurchaserSettlementDetailNew, { type: "callback" })},
+	// /* 新结算单详情 */
+	// { type: "route", path: "/financialCenter/platSettlementListNew/settlementDetailNew/:id/:uuids", component: bundle(Empty, SettlementDetailNew, { type: "callback" })},
+	// { type: "route", path: "/financialManagement/settlevoucher", component: bundle(Empty, SettleVoucher, { type: "callback" })},
+	// // <Route path="/financialManagement/settlevoucher" component={createComponent(SettleVoucher)}></Route>
+	// /* 采购商结算单详情 */
+	// { type: "route", path: "/financialCenter/purchaserSettlementDetail/:uuids", component: bundle(Empty, PurchaserSettlementDetail, { type: "callback" })},
+	// /* 新采购商结算单详情 */
+  //   // { type: "route", path: "/financialCenter/purchaserSettlementDetailNew/:uuids", component: bundle(Empty, PurchaserSettlementDetailNew, { type: "callback" })},
 
-	/* 供应商结算单详情 */
-	{ type: "route", path: "/financialCenter/supplierSettlementDetail/:uuids", component: bundle(Empty, SupplierSettlementDetail, { type: "callback" })},
-	/* 新供应商结算单详情 */
-    // { type: "route", path: "/financialCenter/supplierSettlementDetailNew/:uuids", component: bundle(Empty, SupplierSettlementDetailNew, { type: "callback" })},
+	// /* 供应商结算单详情 */
+	// { type: "route", path: "/financialCenter/supplierSettlementDetail/:uuids", component: bundle(Empty, SupplierSettlementDetail, { type: "callback" })},
+	// /* 新供应商结算单详情 */
+  //   // { type: "route", path: "/financialCenter/supplierSettlementDetailNew/:uuids", component: bundle(Empty, SupplierSettlementDetailNew, { type: "callback" })},
 
-	/*供应商资质*/
-    { type: "route", path: "/supplier/recommendedSupplier", component: bundle(Empty, SupplierAptitudeDetail, { type: "callback" })},
-    //询价单管理
-    { type: "route", path: "/platInvoice/inquiryManagement", component: bundle(Empty, InquiryManagement, { type: "callback" }) },
-    { type: "route", path: "/platInvoice/inquiryDetail/:uuids", component: bundle(Empty, InquiryDetail, { type: "callback" }) },
-    { type: "route", path: "/inquiry/inquiryWithoutDetail", component: bundle(Empty, InquiryWithoutDetail, { type: "callback" }) },
-	/* 审核管理 */
-	{ type: "route", path: "/auditManagement/auditAppeal", component: bundle(Empty, AuditAppeal, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/basicAudit", component: bundle(Empty, BasicAudit, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/basicAudit/audit/:uuids", component: bundle(Empty, AuditForBasic, { type: "callback" }) },
-	{ type: "route", path: "/auditManagement/basicAudit/details/:id/:state", component: bundle(Empty, BasicAuditDetails, { type: "callback" }) },
-	{ type: "route", path: "/auditManagement/backgroundAudit", component: bundle(Empty, BackgroundAudit, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/backgroundAudit/audit/:cuuids/:wuuids", component: bundle(Empty, AuditForBg, { type: "callback" }) },
-	{ type: "route", path: "/auditManagement/backgroundAudit/details/:id", component: bundle(Empty, BgAuditDetails, { type: "callback" }) },
-	{ type: "route", path: "/auditManagement/RCBasicAudit", component: bundle(Empty, RCBasicAudit, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/RCBasicAudit/audit/:uuids", component: bundle(Empty, RCAuditForBasic, { type: "callback" }) },
-	{ type: "route", path: "/auditManagement/RCBasicAudit/details/:uuids", component: bundle(Empty, RCAuditDetails, { type: "callback" }) },
-	{ type: "route", path: "/auditManagement/auditSettings", component: bundle(Empty, AuditSettings, { type: "callback" }) },
-	{ type: "route", path: "/auditManagement/subPlatformAudit", component: bundle(Empty, SubPlatformAudit, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/subPlatformAudit/audit/:types/:appuuids/:companyId", component: bundle(Empty, SubPlatformDetails, { type: "callback" })},
-	{ type: "route", path: "/auditManagement/suppliesPurchase", component: bundle(Empty, SuppliesPurchase, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/suppliesPurchase/audit/:types/:appuuids/:companyId", component: bundle(Empty, SuppliesPurchaseDetails, { type: "callback" })},
-	{ type: "route", path: "/auditManagement/suppliesSale", component: bundle(Empty, SuppliesSale, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/suppliesSale/audit/:types/:appuuids/:companyId", component: bundle(Empty, SuppliesSaleDetails, { type: "callback" })},
-	{ type: "route", path: "/auditManagement/officeSupplies", component: bundle(Empty, OfficeSupplies, { type: "callback" }), exact: true },
-	{ type: "route", path: "/auditManagement/officeSupplies/audit/:types/:appuuids/:companyId", component: bundle(Empty, OfficeSuppliesDetails, { type: "callback" })},
+	// /*供应商资质*/
+  //   { type: "route", path: "/supplier/recommendedSupplier", component: bundle(Empty, SupplierAptitudeDetail, { type: "callback" })},
+  //   //询价单管理
+  //   { type: "route", path: "/platInvoice/inquiryManagement", component: bundle(Empty, InquiryManagement, { type: "callback" }) },
+  //   { type: "route", path: "/platInvoice/inquiryDetail/:uuids", component: bundle(Empty, InquiryDetail, { type: "callback" }) },
+  //   { type: "route", path: "/inquiry/inquiryWithoutDetail", component: bundle(Empty, InquiryWithoutDetail, { type: "callback" }) },
+	// /* 审核管理 */
+	// { type: "route", path: "/auditManagement/auditAppeal", component: bundle(Empty, AuditAppeal, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/basicAudit", component: bundle(Empty, BasicAudit, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/basicAudit/audit/:uuids", component: bundle(Empty, AuditForBasic, { type: "callback" }) },
+	// { type: "route", path: "/auditManagement/basicAudit/details/:id/:state", component: bundle(Empty, BasicAuditDetails, { type: "callback" }) },
+	// { type: "route", path: "/auditManagement/backgroundAudit", component: bundle(Empty, BackgroundAudit, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/backgroundAudit/audit/:cuuids/:wuuids", component: bundle(Empty, AuditForBg, { type: "callback" }) },
+	// { type: "route", path: "/auditManagement/backgroundAudit/details/:id", component: bundle(Empty, BgAuditDetails, { type: "callback" }) },
+	// { type: "route", path: "/auditManagement/RCBasicAudit", component: bundle(Empty, RCBasicAudit, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/RCBasicAudit/audit/:uuids", component: bundle(Empty, RCAuditForBasic, { type: "callback" }) },
+	// { type: "route", path: "/auditManagement/RCBasicAudit/details/:uuids", component: bundle(Empty, RCAuditDetails, { type: "callback" }) },
+	// { type: "route", path: "/auditManagement/auditSettings", component: bundle(Empty, AuditSettings, { type: "callback" }) },
+	// { type: "route", path: "/auditManagement/subPlatformAudit", component: bundle(Empty, SubPlatformAudit, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/subPlatformAudit/audit/:types/:appuuids/:companyId", component: bundle(Empty, SubPlatformDetails, { type: "callback" })},
+	// { type: "route", path: "/auditManagement/suppliesPurchase", component: bundle(Empty, SuppliesPurchase, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/suppliesPurchase/audit/:types/:appuuids/:companyId", component: bundle(Empty, SuppliesPurchaseDetails, { type: "callback" })},
+	// { type: "route", path: "/auditManagement/suppliesSale", component: bundle(Empty, SuppliesSale, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/suppliesSale/audit/:types/:appuuids/:companyId", component: bundle(Empty, SuppliesSaleDetails, { type: "callback" })},
+	// { type: "route", path: "/auditManagement/officeSupplies", component: bundle(Empty, OfficeSupplies, { type: "callback" }), exact: true },
+	// { type: "route", path: "/auditManagement/officeSupplies/audit/:types/:appuuids/:companyId", component: bundle(Empty, OfficeSuppliesDetails, { type: "callback" })},
 
-	/* 统计分析 echarts */
-	{ type: "route", path: "/authenticationCenter/HandleEcharts", component: bundle(Empty, HandleEcharts, { type: "callback" }), exact: true },
-	{ type: "route", path: "/authenticationCenter/GoodsClassify", component: bundle(Empty, GoodsClassify, { type: "callback" }), exact: true },
-	{ type: "route", path: "/authenticationCenter/PurchasingOrderCounts", component: bundle(Empty, PurchasingOrderCounts, { type: "callback" }), exact: true },
-	{ type: "route", path: "/authenticationCenter/PurchasingInquiryCounts", component: bundle(Empty, PurchasingInquiryCounts, { type: "callback" }), exact: true },
-	{ type: "route", path: "/authenticationCenter/SupplierSpread", component: bundle(Empty, SupplierSpread, { type: "callback" }), exact: true },
-	{ type: "route", path: "/authenticationCenter/CountsAndSpread", component: bundle(Empty, CountsAndSpread, { type: "callback" }), exact: true },
-	// { type: "route", path: "/authenticationCenter/OrderContract", component: bundle(Empty, OrderContract, { type: "callback" }), exact: true },
+	// /* 统计分析 echarts */
+	// { type: "route", path: "/authenticationCenter/HandleEcharts", component: bundle(Empty, HandleEcharts, { type: "callback" }), exact: true },
+	// { type: "route", path: "/authenticationCenter/GoodsClassify", component: bundle(Empty, GoodsClassify, { type: "callback" }), exact: true },
+	// { type: "route", path: "/authenticationCenter/PurchasingOrderCounts", component: bundle(Empty, PurchasingOrderCounts, { type: "callback" }), exact: true },
+	// { type: "route", path: "/authenticationCenter/PurchasingInquiryCounts", component: bundle(Empty, PurchasingInquiryCounts, { type: "callback" }), exact: true },
+	// { type: "route", path: "/authenticationCenter/SupplierSpread", component: bundle(Empty, SupplierSpread, { type: "callback" }), exact: true },
+	// { type: "route", path: "/authenticationCenter/CountsAndSpread", component: bundle(Empty, CountsAndSpread, { type: "callback" }), exact: true },
+	// // { type: "route", path: "/authenticationCenter/OrderContract", component: bundle(Empty, OrderContract, { type: "callback" }), exact: true },
 
-	// /* 定时任务 */
-	{ type: "route", path: "/ecScheduled/GetList", component: bundle(Empty, GetList, { type: "callback" }), exact: true },
+	// // /* 定时任务 */
+	// { type: "route", path: "/ecScheduled/GetList", component: bundle(Empty, GetList, { type: "callback" }), exact: true },
 
-	/* 搜索设置 */
+	// /* 搜索设置 */
 
-	{ type: "route", path: "/sys/goodsSearchSet", component: bundle(Empty, GoodsSearchSet, { type: "callback" }), exact: true },
-	{ type: "route", path: "/sys/storeSearchSet", component: bundle(Empty, StoreSearchSet, { type: "callback" }), exact: true },
+	// { type: "route", path: "/sys/goodsSearchSet", component: bundle(Empty, GoodsSearchSet, { type: "callback" }), exact: true },
+	// { type: "route", path: "/sys/storeSearchSet", component: bundle(Empty, StoreSearchSet, { type: "callback" }), exact: true },
 
-	/* 异常订单处理 */
-	{ type: "route", path: "/ecUserApprovalLog/QueryAllPage", component: bundle(Empty, QueryAllPage, { type: "callback" }), exact: true },
-	{ type: "route", path: "/ecUserApprovalLog/QueryAcceptanceModal/audit/:id", component: bundle(Empty, QueryAcceptanceModal, { type: "callback" }) },
-	{ type: "route", path: "/ecUserApprovalLog/QueryCheckModal/audit/:id", component: bundle(Empty, QueryCheckModal, { type: "callback" }) },
-	{ type: "route", path: "/ecUserApprovalLog/QuerySeeModal/audit/:id", component: bundle(Empty, QuerySeeModal, { type: "callback" }) },
+	// /* 异常订单处理 */
+	// { type: "route", path: "/ecUserApprovalLog/QueryAllPage", component: bundle(Empty, QueryAllPage, { type: "callback" }), exact: true },
+	// { type: "route", path: "/ecUserApprovalLog/QueryAcceptanceModal/audit/:id", component: bundle(Empty, QueryAcceptanceModal, { type: "callback" }) },
+	// { type: "route", path: "/ecUserApprovalLog/QueryCheckModal/audit/:id", component: bundle(Empty, QueryCheckModal, { type: "callback" }) },
+	// { type: "route", path: "/ecUserApprovalLog/QuerySeeModal/audit/:id", component: bundle(Empty, QuerySeeModal, { type: "callback" }) },
 
-	/* 认证中心 */
-	{ type: "route", path: "/authenticationCenter/supplierCertification", component: bundle(Empty, SupplierCertification, { type: "callback" }) },
+	// /* 认证中心 */
+	// { type: "route", path: "/authenticationCenter/supplierCertification", component: bundle(Empty, SupplierCertification, { type: "callback" }) },
 
-	/* 账户安全 */
-	{ type: "route", path: "/account/safeinfo", component: bundle(Empty, SafeInfo, { type: "callback" }) },
+	// /* 账户安全 */
+	// { type: "route", path: "/account/safeinfo", component: bundle(Empty, SafeInfo, { type: "callback" }) },
 
-    { type: "route", path: '/financialCenter/capitalFlow', component: bundle(Empty, CapitalFlow, { type: "callback" }) },
-    { type: "route", path: '/financialCenter/fundsAccount', component: bundle(Empty, FundsAccount, { type: "callback" }) },
-    { type: "route", path: '/contract/contractTemplate', component: bundle(Empty, ContractTemplate, { type: "callback" }) },
-    { type: "route", path: '/contract/addContractTemplate', component: bundle(Empty, AddContractTemplate, { type: "callback" }) },
-    { type: "route", path: '/contract/supplyContractTemplate', component: bundle(Empty, SupplyContractTemplate, { type: "callback" }) },
-    { type: "route", path: '/contract/addSupplyContractTemplate', component: bundle(Empty, AddSupplyContractTemplate, { type: "callback" }) },
+  //   { type: "route", path: '/financialCenter/capitalFlow', component: bundle(Empty, CapitalFlow, { type: "callback" }) },
+  //   { type: "route", path: '/financialCenter/fundsAccount', component: bundle(Empty, FundsAccount, { type: "callback" }) },
+  //   { type: "route", path: '/contract/contractTemplate', component: bundle(Empty, ContractTemplate, { type: "callback" }) },
+  //   { type: "route", path: '/contract/addContractTemplate', component: bundle(Empty, AddContractTemplate, { type: "callback" }) },
+  //   { type: "route", path: '/contract/supplyContractTemplate', component: bundle(Empty, SupplyContractTemplate, { type: "callback" }) },
+  //   { type: "route", path: '/contract/addSupplyContractTemplate', component: bundle(Empty, AddSupplyContractTemplate, { type: "callback" }) },
 
-	/*帮助中心*/
-    { type: "route", path: "/websiteBulletin/HelpCenter/:helpClass", component: bundle(Empty, HelpCenter, { type: "callback" }), exact: true },
-    { type: "route", path: "/websiteBulletin/HelpCenter/:hc/edit/:uuids/:helpClass", component: bundle(Empty, HelpCenterClassModalForm, { type: "callback" }) },
-    { type: "route", path: "/websiteBulletin/HelpCenter/:hc/add/:helpClass/:classId", component: bundle(Empty, HelpAddCenter, { type: "callback" }) },
-
-
-	/*网站公告*/
-	{ type: "route", path: "/websiteBulletin/websiteBulletin", component: bundle(Empty, WebsiteBulletin, { type: "callback" }), exact: true },
-	{ type: "route", path: "/websiteBulletin/websiteBulletin/edit", component: bundle(Empty, WebsiteBulletinModalForm, { type: "callback" }) },
-
-	/*新网站公告*/
-	{ type: "route", path: "/websiteBulletin/websiteBulletinNew", component: bundle(Empty, WebsiteBulletinNew, { type: "callback" }), exact: true },
-	{ type: "route", path: "/websiteBulletin/websiteBulletinNew/edit", component: bundle(Empty, WebsiteBulletinModalFormNew, { type: "callback" }) },
-	{ type: "route", path: "/websiteBulletin/websiteBulletinNew/draft/:uuids", component: bundle(Empty, WebsiteBulletinDraft, { type: "callback" }) },
-
-	/*基本设置*/
-	{ type: "route", path: "/basicSetup/brandManagement", component: bundle(Empty, BrandManagement, { type: 'callback' }) },
-	{ type: "route", path: "/basicSetup/addBrand/:uuids?", component: bundle(Empty, AddBrand, { type: 'callback' }) },
-	{ type: "route", path: "/basicSetup/commodityClassification", component: bundle(Empty, CommodityClassification, { type: 'callback' }) },
-	{ type: 'route', path: "/basicSetup/contrabandManagement", component: bundle(Empty, ContrabandManagement, { type: 'callback' }) },
-	/* 结算单列表 */
-	{ type: "route", path: "/financialCenter/platSettlementList", component: bundle(Empty, PlatSettlementList, { type: "callback" }) },
-	/* 新结算单列表 */
-	{ type: "route", path: "/financialCenter/platSettlementListNew", component: bundle(Empty, PlatSettlementListNew, { type: "callback" }) },
-	/* 发票列表 */
-	{ type: "route", path: "/platInvoice/invoiceList", component: bundle(Empty, PlatInvoice, { type: "callback" }) },
-	/*财务中心*/
-	{ type: "route", path: '/financialCenter/capitalAccount', component: bundle(Empty, CapitalAccountManagement, { type: "callback" }),exact: true },
-	{ type: "route", path: '/financialCenter/capitalAccount/details/:companyId', component: bundle(Empty, CapitalAccountDetails, { type: "callback" }),exact: true },
-	{ type: "route", path: '/financialCenter/capital', component: bundle(Empty, CapitalAccount, { type: "callback" }) },
-	{ type: "route", path: '/financialCenter/paymentsBalance', component: bundle(Empty, PaymentsBalance, { type: "callback" }) },
-	/**交易管理 */
-	{ type: "route", path: '/transaction/abnormalRecordAccount', component: bundle(Empty, AbnormalRecordAccount, { type: "callback" }) },
-	{ type: "route", path: '/transaction/handle', component: bundle(Empty, Handle, { type: "callback" }) },
-	{ type: "route", path: '/transaction/details', component: bundle(Empty, Details, { type: "callback" }) },
-	/* 招标公告-中标公告 */
-	{ type: "route", path: "/tenderNotice/winningAnnouncement", component: bundle(Empty, WinningAnnouncement, { type: "callback" }) },
-	{ type: "route", path: "/tenderNotice/bidOrderList", component: bundle(Empty, BidOrderList, { type: "callback" }) },
-
-	/**广告位推荐采购清单管理*/
-    { type: "route", path: '/purchaser/purchaseListAddition', component: bundle(Empty, PurchaseListAddition, { type: "callback" }) },
-	/**广告位推荐合作单位管理*/
-    { type: "route", path: '/purchaser/cooperatorsListAddition', component: bundle(Empty, CooperatorsListAddition, { type: "callback" }) },
+	// /*帮助中心*/
+  //   { type: "route", path: "/websiteBulletin/HelpCenter/:helpClass", component: bundle(Empty, HelpCenter, { type: "callback" }), exact: true },
+  //   { type: "route", path: "/websiteBulletin/HelpCenter/:hc/edit/:uuids/:helpClass", component: bundle(Empty, HelpCenterClassModalForm, { type: "callback" }) },
+  //   { type: "route", path: "/websiteBulletin/HelpCenter/:hc/add/:helpClass/:classId", component: bundle(Empty, HelpAddCenter, { type: "callback" }) },
 
 
-	/***商品管理--商品审核***/
-	{ type: "route", path: '/goodsManagement/commodityAudit', component: bundle(Empty, CommodityAudit, { type: "callback" }), exact: true },
-	{ type: "route", path: '/goodsManagement/commodityAudit/audit/:uuids', component: bundle(Empty, CGAudit, { type: "callback" })},
-	/***商品管理--商品管理***/
-	{ type: "route", path: '/goodsManagement/goods', component: bundle(Empty, Goods, { type: "callback" }), exact: true },
-	{ type: "route", path: '/goodsManagement/goods/details/:uuids', component: bundle(Empty, GoodsDetails, { type: "callback" })},
-	/***类型管理--商品管理***/
-	{ type: "route", path: '/goodsManagement/goodsType', component: bundle(Empty, GoodsType, { type: "callback" }), exact: true },
-	{ type: "route", path: '/goodsManagement/goodsType/details/:uuids', component: bundle(Empty, GoodsTypeDetails, { type: "callback" })},
-	/***属性管理--商品管理***/
-	{ type: "route", path: '/goodsManagement/goodsAttribute', component: bundle(Empty, GoodsAttribute, { type: "callback" }), exact: true },
-	{ type: "route", path: '/goodsManagement/goodsAttribute/details/:uuids', component: bundle(Empty, GoodsAttributeDetails, { type: "callback" })},
+	// /*网站公告*/
+	// { type: "route", path: "/websiteBulletin/websiteBulletin", component: bundle(Empty, WebsiteBulletin, { type: "callback" }), exact: true },
+	// { type: "route", path: "/websiteBulletin/websiteBulletin/edit", component: bundle(Empty, WebsiteBulletinModalForm, { type: "callback" }) },
 
-	/* 开发用 */
-	// { type: "route", path: "/dev/table", component: bundle(Empty, Tables, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/inquiryManagement", component: bundle(Empty, InquiryManagement, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/inquiryDetail/:uuids/:statusStr", component: bundle(Empty, InquiryDetail, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/orderManagement", component: bundle(Empty, OrderManagement, { type: "callback" }) },
-	{ type: "route", path: "/platInvoice/orderDetail", component: bundle(Empty, OrderDetail, { type: "callback" }) },
-	// 新订单详情页
-	{ type: "route", path: "/platInvoice/orderDetailNew", component: bundle(Empty, OrderDetailNew, { type: "callback" }) },
+	// /*新网站公告*/
+	// { type: "route", path: "/websiteBulletin/websiteBulletinNew", component: bundle(Empty, WebsiteBulletinNew, { type: "callback" }), exact: true },
+	// { type: "route", path: "/websiteBulletin/websiteBulletinNew/edit", component: bundle(Empty, WebsiteBulletinModalFormNew, { type: "callback" }) },
+	// { type: "route", path: "/websiteBulletin/websiteBulletinNew/draft/:uuids", component: bundle(Empty, WebsiteBulletinDraft, { type: "callback" }) },
 
-	/**门户管理**/
-	//待审核
-	{ type: "route", path: '/auditManagement/storeAudit', component: bundle(Empty, StoreAudit, { type: "callback" }), exact: true },
-	{ type: "route", path: '/auditManagement/storeAudit/audit/:uuids', component: bundle(Empty, storeAuditInfo, { type: "callback" }), exact: true },
+	// /*基本设置*/
+	// { type: "route", path: "/basicSetup/brandManagement", component: bundle(Empty, BrandManagement, { type: 'callback' }) },
+	// { type: "route", path: "/basicSetup/addBrand/:uuids?", component: bundle(Empty, AddBrand, { type: 'callback' }) },
+	// { type: "route", path: "/basicSetup/commodityClassification", component: bundle(Empty, CommodityClassification, { type: 'callback' }) },
+	// { type: 'route', path: "/basicSetup/contrabandManagement", component: bundle(Empty, ContrabandManagement, { type: 'callback' }) },
+	// /* 结算单列表 */
+	// { type: "route", path: "/financialCenter/platSettlementList", component: bundle(Empty, PlatSettlementList, { type: "callback" }) },
+	// /* 新结算单列表 */
+	// { type: "route", path: "/financialCenter/platSettlementListNew", component: bundle(Empty, PlatSettlementListNew, { type: "callback" }) },
+	// /* 发票列表 */
+	// { type: "route", path: "/platInvoice/invoiceList", component: bundle(Empty, PlatInvoice, { type: "callback" }) },
+	// /*财务中心*/
+	// { type: "route", path: '/financialCenter/capitalAccount', component: bundle(Empty, CapitalAccountManagement, { type: "callback" }),exact: true },
+	// { type: "route", path: '/financialCenter/capitalAccount/details/:companyId', component: bundle(Empty, CapitalAccountDetails, { type: "callback" }),exact: true },
+	// { type: "route", path: '/financialCenter/capital', component: bundle(Empty, CapitalAccount, { type: "callback" }) },
+	// { type: "route", path: '/financialCenter/paymentsBalance', component: bundle(Empty, PaymentsBalance, { type: "callback" }) },
+	// /**交易管理 */
+	// { type: "route", path: '/transaction/abnormalRecordAccount', component: bundle(Empty, AbnormalRecordAccount, { type: "callback" }) },
+	// { type: "route", path: '/transaction/handle', component: bundle(Empty, Handle, { type: "callback" }) },
+	// { type: "route", path: '/transaction/details', component: bundle(Empty, Details, { type: "callback" }) },
+	// /* 招标公告-中标公告 */
+	// { type: "route", path: "/tenderNotice/winningAnnouncement", component: bundle(Empty, WinningAnnouncement, { type: "callback" }) },
+	// { type: "route", path: "/tenderNotice/bidOrderList", component: bundle(Empty, BidOrderList, { type: "callback" }) },
 
-	//投诉建议列表
-	{ type: "route", path: '/complaintsInfoCenter/complaintsList', component: bundle(Empty, ComplaintsList, { type: "callback" }), exact: true },
-	//投诉建议收藏夹
-	{ type: "route", path: '/complaintsInfoCenter/favoriteList', component: bundle(Empty, FavoriteList, { type: "callback" }), exact: true },
-
-	/*频道管理*/
-	{ type: "route", path: '/pageChannel/storePlatform', component: bundle(Empty, StorePlatform, { type: "callback" }), exact: true },
-	{ type: "route", path: '/pageChannel/crccIndex', component: bundle(Empty, CrccIndex, { type: "callback" }), exact: true },
-	{ type: "route", path: '/pageChannel/inqueryBanner', component: bundle(Empty, InqueryBanner, { type: "callback" }), exact: true },
-
-	/* 京东商品 */
-	{ type: "route", path: "/sys/JDGoodsMenu", component: bundle(Empty, JDGoodsMenu, { type: "callback" }), exact: true },
-
-	/* 招投标导入 */
-	{ type: "route", path: "/sys/BiddingMenu", component: bundle(Empty, BiddingMenu, { type: "callback" }), exact: true },
-
-	/* 年终统计 */
-	{ type: "route", path: "/static/yearStatistic", component: bundle(Empty, YearStatistic, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/yearMarriedStatistic", component: bundle(Empty, YearMarriedStatistic, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/yearJZLStatistic", component: bundle(Empty, YearJZLStatistic, { type: "callback" }), exact: true },
-
-	{ type: "route", path: "/static/yearStatisticByJu", component: bundle(Empty, YearStatisticByJu, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/yearMarriedStatisticByJu", component: bundle(Empty, YearMarriedStatisticByJu, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/yearJZLStatisticByJu", component: bundle(Empty, YearJZLStatisticByJu, { type: "callback" }), exact: true },
-
-	{ type: "route", path: "/static/yearInquiryCountStatisticByChu", component: bundle(Empty, YearInquiryCountStatisticByChu, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/yearOrderCountStatisticByChu", component: bundle(Empty, YearOrderCountStatisticByChu, { type: "callback" }), exact: true },
+	// /**广告位推荐采购清单管理*/
+  //   { type: "route", path: '/purchaser/purchaseListAddition', component: bundle(Empty, PurchaseListAddition, { type: "callback" }) },
+	// /**广告位推荐合作单位管理*/
+  //   { type: "route", path: '/purchaser/cooperatorsListAddition', component: bundle(Empty, CooperatorsListAddition, { type: "callback" }) },
 
 
+	// /***商品管理--商品审核***/
+	// { type: "route", path: '/goodsManagement/commodityAudit', component: bundle(Empty, CommodityAudit, { type: "callback" }), exact: true },
+	// { type: "route", path: '/goodsManagement/commodityAudit/audit/:uuids', component: bundle(Empty, CGAudit, { type: "callback" })},
+	// /***商品管理--商品管理***/
+	// { type: "route", path: '/goodsManagement/goods', component: bundle(Empty, Goods, { type: "callback" }), exact: true },
+	// { type: "route", path: '/goodsManagement/goods/details/:uuids', component: bundle(Empty, GoodsDetails, { type: "callback" })},
+	// /***类型管理--商品管理***/
+	// { type: "route", path: '/goodsManagement/goodsType', component: bundle(Empty, GoodsType, { type: "callback" }), exact: true },
+	// { type: "route", path: '/goodsManagement/goodsType/details/:uuids', component: bundle(Empty, GoodsTypeDetails, { type: "callback" })},
+	// /***属性管理--商品管理***/
+	// { type: "route", path: '/goodsManagement/goodsAttribute', component: bundle(Empty, GoodsAttribute, { type: "callback" }), exact: true },
+	// { type: "route", path: '/goodsManagement/goodsAttribute/details/:uuids', component: bundle(Empty, GoodsAttributeDetails, { type: "callback" })},
 
-	{ type: "route", path: "/static/yearInquiryCountStatistic", component: bundle(Empty, YearInquiryCountStatistic, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/yearOrderCountStatistic", component: bundle(Empty, YearOrderCountStatistic, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/quotationOrderTransaction", component: bundle(Empty, QuotationOrderTransaction, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/inquiryAndQuotation", component: bundle(Empty, InquiryAndQuotation, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/paymentAmount", component: bundle(Empty, PaymentAmount, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/amountOfArrears", component: bundle(Empty, AmountOfArrears, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/purchasedItems", component: bundle(Empty, PurchasedItems, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/purchaseAccount", component: bundle(Empty, PurchaseAccount, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/supplierRegistration", component: bundle(Empty, SupplierRegistration, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/supplierCertificationTotal", component: bundle(Empty, SupplierCertificationTotal, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/quotationOrderTransactionChu", component: bundle(Empty, QuotationOrderTransactionChu, { type: "callback" }), exact: true },
-	{ type: "route", path: "/static/inquiryAndQuotationChu", component: bundle(Empty, InquiryAndQuotationChu, { type: "callback" }), exact: true },
+	// /* 开发用 */
+	// // { type: "route", path: "/dev/table", component: bundle(Empty, Tables, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/inquiryManagement", component: bundle(Empty, InquiryManagement, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/inquiryDetail/:uuids/:statusStr", component: bundle(Empty, InquiryDetail, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/orderManagement", component: bundle(Empty, OrderManagement, { type: "callback" }) },
+	// { type: "route", path: "/platInvoice/orderDetail", component: bundle(Empty, OrderDetail, { type: "callback" }) },
+	// // 新订单详情页
+	// { type: "route", path: "/platInvoice/orderDetailNew", component: bundle(Empty, OrderDetailNew, { type: "callback" }) },
 
-	//高达临时测试
-	{ type: "route", path: "/gaoda/department", component: bundle(Empty, Department, { type: "callback" }), exact: true },
-	{ type: "route", path: "/gaoda/staff", component: bundle(Empty, DepartmentStaff, { type: "callback" }), exact: true },
-	{ type: "route", path: "/gaoda/role", component: bundle(Empty, DepartmentRole, { type: "callback" }), exact: true },
+	// /**门户管理**/
+	// //待审核
+	// { type: "route", path: '/auditManagement/storeAudit', component: bundle(Empty, StoreAudit, { type: "callback" }), exact: true },
+	// { type: "route", path: '/auditManagement/storeAudit/audit/:uuids', component: bundle(Empty, storeAuditInfo, { type: "callback" }), exact: true },
 
-	//商品分类修改
-	{ type: "route", path: "/goodsClass/updateGoodsClass", component: bundle(Empty, UpdateGoodsClass, { type: "callback" }), exact: true },
-	//门户-企业资质
-	{ type: "route", path: "/qualification/basicInfomation", component: bundle(Empty, BasicInfomation, { type: "callback" }), exact: true },
-	{ type: "route", path: "/qualification/lawLitigation", component: bundle(Empty, LawLitigation, { type: "callback" }), exact: true  },
-	{ type: "route", path: "/qualification/managementRisk", component: bundle(Empty, ManagementRisk, { type: "callback" }) , exact: true },
-	{ type: "route", path: "/qualification/managementState", component: bundle(Empty, ManagementState, { type: "callback" }), exact: true  },
+	// //投诉建议列表
+	// { type: "route", path: '/complaintsInfoCenter/complaintsList', component: bundle(Empty, ComplaintsList, { type: "callback" }), exact: true },
+	// //投诉建议收藏夹
+	// { type: "route", path: '/complaintsInfoCenter/favoriteList', component: bundle(Empty, FavoriteList, { type: "callback" }), exact: true },
 
-	{ type: "route", path: "/sys/supplierSearchSet", component: bundle(Empty, SupplierYellow, { type: "callback" }), exact: true  },
+	// /*频道管理*/
+	// { type: "route", path: '/pageChannel/storePlatform', component: bundle(Empty, StorePlatform, { type: "callback" }), exact: true },
+	// { type: "route", path: '/pageChannel/crccIndex', component: bundle(Empty, CrccIndex, { type: "callback" }), exact: true },
+	// { type: "route", path: '/pageChannel/inqueryBanner', component: bundle(Empty, InqueryBanner, { type: "callback" }), exact: true },
 
-	/* 招标公告-中标公告 */
-	{ type: "route", path: "/bidNotice/winningAnnouncement", component: bundle(Empty, WinningAnnouncement1, { type: "callback" }) },
-	{ type: "route", path: "/bidNotice/bidOrderList", component: bundle(Empty, BidOrderList1, { type: "callback" }) },
-	{ type: "route", path: "/bidNotice/reportBid", component: bundle(Empty, reportBid, { type: "callback" }) },
+	// /* 京东商品 */
+	// { type: "route", path: "/sys/JDGoodsMenu", component: bundle(Empty, JDGoodsMenu, { type: "callback" }), exact: true },
+
+	// /* 招投标导入 */
+	// { type: "route", path: "/sys/BiddingMenu", component: bundle(Empty, BiddingMenu, { type: "callback" }), exact: true },
+
+	// /* 年终统计 */
+	// { type: "route", path: "/static/yearStatistic", component: bundle(Empty, YearStatistic, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/yearMarriedStatistic", component: bundle(Empty, YearMarriedStatistic, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/yearJZLStatistic", component: bundle(Empty, YearJZLStatistic, { type: "callback" }), exact: true },
+
+	// { type: "route", path: "/static/yearStatisticByJu", component: bundle(Empty, YearStatisticByJu, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/yearMarriedStatisticByJu", component: bundle(Empty, YearMarriedStatisticByJu, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/yearJZLStatisticByJu", component: bundle(Empty, YearJZLStatisticByJu, { type: "callback" }), exact: true },
+
+	// { type: "route", path: "/static/yearInquiryCountStatisticByChu", component: bundle(Empty, YearInquiryCountStatisticByChu, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/yearOrderCountStatisticByChu", component: bundle(Empty, YearOrderCountStatisticByChu, { type: "callback" }), exact: true },
 
 
-	 // 客服中心
-     { type: "route", path: "/customer/margin", component: bundle(Empty, CustomerMargin, { type: "callback" }) },
-     { type: "route", path: "/customer/del", component: bundle(Empty, CustomerDel, { type: "callback" }) },
-     // 财务管理
-	 { type: "route", path: "/capitalAccoun/accountClear/", component: bundle(Empty, AccountClear, { type: "callback" }) },
-     { type: "route", path: "/capitalAccoun/accountclearDetail/", component: bundle(Empty, AccountclearDetail, { type: "callback" }) },
-	 { type: "route", path: "/capitalAccoun/accountReview/", component: bundle(Empty, AccountReview, { type: "callback" }) },//复核
+
+	// { type: "route", path: "/static/yearInquiryCountStatistic", component: bundle(Empty, YearInquiryCountStatistic, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/yearOrderCountStatistic", component: bundle(Empty, YearOrderCountStatistic, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/quotationOrderTransaction", component: bundle(Empty, QuotationOrderTransaction, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/inquiryAndQuotation", component: bundle(Empty, InquiryAndQuotation, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/paymentAmount", component: bundle(Empty, PaymentAmount, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/amountOfArrears", component: bundle(Empty, AmountOfArrears, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/purchasedItems", component: bundle(Empty, PurchasedItems, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/purchaseAccount", component: bundle(Empty, PurchaseAccount, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/supplierRegistration", component: bundle(Empty, SupplierRegistration, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/supplierCertificationTotal", component: bundle(Empty, SupplierCertificationTotal, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/quotationOrderTransactionChu", component: bundle(Empty, QuotationOrderTransactionChu, { type: "callback" }), exact: true },
+	// { type: "route", path: "/static/inquiryAndQuotationChu", component: bundle(Empty, InquiryAndQuotationChu, { type: "callback" }), exact: true },
+
+	// //高达临时测试
+	// { type: "route", path: "/gaoda/department", component: bundle(Empty, Department, { type: "callback" }), exact: true },
+	// { type: "route", path: "/gaoda/staff", component: bundle(Empty, DepartmentStaff, { type: "callback" }), exact: true },
+	// { type: "route", path: "/gaoda/role", component: bundle(Empty, DepartmentRole, { type: "callback" }), exact: true },
+
+	// //商品分类修改
+	// { type: "route", path: "/goodsClass/updateGoodsClass", component: bundle(Empty, UpdateGoodsClass, { type: "callback" }), exact: true },
+	// //门户-企业资质
+	// { type: "route", path: "/qualification/basicInfomation", component: bundle(Empty, BasicInfomation, { type: "callback" }), exact: true },
+	// { type: "route", path: "/qualification/lawLitigation", component: bundle(Empty, LawLitigation, { type: "callback" }), exact: true  },
+	// { type: "route", path: "/qualification/managementRisk", component: bundle(Empty, ManagementRisk, { type: "callback" }) , exact: true },
+	// { type: "route", path: "/qualification/managementState", component: bundle(Empty, ManagementState, { type: "callback" }), exact: true  },
+
+	// { type: "route", path: "/sys/supplierSearchSet", component: bundle(Empty, SupplierYellow, { type: "callback" }), exact: true  },
+
+	// /* 招标公告-中标公告 */
+	// { type: "route", path: "/bidNotice/winningAnnouncement", component: bundle(Empty, WinningAnnouncement1, { type: "callback" }) },
+	// { type: "route", path: "/bidNotice/bidOrderList", component: bundle(Empty, BidOrderList1, { type: "callback" }) },
+	// { type: "route", path: "/bidNotice/reportBid", component: bundle(Empty, reportBid, { type: "callback" }) },
+
+
+	//  // 客服中心
+  //    { type: "route", path: "/customer/margin", component: bundle(Empty, CustomerMargin, { type: "callback" }) },
+  //    { type: "route", path: "/customer/del", component: bundle(Empty, CustomerDel, { type: "callback" }) },
+  //    // 财务管理
+	//  { type: "route", path: "/capitalAccoun/accountClear/", component: bundle(Empty, AccountClear, { type: "callback" }) },
+  //    { type: "route", path: "/capitalAccoun/accountclearDetail/", component: bundle(Empty, AccountclearDetail, { type: "callback" }) },
+	//  { type: "route", path: "/capitalAccoun/accountReview/", component: bundle(Empty, AccountReview, { type: "callback" }) },//复核
  
 	{ type: "route", component: NoAu },
 ];
