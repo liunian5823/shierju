@@ -139,6 +139,10 @@ class LeftNav extends React.Component {
                 key: '/tw/system/config/goods',
                 route: '',
                 name: '资产状态更新配置'
+            }, {
+                key: '/tw/system/dict',
+                route: '',
+                name: '数据字典维护'
             }]
         },{
             key: 'logs', 

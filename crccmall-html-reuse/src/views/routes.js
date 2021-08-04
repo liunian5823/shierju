@@ -131,6 +131,7 @@ import approveEdit from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/sy
 import goodsStatus from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/config/goods";
 import thumbnail from "bundle-loader?lazy&name=approveEdit!@/twbureau/pages/system/config/Thumbnail";
 import restsEdit from "bundle-loader?lazy&name=rests!@/twbureau/pages/rests/edit";
+import dict from "bundle-loader?lazy&name=dict!@/twbureau/pages/system/dict/index";
 
 import NoAu from "@/pages/notFound";
 
@@ -307,6 +308,7 @@ const twRoutes = [
 
 
 	{ type: "route", path: "/tw/rests/edit/:type/:id", component: bundle(Empty, restsEdit, { type: "callback" }) }, // 其他物资循环管理-添加
+	{ type: "route", path: "/tw/system/dict", component: bundle(Empty, dict, { type: "callback" }) }, // 数据字典维护
 
 ]
 export {

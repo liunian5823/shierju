@@ -1,0 +1,129 @@
+.search_item {
+  float: left;
+  width: 460px;
+  height: 32px;
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.btn,.search_item .ant-calendar-picker {
+  width: 285px;
+}
+.search_item .title {
+  display: inline-block;
+  width: 146px;
+  text-align: right;
+}
+.search_item .address {
+  width: 95px
+}
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 992px;
+  min-height: 650px;
+  background: #FFFFFF;
+  padding: 24px;
+  margin-top: 8px;
+}
+.main .list {
+  width: 524px;
+  margin-right: 34px;
+}
+.main .list .head {
+  width: 524px;
+  height: 50px;
+  line-height: 50px;
+  background: #F7F7F7;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  padding-left: 24px;
+}
+.main .head>label {
+  display: inline-block;
+}
+.main .item {
+  display: flex;
+  height: 80px;
+  line-height: 80px;
+  color: #595A59;
+  padding-left: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s; /* Firefox 4 */
+  -webkit-transition: all 0.5s; /* Safari 和 Chrome */
+  -o-transition: all 0.5s; /* Opera */
+}
+.main .handle {
+  padding-left: 320px;
+}
+.main .handle>img {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+.main .item>label>label {
+  display: inline-block;
+  width: 52px;
+}
+.main .item .arrow {
+  opacity: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 36px;
+  border-top: 1px solid  #2B86EE;
+  border-right: 1px solid  #2B86EE;
+  transform:rotate(45deg);
+  -ms-transform:rotate(45deg); 	/* IE 9 */
+  -moz-transform:rotate(45deg); 	/* Firefox */
+  -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+  -o-transform:rotate(45deg); 	
+  transition: all 0.5s;
+  -moz-transition: all 0.5s; /* Firefox 4 */
+  -webkit-transition: all 0.5s; /* Safari 和 Chrome */
+  -o-transition: all 0.5s; /* Opera */
+}
+.main .item:hover {
+  color: #2B86EE;
+}
+.main .item:hover .arrow {
+  opacity: 1;
+}
+.main .save {
+  margin-left: 195px;
+}
+.main .detail {
+  border-left: 3px solid rgba(45, 183, 245, 0.05);
+  width: 384px;
+  padding-left: 34px;
+}
+.main .detail .head {
+  width: 350px;
+  height: 50px;
+  line-height: 50px;
+  background: #F7F7F7;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  padding-left: 24px;
+}
+.main .detail .handle {
+  padding-left: 157px;
+}
+.config-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+.config-item .btn {
+  width: 285px;
+}
+.config-item label {
+  width: 120px;
+  text-align: right;
+}
